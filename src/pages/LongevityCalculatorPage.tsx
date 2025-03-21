@@ -12,7 +12,7 @@ const LongevityCalculatorPage = () => {
       <SEOHead 
         title="Life Expectancy Calculator | Estimate Your Lifespan"
         description="Calculate your estimated life expectancy based on health factors, lifestyle choices, and demographics. Free longevity calculator."
-        canonicalUrl="/lifespan"
+        canonicalUrl="https://longevitycalculator.xyz/lifespan"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -82,7 +82,7 @@ const LongevityCalculatorPage = () => {
             
             <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
             <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <a href="/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
+              <a href="https://longevitycalculator.xyz/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
             </div>
           </div>
         </footer>

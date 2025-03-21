@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -11,6 +12,7 @@ const Index = () => {
       <SEOHead 
         title="Longevity Calculators | Life Expectancy & Retirement Planning Tools"
         description="Calculate your life expectancy and plan your retirement with our free calculators. Tools for longevity planning and financial freedom."
+        canonicalUrl="https://longevitycalculator.xyz/"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -140,7 +142,7 @@ const Index = () => {
             
             <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
             <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <a href="https://lifespan-calculator.com/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
+              <a href="https://longevitycalculator.xyz/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
             </div>
           </div>
         </footer>

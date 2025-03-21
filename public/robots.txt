@@ -7,4 +7,4 @@ Allow: /lifespan
 Allow: /retirementsavings
 
 # Sitemaps
-Sitemap: /sitemap.xml
+Sitemap: https://longevitycalculator.xyz/sitemap.xml
