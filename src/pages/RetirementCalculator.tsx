@@ -28,10 +28,10 @@ const RetirementCalculator = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-6 justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {/* Left sidebar ad - Visible on desktop */}
-            <div className="hidden md:block md:w-64 lg:w-72 md:flex-shrink-0">
-              <div className="sticky top-4 bg-gray-50 rounded-lg text-center" style={{ minHeight: '600px' }}>
+            <div className="hidden md:block md:col-span-3">
+              <div className="sticky top-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '600px' }}>
                 <AdUnit 
                   className="w-full h-full"
                   slot="5555555555" 
@@ -42,7 +42,7 @@ const RetirementCalculator = () => {
             </div>
             
             {/* Main Calculator */}
-            <div className="flex-1 max-w-3xl mx-auto md:mx-0">
+            <div className="md:col-span-9">
               <RetirementSavingsCalculator />
               
               {/* Mobile-only ad after calculator - Visible only on mobile */}
