@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import DisclaimerAlert from './DisclaimerAlert';
 import ResultCard from './ResultCard';
 import { Slider } from '@/components/ui/slider';
+
 const LongevityCalculator = () => {
   const [age, setAge] = useState(30);
   const [sex, setSex] = useState('male');
@@ -27,6 +28,7 @@ const LongevityCalculator = () => {
     improvementPercentage: "0",
     baseAge: "0"
   });
+
   const calculateLifeExpectancy = () => {
     let baseAge = sex === 'male' ? 76.1 : 81.1;
     if (race === 'black') {
@@ -73,6 +75,7 @@ const LongevityCalculator = () => {
       baseAge: baseAge.toFixed(1)
     };
   };
+
   const handleChronicConditionChange = (condition: string) => {
     if (chronicConditions.includes(condition)) {
       setChronicConditions(chronicConditions.filter(c => c !== condition));
@@ -80,9 +83,11 @@ const LongevityCalculator = () => {
       setChronicConditions([...chronicConditions, condition]);
     }
   };
+
   useEffect(() => {
     setResult(calculateLifeExpectancy());
   }, [age, sex, race, exerciseLevel, sleepHours, smoking, alcohol, diet, stressLevel, socialConnections, bmi, familyHistory, education, income, chronicConditions, airQuality, healthcare]);
+
   const Label = ({
     htmlFor,
     children
@@ -92,6 +97,7 @@ const LongevityCalculator = () => {
   }) => <label htmlFor={htmlFor} className="block text-sm font-medium text-gray-700 mb-1">
       {children}
     </label>;
+
   const Select = ({
     id,
     value,
@@ -110,6 +116,7 @@ const LongevityCalculator = () => {
           {option.label}
         </option>)}
     </select>;
+
   return <div className="w-full max-w-6xl mx-auto px-4 py-12 space-y-8">
       <div className="text-center space-y-2 max-w-2xl mx-auto">
         <h1 className="text-3xl font-display font-bold tracking-tight">Free Life Expectancy Calculator</h1>
@@ -118,8 +125,8 @@ const LongevityCalculator = () => {
       
       <DisclaimerAlert className="max-w-3xl mx-auto" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="col-span-1 lg:col-span-2 space-y-8">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2 space-y-8">
           <div className="glass-panel p-6 animate-fadeIn" style={{
           animationDelay: '0.1s'
         }}>
@@ -392,7 +399,7 @@ const LongevityCalculator = () => {
         </div>
         
         <div>
-          <div className="sticky top-8 space-y-6">
+          <div className="lg:sticky lg:top-8 space-y-6">
             <ResultCard years={result.years} baseAge={result.baseAge} improvement={result.improvement} improvementPercentage={result.improvementPercentage} />
             
             <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-xl border border-gray-100 p-4 text-sm text-muted-foreground animate-fadeIn" style={{
@@ -401,8 +408,6 @@ const LongevityCalculator = () => {
               <h3 className="font-medium text-foreground mb-2">About This Tool</h3>
               <div className="space-y-2">
                 <p>Wondering how long you have left to live? Our Lifespan Calculator provides a personalized estimate of your life expectancy based on factors like age, gender, health habits, and lifestyle choices. Whether you're asking "When will I die?" or "How long do I have to live?", this Longevity Calculator helps you understand how your choices impact your future. Start now to see how simple changes can add years to your life!</p>
-                
-                
               </div>
             </div>
           </div>
@@ -410,4 +415,5 @@ const LongevityCalculator = () => {
       </div>
     </div>;
 };
+
 export default LongevityCalculator;
