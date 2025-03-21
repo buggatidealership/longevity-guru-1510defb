@@ -28,9 +28,10 @@ const RetirementCalculator = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          {/* Grid layout with fixed center alignment */}
+          <div className="grid grid-cols-12 gap-6">
             {/* Left sidebar ad - Visible on desktop */}
-            <div className="hidden md:block md:col-span-3">
+            <div className="hidden md:block col-span-3">
               <div className="sticky top-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '600px' }}>
                 <AdUnit 
                   className="w-full h-full"
@@ -41,9 +42,11 @@ const RetirementCalculator = () => {
               </div>
             </div>
             
-            {/* Main Calculator */}
-            <div className="md:col-span-9">
-              <RetirementSavingsCalculator />
+            {/* Main Calculator - Centered in available space */}
+            <div className="col-span-12 md:col-span-9">
+              <div className="max-w-3xl mx-auto">
+                <RetirementSavingsCalculator />
+              </div>
               
               {/* Mobile-only ad after calculator - Visible only on mobile */}
               <div className="block md:hidden mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>

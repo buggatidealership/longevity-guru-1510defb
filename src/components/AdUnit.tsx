@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface AdUnitProps {
   className?: string;
@@ -15,8 +15,12 @@ export const AdUnit = ({
   responsive = true 
 }: AdUnitProps) => {
   const adRef = useRef<HTMLDivElement>(null);
+  const [adLoaded, setAdLoaded] = useState(false);
 
   useEffect(() => {
+    // Reset ad loaded state when component mounts
+    setAdLoaded(false);
+    
     // Load ad with a small delay to ensure container has rendered properly
     const loadAd = () => {
       if (window.adsbygoogle && adRef.current) {
@@ -26,6 +30,7 @@ export const AdUnit = ({
           try {
             (window.adsbygoogle = window.adsbygoogle || []).push({});
             console.log(`Ad loaded with width: ${clientWidth}px and format: ${format}`);
+            setAdLoaded(true);
           } catch (e) {
             console.error('AdSense error:', e);
           }
@@ -42,7 +47,7 @@ export const AdUnit = ({
     
     // Add a window resize handler to help with responsive ads
     const handleResize = () => {
-      if (responsive && adRef.current) {
+      if (responsive && adRef.current && adLoaded) {
         // Force a reload of ads on significant width changes
         const currentWidth = adRef.current.clientWidth;
         console.log(`Ad container resized to ${currentWidth}px`);
@@ -79,7 +84,11 @@ export const AdUnit = ({
     >
       <ins
         className="adsbygoogle"
-        style={{ display: 'block', width: '100%', height: format === 'vertical' ? '600px' : '100%' }}
+        style={{ 
+          display: 'block', 
+          width: '100%', 
+          height: format === 'vertical' ? '600px' : '100%' 
+        }}
         data-ad-client="ca-pub-1580600669281697"
         data-ad-slot={slot}
         data-ad-format={format}
