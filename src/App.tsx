@@ -31,7 +31,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
           <Route path="/retirementsavings" element={<RetirementCalculator />} />
-          <Route path="/retirement-calculator" element={<RetirementCalculator />} />
+          {/* Removed the duplicate retirement-calculator route */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
