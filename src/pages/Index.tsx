@@ -71,15 +71,35 @@ const Index = () => {
             slot="2222222222" 
           />
           
-          {/* Added internal links for SEO */}
+          {/* SEO-optimized resources section */}
           <div className="my-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-xl font-bold mb-4">Our Other Longevity Calculators</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Link to="/" className="text-blue-600 hover:underline">Home</Link>
-              <Link to="/retirementsavings" className="text-blue-600 hover:underline">Retirement Savings Calculator</Link>
-              <Link to="/lifespan" className="text-blue-600 hover:underline">Life Expectancy Calculator</Link>
-              <a href="https://longevitycalculator.xyz/#about" className="text-blue-600 hover:underline">About Life Expectancy</a>
-              <a href="https://longevitycalculator.xyz/#factors" className="text-blue-600 hover:underline">Longevity Factors</a>
+            <h2 className="text-2xl font-bold mb-4">Longevity Science & Financial Planning Resources</h2>
+            <p className="text-gray-600 mb-4">Evidence-based tools and information to help you optimize your health span and financial security.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">Life Expectancy Calculator</h3>
+                <p className="text-sm text-gray-600 mb-3">Our most advanced tool for estimating your potential lifespan based on scientific research.</p>
+                <Link to="/lifespan" className="text-blue-600 hover:underline font-medium">Calculate Your Life Expectancy →</Link>
+              </div>
+              
+              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">Retirement Savings Calculator</h3>
+                <p className="text-sm text-gray-600 mb-3">Plan your golden years with our detailed retirement spending and savings calculator.</p>
+                <Link to="/retirementsavings" className="text-blue-600 hover:underline font-medium">Plan Your Retirement →</Link>
+              </div>
+              
+              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">Longevity Science</h3>
+                <p className="text-sm text-gray-600 mb-3">Learn about the latest research on factors that can help you live a longer, healthier life.</p>
+                <Link to="/#factors" className="text-blue-600 hover:underline font-medium">Explore Longevity Factors →</Link>
+              </div>
+              
+              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg mb-2">About Life Expectancy</h3>
+                <p className="text-sm text-gray-600 mb-3">Understand the science behind life expectancy calculations and longevity predictions.</p>
+                <Link to="/#about" className="text-blue-600 hover:underline font-medium">Learn About Life Expectancy →</Link>
+              </div>
             </div>
           </div>
         </main>
