@@ -76,11 +76,11 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
         
         <Button 
           variant="outline" 
-          className="w-full group text-xs sm:text-sm px-2 sm:px-4 h-auto py-2"
+          className="w-full min-h-[40px] group text-xs sm:text-sm px-2 sm:px-4 py-2 whitespace-normal break-words h-auto"
           onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}
         >
           <Ticket className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-          <span className="line-clamp-2">Save $25 on Brian Johnson's Blueprint Program</span>
+          <span className="line-clamp-2 inline-block">Save $25 on Brian Johnson's Blueprint Program</span>
         </Button>
       </div>
     </div>
