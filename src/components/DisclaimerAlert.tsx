@@ -16,7 +16,7 @@ const DisclaimerAlert = ({
         <div>
           <h3 className="text-sm font-medium text-amber-800">Important</h3>
           <div className="mt-1 text-sm text-amber-700">
-            <p>For a personalized assessment of health risks and life expectancy, please consult with qualified healthcare professionals.</p>
+            <p>This calculator is for educational purposes only, offering simplified estimates. It is not scientifically validated and should not be used for health decisions. Factor weightings are approximations.</p>
           </div>
         </div>
       </div>
