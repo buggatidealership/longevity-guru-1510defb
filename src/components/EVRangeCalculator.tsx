@@ -1,5 +1,5 @@
 
-import React, { useState, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent, useEffect } from 'react';
 import { 
   Card, 
   CardHeader, 
@@ -16,9 +16,6 @@ import { calculateGoogleMapsDistance, calculateDistance } from '@/utils/distance
 import EVModelSelector from '@/components/EVModelSelector';
 import LocationInputs from '@/components/LocationInputs';
 import EVRangeResult, { RangeResult } from '@/components/EVRangeResult';
-import { useLoadScript } from '@react-google-maps/api';
-
-const libraries: ("places")[] = ["places"];
 
 const EVRangeCalculator = () => {
   const [evModel, setEvModel] = useState<EVModel | ''>('');
@@ -28,12 +25,36 @@ const EVRangeCalculator = () => {
   const [result, setResult] = useState<RangeResult | null>(null);
   const [startCoords, setStartCoords] = useState<google.maps.LatLngLiteral | null>(null);
   const [destCoords, setDestCoords] = useState<google.maps.LatLngLiteral | null>(null);
+  const [mapsLoaded, setMapsLoaded] = useState(false);
   
   const { toast } = useToast();
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBiB3iNbg53FUYQY9l3EPdJVFzeYLWGqQw", // This is a temporary client-side restricted key
-    libraries
-  });
+
+  // Load Google Maps API script manually
+  useEffect(() => {
+    // Only add the script once
+    if (!document.getElementById('google-maps-script') && !window.google?.maps) {
+      const script = document.createElement('script');
+      script.id = 'google-maps-script';
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBiB3iNbg53FUYQY9l3EPdJVFzeYLWGqQw&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      
+      script.onload = () => {
+        setMapsLoaded(true);
+        console.log('Google Maps API loaded successfully');
+      };
+      
+      script.onerror = () => {
+        console.error('Failed to load Google Maps API');
+        // Still set as loaded so the app can fall back to the basic functionality
+        setMapsLoaded(true);
+      };
+      
+      document.head.appendChild(script);
+    } else if (window.google?.maps) {
+      setMapsLoaded(true);
+    }
+  }, []);
 
   const handlePlaceSelected = (
     place: google.maps.places.PlaceResult | null, 
@@ -69,7 +90,7 @@ const EVRangeCalculator = () => {
       // Try to use Google Maps Distance Matrix API first
       let distance: number;
       
-      if (isLoaded && startCoords && destCoords) {
+      if (mapsLoaded && startCoords && destCoords) {
         try {
           distance = await calculateGoogleMapsDistance(startCoords, destCoords);
         } catch (error) {

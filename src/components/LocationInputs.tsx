@@ -3,9 +3,6 @@ import React, { KeyboardEvent, useEffect, useRef } from 'react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Info } from 'lucide-react';
-import { useLoadScript } from '@react-google-maps/api';
-
-const libraries: ("places")[] = ["places"];
 
 interface LocationInputsProps {
   startLocation: string;
@@ -24,71 +21,51 @@ const LocationInputs: React.FC<LocationInputsProps> = ({
   onKeyPress,
   onPlaceSelected
 }) => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBiB3iNbg53FUYQY9l3EPdJVFzeYLWGqQw", // This is a temporary client-side restricted key
-    libraries
-  });
-
-  const startAutocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
-  const destAutocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
   const startInputRef = useRef<HTMLInputElement>(null);
   const destInputRef = useRef<HTMLInputElement>(null);
 
+  // Manually initialize autocomplete when component mounts
   useEffect(() => {
-    if (isLoaded && startInputRef.current) {
-      startAutocompleteRef.current = new window.google.maps.places.Autocomplete(startInputRef.current, {
-        types: ['geocode']
-      });
+    let startAutocomplete: google.maps.places.Autocomplete | null = null;
+    let destAutocomplete: google.maps.places.Autocomplete | null = null;
+    
+    // Only initialize if the Google Maps API is loaded
+    if (window.google && window.google.maps && window.google.maps.places) {
+      if (startInputRef.current) {
+        startAutocomplete = new window.google.maps.places.Autocomplete(startInputRef.current, {
+          types: ['geocode']
+        });
 
-      startAutocompleteRef.current.addListener('place_changed', () => {
-        const place = startAutocompleteRef.current?.getPlace();
-        onStartLocationChange(place?.formatted_address || place?.name || startLocation);
-        onPlaceSelected(place || null, true);
-      });
+        startAutocomplete.addListener('place_changed', () => {
+          const place = startAutocomplete?.getPlace();
+          onStartLocationChange(place?.formatted_address || place?.name || startLocation);
+          onPlaceSelected(place || null, true);
+        });
+      }
+
+      if (destInputRef.current) {
+        destAutocomplete = new window.google.maps.places.Autocomplete(destInputRef.current, {
+          types: ['geocode']
+        });
+
+        destAutocomplete.addListener('place_changed', () => {
+          const place = destAutocomplete?.getPlace();
+          onDestinationChange(place?.formatted_address || place?.name || destination);
+          onPlaceSelected(place || null, false);
+        });
+      }
     }
-  }, [isLoaded, onStartLocationChange, onPlaceSelected, startLocation]);
 
-  useEffect(() => {
-    if (isLoaded && destInputRef.current) {
-      destAutocompleteRef.current = new window.google.maps.places.Autocomplete(destInputRef.current, {
-        types: ['geocode']
-      });
-
-      destAutocompleteRef.current.addListener('place_changed', () => {
-        const place = destAutocompleteRef.current?.getPlace();
-        onDestinationChange(place?.formatted_address || place?.name || destination);
-        onPlaceSelected(place || null, false);
-      });
-    }
-  }, [isLoaded, onDestinationChange, onPlaceSelected, destination]);
-
-  if (!isLoaded) {
-    return (
-      <>
-        <div className="space-y-2">
-          <Label htmlFor="startLocation">Starting Location</Label>
-          <Input 
-            id="startLocation"
-            value={startLocation}
-            onChange={e => onStartLocationChange(e.target.value)}
-            placeholder="Loading Google Maps..."
-            disabled
-          />
-        </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="destination">Destination</Label>
-          <Input 
-            id="destination"
-            value={destination}
-            onChange={e => onDestinationChange(e.target.value)}
-            placeholder="Loading Google Maps..."
-            disabled
-          />
-        </div>
-      </>
-    );
-  }
+    // Cleanup function
+    return () => {
+      if (startAutocomplete && google.maps.event) {
+        google.maps.event.clearInstanceListeners(startAutocomplete);
+      }
+      if (destAutocomplete && google.maps.event) {
+        google.maps.event.clearInstanceListeners(destAutocomplete);
+      }
+    };
+  }, [startLocation, destination, onStartLocationChange, onDestinationChange, onPlaceSelected]);
 
   return (
     <>
