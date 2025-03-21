@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Share } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 interface ResultCardProps {
   years: number;
@@ -68,7 +68,7 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
           onClick={handleShareViaWhatsApp}
           className="w-full group"
         >
-          <Share className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
+          <MessageCircle className="mr-2 h-4 w-4 text-green-600 group-hover:rotate-12 transition-transform" />
           Share via WhatsApp
         </Button>
       </div>
