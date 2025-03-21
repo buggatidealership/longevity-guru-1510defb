@@ -2,17 +2,17 @@
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
+import LongevityCalculator from '@/components/LongevityCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, TrendingUp } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
-const Index = () => {
+const LongevityCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Longevity Calculators | Life Expectancy & Retirement Planning Tools"
-        description="Calculate your life expectancy and plan your retirement with our free calculators. Evidence-based tools for longevity planning and financial freedom."
+        title="Life Expectancy Calculator | Estimate Your Lifespan"
+        description="Calculate your estimated life expectancy based on health factors, lifestyle choices, and demographics. Free, research-based longevity calculator."
+        canonicalUrl="https://longevitycalculator.xyz/lifespan"
       />
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
         <header className="max-w-6xl mx-auto pt-8 px-4">
@@ -24,44 +24,10 @@ const Index = () => {
           />
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight mb-3">Evidence-Based Longevity Calculators</h1>
-            <p className="text-xl text-muted-foreground">Tools to help you live longer and plan for a financially secure future</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {/* Life Expectancy Calculator Card */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Clock className="h-6 w-6 text-blue-600" />
-                </div>
-                <h2 className="text-2xl font-bold mb-2">Life Expectancy Calculator</h2>
-                <p className="text-gray-600 mb-4">Estimate your lifespan based on health factors, lifestyle choices, and demographics.</p>
-                <Link to="/lifespan">
-                  <Button>
-                    Calculate Your Lifespan
-                    <TrendingUp className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            
-            {/* Retirement Savings Calculator Card */}
-            <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <Calculator className="h-6 w-6 text-green-600" />
-                </div>
-                <h2 className="text-2xl font-bold mb-2">Retirement Savings Calculator</h2>
-                <p className="text-gray-600 mb-4">Determine how much you can spend daily, monthly, and yearly in retirement.</p>
-                <Link to="/retirementsavings">
-                  <Button>
-                    Plan Your Retirement
-                    <TrendingUp className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
+          <div className="flex flex-col md:flex-row gap-6">            
+            {/* Main Calculator */}
+            <div className="flex-1">
+              <LongevityCalculator />
             </div>
           </div>
           
@@ -107,4 +73,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LongevityCalculatorPage;
