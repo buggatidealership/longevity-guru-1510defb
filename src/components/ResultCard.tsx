@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Share } from 'lucide-react';
 
 interface ResultCardProps {
   years: number;
@@ -12,6 +14,19 @@ interface ResultCardProps {
 
 const ResultCard = ({ years, baseAge, improvement, improvementPercentage, className }: ResultCardProps) => {
   const isPositive = parseFloat(improvement) > 0;
+  
+  const handleShareViaWhatsApp = () => {
+    const message = `My estimated life expectancy is ${years} years! That's ${isPositive ? `+${improvement}` : improvement} years compared to my demographic baseline of ${baseAge} years. Calculate yours at https://lifespan-calculator.com`;
+    
+    // Encode the message for use in a URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Create the WhatsApp share URL
+    const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+    
+    // Open the URL in a new tab
+    window.open(whatsappUrl, '_blank');
+  };
   
   return (
     <div className={cn("glass-panel p-8 animate-slideUp", className)}>
@@ -47,6 +62,15 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
             This represents a <span className="font-medium">{improvementPercentage}%</span> {isPositive ? "increase" : "decrease"} from baseline
           </div>
         </div>
+        
+        <Button 
+          variant="secondary" 
+          onClick={handleShareViaWhatsApp}
+          className="w-full group"
+        >
+          <Share className="mr-2 h-4 w-4 group-hover:rotate-12 transition-transform" />
+          Share via WhatsApp
+        </Button>
       </div>
     </div>
   );
