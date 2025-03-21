@@ -13,9 +13,17 @@ import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calculator, Ruler, Baby, Scale, Activity } from 'lucide-react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from '@/components/ui/select';
 
 const GrowthPercentileCalculator = () => {
-  const [age, setAge] = useState<number>(5);
+  const [ageValue, setAgeValue] = useState<number>(5);
+  const [ageUnit, setAgeUnit] = useState<string>('years');
   const [gender, setGender] = useState<string>('male');
   const [height, setHeight] = useState<number>(110);
   const [weight, setWeight] = useState<number>(18);
@@ -27,6 +35,11 @@ const GrowthPercentileCalculator = () => {
     male: {
       height: {
         // Age (years): [L, M, S] values
+        0.25: [1, 62.1, 0.03507], // 3 months
+        0.5: [1, 67.8, 0.03508],  // 6 months
+        0.75: [1, 72.3, 0.03624], // 9 months
+        1: [1, 76.1, 0.03621],
+        1.5: [1, 82.4, 0.03613],
         2: [1, 86.8, 0.03674],
         3: [1, 94.9, 0.03762],
         4: [1, 102.9, 0.03816],
@@ -38,6 +51,11 @@ const GrowthPercentileCalculator = () => {
         10: [1, 137.5, 0.03758],
       },
       weight: {
+        0.25: [-0.5560, 6.4, 0.14069], // 3 months
+        0.5: [-0.5280, 8.0, 0.13552],  // 6 months
+        0.75: [-0.4532, 9.2, 0.13248], // 9 months
+        1: [-0.3716, 10.2, 0.13344],
+        1.5: [-0.3804, 11.5, 0.13536],
         2: [-0.3833, 12.7, 0.14170],
         3: [-0.4201, 14.3, 0.13312],
         4: [-0.4290, 16.3, 0.12800],
@@ -51,6 +69,11 @@ const GrowthPercentileCalculator = () => {
     },
     female: {
       height: {
+        0.25: [1, 60.5, 0.03504], // 3 months
+        0.5: [1, 65.9, 0.03593],  // 6 months
+        0.75: [1, 70.4, 0.03624], // 9 months
+        1: [1, 74.3, 0.03676],
+        1.5: [1, 80.9, 0.03743],
         2: [1, 85.7, 0.03775],
         3: [1, 94.1, 0.03840],
         4: [1, 102.0, 0.03825],
@@ -62,6 +85,11 @@ const GrowthPercentileCalculator = () => {
         10: [1, 138.6, 0.03815],
       },
       weight: {
+        0.25: [-0.5560, 5.8, 0.14253], // 3 months
+        0.5: [-0.5280, 7.3, 0.13932],  // 6 months
+        0.75: [-0.4532, 8.4, 0.13939], // 9 months
+        1: [-0.3716, 9.5, 0.13893],
+        1.5: [-0.3804, 10.8, 0.13700],
         2: [-0.3709, 12.2, 0.13735],
         3: [-0.3945, 14.1, 0.13151],
         4: [-0.3723, 16.0, 0.13178],
@@ -72,6 +100,16 @@ const GrowthPercentileCalculator = () => {
         9: [0.0161, 29.9, 0.16381],
         10: [0.0830, 34.7, 0.16232],
       }
+    }
+  };
+  
+  // Get age in years for calculations
+  const getAgeInYears = () => {
+    if (ageUnit === 'years') {
+      return ageValue;
+    } else {
+      // Convert months to years
+      return ageValue / 12;
     }
   };
   
@@ -125,10 +163,11 @@ const GrowthPercentileCalculator = () => {
   // Calculate percentiles
   const calculatePercentiles = () => {
     const { height: metricHeight, weight: metricWeight } = getMetricValues();
+    const ageInYears = getAgeInYears();
     
     // Get the closest age data for height and weight
-    const heightData = getClosestAgeData(growthData[gender as keyof typeof growthData].height, age);
-    const weightData = getClosestAgeData(growthData[gender as keyof typeof growthData].weight, age);
+    const heightData = getClosestAgeData(growthData[gender as keyof typeof growthData].height, ageInYears);
+    const weightData = getClosestAgeData(growthData[gender as keyof typeof growthData].weight, ageInYears);
     
     // Calculate z-scores
     const heightZ = calculateZScore(metricHeight, heightData.data[0], heightData.data[1], heightData.data[2]);
@@ -225,22 +264,38 @@ const GrowthPercentileCalculator = () => {
             </RadioGroup>
           </div>
           
-          {/* Age */}
+          {/* Age with unit selection */}
           <div className="space-y-2">
             <Label htmlFor="age" className="flex items-center gap-2">
               <Activity className="h-4 w-4 text-blue-600" />
-              Age (years)
+              Age
             </Label>
-            <Input
-              id="age"
-              type="number"
-              min="2"
-              max="10"
-              value={age}
-              onChange={(e) => handleNumericInput(e, setAge)}
-              className="w-full"
-            />
-            <p className="text-xs text-muted-foreground">Supported age range: 2-10 years</p>
+            <div className="flex gap-2">
+              <Input
+                id="age"
+                type="number"
+                min={ageUnit === 'years' ? 0.25 : 3}
+                max={ageUnit === 'years' ? 10 : 120}
+                step={ageUnit === 'years' ? 0.25 : 1}
+                value={ageValue}
+                onChange={(e) => handleNumericInput(e, setAgeValue)}
+                className="flex-1"
+              />
+              <Select value={ageUnit} onValueChange={setAgeUnit}>
+                <SelectTrigger className="w-28">
+                  <SelectValue placeholder="Unit" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="years">Years</SelectItem>
+                  <SelectItem value="months">Months</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {ageUnit === 'years' 
+                ? 'Supported age range: 3 months to 10 years' 
+                : 'Supported age range: 3 to 120 months'}
+            </p>
           </div>
           
           {/* Height */}
@@ -285,7 +340,7 @@ const GrowthPercentileCalculator = () => {
             Growth Results
           </CardTitle>
           <CardDescription>
-            Based on CDC growth references for age {results.referenceAge}
+            Based on CDC growth references for {results.referenceAge < 1 ? `${Math.round(results.referenceAge * 12)} months` : `${results.referenceAge} ${results.referenceAge === 1 ? 'year' : 'years'}`}
           </CardDescription>
         </CardHeader>
         <CardContent>
