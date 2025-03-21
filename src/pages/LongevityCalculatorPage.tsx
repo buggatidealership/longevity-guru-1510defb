@@ -18,10 +18,13 @@ const LongevityCalculatorPage = () => {
         <header className="max-w-6xl mx-auto pt-8 px-4">
           <Logo className="mb-6" />
           {/* Top Ad Banner */}
-          <AdUnit 
-            className="mb-6 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
-            slot="1111111111" 
-          />
+          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="1111111111" 
+              format="horizontal"
+            />
+          </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-6">            
@@ -32,10 +35,13 @@ const LongevityCalculatorPage = () => {
           </div>
           
           {/* Middle Ad Banner */}
-          <AdUnit 
-            className="mt-8 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
-            slot="2222222222" 
-          />
+          <div className="mt-8 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="2222222222" 
+              format="rectangle"
+            />
+          </div>
           
           {/* Calculator links section */}
           <div className="mt-4 mb-6 p-4 bg-white rounded-xl shadow-sm">
@@ -51,18 +57,19 @@ const LongevityCalculatorPage = () => {
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
                 <Link to="/lifespan" className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
               </div>
-              
-              {/* Placeholder for future calculators */}
             </div>
           </div>
         </main>
         
         {/* Bottom Ad Banner */}
         <div className="max-w-6xl mx-auto px-4">
-          <AdUnit 
-            className="mt-6 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
-            slot="3333333333" 
-          />
+          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="3333333333" 
+              format="horizontal"
+            />
+          </div>
         </div>
         
         <footer className="max-w-6xl mx-auto px-4 py-8">

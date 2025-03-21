@@ -25,20 +25,23 @@ const Index = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-8 px-4">
           <Logo className="mb-8" />
-          {/* Top Ad Banner */}
-          <AdUnit 
-            className="mb-6 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
-            slot="1111111111" 
-          />
+          {/* Top Ad Banner - Ensure it has proper sizing */}
+          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="1111111111" 
+              format="horizontal"
+            />
+          </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          {/* Hero Section - Modernized */}
+          {/* Hero Section */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3 text-gray-800">Longevity Calculators</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Tools to help you live longer and plan for a financially secure future</p>
           </div>
           
-          {/* All Calculators Section - Redesigned for better scaling */}
+          {/* All Calculators Section */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-semibold text-gray-800">All Calculators</h2>
@@ -64,7 +67,7 @@ const Index = () => {
               </Pagination>
             </div>
             
-            {/* Grid of all calculators - Optimized for many calculators */}
+            {/* Grid of all calculators */}
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-4">
               {/* Life Expectancy Calculator */}
               <Link to="/lifespan" className="group">
@@ -96,7 +99,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              {/* Placeholder calculators - these will be replaced with real ones */}
+              {/* Placeholder calculators */}
               {[...Array(22)].map((_, index) => (
                 <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
@@ -114,18 +117,24 @@ const Index = () => {
           </div>
           
           {/* Middle Ad Banner */}
-          <AdUnit 
-            className="my-8 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
-            slot="2222222222" 
-          />
+          <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="2222222222" 
+              format="rectangle"
+            />
+          </div>
         </main>
         
         {/* Bottom Ad Banner */}
         <div className="max-w-6xl mx-auto px-4">
-          <AdUnit 
-            className="mt-8 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
-            slot="3333333333" 
-          />
+          <div className="mt-8 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="3333333333" 
+              format="horizontal"
+            />
+          </div>
         </div>
         
         <footer className="max-w-6xl mx-auto px-4 py-8">
