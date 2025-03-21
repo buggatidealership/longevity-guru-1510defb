@@ -1,3 +1,4 @@
+
 import React, { useState, KeyboardEvent } from 'react';
 import { 
   Card, 
@@ -35,6 +36,80 @@ const evModels = {
   "rivianR1T": { name: "Rivian R1T", range: 314 }
 };
 
+// Common city distances (in miles)
+const cityDistances: Record<string, Record<string, number>> = {
+  "new york": {
+    "boston": 215,
+    "washington": 225,
+    "philadelphia": 95,
+    "chicago": 790,
+    "los angeles": 2790,
+    "miami": 1280,
+    "dallas": 1550,
+    "denver": 1780,
+    "seattle": 2850,
+    "san francisco": 2900
+  },
+  "paris": {
+    "london": 285,
+    "berlin": 680,
+    "madrid": 650,
+    "rome": 690,
+    "amsterdam": 315,
+    "brussels": 165,
+    "milan": 525,
+    "barcelona": 520,
+    "zurich": 305,
+    "vienna": 640
+  },
+  "london": {
+    "paris": 285,
+    "manchester": 185,
+    "edinburgh": 405,
+    "dublin": 290,
+    "amsterdam": 225,
+    "berlin": 580,
+    "brussels": 200,
+    "madrid": 785,
+    "rome": 890,
+    "milan": 600
+  },
+  "tokyo": {
+    "osaka": 250,
+    "kyoto": 280,
+    "nagoya": 215,
+    "fukuoka": 650,
+    "sapporo": 520,
+    "seoul": 720,
+    "beijing": 1300,
+    "shanghai": 1100,
+    "taipei": 1050,
+    "hong kong": 1800
+  },
+  "sydney": {
+    "melbourne": 545,
+    "brisbane": 575,
+    "perth": 2045,
+    "adelaide": 850,
+    "canberra": 190,
+    "auckland": 1345,
+    "wellington": 1640,
+    "darwin": 1960,
+    "hobart": 700,
+    "gold coast": 500
+  }
+};
+
+// Default distance ranges for unknown cities
+const distanceRanges = [
+  { min: 20, max: 60 },      // Very local
+  { min: 60, max: 120 },     // Nearby city
+  { min: 120, max: 250 },    // Regional
+  { min: 250, max: 500 },    // Major cities in same region
+  { min: 500, max: 1000 },   // Cross-country
+  { min: 1000, max: 3000 }   // Long distance/international
+];
+
 type EVModel = keyof typeof evModels;
 
 const EVRangeCalculator = () => {
@@ -52,9 +127,38 @@ const EVRangeCalculator = () => {
   
   const { toast } = useToast();
 
-  const calculateDistance = () => {
-    const seed = (startLocation.length * destination.length) % 500;
-    return Math.max(25, seed + Math.floor(Math.random() * 100));
+  const calculateDistance = (start: string, dest: string): number => {
+    // Normalize locations by converting to lowercase
+    const normalizedStart = start.toLowerCase().trim();
+    const normalizedDest = dest.toLowerCase().trim();
+    
+    // Check if we have predefined distance between these cities
+    if (cityDistances[normalizedStart]?.[normalizedDest]) {
+      return cityDistances[normalizedStart][normalizedDest];
+    }
+    
+    // Check reverse direction
+    if (cityDistances[normalizedDest]?.[normalizedStart]) {
+      return cityDistances[normalizedDest][normalizedStart];
+    }
+    
+    // For locations not in our database, create a more realistic estimation
+    // based on the combination of characters and lengths
+    
+    // Use the first character of each location to determine a base multiplier
+    const startChar = normalizedStart.charCodeAt(0) || 97; // 'a' if empty
+    const destChar = normalizedDest.charCodeAt(0) || 97;
+    
+    // Use character codes to pick a distance range category (0-5)
+    const rangeIndex = ((startChar + destChar) % 6);
+    const range = distanceRanges[rangeIndex];
+    
+    // Calculate a pseudo-random distance within the range
+    const seed = (normalizedStart.length * 13 + normalizedDest.length * 17) % 100;
+    const variability = range.max - range.min;
+    const distance = Math.round(range.min + (seed / 100) * variability);
+    
+    return distance;
   };
 
   const handleCalculate = () => {
@@ -70,7 +174,7 @@ const EVRangeCalculator = () => {
     setCalculating(true);
     
     setTimeout(() => {
-      const distance = calculateDistance();
+      const distance = calculateDistance(startLocation, destination);
       const selectedEv = evModels[evModel];
       const range = selectedEv.range;
       
