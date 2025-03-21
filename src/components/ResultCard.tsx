@@ -69,7 +69,7 @@ const ResultCard = ({
         
         <Button variant="outline" className="w-full min-h-[40px] group text-xs sm:text-sm px-2 sm:px-4 py-2 whitespace-normal break-words h-auto" onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}>
           <Ticket className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-          <span className="line-clamp-2 inline-block">Save $25 on Bryan Johnson's Longevity Program</span>
+          <span className="line-clamp-2 inline-block">Get $25 Off Bryan Johnson's Longevity Plan</span>
         </Button>
       </div>
     </div>;
