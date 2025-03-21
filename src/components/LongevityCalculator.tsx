@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import DisclaimerAlert from './DisclaimerAlert';
 import ResultCard from './ResultCard';
+import { Slider } from '@/components/ui/slider';
 
 const LongevityCalculator = () => {
   const [age, setAge] = useState(30);
@@ -30,12 +30,9 @@ const LongevityCalculator = () => {
     baseAge: "0"
   });
 
-  // Calculate life expectancy for educational purposes
   const calculateLifeExpectancy = () => {
-    // Base average life expectancy from recent data (for white population)
     let baseAge = sex === 'male' ? 76.1 : 81.1;
     
-    // Race/Ethnicity impact on base life expectancy (simplified estimates)
     if (race === 'black') {
       baseAge = sex === 'male' ? 71.8 : 78.3;
     } else if (race === 'hispanic') {
@@ -46,83 +43,66 @@ const LongevityCalculator = () => {
       baseAge = sex === 'male' ? 71.2 : 77.5;
     }
     
-    // Exercise impact (simplified estimate)
     const exerciseImpact = exerciseLevel * 0.8;
     
-    // Sleep impact (simplified estimate)
     let sleepImpact = 0;
     if (sleepHours < 6) sleepImpact = -2;
     else if (sleepHours > 9) sleepImpact = -1;
     else if (sleepHours >= 7 && sleepHours <= 8) sleepImpact = 1.5;
     
-    // Smoking impact (simplified estimate)
     let smokingImpact = 0;
     if (smoking === 'current') smokingImpact = -10;
     else if (smoking === 'former') smokingImpact = -3;
     
-    // Alcohol impact (simplified estimate)
     let alcoholImpact = 0;
     if (alcohol === 'heavy') alcoholImpact = -5;
     else if (alcohol === 'none') alcoholImpact = -0.5;
     
-    // Diet impact (simplified estimate)
     let dietImpact = 0;
     if (diet === 'poor') dietImpact = -3;
     else if (diet === 'excellent') dietImpact = 3;
     
-    // Stress impact (simplified estimate)
     let stressImpact = 0;
     if (stressLevel === 'high') stressImpact = -2.5;
     else if (stressLevel === 'low') stressImpact = 1.5;
     
-    // Social connections impact (simplified estimate)
     let socialImpact = 0;
     if (socialConnections === 'strong') socialImpact = 2;
     else if (socialConnections === 'weak') socialImpact = -2;
     
-    // BMI impact (simplified estimate)
     let bmiImpact = 0;
     if (bmi < 18.5) bmiImpact = -2;
     else if (bmi >= 18.5 && bmi < 25) bmiImpact = 1;
     else if (bmi >= 25 && bmi < 30) bmiImpact = -1;
     else if (bmi >= 30) bmiImpact = -3.5;
     
-    // Family history impact (simplified estimate)
     const geneticImpact = familyHistory ? 2 : 0;
     
-    // Education impact (simplified estimate)
     let educationImpact = 0;
     if (education === 'less_than_high_school') educationImpact = -2.5;
     else if (education === 'high_school') educationImpact = -1;
     else if (education === 'graduate') educationImpact = 1.5;
     
-    // Income impact (simplified estimate)
     let incomeImpact = 0;
     if (income === 'low') incomeImpact = -2;
     else if (income === 'high') incomeImpact = 1.5;
     
-    // Chronic conditions impact (simplified estimate)
     const chronicImpact = -1.5 * chronicConditions.length;
     
-    // Air quality impact (simplified estimate)
     let airQualityImpact = 0;
     if (airQuality === 'poor') airQualityImpact = -1.5;
     else if (airQuality === 'good') airQualityImpact = 0.5;
     
-    // Healthcare access impact (simplified estimate)
     let healthcareImpact = 0;
     if (healthcare === 'limited') healthcareImpact = -2;
     else if (healthcare === 'preventive') healthcareImpact = 1.5;
     
-    // Calculate total impact
     const totalImpact = exerciseImpact + sleepImpact + smokingImpact + alcoholImpact 
                       + dietImpact + stressImpact + socialImpact + bmiImpact + geneticImpact
                       + educationImpact + incomeImpact + chronicImpact + airQualityImpact + healthcareImpact;
     
-    // Calculate life expectancy
     const lifeExpectancy = baseAge + totalImpact;
     
-    // Calculate percentage improvement over base
     const improvementPercentage = ((totalImpact / baseAge) * 100).toFixed(1);
     
     return {
@@ -132,7 +112,7 @@ const LongevityCalculator = () => {
       baseAge: baseAge.toFixed(1)
     };
   };
-  
+
   const handleChronicConditionChange = (condition: string) => {
     if (chronicConditions.includes(condition)) {
       setChronicConditions(chronicConditions.filter(c => c !== condition));
@@ -148,15 +128,13 @@ const LongevityCalculator = () => {
     stressLevel, socialConnections, bmi, familyHistory, education, income, 
     chronicConditions, airQuality, healthcare
   ]);
-  
-  // Helper to render input label
+
   const Label = ({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) => (
     <label htmlFor={htmlFor} className="block text-sm font-medium text-gray-700 mb-1">
       {children}
     </label>
   );
-  
-  // Helper to render select input
+
   const Select = ({ id, value, onChange, options }: { 
     id: string; 
     value: string; 
@@ -374,15 +352,17 @@ const LongevityCalculator = () => {
                 <div className="space-y-6">
                   <div>
                     <Label htmlFor="exerciseLevel">Exercise (days per week)</Label>
-                    <input
-                      id="exerciseLevel"
-                      type="range"
-                      min="0"
-                      max="7"
-                      value={exerciseLevel}
-                      onChange={(e) => setExerciseLevel(parseInt(e.target.value))}
-                      className="w-full mt-2"
-                    />
+                    <div className="py-4">
+                      <Slider
+                        id="exerciseLevel"
+                        min={0}
+                        max={7}
+                        step={1}
+                        value={[exerciseLevel]}
+                        onValueChange={(value) => setExerciseLevel(value[0])}
+                        className="w-full"
+                      />
+                    </div>
                     <div className="flex justify-between text-xs text-muted-foreground">
                       <span>0</span>
                       <span>{exerciseLevel} days/week</span>
@@ -392,16 +372,17 @@ const LongevityCalculator = () => {
                   
                   <div>
                     <Label htmlFor="sleepHours">Sleep (hours per night)</Label>
-                    <input
-                      id="sleepHours"
-                      type="range"
-                      min="4"
-                      max="12"
-                      step="0.5"
-                      value={sleepHours}
-                      onChange={(e) => setSleepHours(parseFloat(e.target.value))}
-                      className="w-full mt-2"
-                    />
+                    <div className="py-4">
+                      <Slider
+                        id="sleepHours"
+                        min={4}
+                        max={12}
+                        step={0.5}
+                        value={[sleepHours]}
+                        onValueChange={(value) => setSleepHours(value[0])}
+                        className="w-full"
+                      />
+                    </div>
                     <div className="flex justify-between text-xs text-muted-foreground">
                       <span>4</span>
                       <span>{sleepHours} hours</span>
