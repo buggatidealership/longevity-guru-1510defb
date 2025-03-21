@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Calculator, Clock, Baby, Activity } from 'lucide-react';
+import { Calculator, Clock, Baby, Activity, Heart, Zap, Shield, AlertCircle } from 'lucide-react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import FertilityResultCard from './FertilityResultCard';
 
@@ -123,6 +123,42 @@ const FemaleFeritilityCalculator = () => {
     // Adjust for conditions
     if (conditions.includes("endometriosis")) {
       estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("pcos")) {
+      estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("poi")) {
+      estimatedAge -= 3;
+    }
+    
+    if (conditions.includes("fibroids")) {
+      estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("pid")) {
+      estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("thyroid")) {
+      estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("asherman")) {
+      estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("autoimmune")) {
+      estimatedAge -= 2;
+    }
+    
+    if (conditions.includes("uterine_anomalies")) {
+      estimatedAge -= 1;
+    }
+    
+    if (conditions.includes("premature_ovarian_failure")) {
+      estimatedAge -= 4;
     }
     
     // Adjust for smoking
@@ -258,39 +294,116 @@ const FemaleFeritilityCalculator = () => {
           
           {/* Medical Conditions */}
           <div className="space-y-2">
-            <Label>Medical Conditions (select all that apply)</Label>
-            <div className="grid grid-cols-2 gap-2">
+            <Label className="mb-2 block">Medical Conditions (select all that apply)</Label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <Button
                 type="button"
                 variant={isConditionSelected('none') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => setConditions(['none'])}
               >
+                <AlertCircle className="mr-2 h-4 w-4" />
                 None
               </Button>
+              
               <Button
                 type="button"
                 variant={isConditionSelected('pcos') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => handleConditionChange('pcos')}
               >
+                <Activity className="mr-2 h-4 w-4" />
                 PCOS
               </Button>
+              
               <Button
                 type="button"
                 variant={isConditionSelected('endometriosis') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => handleConditionChange('endometriosis')}
               >
+                <Heart className="mr-2 h-4 w-4" />
                 Endometriosis
               </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('poi') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('poi')}
+              >
+                <Zap className="mr-2 h-4 w-4" />
+                Primary Ovarian Insufficiency
+              </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('fibroids') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('fibroids')}
+              >
+                <Heart className="mr-2 h-4 w-4" />
+                Uterine Fibroids
+              </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('pid') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('pid')}
+              >
+                <AlertCircle className="mr-2 h-4 w-4" />
+                Pelvic Inflammatory Disease
+              </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('thyroid') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('thyroid')}
+              >
+                <Activity className="mr-2 h-4 w-4" />
+                Thyroid Disorders
+              </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('asherman') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('asherman')}
+              >
+                <Heart className="mr-2 h-4 w-4" />
+                Asherman's Syndrome
+              </Button>
+              
               <Button
                 type="button"
                 variant={isConditionSelected('autoimmune') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => handleConditionChange('autoimmune')}
               >
+                <Shield className="mr-2 h-4 w-4" />
                 Autoimmune Disorders
+              </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('uterine_anomalies') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('uterine_anomalies')}
+              >
+                <Heart className="mr-2 h-4 w-4" />
+                Congenital Uterine Anomalies
+              </Button>
+              
+              <Button
+                type="button"
+                variant={isConditionSelected('premature_ovarian_failure') ? 'default' : 'outline'}
+                className="justify-start"
+                onClick={() => handleConditionChange('premature_ovarian_failure')}
+              >
+                <Zap className="mr-2 h-4 w-4" />
+                Premature Ovarian Failure
               </Button>
             </div>
           </div>
