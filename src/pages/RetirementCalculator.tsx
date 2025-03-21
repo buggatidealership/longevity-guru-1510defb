@@ -1,15 +1,19 @@
 
-import React, { useEffect } from 'react';
-import LongevityCalculator from '@/components/LongevityCalculator';
+import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
+import RetirementSavingsCalculator from '@/components/RetirementSavingsCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 
-const Index = () => {
+const RetirementCalculator = () => {
   return (
     <>
-      <SEOHead />
+      <SEOHead 
+        title="Retirement Savings Calculator | Plan Your Retirement Income"
+        description="Calculate how much you can spend daily, monthly, and yearly in retirement based on your savings. Free retirement spending calculator."
+        canonicalUrl="https://lifespan-calculator.com/retirement-calculator"
+      />
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
         <header className="max-w-6xl mx-auto pt-8 px-4">
           <Logo className="mb-8" />
@@ -23,7 +27,7 @@ const Index = () => {
           <div className="flex flex-col md:flex-row gap-6">            
             {/* Main Calculator */}
             <div className="flex-1">
-              <LongevityCalculator />
+              <RetirementSavingsCalculator />
             </div>
           </div>
           
@@ -68,4 +72,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default RetirementCalculator;
