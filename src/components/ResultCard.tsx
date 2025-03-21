@@ -3,6 +3,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Ticket } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ResultCardProps {
   years: number;
@@ -14,6 +15,7 @@ interface ResultCardProps {
 
 const ResultCard = ({ years, baseAge, improvement, improvementPercentage, className }: ResultCardProps) => {
   const isPositive = parseFloat(improvement) > 0;
+  const isMobile = useIsMobile();
   
   const handleShareViaWhatsApp = () => {
     const message = `My estimated life expectancy is ${years} years! That's ${isPositive ? `+${improvement}` : improvement} years compared to my demographic baseline of ${baseAge} years. Calculate yours at https://lifespan-calculator.com`;
@@ -74,11 +76,11 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
         
         <Button 
           variant="outline" 
-          className="w-full group"
+          className="w-full group text-xs sm:text-sm px-2 sm:px-4 h-auto py-2"
           onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}
         >
-          <Ticket className="mr-2 h-4 w-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
-          Save $25 on Brian Johnson's Blueprint Program
+          <Ticket className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+          <span className="line-clamp-2">Save $25 on Brian Johnson's Blueprint Program</span>
         </Button>
       </div>
     </div>
