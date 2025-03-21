@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Calendar, Ticket } from 'lucide-react';
+import { MessageCircle, Calendar } from 'lucide-react';
 
 interface RetirementResultCardProps {
   dailySpending: number;
@@ -10,7 +10,7 @@ interface RetirementResultCardProps {
   yearlySpending: number;
   totalYears: number;
   totalSavings: number;
-  age: number; // Add age prop
+  age: number;
   className?: string;
 }
 
@@ -20,7 +20,7 @@ const RetirementResultCard = ({
   yearlySpending, 
   totalYears,
   totalSavings,
-  age, // Include age in destructuring
+  age,
   className 
 }: RetirementResultCardProps) => {
   
@@ -80,15 +80,6 @@ const RetirementResultCard = ({
         >
           <MessageCircle className="mr-2 h-4 w-4 text-green-600 group-hover:rotate-12 transition-transform" />
           Share via WhatsApp
-        </Button>
-        
-        <Button 
-          variant="outline" 
-          className="w-full group"
-          onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}
-        >
-          <Ticket className="mr-2 h-4 w-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
-          Save $25 on Brian Johnson's Blueprint Program
         </Button>
       </div>
     </div>
