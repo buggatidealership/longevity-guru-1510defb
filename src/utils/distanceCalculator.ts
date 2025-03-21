@@ -29,6 +29,48 @@ export const extractCityFromAddress = (address: string): string => {
   return cleaned;
 };
 
+// Calculate distance using Google Maps Distance Matrix API
+export const calculateGoogleMapsDistance = async (
+  origin: string | google.maps.LatLngLiteral,
+  destination: string | google.maps.LatLngLiteral
+): Promise<number> => {
+  return new Promise((resolve, reject) => {
+    if (!window.google || !window.google.maps) {
+      reject(new Error("Google Maps API not loaded"));
+      return;
+    }
+
+    const distanceService = new google.maps.DistanceMatrixService();
+    
+    distanceService.getDistanceMatrix(
+      {
+        origins: [origin],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL,
+      },
+      (response, status) => {
+        if (status === 'OK' && response) {
+          if (
+            response.rows[0]?.elements[0]?.status === 'OK' &&
+            response.rows[0].elements[0].distance
+          ) {
+            // Convert meters to miles
+            const distanceInMiles = 
+              response.rows[0].elements[0].distance.value / 1609.34;
+            resolve(Math.round(distanceInMiles));
+          } else {
+            reject(new Error("Could not calculate distance"));
+          }
+        } else {
+          reject(new Error(`Google Maps API error: ${status}`));
+        }
+      }
+    );
+  });
+};
+
+// Fallback for when Google Maps API fails
 export const calculateDistance = (start: string, dest: string): number => {
   // Try to extract city names from detailed addresses
   const startCity = extractCityFromAddress(start).toLowerCase().trim();

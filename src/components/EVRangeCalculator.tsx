@@ -12,10 +12,13 @@ import { Car } from 'lucide-react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { useToast } from '@/hooks/use-toast';
 import { EVModel, evModels } from '@/data/evRangeData';
-import { calculateDistance } from '@/utils/distanceCalculator';
+import { calculateGoogleMapsDistance, calculateDistance } from '@/utils/distanceCalculator';
 import EVModelSelector from '@/components/EVModelSelector';
 import LocationInputs from '@/components/LocationInputs';
 import EVRangeResult, { RangeResult } from '@/components/EVRangeResult';
+import { useLoadScript } from '@react-google-maps/api';
+
+const libraries: ("places")[] = ["places"];
 
 const EVRangeCalculator = () => {
   const [evModel, setEvModel] = useState<EVModel | ''>('');
@@ -23,10 +26,34 @@ const EVRangeCalculator = () => {
   const [destination, setDestination] = useState('');
   const [calculating, setCalculating] = useState(false);
   const [result, setResult] = useState<RangeResult | null>(null);
+  const [startCoords, setStartCoords] = useState<google.maps.LatLngLiteral | null>(null);
+  const [destCoords, setDestCoords] = useState<google.maps.LatLngLiteral | null>(null);
   
   const { toast } = useToast();
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyBiB3iNbg53FUYQY9l3EPdJVFzeYLWGqQw", // This is a temporary client-side restricted key
+    libraries
+  });
 
-  const handleCalculate = () => {
+  const handlePlaceSelected = (
+    place: google.maps.places.PlaceResult | null, 
+    isStart: boolean
+  ) => {
+    if (place && place.geometry && place.geometry.location) {
+      const coords = {
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng()
+      };
+
+      if (isStart) {
+        setStartCoords(coords);
+      } else {
+        setDestCoords(coords);
+      }
+    }
+  };
+
+  const handleCalculate = async () => {
     if (!evModel || !startLocation || !destination) {
       toast({
         title: "Missing information",
@@ -38,8 +65,23 @@ const EVRangeCalculator = () => {
 
     setCalculating(true);
     
-    setTimeout(() => {
-      const distance = calculateDistance(startLocation, destination);
+    try {
+      // Try to use Google Maps Distance Matrix API first
+      let distance: number;
+      
+      if (isLoaded && startCoords && destCoords) {
+        try {
+          distance = await calculateGoogleMapsDistance(startCoords, destCoords);
+        } catch (error) {
+          console.error("Google Maps distance calculation failed:", error);
+          // Fallback to our own distance calculation
+          distance = calculateDistance(startLocation, destination);
+        }
+      } else {
+        // Fallback if we don't have coordinates or Google Maps isn't loaded
+        distance = calculateDistance(startLocation, destination);
+      }
+      
       const selectedEv = evModels[evModel];
       const range = selectedEv.range;
       
@@ -65,9 +107,16 @@ const EVRangeCalculator = () => {
         range,
         remainingRange: Math.max(0, remainingRange)
       });
-      
+    } catch (error) {
+      console.error("Error calculating distance:", error);
+      toast({
+        title: "Error calculating distance",
+        description: "Could not calculate the distance between the locations. Please try again or use different locations.",
+        variant: "destructive"
+      });
+    } finally {
       setCalculating(false);
-    }, 1000);
+    }
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -108,6 +157,7 @@ const EVRangeCalculator = () => {
             onStartLocationChange={setStartLocation}
             onDestinationChange={setDestination}
             onKeyPress={handleKeyPress}
+            onPlaceSelected={handlePlaceSelected}
           />
           
           <Button 
