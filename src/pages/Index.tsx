@@ -61,7 +61,7 @@ const Index = () => {
           
           {/* Added internal links for SEO */}
           <div className="my-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-xl font-bold mb-4">Related Health Resources</h2>
+            <h2 className="text-xl font-bold mb-4">Our Other Longevity Calculators</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link to="/" className="text-blue-600 hover:underline">Home</Link>
               <a href="https://lifespan-calculator.com/#about" className="text-blue-600 hover:underline">About Life Expectancy</a>
