@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, ExternalLink } from 'lucide-react';
 
 interface ResultCardProps {
   years: number;
@@ -70,6 +70,15 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
         >
           <MessageCircle className="mr-2 h-4 w-4 text-green-600 group-hover:rotate-12 transition-transform" />
           Share via WhatsApp
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          className="w-full group"
+          onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}
+        >
+          <ExternalLink className="mr-2 h-4 w-4 text-blue-600 group-hover:translate-x-1 transition-transform" />
+          Live longer with Brian Johnson's Blueprint
         </Button>
       </div>
     </div>
