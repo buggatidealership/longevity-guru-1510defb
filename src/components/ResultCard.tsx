@@ -80,7 +80,7 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
           onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}
         >
           <Ticket className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-          <span className="line-clamp-2 inline-block">Save $25 on Brian Johnson's Blueprint Program</span>
+          <span className="line-clamp-2 inline-block">Save $25 on the #1 longevity program today!</span>
         </Button>
       </div>
     </div>
