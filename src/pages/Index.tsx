@@ -36,7 +36,7 @@ const Index = () => {
           {/* All Calculators Section */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             {/* Grid of all calculators */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
               {/* Life Expectancy Calculator */}
               <Link to="/lifespan" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
@@ -58,7 +58,7 @@ const Index = () => {
                   <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-3">
                     <Calculator className="h-5 w-5 text-green-500" />
                   </div>
-                  <h3 className="font-semibold text-sm mb-2 whitespace-nowrap">Retirement Savings</h3>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Retirement Savings</h3>
                   <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate your savings longevity.</p>
                   <span className="text-xs text-green-500 flex items-center group-hover:underline">
                     Calculate
