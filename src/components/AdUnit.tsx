@@ -23,33 +23,35 @@ export const AdUnit = ({
       if (window.adsbygoogle && adRef.current) {
         try {
           (window.adsbygoogle = window.adsbygoogle || []).push({});
-          console.log(`Ad loaded with format: ${format}`);
+          console.log(`Ad loaded with format: ${format}, slot: ${slot}`);
           setAdLoaded(true);
         } catch (e) {
           console.error('AdSense error:', e);
         }
+      } else {
+        console.log('AdSense not initialized or ref not available');
       }
     };
 
     // Small delay to ensure DOM is ready
-    const timer = setTimeout(loadAd, 300);
+    const timer = setTimeout(loadAd, 500);
     
     return () => {
       clearTimeout(timer);
     };
-  }, [format]);
+  }, [format, slot]);
 
   // Define styling based on format
   const getFormatStyles = () => {
     switch (format) {
       case 'horizontal':
-        return { minHeight: '90px' };
+        return { minHeight: '90px', border: '1px dashed #ddd' };
       case 'rectangle':
-        return { minHeight: '250px' };
+        return { minHeight: '250px', border: '1px dashed #ddd' };
       case 'vertical':
-        return { minHeight: '600px', height: '100%' };
+        return { minHeight: '600px', height: '100%', border: '1px dashed #ddd' };
       default:
-        return { minHeight: '100px' };
+        return { minHeight: '100px', border: '1px dashed #ddd' };
     }
   };
 
@@ -59,6 +61,7 @@ export const AdUnit = ({
       ref={adRef}
       style={getFormatStyles()}
     >
+      {!adLoaded && <div className="text-xs text-gray-400 flex items-center justify-center h-full">Advertisement Loading...</div>}
       <ins
         className="adsbygoogle"
         style={{ 

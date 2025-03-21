@@ -17,8 +17,8 @@ const LongevityCalculatorPage = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner */}
-          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          {/* Top Ad Banner - More prominent */}
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
               slot="1111111111" 
@@ -36,8 +36,8 @@ const LongevityCalculatorPage = () => {
             </div>
           </div>
           
-          {/* Bottom Ad Banner */}
-          <div className="mt-8 mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          {/* Bottom Ad Banner - More prominent */}
+          <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
               slot="2222222222" 

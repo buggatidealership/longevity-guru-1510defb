@@ -17,8 +17,8 @@ const RetirementCalculator = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner */}
-          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          {/* Top Ad Banner - More prominent */}
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
               slot="1111111111" 
@@ -36,8 +36,8 @@ const RetirementCalculator = () => {
             </div>
           </div>
           
-          {/* Bottom Ad Banner */}
-          <div className="mt-8 mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          {/* Bottom Ad Banner - More prominent */}
+          <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
               slot="2222222222" 
@@ -46,7 +46,7 @@ const RetirementCalculator = () => {
             />
           </div>
           
-          {/* Educational content section - Retirement Planning Tips section removed */}
+          {/* Calculator links section */}
           <div className="mt-8 mb-6 p-4 bg-white rounded-xl shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
