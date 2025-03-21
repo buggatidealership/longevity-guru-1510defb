@@ -5,7 +5,6 @@ import SEOHead from '@/components/SEOHead';
 import RetirementSavingsCalculator from '@/components/RetirementSavingsCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const RetirementCalculator = () => {
   // Handler to scroll to top when clicking internal links
@@ -81,8 +80,6 @@ const RetirementCalculator = () => {
               <p>
                 Our Retirement Savings Calculator helps address this uncertainty by providing clear, actionable insights into your financial future. By making informed decisions today about saving, investing, and spending in retirement, you can significantly improve your financial security during your retirement years.
               </p>
-              
-              <DisclaimerAlert className="mt-6" />
             </div>
           </div>
           
