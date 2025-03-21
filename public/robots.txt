@@ -1,9 +1,14 @@
+
 User-agent: *
 Allow: /
 
 # Important pages
 Allow: /lifespan
 Allow: /retirementsavings
+Allow: /fertility
+Allow: /growth
+Allow: /privacy
+Allow: /terms
 
 # Sitemaps
 Sitemap: https://longevitycalculator.xyz/sitemap.xml
