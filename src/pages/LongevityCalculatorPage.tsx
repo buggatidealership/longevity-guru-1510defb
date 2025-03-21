@@ -42,6 +42,47 @@ const LongevityCalculatorPage = () => {
             </div>
           </div>
           
+          {/* About This Calculator Section */}
+          <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
+            <h2 className="text-2xl font-semibold mb-4">About The Life Expectancy Calculator</h2>
+            
+            <div className="space-y-4 text-gray-700">
+              <p>
+                Our <strong>Life Expectancy Calculator</strong> is a comprehensive tool designed to help you predict your potential lifespan based on various health metrics, lifestyle factors, and demographic characteristics. Using data-driven insights from population health studies, our calculator estimates how long you might live by analyzing your personal health profile and lifestyle choices.
+              </p>
+              
+              <h3 className="text-xl font-medium mt-6">How The Life Expectancy Calculator Works</h3>
+              <p>
+                The calculator employs a sophisticated algorithm that evaluates multiple factors known to influence longevity, including age, sex, race/ethnicity, exercise habits, sleep patterns, smoking status, alcohol consumption, diet quality, stress levels, social connections, BMI, family history, education, income, chronic conditions, environmental factors, and healthcare access. Each factor is weighted based on scientific research about its impact on lifespan.
+              </p>
+              
+              <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Personalized Lifespan Estimate:</strong> Receive a customized life expectancy prediction based on your unique combination of health and lifestyle factors.
+                </li>
+                <li>
+                  <strong>Modifiable Factor Insights:</strong> Identify which aspects of your lifestyle might be shortening or extending your life expectancy.
+                </li>
+                <li>
+                  <strong>Health Decision Support:</strong> Make informed choices about lifestyle modifications that could potentially add years to your life.
+                </li>
+                <li>
+                  <strong>Longevity Planning:</strong> Use your estimated life expectancy for retirement planning, insurance decisions, and other long-term life plans.
+                </li>
+              </ul>
+              
+              <h3 className="text-xl font-medium mt-6">Why Life Expectancy Calculation Matters</h3>
+              <p>
+                Understanding your potential lifespan is increasingly important in a world where healthcare advances continue to extend human longevity. Research indicates that while genetic factors account for approximately 25% of lifespan determination, the remaining 75% is influenced by lifestyle choices, environmental factors, and access to healthcare. This means most people have significant control over how long they might live.
+              </p>
+              
+              <p>
+                Our Life Expectancy Calculator helps you visualize the potential impact of your current lifestyle on your longevity, empowering you to make conscious choices that may extend your healthy years. Whether you're planning for retirement, considering health insurance options, or simply curious about how your lifestyle affects your lifespan, our calculator provides valuable insights to guide your decisions.
+              </p>
+            </div>
+          </div>
+          
           <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
