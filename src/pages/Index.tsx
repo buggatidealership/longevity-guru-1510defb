@@ -9,8 +9,8 @@ const Index = () => {
   return (
     <>
       <SEOHead 
-        title="Longevity Calculators | Life Expectancy & Retirement Planning Tools"
-        description="Calculate your life expectancy, plan retirement, estimate fertility, and track child growth with our free calculators. Evidence-based tools for health and financial planning."
+        title="Longevity Calculators | Health & Financial Planning Tools"
+        description="Free online calculators and tools for health assessment, financial planning, lifestyle optimization, and personal development. Evidence-based resources for better decision-making."
         canonicalUrl="https://longevitycalculator.xyz/"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -28,7 +28,7 @@ const Index = () => {
         <main className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-4">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-gray-800">Longevity Calculators</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Free evidence-based calculators for health assessment, retirement planning, fertility tracking, and child development</p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Free online calculators for smarter lifestyle planning and informed decision-making</p>
           </div>
           
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">

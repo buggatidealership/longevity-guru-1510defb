@@ -13,11 +13,11 @@ interface SEOHeadProps {
 
 const SEOHead: React.FC<SEOHeadProps> = ({
   title = 'Longevity Calculators | Health & Financial Planning Tools',
-  description = 'Calculate your life expectancy, plan retirement, estimate fertility, and track child growth with our free calculators. Evidence-based tools for health and financial planning.',
+  description = 'Free online calculators and tools for health assessment, financial planning, lifestyle optimization, and personal development. Evidence-based resources for better decision-making.',
   canonicalUrl = 'https://longevitycalculator.xyz/',
   ogType = 'website',
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
-  keywords = 'life expectancy calculator, retirement calculator, fertility calculator, child growth calculator, longevity tools, health planning, financial planning',
+  keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
 }) => {
   return (
     <Helmet>
