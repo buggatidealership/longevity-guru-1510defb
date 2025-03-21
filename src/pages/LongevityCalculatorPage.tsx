@@ -16,9 +16,9 @@ const LongevityCalculatorPage = () => {
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
-          <Logo className="mb-3" />
+          <Logo className="mb-2" />
           {/* Top Ad Banner - Highly visible placement */}
-          <div className="mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="1111111111" 
