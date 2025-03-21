@@ -121,7 +121,7 @@ const LongevityCalculator = () => {
         <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-xl border border-gray-100 p-4 text-sm text-muted-foreground animate-fadeIn" style={{
         animationDelay: '0.3s'
       }}>
-          <h3 className="text-sm font-medium text-foreground mb-2">About This Tool</h3>
+          <h3 className="text-sm font-medium text-foreground mb-2">About This Calculator</h3>
           <div className="mt-1 text-sm text-muted-foreground">
             <p>Wondering how long you have left to live? Our Lifespan Calculator provides a personalized estimate of your life expectancy based on factors like age, gender, health habits, and lifestyle choices. Whether you're asking "When will I die?" or "How long do I have to live?", this Longevity Calculator helps you understand how your choices impact your future. Start now to see how simple changes can add years to your life!</p>
           </div>
