@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -7,6 +8,7 @@ interface SEOHeadProps {
   canonicalUrl?: string;
   ogType?: string;
   ogImage?: string;
+  keywords?: string;
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
@@ -15,12 +17,14 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   canonicalUrl = 'https://longevitycalculator.xyz/',
   ogType = 'website',
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
+  keywords,
 }) => {
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
+      {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Open Graph */}
       <meta property="og:url" content={canonicalUrl} />

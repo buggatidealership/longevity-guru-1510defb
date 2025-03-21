@@ -18,8 +18,8 @@ const GrowthPercentilePage = () => {
   return (
     <>
       <SEOHead 
-        title="Child Growth Percentile Calculator | Height & Weight Charts"
-        description="Calculate your child's height and weight percentiles using CDC growth charts. Free tool for parents to track child growth and development."
+        title="Child Growth Percentile Calculator | Height & Weight Charts by Age"
+        description="Track your child's development with our pediatric growth percentile calculator. Compare height and weight to CDC standards for children from 3 months to 10 years old. Free, accurate percentile charts."
         canonicalUrl="https://longevitycalculator.xyz/growth"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
