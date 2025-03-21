@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import DisclaimerAlert from './DisclaimerAlert';
 import ResultCard from './ResultCard';
 import { Slider } from '@/components/ui/slider';
-
 const LongevityCalculator = () => {
   const [age, setAge] = useState(30);
   const [sex, setSex] = useState('male');
@@ -29,7 +27,6 @@ const LongevityCalculator = () => {
     improvementPercentage: "0",
     baseAge: "0"
   });
-
   const calculateLifeExpectancy = () => {
     let baseAge = sex === 'male' ? 76.1 : 81.1;
     if (race === 'black') {
@@ -76,7 +73,6 @@ const LongevityCalculator = () => {
       baseAge: baseAge.toFixed(1)
     };
   };
-
   const handleChronicConditionChange = (condition: string) => {
     if (chronicConditions.includes(condition)) {
       setChronicConditions(chronicConditions.filter(c => c !== condition));
@@ -84,11 +80,9 @@ const LongevityCalculator = () => {
       setChronicConditions([...chronicConditions, condition]);
     }
   };
-
   useEffect(() => {
     setResult(calculateLifeExpectancy());
   }, [age, sex, race, exerciseLevel, sleepHours, smoking, alcohol, diet, stressLevel, socialConnections, bmi, familyHistory, education, income, chronicConditions, airQuality, healthcare]);
-
   const Label = ({
     htmlFor,
     children
@@ -98,7 +92,6 @@ const LongevityCalculator = () => {
   }) => <label htmlFor={htmlFor} className="block text-sm font-medium text-gray-700 mb-1">
       {children}
     </label>;
-
   const Select = ({
     id,
     value,
@@ -117,18 +110,17 @@ const LongevityCalculator = () => {
           {option.label}
         </option>)}
     </select>;
-
   return <div className="w-full max-w-6xl mx-auto px-4 py-12 space-y-8">
       <div className="text-center space-y-2 max-w-2xl mx-auto">
-        <h1 className="text-3xl font-display font-bold tracking-tight">Free Life Expectancy Calculator</h1>
+        <h1 className="text-3xl font-display font-bold tracking-tight">Life Expectancy Calculator</h1>
         <p className="text-muted-foreground">Explore how different factors might influence your lifespan</p>
       </div>
       
       {/* Information panels with consistent styling */}
       <div className="max-w-3xl mx-auto space-y-4">
         <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-xl border border-gray-100 p-4 text-sm text-muted-foreground animate-fadeIn" style={{
-          animationDelay: '0.3s'
-        }}>
+        animationDelay: '0.3s'
+      }}>
           <h3 className="text-sm font-medium text-foreground mb-2">About This Tool</h3>
           <div className="mt-1 text-sm text-muted-foreground">
             <p>Wondering how long you have left to live? Our Lifespan Calculator provides a personalized estimate of your life expectancy based on factors like age, gender, health habits, and lifestyle choices. Whether you're asking "When will I die?" or "How long do I have to live?", this Longevity Calculator helps you understand how your choices impact your future. Start now to see how simple changes can add years to your life!</p>
@@ -421,5 +413,4 @@ const LongevityCalculator = () => {
       </div>
     </div>;
 };
-
 export default LongevityCalculator;
