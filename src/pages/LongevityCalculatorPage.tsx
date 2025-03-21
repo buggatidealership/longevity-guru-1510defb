@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -37,35 +36,23 @@ const LongevityCalculatorPage = () => {
             slot="2222222222" 
           />
           
-          {/* SEO-optimized internal links section */}
+          {/* SEO-optimized calculators section - redesigned to be more compact */}
           <div className="my-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-bold mb-4">Free Longevity & Financial Planning Tools</h2>
+            <h2 className="text-2xl font-bold mb-4">Free Longevity Calculators</h2>
             <p className="text-gray-600 mb-4">Discover our suite of research-backed calculators to help you live longer and plan for a financially secure future.</p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-2">Retirement Savings Calculator</h3>
-                <p className="text-sm text-gray-600 mb-3">Plan your golden years with our detailed retirement spending and savings calculator.</p>
-                <Link to="/retirementsavings" className="text-blue-600 hover:underline font-medium">Plan Your Retirement →</Link>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
+                <Link to="/retirementsavings" className="text-xs text-blue-600 hover:underline font-medium">Calculate →</Link>
               </div>
               
-              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-2">Home</h3>
-                <p className="text-sm text-gray-600 mb-3">Find all our longevity tools and resources in one convenient location.</p>
-                <Link to="/" className="text-blue-600 hover:underline font-medium">Explore All Calculators →</Link>
+              <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
+                <Link to="/lifespan" className="text-xs text-blue-600 hover:underline font-medium">Calculate →</Link>
               </div>
               
-              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-2">Life Expectancy Calculator</h3>
-                <p className="text-sm text-gray-600 mb-3">Estimate your potential lifespan based on lifestyle factors, health markers, and scientific research.</p>
-                <Link to="/lifespan" className="text-blue-600 hover:underline font-medium">Calculate Your Life Expectancy →</Link>
-              </div>
-              
-              <div className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-lg mb-2">Longevity Science Resources</h3>
-                <p className="text-sm text-gray-600 mb-3">Learn about factors that influence lifespan and how to potentially extend your healthy years.</p>
-                <Link to="/#factors" className="text-blue-600 hover:underline font-medium">Explore Longevity Factors →</Link>
-              </div>
+              {/* Placeholder for future calculators that will maintain the same compact design */}
             </div>
           </div>
         </main>
