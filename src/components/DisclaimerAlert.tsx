@@ -1,8 +1,11 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
+
 interface DisclaimerAlertProps {
   className?: string;
 }
+
 const DisclaimerAlert = ({
   className
 }: DisclaimerAlertProps) => {
@@ -22,4 +25,5 @@ const DisclaimerAlert = ({
       </div>
     </div>;
 };
+
 export default DisclaimerAlert;

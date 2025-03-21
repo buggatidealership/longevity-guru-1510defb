@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import DisclaimerAlert from './DisclaimerAlert';
@@ -123,19 +124,19 @@ const LongevityCalculator = () => {
         <p className="text-muted-foreground">Explore how different factors might influence your lifespan</p>
       </div>
       
-      
-      <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-xl border border-gray-100 p-4 text-sm text-muted-foreground animate-fadeIn" style={{
-        animationDelay: '0.3s'
-      }}>
-        <h3 className="font-medium text-foreground mb-2">About This Tool</h3>
-        <div className="space-y-2">
-          <p>Wondering how long you have left to live? Our Lifespan Calculator provides a personalized estimate of your life expectancy based on factors like age, gender, health habits, and lifestyle choices. Whether you're asking "When will I die?" or "How long do I have to live?", this Longevity Calculator helps you understand how your choices impact your future. Start now to see how simple changes can add years to your life!</p>
+      {/* Information panels with consistent styling */}
+      <div className="max-w-3xl mx-auto space-y-4">
+        <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-xl border border-gray-100 p-4 text-sm text-muted-foreground animate-fadeIn" style={{
+          animationDelay: '0.3s'
+        }}>
+          <h3 className="text-sm font-medium text-foreground mb-2">About This Tool</h3>
+          <div className="mt-1 text-sm text-muted-foreground">
+            <p>Wondering how long you have left to live? Our Lifespan Calculator provides a personalized estimate of your life expectancy based on factors like age, gender, health habits, and lifestyle choices. Whether you're asking "When will I die?" or "How long do I have to live?", this Longevity Calculator helps you understand how your choices impact your future. Start now to see how simple changes can add years to your life!</p>
+          </div>
         </div>
+        
+        <DisclaimerAlert />
       </div>
-      
-      <DisclaimerAlert className="max-w-3xl mx-auto" />
-      
-      
       
       <div className="flex flex-col gap-8">
         <div className="space-y-8 w-full">
