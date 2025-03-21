@@ -14,10 +14,10 @@ const Index = () => {
         description="Calculate your life expectancy and plan your retirement with our free calculators. Tools for longevity planning and financial freedom."
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <header className="max-w-6xl mx-auto pt-8 px-4">
-          <Logo className="mb-8" />
+        <header className="max-w-6xl mx-auto pt-6 px-4">
+          <Logo className="mb-4" />
           {/* Top Ad Banner - Ensure it has proper sizing */}
-          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          <div className="mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="1111111111" 
@@ -26,8 +26,8 @@ const Index = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
+          {/* Hero Section - Reduced vertical spacing */}
+          <div className="text-center mb-6">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3 text-gray-800">Longevity Calculators</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Tools to help you live longer and plan for a financially secure future</p>
           </div>
