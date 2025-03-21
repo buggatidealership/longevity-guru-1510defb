@@ -1,9 +1,10 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight } from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -61,7 +62,21 @@ const Index = () => {
                 </div>
               </Link>
               
-              {[...Array(10)].map((_, index) => (
+              <Link to="/fertility" className="group">
+                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-purple-300 hover:shadow-md transition-all duration-200">
+                  <div className="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mb-3">
+                    <Baby className="h-5 w-5 text-purple-500" />
+                  </div>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Female Fertility</h3>
+                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate your reproductive timeline.</p>
+                  <span className="text-xs text-purple-500 flex items-center group-hover:underline">
+                    Calculate
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+              
+              {[...Array(9)].map((_, index) => (
                 <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
                     <span className="text-gray-400 font-medium text-xs">Soon</span>
@@ -105,6 +120,7 @@ const Index = () => {
                   <li><Link to="/" className="text-sm text-gray-600 hover:text-primary">Home</Link></li>
                   <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
                   <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
+                  <li><Link to="/fertility" className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                 </ul>
               </div>
               
@@ -113,6 +129,7 @@ const Index = () => {
                 <ul className="space-y-2">
                   <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy</Link></li>
                   <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Planning</Link></li>
+                  <li><Link to="/fertility" className="text-sm text-gray-600 hover:text-primary">Fertility Planning</Link></li>
                 </ul>
               </div>
               
@@ -137,4 +154,3 @@ const Index = () => {
 };
 
 export default Index;
-

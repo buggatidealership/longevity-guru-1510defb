@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import LongevityCalculatorPage from "./pages/LongevityCalculatorPage";
 import RetirementCalculator from "./pages/RetirementCalculator";
+import FertilityCalculator from "./pages/FertilityCalculator";
 import NotFound from "./pages/NotFound";
 import HeadCustomization from "./components/HeadCustomization";
 
@@ -31,7 +32,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
           <Route path="/retirementsavings" element={<RetirementCalculator />} />
-          {/* Removed the duplicate retirement-calculator route */}
+          <Route path="/fertility" element={<FertilityCalculator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
