@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import RetirementSavingsCalculator from '@/components/RetirementSavingsCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const RetirementCalculator = () => {
   // Handler to scroll to top when clicking internal links
@@ -42,6 +43,49 @@ const RetirementCalculator = () => {
             </div>
           </div>
           
+          {/* About This Calculator Section */}
+          <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
+            <h2 className="text-2xl font-semibold mb-4">About The Retirement Savings Calculator</h2>
+            
+            <div className="space-y-4 text-gray-700">
+              <p>
+                Our <strong>Retirement Savings Calculator</strong> is a powerful financial planning tool designed to help you determine how long your retirement savings will last. By analyzing your current savings, expected investment returns, and accounting for inflation, our calculator provides personalized projections for your daily, monthly, and yearly spending capacity throughout retirement.
+              </p>
+              
+              <h3 className="text-xl font-medium mt-6">How The Retirement Calculator Works</h3>
+              <p>
+                The calculator uses a sophisticated financial algorithm that factors in your total retirement savings, current age, life expectancy, expected annual return rate, and anticipated inflation. These key variables are processed through a time-value-of-money calculation to determine sustainable withdrawal rates that help prevent outliving your savings.
+              </p>
+              
+              <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Personalized Spending Plan:</strong> Get clear guidance on how much you can safely spend each day, month, and year in retirement.
+                </li>
+                <li>
+                  <strong>Inflation-Adjusted Projections:</strong> Our calculator accounts for inflation's impact on your purchasing power over time.
+                </li>
+                <li>
+                  <strong>Variable Scenario Testing:</strong> Adjust parameters to see how changes in investment returns, inflation rates, or life expectancy affect your retirement spending power.
+                </li>
+                <li>
+                  <strong>Long-Term Planning:</strong> Visualize your financial sustainability throughout your retirement years.
+                </li>
+              </ul>
+              
+              <h3 className="text-xl font-medium mt-6">Why Retirement Savings Planning Matters</h3>
+              <p>
+                Planning for retirement is one of the most significant financial challenges people face. With increasing life expectancies and uncertain economic conditions, understanding how long your retirement savings will last is crucial. Studies show that about 40% of Americans worry about outliving their savings, making proper retirement planning essential for financial security and peace of mind.
+              </p>
+              
+              <p>
+                Our Retirement Savings Calculator helps address this uncertainty by providing clear, actionable insights into your financial future. By making informed decisions today about saving, investing, and spending in retirement, you can significantly improve your financial security during your retirement years.
+              </p>
+              
+              <DisclaimerAlert className="mt-6" />
+            </div>
+          </div>
+          
           <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
@@ -55,12 +99,12 @@ const RetirementCalculator = () => {
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              <Link to="/retirementsavings" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/retirementsavings" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow block">
                 <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/lifespan" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/lifespan" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow block">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
