@@ -140,7 +140,7 @@ const Index = () => {
             
             <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
             <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <a href="/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
+              <a href="https://lifespan-calculator.com/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
             </div>
           </div>
         </footer>
