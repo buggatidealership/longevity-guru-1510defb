@@ -10,6 +10,7 @@ interface RetirementResultCardProps {
   yearlySpending: number;
   totalYears: number;
   totalSavings: number;
+  age: number; // Add age prop
   className?: string;
 }
 
@@ -19,6 +20,7 @@ const RetirementResultCard = ({
   yearlySpending, 
   totalYears,
   totalSavings,
+  age, // Include age in destructuring
   className 
 }: RetirementResultCardProps) => {
   
@@ -67,7 +69,7 @@ const RetirementResultCard = ({
         <div className="pt-4">
           <div className="text-sm text-muted-foreground mb-2">
             <Calendar className="inline h-4 w-4 mr-1 -mt-0.5" />
-            Your funds are projected to last until age {totalYears + parseInt(String(age))}.
+            Your funds are projected to last until age {totalYears + age}.
           </div>
         </div>
         

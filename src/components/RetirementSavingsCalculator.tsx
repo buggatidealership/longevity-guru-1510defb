@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -272,6 +271,7 @@ const RetirementSavingsCalculator = () => {
           yearlySpending={yearlySpending}
           totalYears={totalYears}
           totalSavings={totalSavings}
+          age={age}
         />
       )}
     </div>
