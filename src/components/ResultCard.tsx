@@ -29,7 +29,7 @@ const ResultCard = ({ years, baseAge, improvement, improvementPercentage, classN
   };
   
   return (
-    <div className={cn("glass-panel p-8 animate-slideUp", className)}>
+    <div className={cn("glass-panel p-8 animate-slideUp w-full", className)}>
       <div className="space-y-6 text-center">
         <div>
           <span className="chip">Results</span>

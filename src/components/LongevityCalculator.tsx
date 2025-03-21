@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import DisclaimerAlert from './DisclaimerAlert';
@@ -125,8 +126,8 @@ const LongevityCalculator = () => {
       
       <DisclaimerAlert className="max-w-3xl mx-auto" />
       
-      <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
+      <div className="flex flex-col gap-8">
+        <div className="space-y-8 w-full">
           <div className="glass-panel p-6 animate-fadeIn" style={{
           animationDelay: '0.1s'
         }}>
@@ -398,8 +399,8 @@ const LongevityCalculator = () => {
           </div>
         </div>
         
-        <div>
-          <div className="lg:sticky lg:top-8 space-y-6">
+        <div className="w-full">
+          <div className="space-y-6">
             <ResultCard years={result.years} baseAge={result.baseAge} improvement={result.improvement} improvementPercentage={result.improvementPercentage} />
             
             <div className="bg-white bg-opacity-70 backdrop-blur-sm rounded-xl border border-gray-100 p-4 text-sm text-muted-foreground animate-fadeIn" style={{
