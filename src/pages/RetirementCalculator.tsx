@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -12,12 +11,11 @@ const RetirementCalculator = () => {
       <SEOHead 
         title="Retirement Savings Calculator | Calculate Your Savings Longevity"
         description="Calculate how much you can spend daily, monthly, and yearly in retirement based on your savings. Free retirement spending calculator."
-        canonicalUrl="https://longevitycalculator.xyz/retirementsavings"
+        canonicalUrl="https://lifespan-calculator.com/retirementsavings"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner - More prominent */}
           <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
@@ -29,14 +27,12 @@ const RetirementCalculator = () => {
         </header>
 
         <main className="max-w-4xl mx-auto px-4">
-          {/* Main Calculator - Properly centered */}
           <div className="w-full flex justify-center">
             <div className="w-full">
               <RetirementSavingsCalculator />
             </div>
           </div>
           
-          {/* Bottom Ad Banner - More prominent */}
           <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
@@ -46,7 +42,6 @@ const RetirementCalculator = () => {
             />
           </div>
           
-          {/* Calculator links section */}
           <div className="mt-8 mb-6 p-4 bg-white rounded-xl shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
@@ -70,13 +65,10 @@ const RetirementCalculator = () => {
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
-                  {/* "Home" link removed from Our Calculators */}
                   <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
                   <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                 </ul>
               </div>
-              
-              {/* Resources section removed */}
               
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
@@ -89,7 +81,7 @@ const RetirementCalculator = () => {
             
             <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
             <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <Link to="/sitemap.xml" className="hover:text-gray-700">Sitemap</Link>
+              <a href="/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
             </div>
           </div>
         </footer>

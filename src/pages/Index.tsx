@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -16,7 +15,6 @@ const Index = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner - Higher visibility position */}
           <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
@@ -27,17 +25,13 @@ const Index = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          {/* Hero Section - Further reduced vertical spacing */}
           <div className="text-center mb-4">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-gray-800">Longevity Calculators</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Tools to help you live longer and plan for a financially secure future</p>
           </div>
           
-          {/* All Calculators Section */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            {/* Grid of all calculators */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              {/* Life Expectancy Calculator */}
               <Link to="/lifespan" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
@@ -52,7 +46,6 @@ const Index = () => {
                 </div>
               </Link>
               
-              {/* Retirement Savings Calculator */}
               <Link to="/retirementsavings" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-3">
@@ -67,7 +60,6 @@ const Index = () => {
                 </div>
               </Link>
               
-              {/* Placeholder calculators */}
               {[...Array(10)].map((_, index) => (
                 <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
@@ -84,7 +76,6 @@ const Index = () => {
             </div>
           </div>
           
-          {/* In-content Ad Banner - Strategically placed between content */}
           <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
             <AdUnit 
               className="w-full"
@@ -94,7 +85,6 @@ const Index = () => {
             />
           </div>
           
-          {/* Additional content section to improve engagement */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <h2 className="text-xl font-semibold mb-3">Why Plan for Longevity?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -109,7 +99,6 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Bottom Ad Banner - Before footer for visibility */}
           <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
@@ -151,7 +140,7 @@ const Index = () => {
             
             <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
             <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <Link to="/sitemap.xml" className="hover:text-gray-700">Sitemap</Link>
+              <a href="/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
             </div>
           </div>
         </footer>
