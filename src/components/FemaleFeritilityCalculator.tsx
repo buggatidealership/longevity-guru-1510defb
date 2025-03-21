@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -71,115 +70,191 @@ const FemaleFeritilityCalculator = () => {
       return;
     }
     
-    // Base estimation based on age
-    let estimatedAge = 0;
+    // Base fertility status assessment based on age
     let fertilityStatus = "";
-    let amhComment = "";
+    let baseYearsRemaining = 0;
+    let estimatedAge = 0;
     
-    // Age is the primary factor
+    // Calculate base fertility status and years remaining by age
     if (age < 35) {
+      fertilityStatus = "Optimal";
+      baseYearsRemaining = 15;
       estimatedAge = 51; // Average menopause age
-      fertilityStatus = "Likely optimal";
     } else if (age < 38) {
+      fertilityStatus = "Good";
+      baseYearsRemaining = 12;
       estimatedAge = 50;
-      fertilityStatus = "Good, but beginning to decline";
     } else if (age < 40) {
+      fertilityStatus = "Moderate";
+      baseYearsRemaining = 10;
       estimatedAge = 49;
-      fertilityStatus = "Moderately reduced";
     } else if (age < 43) {
+      fertilityStatus = "Declining";
+      baseYearsRemaining = 6;
       estimatedAge = 48;
-      fertilityStatus = "Significantly reduced";
     } else if (age < 45) {
+      fertilityStatus = "Low";
+      baseYearsRemaining = 3;
       estimatedAge = 47;
-      fertilityStatus = "Very low";
     } else if (age < 50) {
+      fertilityStatus = "Very Low";
+      baseYearsRemaining = 1;
       estimatedAge = 46;
-      fertilityStatus = "Extremely low";
     } else {
+      fertilityStatus = "Minimal or None";
+      baseYearsRemaining = 0;
       estimatedAge = 45;
-      fertilityStatus = "Likely post-menopausal or approaching menopause";
     }
     
-    // Adjust based on AMH if provided
+    // Adjustment factors for years remaining
+    let yearAdjustment = 0;
+    let statusAdjustment = 0; // 0 = no change, -1 = one category worse, 1 = one category better
+    let amhComment = "";
+    
+    // AMH level impact on fertility (if provided)
     const amhValue = amh ? parseFloat(amh) : null;
     if (amhValue !== null) {
-      if (amhValue < 0.5) {
-        estimatedAge -= 2;
-        amhComment = "Your AMH level is very low for your age, suggesting diminished ovarian reserve.";
-      } else if (amhValue < 1.0) {
-        estimatedAge -= 1;
-        amhComment = "Your AMH level is low for your age, suggesting somewhat diminished ovarian reserve.";
-      } else if (amhValue > 3.0 && age > 35) {
-        estimatedAge += 1;
-        amhComment = "Your AMH level is good for your age, suggesting better than average ovarian reserve.";
+      if (age < 35) {
+        if (amhValue < 1.0) {
+          yearAdjustment -= 3;
+          statusAdjustment -= 1;
+          amhComment = "Your AMH level is low for your age, suggesting diminished ovarian reserve.";
+        } else if (amhValue < 2.0) {
+          yearAdjustment -= 1;
+          amhComment = "Your AMH level is below average for your age group.";
+        } else if (amhValue > 3.5) {
+          yearAdjustment += 1;
+          amhComment = "Your AMH level is excellent for your age, suggesting good ovarian reserve.";
+        } else {
+          amhComment = "Your AMH level is within the expected range for your age.";
+        }
+      } else if (age < 40) {
+        if (amhValue < 0.5) {
+          yearAdjustment -= 3;
+          statusAdjustment -= 1;
+          amhComment = "Your AMH level is very low for your age, suggesting significantly diminished ovarian reserve.";
+        } else if (amhValue < 1.0) {
+          yearAdjustment -= 2;
+          amhComment = "Your AMH level is low for your age group, suggesting somewhat diminished ovarian reserve.";
+        } else if (amhValue > 2.0) {
+          yearAdjustment += 1;
+          statusAdjustment += 1;
+          amhComment = "Your AMH level is better than average for your age, suggesting better ovarian reserve.";
+        } else {
+          amhComment = "Your AMH level is within the expected range for your age.";
+        }
+      } else {
+        if (amhValue < 0.3) {
+          yearAdjustment -= 2;
+          statusAdjustment -= 1;
+          amhComment = "Your AMH level is very low, suggesting significantly diminished ovarian reserve.";
+        } else if (amhValue < 0.5) {
+          yearAdjustment -= 1;
+          amhComment = "Your AMH level is low for your age group.";
+        } else if (amhValue > 1.0) {
+          yearAdjustment += 1;
+          statusAdjustment += 1;
+          amhComment = "Your AMH level is better than average for your age, suggesting better ovarian reserve.";
+        } else {
+          amhComment = "Your AMH level is within the expected range for your age.";
+        }
       }
     }
     
-    // Adjust for family history
+    // Family history impact
     if (familyHistory === "yes") {
-      estimatedAge -= 2;
+      yearAdjustment -= 3;
+      statusAdjustment -= 1;
     }
     
-    // Adjust for conditions
-    if (conditions.includes("endometriosis")) {
-      estimatedAge -= 1;
-    }
+    // Medical conditions impact - cumulative effect
+    let conditionImpact = 0;
     
+    // Each condition has a different impact level
     if (conditions.includes("pcos")) {
-      estimatedAge -= 1;
+      conditionImpact += 2; // Can affect ovulation but not always permanently
+    }
+    
+    if (conditions.includes("endometriosis")) {
+      conditionImpact += 3; // Can cause anatomical issues and inflammation
     }
     
     if (conditions.includes("poi")) {
-      estimatedAge -= 3;
+      conditionImpact += 5; // Significant impact on ovarian function
     }
     
     if (conditions.includes("fibroids")) {
-      estimatedAge -= 1;
+      conditionImpact += 2; // Can affect implantation depending on location
     }
     
     if (conditions.includes("pid")) {
-      estimatedAge -= 1;
+      conditionImpact += 3; // Can cause tubal damage
     }
     
     if (conditions.includes("thyroid")) {
-      estimatedAge -= 1;
+      conditionImpact += 2; // Hormonal impact on ovulation
     }
     
     if (conditions.includes("asherman")) {
-      estimatedAge -= 1;
+      conditionImpact += 3; // Affects implantation
     }
     
     if (conditions.includes("autoimmune")) {
-      estimatedAge -= 2;
+      conditionImpact += 3; // Can create hostile environment for pregnancy
     }
     
     if (conditions.includes("uterine_anomalies")) {
-      estimatedAge -= 1;
+      conditionImpact += 3; // Structural issues affecting implantation
     }
     
     if (conditions.includes("premature_ovarian_failure")) {
-      estimatedAge -= 4;
+      conditionImpact += 6; // Major impact on ovarian function
     }
     
-    // Adjust for smoking
+    // More conditions means more complex fertility issues
+    // Apply a progressive adjustment based on number of conditions
+    if (!conditions.includes("none")) {
+      const conditionCount = conditions.length;
+      
+      if (conditionCount >= 3) {
+        // With 3+ conditions, the compounding effect is greater
+        yearAdjustment -= Math.min(conditionImpact, 8); // Cap at 8 years reduction
+        statusAdjustment -= 2; // Two categories worse
+      } else {
+        // With 1-2 conditions, impact is more moderate
+        yearAdjustment -= Math.min(conditionImpact / 2, 5); // Cap at 5 years reduction
+        statusAdjustment -= 1; // One category worse
+      }
+    }
+    
+    // Lifestyle factors
     if (smoking === "current") {
-      estimatedAge -= 2;
+      yearAdjustment -= 2;
+      statusAdjustment -= 1;
     } else if (smoking === "former") {
-      estimatedAge -= 1;
+      yearAdjustment -= 1;
     }
     
-    // Adjust for BMI (extreme BMIs can affect fertility)
     if (bmi === "underweight" || bmi === "obese") {
-      estimatedAge -= 1;
+      yearAdjustment -= 2;
+      statusAdjustment -= 1;
+    } else if (bmi === "overweight") {
+      yearAdjustment -= 1;
     }
     
-    // Ensure estimated age doesn't go below current age
-    estimatedAge = Math.max(estimatedAge, age + 1);
+    // Calculate final years remaining with all adjustments
+    let yearsRemaining = Math.max(0, baseYearsRemaining + yearAdjustment);
     
-    // Calculate years remaining based on adjusted estimated menopause age
-    const yearsRemaining = estimatedAge - age;
+    // Apply the status adjustment
+    const statusLevels = ["Minimal or None", "Very Low", "Low", "Declining", "Moderate", "Good", "Optimal"];
+    let statusIndex = statusLevels.indexOf(fertilityStatus);
+    statusIndex = Math.max(0, Math.min(statusLevels.length - 1, statusIndex + statusAdjustment));
+    fertilityStatus = statusLevels[statusIndex];
     
-    // Add specific factors
+    // Adjust estimated menopause age based on all factors
+    estimatedAge = Math.max(age + 1, estimatedAge + yearAdjustment);
+    
+    // Collect factors for display
     let factors: string[] = [];
     factors.push(`Age (${age} years)`);
     
@@ -192,15 +267,54 @@ const FemaleFeritilityCalculator = () => {
     }
     
     if (!conditions.includes("none")) {
-      const conditionNames = conditions.filter(c => c !== "none").join(", ");
+      const conditionNames = conditions.map(c => {
+        switch(c) {
+          case "pcos": return "PCOS";
+          case "endometriosis": return "Endometriosis";
+          case "poi": return "Primary Ovarian Insufficiency";
+          case "fibroids": return "Uterine Fibroids";
+          case "pid": return "Pelvic Inflammatory Disease";
+          case "thyroid": return "Thyroid Disorders";
+          case "asherman": return "Asherman's Syndrome";
+          case "autoimmune": return "Autoimmune Disorders";
+          case "uterine_anomalies": return "Uterine Anomalies";
+          case "premature_ovarian_failure": return "Premature Ovarian Failure";
+          default: return c;
+        }
+      }).join(", ");
       factors.push(`Medical conditions (${conditionNames})`);
     }
     
     if (smoking !== "never") {
-      factors.push(`Smoking status (${smoking})`);
+      factors.push(`Smoking status (${smoking} smoker)`);
     }
     
     factors.push(`BMI (${bmi})`);
+    
+    // Add descriptive explanation to fertility status
+    switch(fertilityStatus) {
+      case "Optimal":
+        fertilityStatus = "Optimal - Fertility at peak levels for your age";
+        break;
+      case "Good":
+        fertilityStatus = "Good - Fertility is strong with minimal decline";
+        break;
+      case "Moderate":
+        fertilityStatus = "Moderate - Some fertility decline is present";
+        break;
+      case "Declining":
+        fertilityStatus = "Declining - Notable reduction in fertility potential";
+        break;
+      case "Low":
+        fertilityStatus = "Low - Significant fertility challenges likely";
+        break;
+      case "Very Low":
+        fertilityStatus = "Very Low - Fertility severely compromised";
+        break;
+      case "Minimal or None":
+        fertilityStatus = "Minimal or None - Extremely limited or no fertility potential";
+        break;
+    }
     
     // Set results
     setResults({
