@@ -12,12 +12,12 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = 'Life Expectancy Calculator | Estimate Your Lifespan',
-  description = 'Calculate your estimated life expectancy based on health factors, lifestyle choices, and demographics. Free longevity calculator.',
+  title = 'Longevity Calculators | Health & Financial Planning Tools',
+  description = 'Calculate your life expectancy, plan retirement, estimate fertility, and track child growth with our free calculators. Evidence-based tools for health and financial planning.',
   canonicalUrl = 'https://longevitycalculator.xyz/',
   ogType = 'website',
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
-  keywords,
+  keywords = 'life expectancy calculator, retirement calculator, fertility calculator, child growth calculator, longevity tools, health planning, financial planning',
 }) => {
   return (
     <Helmet>
