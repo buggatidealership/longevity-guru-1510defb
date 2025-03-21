@@ -273,7 +273,6 @@ const FemaleFeritilityCalculator = () => {
                 variant={isConditionSelected('pcos') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => handleConditionChange('pcos')}
-                disabled={isConditionSelected('none')}
               >
                 PCOS
               </Button>
@@ -282,7 +281,6 @@ const FemaleFeritilityCalculator = () => {
                 variant={isConditionSelected('endometriosis') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => handleConditionChange('endometriosis')}
-                disabled={isConditionSelected('none')}
               >
                 Endometriosis
               </Button>
@@ -291,7 +289,6 @@ const FemaleFeritilityCalculator = () => {
                 variant={isConditionSelected('autoimmune') ? 'default' : 'outline'}
                 className="justify-start"
                 onClick={() => handleConditionChange('autoimmune')}
-                disabled={isConditionSelected('none')}
               >
                 Autoimmune Disorders
               </Button>
