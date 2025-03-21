@@ -28,9 +28,9 @@ const LongevityCalculatorPage = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
             {/* Left sidebar ad - Visible on desktop */}
-            <div className="hidden md:block md:w-64 lg:w-72">
+            <div className="hidden md:block md:w-64 lg:w-72 md:flex-shrink-0">
               <div className="sticky top-4 bg-gray-50 rounded-lg text-center" style={{ minHeight: '600px' }}>
                 <AdUnit 
                   className="w-full h-full"
@@ -42,7 +42,7 @@ const LongevityCalculatorPage = () => {
             </div>
             
             {/* Main Calculator */}
-            <div className="flex-1">
+            <div className="flex-1 max-w-3xl mx-auto md:mx-0">
               <LongevityCalculator />
               
               {/* Mobile-only ad after calculator - Visible only on mobile */}
