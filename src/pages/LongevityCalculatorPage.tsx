@@ -48,7 +48,7 @@ const LongevityCalculatorPage = () => {
             
             <div className="space-y-4 text-gray-700">
               <p>
-                Our <strong>Life Expectancy Calculator</strong> is a comprehensive tool designed to help you predict your potential lifespan based on various health metrics, lifestyle factors, and demographic characteristics. Using data-driven insights from population health studies, our calculator estimates how long you might live by analyzing your personal health profile and lifestyle choices.
+                Our <strong>Life Expectancy Calculator</strong> is a comprehensive tool designed to help you predict your potential lifespan based on various health metrics, lifestyle factors, and demographic characteristics. Wondering "how long do I have to live?" or "when will I die?" Our calculator provides a personalized estimate based on your unique profile.
               </p>
               
               <h3 className="text-xl font-medium mt-6">How The Life Expectancy Calculator Works</h3>
@@ -78,7 +78,7 @@ const LongevityCalculatorPage = () => {
               </p>
               
               <p>
-                Our Life Expectancy Calculator helps you visualize the potential impact of your current lifestyle on your longevity, empowering you to make conscious choices that may extend your healthy years. Whether you're planning for retirement, considering health insurance options, or simply curious about how your lifestyle affects your lifespan, our calculator provides valuable insights to guide your decisions.
+                Our Life Expectancy Calculator helps you visualize the potential impact of your current lifestyle on your longevity, empowering you to make conscious choices that may extend your healthy years. Whether you're planning for retirement, considering health insurance options, or simply curious about how your lifestyle affects your lifespan, our Longevity Calculator provides valuable insights to guide your decisions.
               </p>
             </div>
           </div>
