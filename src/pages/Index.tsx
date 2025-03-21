@@ -16,12 +16,13 @@ const Index = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner - Ensure it has proper sizing */}
+          {/* Top Ad Banner - Higher visibility position */}
           <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="1111111111" 
               format="horizontal"
+              responsive={true}
             />
           </div>
         </header>
@@ -32,8 +33,8 @@ const Index = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Tools to help you live longer and plan for a financially secure future</p>
           </div>
           
-          {/* All Calculators Section - Removed header and pagination */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-12">
+          {/* All Calculators Section */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             {/* Grid of all calculators */}
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-4">
               {/* Life Expectancy Calculator */}
@@ -51,7 +52,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              {/* Retirement Savings Calculator - Fixed title to prevent wrapping */}
+              {/* Retirement Savings Calculator */}
               <Link to="/retirementsavings" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-3">
@@ -67,7 +68,7 @@ const Index = () => {
               </Link>
               
               {/* Placeholder calculators */}
-              {[...Array(22)].map((_, index) => (
+              {[...Array(10)].map((_, index) => (
                 <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
                     <span className="text-gray-400 font-medium text-xs">Soon</span>
@@ -83,29 +84,44 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Middle Ad Banner */}
-          <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+          {/* In-content Ad Banner - Strategically placed between content */}
+          <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
             <AdUnit 
               className="w-full"
               slot="2222222222" 
               format="rectangle"
+              responsive={true}
             />
           </div>
-        </main>
-        
-        {/* Bottom Ad Banner */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="mt-8 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          
+          {/* Additional content section to improve engagement */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+            <h2 className="text-xl font-semibold mb-3">Why Plan for Longevity?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="border rounded-lg p-4">
+                <h3 className="font-semibold text-md mb-2">Financial Security</h3>
+                <p className="text-sm text-gray-600">Understanding your potential lifespan helps you plan your finances better, ensuring you don't outlive your savings.</p>
+              </div>
+              <div className="border rounded-lg p-4">
+                <h3 className="font-semibold text-md mb-2">Health Planning</h3>
+                <p className="text-sm text-gray-600">Knowing key health factors that affect longevity can guide lifestyle changes for a healthier future.</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Bottom Ad Banner - Before footer for visibility */}
+          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="3333333333" 
               format="horizontal"
+              responsive={true}
             />
           </div>
-        </div>
+        </main>
         
-        <footer className="max-w-6xl mx-auto px-4 py-8">
-          <div className="border-t pt-8">
+        <footer className="max-w-6xl mx-auto px-4 py-6">
+          <div className="border-t pt-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>

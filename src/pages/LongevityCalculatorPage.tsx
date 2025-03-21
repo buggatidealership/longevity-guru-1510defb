@@ -15,31 +15,55 @@ const LongevityCalculatorPage = () => {
         canonicalUrl="https://longevitycalculator.xyz/lifespan"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <header className="max-w-6xl mx-auto pt-8 px-4">
-          <Logo className="mb-6" />
-          {/* Top Ad Banner */}
-          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+        <header className="max-w-6xl mx-auto pt-4 px-4">
+          <Logo className="mb-3" />
+          {/* Top Ad Banner - Highly visible placement */}
+          <div className="mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="1111111111" 
               format="horizontal"
+              responsive={true}
             />
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-6">            
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Left sidebar ad - Visible on desktop */}
+            <div className="hidden md:block md:w-64 lg:w-72">
+              <div className="sticky top-4 bg-gray-50 rounded-lg text-center" style={{ minHeight: '600px' }}>
+                <AdUnit 
+                  className="w-full h-full"
+                  slot="5555555555" 
+                  format="vertical"
+                  responsive={false}
+                />
+              </div>
+            </div>
+            
             {/* Main Calculator */}
             <div className="flex-1">
               <LongevityCalculator />
+              
+              {/* Mobile-only ad after calculator - Visible only on mobile */}
+              <div className="block md:hidden mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+                <AdUnit 
+                  className="w-full"
+                  slot="5555555555" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
             </div>
           </div>
           
-          {/* Middle Ad Banner */}
-          <div className="mt-8 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+          {/* Middle Ad Banner - After results */}
+          <div className="mt-8 mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
             <AdUnit 
               className="w-full"
               slot="2222222222" 
               format="rectangle"
+              responsive={true}
             />
           </div>
           
@@ -61,19 +85,20 @@ const LongevityCalculatorPage = () => {
           </div>
         </main>
         
-        {/* Bottom Ad Banner */}
+        {/* Bottom Ad Banner - Above footer */}
         <div className="max-w-6xl mx-auto px-4">
-          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          <div className="mt-4 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="3333333333" 
               format="horizontal"
+              responsive={true}
             />
           </div>
         </div>
         
-        <footer className="max-w-6xl mx-auto px-4 py-8">
-          <div className="border-t pt-8">
+        <footer className="max-w-6xl mx-auto px-4 py-6">
+          <div className="border-t pt-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
