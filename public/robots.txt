@@ -7,4 +7,4 @@ Allow: /lifespan
 Allow: /retirementsavings
 
 # Sitemaps
-Sitemap: https://lifespan-calculator.com/sitemap.xml
+Sitemap: /sitemap.xml
