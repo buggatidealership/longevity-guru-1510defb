@@ -12,7 +12,7 @@ interface SEOHeadProps {
 
 const SEOHead: React.FC<SEOHeadProps> = ({
   title = 'Life Expectancy Calculator | Estimate Your Lifespan',
-  description = 'Calculate your estimated life expectancy based on health factors, lifestyle choices, and demographics. Free, research-based longevity calculator.',
+  description = 'Calculate your estimated life expectancy based on health factors, lifestyle choices, and demographics. Free longevity calculator.',
   canonicalUrl = 'https://lifespan-calculator.com/',
   ogType = 'website',
   ogImage = 'https://lovable.dev/opengraph-image-p98pqg.png',

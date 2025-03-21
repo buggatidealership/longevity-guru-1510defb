@@ -10,13 +10,13 @@ const RetirementCalculator = () => {
   return (
     <>
       <SEOHead 
-        title="Retirement Savings Calculator | Plan Your Retirement Income"
+        title="Retirement Savings Calculator | Calculate Your Savings Longevity"
         description="Calculate how much you can spend daily, monthly, and yearly in retirement based on your savings. Free retirement spending calculator."
         canonicalUrl="https://longevitycalculator.xyz/retirementsavings"
       />
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-8 px-4">
-          <Logo className="mb-8" />
+          <Logo className="mb-6" />
           {/* Top Ad Banner */}
           <AdUnit 
             className="mb-6 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
@@ -33,27 +33,26 @@ const RetirementCalculator = () => {
           
           {/* Middle Ad Banner */}
           <AdUnit 
-            className="my-6 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
+            className="mt-8 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
             slot="2222222222" 
           />
           
-          {/* SEO-optimized calculators section - redesigned to be more compact */}
-          <div className="mt-6 mb-6 p-5 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-bold mb-3">Free Longevity Calculators</h2>
-            <p className="text-gray-600 mb-3">Discover our suite of research-backed calculators to help you live longer and plan for a financially secure future.</p>
+          {/* Calculator links section */}
+          <div className="mt-4 mb-6 p-4 bg-white rounded-xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
-                <Link to="/retirementsavings" className="text-xs text-blue-600 hover:underline font-medium">Calculate →</Link>
+                <Link to="/retirementsavings" className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
               </div>
               
               <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
-                <Link to="/lifespan" className="text-xs text-blue-600 hover:underline font-medium">Calculate →</Link>
+                <Link to="/lifespan" className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
               </div>
               
-              {/* Placeholder for future calculators that will maintain the same compact design */}
+              {/* Placeholder for future calculators */}
             </div>
           </div>
         </main>
@@ -81,8 +80,8 @@ const RetirementCalculator = () => {
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Resources</h3>
                 <ul className="space-y-2">
-                  <li><Link to="/#about" className="text-sm text-gray-600 hover:text-primary">About Life Expectancy</Link></li>
-                  <li><Link to="/#factors" className="text-sm text-gray-600 hover:text-primary">Longevity Factors</Link></li>
+                  <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy</Link></li>
+                  <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Planning</Link></li>
                 </ul>
               </div>
               
