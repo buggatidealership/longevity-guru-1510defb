@@ -1,9 +1,7 @@
+
 User-agent: *
 Allow: /
 
 # Important pages
 Allow: /lifespan
 Allow: /retirementsavings
-
-# Sitemaps
-Sitemap: https://longevitycalculator.xyz/sitemap.xml
