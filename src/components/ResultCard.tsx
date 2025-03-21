@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { MessageCircle, Ticket } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 interface ResultCardProps {
   years: number;
   baseAge: string;
@@ -10,6 +12,7 @@ interface ResultCardProps {
   improvementPercentage: string;
   className?: string;
 }
+
 const ResultCard = ({
   years,
   baseAge,
@@ -19,6 +22,7 @@ const ResultCard = ({
 }: ResultCardProps) => {
   const isPositive = parseFloat(improvement) > 0;
   const isMobile = useIsMobile();
+
   const handleShareViaWhatsApp = () => {
     const message = `My estimated life expectancy is ${years} years! That's ${isPositive ? `+${improvement}` : improvement} years compared to my demographic baseline of ${baseAge} years. Calculate yours at https://lifespan-calculator.com`;
 
@@ -31,6 +35,7 @@ const ResultCard = ({
     // Open the URL in a new tab
     window.open(whatsappUrl, '_blank');
   };
+
   return <div className={cn("glass-panel p-8 animate-slideUp w-full", className)}>
       <div className="space-y-6 text-center">
         <div>
@@ -69,9 +74,10 @@ const ResultCard = ({
         
         <Button variant="outline" className="w-full min-h-[40px] group text-xs sm:text-sm px-2 sm:px-4 py-2 whitespace-normal break-words h-auto" onClick={() => window.open("https://blueprint.bryanjohnson.com/SFDFHXRX", "_blank")}>
           <Ticket className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 text-blue-600 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-          <span className="line-clamp-2 inline-block">Get $25 Off Bryan Johnson's Longevity Plan</span>
+          <span className="line-clamp-2 inline-block">Save $25 on the #1 longevity program today!</span>
         </Button>
       </div>
     </div>;
 };
+
 export default ResultCard;

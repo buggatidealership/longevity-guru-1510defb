@@ -55,15 +55,15 @@ const LongevityCalculatorPage = () => {
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/retirementsavings" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
-                <Link to="/retirementsavings" onClick={handleLinkClick} className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
-              </div>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
               
-              <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/lifespan" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
-                <Link to="/lifespan" onClick={handleLinkClick} className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
-              </div>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
             </div>
           </div>
         </main>
