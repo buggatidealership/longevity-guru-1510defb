@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -17,8 +16,8 @@ const RetirementCalculator = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner - Highly visible placement */}
-          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+          {/* Top Ad Banner - Only ad we'll keep */}
+          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="1111111111" 
@@ -27,51 +26,17 @@ const RetirementCalculator = () => {
             />
           </div>
         </header>
-        <main className="max-w-6xl mx-auto px-4">
-          {/* Layout with proper centering */}
-          <div className="flex flex-col md:flex-row gap-6">
-            {/* Left sidebar ad - Visible on desktop */}
-            <div className="hidden md:block md:w-1/4 flex-shrink-0">
-              <div className="sticky top-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '600px' }}>
-                <AdUnit 
-                  className="w-full h-full"
-                  slot="5555555555" 
-                  format="vertical"
-                  responsive={false}
-                />
-              </div>
-            </div>
-            
-            {/* Main Calculator - Properly centered */}
-            <div className="w-full md:w-3/4 flex justify-center">
-              <div className="w-full max-w-3xl">
-                <RetirementSavingsCalculator />
-                
-                {/* Mobile-only ad after calculator - Visible only on mobile */}
-                <div className="block md:hidden mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-                  <AdUnit 
-                    className="w-full"
-                    slot="5555555555" 
-                    format="rectangle"
-                    responsive={true}
-                  />
-                </div>
-              </div>
+
+        <main className="max-w-4xl mx-auto px-4">
+          {/* Main Calculator - Properly centered */}
+          <div className="w-full flex justify-center">
+            <div className="w-full">
+              <RetirementSavingsCalculator />
             </div>
           </div>
           
-          {/* Middle Ad Banner - Strategic placement between sections */}
-          <div className="mt-8 mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="2222222222" 
-              format="rectangle"
-              responsive={true}
-            />
-          </div>
-          
-          {/* Educational content section to improve engagement and ad visibility */}
-          <div className="mt-4 mb-6 p-4 bg-white rounded-xl shadow-sm">
+          {/* Educational content section */}
+          <div className="mt-8 mb-6 p-4 bg-white rounded-xl shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Retirement Planning Tips</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -101,18 +66,6 @@ const RetirementCalculator = () => {
             </div>
           </div>
         </main>
-        
-        {/* Bottom Ad Banner - Above footer */}
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="mt-4 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="3333333333" 
-              format="horizontal"
-              responsive={true}
-            />
-          </div>
-        </div>
         
         <footer className="max-w-6xl mx-auto px-4 py-6">
           <div className="border-t pt-6">
