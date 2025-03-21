@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -87,20 +86,6 @@ const Index = () => {
             />
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-3">Why Plan for Longevity?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="border rounded-lg p-4">
-                <h3 className="font-semibold text-md mb-2">Financial Security</h3>
-                <p className="text-sm text-gray-600">Understanding your potential lifespan helps you plan your finances better, ensuring you don't outlive your savings.</p>
-              </div>
-              <div className="border rounded-lg p-4">
-                <h3 className="font-semibold text-md mb-2">Health Planning</h3>
-                <p className="text-sm text-gray-600">Knowing key health factors that affect longevity can guide lifestyle changes for a healthier future.</p>
-              </div>
-            </div>
-          </div>
-          
           <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
@@ -152,3 +137,4 @@ const Index = () => {
 };
 
 export default Index;
+
