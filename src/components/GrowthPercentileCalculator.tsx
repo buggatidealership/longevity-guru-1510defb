@@ -22,11 +22,11 @@ import {
 } from '@/components/ui/select';
 
 const GrowthPercentileCalculator = () => {
-  const [ageValue, setAgeValue] = useState<number>(5);
+  const [ageValue, setAgeValue] = useState<string>("5");
   const [ageUnit, setAgeUnit] = useState<string>('years');
   const [gender, setGender] = useState<string>('male');
-  const [height, setHeight] = useState<number>(110);
-  const [weight, setWeight] = useState<number>(18);
+  const [height, setHeight] = useState<string>("110");
+  const [weight, setWeight] = useState<string>("18");
   const [units, setUnits] = useState<string>('metric');
   
   // LMS parameters for height-for-age and weight-for-age
@@ -105,23 +105,27 @@ const GrowthPercentileCalculator = () => {
   
   // Get age in years for calculations
   const getAgeInYears = () => {
+    const ageNum = parseFloat(ageValue) || 0;
     if (ageUnit === 'years') {
-      return ageValue;
+      return ageNum;
     } else {
       // Convert months to years
-      return ageValue / 12;
+      return ageNum / 12;
     }
   };
   
   // Convert imperial to metric for calculations
   const getMetricValues = () => {
+    const heightNum = parseFloat(height) || 0;
+    const weightNum = parseFloat(weight) || 0;
+    
     if (units === 'metric') {
-      return { height, weight };
+      return { height: heightNum, weight: weightNum };
     } else {
       // Convert inches to cm, pounds to kg
       return {
-        height: height * 2.54,
-        weight: weight * 0.453592
+        height: heightNum * 2.54,
+        weight: weightNum * 0.453592
       };
     }
   };
@@ -198,12 +202,9 @@ const GrowthPercentileCalculator = () => {
     return "Well above average";
   };
 
-  // Handle numeric input validation
-  const handleNumericInput = (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<number>>) => {
-    const value = parseFloat(e.target.value);
-    if (!isNaN(value)) {
-      setter(value);
-    }
+  // Handle input validation for text inputs
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
+    setter(e.target.value);
   };
   
   return (
@@ -273,12 +274,10 @@ const GrowthPercentileCalculator = () => {
             <div className="flex gap-2">
               <Input
                 id="age"
-                type="number"
-                min={ageUnit === 'years' ? 0.25 : 3}
-                max={ageUnit === 'years' ? 10 : 120}
-                step={ageUnit === 'years' ? 0.25 : 1}
+                type="text"
+                inputMode="numeric"
                 value={ageValue}
-                onChange={(e) => handleNumericInput(e, setAgeValue)}
+                onChange={(e) => handleInputChange(e, setAgeValue)}
                 className="flex-1"
               />
               <Select value={ageUnit} onValueChange={setAgeUnit}>
@@ -306,9 +305,10 @@ const GrowthPercentileCalculator = () => {
             </Label>
             <Input
               id="height"
-              type="number"
+              type="text"
+              inputMode="numeric"
               value={height}
-              onChange={(e) => handleNumericInput(e, setHeight)}
+              onChange={(e) => handleInputChange(e, setHeight)}
               className="w-full"
             />
           </div>
@@ -321,9 +321,10 @@ const GrowthPercentileCalculator = () => {
             </Label>
             <Input
               id="weight"
-              type="number"
+              type="text"
+              inputMode="numeric"
               value={weight}
-              onChange={(e) => handleNumericInput(e, setWeight)}
+              onChange={(e) => handleInputChange(e, setWeight)}
               className="w-full"
             />
           </div>
