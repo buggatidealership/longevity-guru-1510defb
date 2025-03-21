@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import LongevityCalculatorPage from "./pages/LongevityCalculatorPage";
 import RetirementCalculator from "./pages/RetirementCalculator";
 import FertilityCalculator from "./pages/FertilityCalculator";
+import GrowthPercentilePage from "./pages/GrowthPercentilePage";
 import NotFound from "./pages/NotFound";
 import HeadCustomization from "./components/HeadCustomization";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
           <Route path="/retirementsavings" element={<RetirementCalculator />} />
           <Route path="/fertility" element={<FertilityCalculator />} />
+          <Route path="/growth" element={<GrowthPercentilePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

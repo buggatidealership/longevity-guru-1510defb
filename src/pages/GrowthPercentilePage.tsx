@@ -2,11 +2,11 @@
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
-import RetirementSavingsCalculator from '@/components/RetirementSavingsCalculator';
+import GrowthPercentileCalculator from '@/components/GrowthPercentileCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 
-const RetirementCalculator = () => {
+const GrowthPercentilePage = () => {
   // Handler to scroll to top when clicking internal links
   const handleLinkClick = () => {
     window.scrollTo({
@@ -18,9 +18,9 @@ const RetirementCalculator = () => {
   return (
     <>
       <SEOHead 
-        title="Retirement Savings Calculator | Calculate Your Savings Longevity"
-        description="Calculate how much you can spend daily, monthly, and yearly in retirement based on your savings. Free retirement spending calculator."
-        canonicalUrl="https://longevitycalculator.xyz/retirementsavings"
+        title="Child Growth Percentile Calculator | Height & Weight Charts"
+        description="Calculate your child's height and weight percentiles using CDC growth charts. Free tool for parents to track child growth and development."
+        canonicalUrl="https://longevitycalculator.xyz/growth"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -38,56 +38,51 @@ const RetirementCalculator = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <RetirementSavingsCalculator />
+              <GrowthPercentileCalculator />
             </div>
           </div>
           
           {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About The Retirement Savings Calculator</h2>
+            <h2 className="text-2xl font-semibold mb-4">About The Child Growth Percentile Calculator</h2>
             
             <div className="space-y-4 text-gray-700">
               <p>
-                Our <strong>Retirement Savings Calculator</strong> helps you answer the crucial question: <em>"How long will my money last in retirement?"</em> This comprehensive retirement withdrawal calculator provides personalized projections for your daily, monthly, and yearly spending capacity throughout your retirement years, ensuring you don't outlive your savings.
+                Our <strong>Child Growth Percentile Calculator</strong> helps parents and caregivers understand how their child's height and weight compare to other children of the same age and gender. Based on the CDC (Centers for Disease Control and Prevention) growth charts, this tool provides insights into where your child falls on standard growth curves.
               </p>
               
-              <h3 className="text-xl font-medium mt-6">How Our Retirement Income Calculator Works</h3>
+              <h3 className="text-xl font-medium mt-6">How The Growth Percentile Calculator Works</h3>
               <p>
-                This retirement calculator uses advanced financial algorithms that account for your total retirement savings, current age, life expectancy, expected investment returns, and anticipated inflation rates. Unlike basic calculators, our tool calculates a safe withdrawal rate that helps you determine exactly how much you can spend in retirement without depleting your nest egg prematurely.
+                The calculator uses the LMS method (Lambda-Mu-Sigma) which is the statistical technique used to create standardized growth charts. By inputting your child's age, gender, height, and weight, the calculator determines which percentile your child falls into compared to the reference population of children.
               </p>
               
-              <h3 className="text-xl font-medium mt-6">Benefits of Our Retirement Spending Calculator</h3>
+              <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong>Personalized Retirement Income Plan:</strong> Receive detailed guidance on how much you can safely withdraw each day, month, and year in retirement.
+                  <strong>Track Growth Over Time:</strong> Regular measurements help monitor your child's growth pattern and ensure they're developing consistently.
                 </li>
                 <li>
-                  <strong>Inflation-Adjusted Retirement Projections:</strong> Our retirement withdrawal calculator accounts for inflation's impact on your purchasing power over time.
+                  <strong>Early Identification:</strong> Recognize potential growth issues early when intervention may be most effective.
                 </li>
                 <li>
-                  <strong>Dynamic Scenario Testing:</strong> Adjust parameters to see how changes in investment returns, inflation rates, or life expectancy affect your sustainable retirement spending.
+                  <strong>Better Understanding:</strong> Gain insight into how your child compares to standardized growth expectations.
                 </li>
                 <li>
-                  <strong>Long-Term Retirement Planning:</strong> Visualize if your retirement savings will last through your expected lifespan.
+                  <strong>Informed Discussions:</strong> Have more productive conversations with healthcare providers about your child's development.
                 </li>
               </ul>
               
-              <h3 className="text-xl font-medium mt-6">Why Using a Retirement Savings Calculator Is Essential</h3>
+              <h3 className="text-xl font-medium mt-6">Understanding Percentiles</h3>
               <p>
-                According to financial experts, determining a safe withdrawal rate in retirement is one of the most significant financial challenges retirees face. With Americans living longer than ever before, the risk of outliving your retirement savings is real. Studies show that about 40% of Americans worry about running out of money in retirement, making proper withdrawal planning essential.
+                A percentile shows the relative position of your child's measurement among children of the same age and gender. For example, if your child is in the 75th percentile for height, it means they are taller than 75% of children their age and gender. Being in a high or low percentile is not necessarily better or worse – what's most important is consistency in growth over time.
               </p>
               
               <p>
-                Our free retirement calculator helps address this concern by providing clear insights into how long your retirement savings will last. By calculating an optimal retirement income strategy today, you can make informed decisions about your spending and potentially extend the life of your retirement portfolio by many years.
-              </p>
-              
-              <h3 className="text-xl font-medium mt-6">How To Get The Most From This Calculator</h3>
-              <p>
-                For the most accurate results from our retirement withdrawal calculator, enter your current retirement savings balance, age, estimated life expectancy, expected investment return rate, and anticipated inflation rate. The calculator will instantly show you how much you can safely spend daily, monthly, and yearly throughout retirement without running out of money.
+                It's important to note that growth percentiles should be interpreted by healthcare professionals within the context of your child's overall health, genetic background, and previous growth history. This calculator is designed as an educational tool, not a substitute for professional medical advice.
               </p>
               
               <p>
-                Remember that this retirement spending calculator is a planning tool. For comprehensive retirement income planning, consider consulting with a financial advisor who can help you integrate these calculations with your other retirement income sources like Social Security, pensions, and annuities.
+                For the most accurate assessment, healthcare providers typically measure children with specialized equipment and plot measurements on detailed growth charts over multiple visits to establish growth patterns.
               </p>
             </div>
           </div>
@@ -105,22 +100,22 @@ const RetirementCalculator = () => {
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              <Link to="/retirementsavings" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow block">
+              <Link to="/retirementsavings" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/lifespan" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow block">
+              <Link to="/lifespan" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
-
-              <Link to="/fertility" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow block">
+              
+              <Link to="/fertility" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Female Fertility</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/growth" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow block">
+              <Link to="/growth" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Child Growth</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
@@ -161,4 +156,4 @@ const RetirementCalculator = () => {
   );
 };
 
-export default RetirementCalculator;
+export default GrowthPercentilePage;
