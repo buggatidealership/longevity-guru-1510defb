@@ -23,6 +23,11 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697"
      crossorigin="anonymous"></script>
 
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preload" as="style" href="/src/index.css">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lifespan-calculator.com/" />
@@ -47,7 +52,7 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Structured Data for SEO -->
+    <!-- Structured Data for SEO - Enhanced with more properties -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -60,6 +65,14 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Longevity Guru"
+        },
+        "potentialAction": {
+          "@type": "UseAction",
+          "target": "https://lifespan-calculator.com/"
         }
       }
     </script>
