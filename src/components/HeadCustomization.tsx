@@ -20,28 +20,33 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
   useEffect(() => {
     // Add preconnect links dynamically
     preconnectUrls.forEach(url => {
-      const link = document.createElement('link');
-      link.rel = 'preconnect';
-      link.href = url;
-      document.head.appendChild(link);
+      if (!document.querySelector(`link[rel="preconnect"][href="${url}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = url;
+        document.head.appendChild(link);
+      }
     });
 
     // Add preload links dynamically
     preloadAssets.forEach(asset => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.href = asset.href;
-      link.as = asset.as;
-      if (asset.type) {
-        link.type = asset.type;
+      if (!document.querySelector(`link[rel="preload"][href="${asset.href}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = asset.href;
+        link.as = asset.as;
+        if (asset.type) {
+          link.type = asset.type;
+        }
+        document.head.appendChild(link);
       }
-      document.head.appendChild(link);
     });
 
     // Cleanup
     return () => {
-      // Remove the dynamically added elements on component unmount
-      document.querySelectorAll('link[rel="preconnect"], link[rel="preload"]').forEach(el => {
+      // Only remove links that we added dynamically
+      const dynamicLinks = document.querySelectorAll('link[data-dynamic="true"]');
+      dynamicLinks.forEach(el => {
         if (el.parentNode === document.head) {
           document.head.removeChild(el);
         }
