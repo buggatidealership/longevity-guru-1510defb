@@ -2,11 +2,11 @@
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
-import FemaleFeritilityCalculator from '@/components/FemaleFeritilityCalculator';
+import EVRangeCalculator from '@/components/EVRangeCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 
-const FertilityCalculator = () => {
+const EVRangeCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
   const handleLinkClick = () => {
     window.scrollTo({
@@ -18,9 +18,10 @@ const FertilityCalculator = () => {
   return (
     <>
       <SEOHead 
-        title="Female Fertility Calculator | Estimate Your Reproductive Timeline"
-        description="Estimate your fertility status and reproductive timeline based on age, AMH levels, and lifestyle factors. Free female fertility estimation calculator."
-        canonicalUrl="https://longevitycalculator.xyz/fertility"
+        title="EV Range Calculator | Plan Your Electric Vehicle Trip"
+        description="Calculate if your electric vehicle can complete your planned trip on a single charge. Free EV range calculator for Tesla, Ford, Chevy, Nissan and more electric vehicles."
+        canonicalUrl="https://longevitycalculator.xyz/evrange"
+        keywords="ev range calculator, electric vehicle range, tesla range calculator, ev trip planner, ev charging calculator"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -38,51 +39,51 @@ const FertilityCalculator = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <FemaleFeritilityCalculator />
+              <EVRangeCalculator />
             </div>
           </div>
           
           {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About The Female Fertility Calculator</h2>
+            <h2 className="text-2xl font-semibold mb-4">About The EV Range Calculator</h2>
             
             <div className="space-y-4 text-gray-700">
               <p>
-                Our <strong>Female Fertility Calculator</strong> helps women understand their current fertility status and estimate their reproductive timeline. This tool provides personalized insights based on age, AMH levels, family history, medical conditions, and lifestyle factors that influence fertility and reproductive health.
+                Our <strong>EV Range Calculator</strong> helps electric vehicle owners plan their trips by estimating whether their vehicle can complete the journey on a single charge. This tool provides quick insights based on your specific EV model and planned route.
               </p>
               
-              <h3 className="text-xl font-medium mt-6">How The Female Fertility Calculator Works</h3>
+              <h3 className="text-xl font-medium mt-6">How The EV Range Calculator Works</h3>
               <p>
-                This calculator analyzes multiple factors known to impact female fertility, including current age, Anti-Müllerian Hormone (AMH) levels (if known), family history of early menopause, relevant medical conditions like PCOS or endometriosis, smoking status, and BMI. Using these inputs, the calculator estimates your current fertility status, projected timeline for fertility decline, and approximate age of menopause.
+                The calculator uses the rated range of popular electric vehicles and simulates the distance of your planned trip to determine if you'll have enough battery to reach your destination. It analyzes your specific EV model's EPA-estimated range and compares it to your route distance to provide a realistic assessment of your trip's feasibility.
               </p>
               
               <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong>Personalized Fertility Assessment:</strong> Receive a customized estimation of your reproductive timeline based on your unique health profile.
+                  <strong>Trip Planning Confidence:</strong> Know ahead of time if your EV can make the journey without charging stops.
                 </li>
                 <li>
-                  <strong>Proactive Family Planning:</strong> Gain insights to help with informed decision-making about when to start or expand your family.
+                  <strong>Range Anxiety Reduction:</strong> Reduce the stress of wondering if you'll run out of battery during your trip.
                 </li>
                 <li>
-                  <strong>Health Awareness:</strong> Identify modifiable factors that might be affecting your fertility potential.
+                  <strong>Charging Stop Planning:</strong> If your trip exceeds your vehicle's range, understand approximately how much additional charge you'll need.
                 </li>
                 <li>
-                  <strong>Menopause Planning:</strong> Get an estimate of when you might expect to reach menopause to help with long-term health planning.
+                  <strong>EV Model Comparison:</strong> Compare how different electric vehicles would perform on your planned routes.
                 </li>
               </ul>
               
-              <h3 className="text-xl font-medium mt-6">Why Fertility Assessment Matters</h3>
+              <h3 className="text-xl font-medium mt-6">Understanding EV Range Factors</h3>
               <p>
-                Understanding your fertility status is increasingly important in an era where many women are delaying childbearing for educational, career, or personal reasons. Research shows that female fertility naturally declines with age, particularly after 35, but the rate of decline varies significantly between individuals based on genetic factors, lifestyle choices, and medical conditions.
+                While our calculator provides valuable estimates, actual EV range can vary based on several factors. Driving speed, weather conditions, temperature, terrain, use of climate controls, and driving style all impact your vehicle's real-world range. In cold weather, EV range can decrease by 10-40%, while highway speeds typically consume more energy than city driving.
               </p>
               
               <p>
-                Our Female Fertility Calculator helps you visualize your potential reproductive timeline, empowering you to make informed choices about family planning and fertility preservation options like egg freezing. Whether you're actively planning for pregnancy, considering preserving your fertility for the future, or simply curious about your reproductive health, our calculator provides valuable insights to guide your decisions.
+                This calculator should be used as a planning tool rather than a definitive assessment. For critical trips, always plan with a buffer and locate charging stations along your route as a precaution. Many EVs have built-in navigation systems that can provide more detailed range predictions based on real-time factors.
               </p>
               
               <p>
-                Remember that while this calculator provides a useful estimation based on population data, individual fertility can vary widely. For a comprehensive evaluation of your fertility status, we recommend consulting with a reproductive endocrinologist or fertility specialist.
+                Remember that the EV charging infrastructure continues to expand rapidly, making longer trips increasingly practical for electric vehicle owners. Many route planning apps specifically designed for EV drivers can help locate charging stations along your journey.
               </p>
             </div>
           </div>
@@ -162,4 +163,4 @@ const FertilityCalculator = () => {
   );
 };
 
-export default FertilityCalculator;
+export default EVRangeCalculatorPage;
