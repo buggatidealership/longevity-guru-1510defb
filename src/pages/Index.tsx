@@ -51,13 +51,13 @@ const Index = () => {
                 </div>
               </Link>
               
-              {/* Retirement Savings Calculator */}
+              {/* Retirement Savings Calculator - Fixed title to prevent wrapping */}
               <Link to="/retirementsavings" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-3">
                     <Calculator className="h-5 w-5 text-green-500" />
                   </div>
-                  <h3 className="font-semibold text-sm mb-2">Retirement Savings</h3>
+                  <h3 className="font-semibold text-sm mb-2 whitespace-nowrap">Retirement Savings</h3>
                   <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate your savings longevity.</p>
                   <span className="text-xs text-green-500 flex items-center group-hover:underline">
                     Calculate
