@@ -48,7 +48,9 @@ const FemaleFeritilityCalculator = () => {
       // Check if condition is already selected
       if (conditions.includes(condition)) {
         // Remove it
-        setConditions(conditions.filter(c => c !== condition));
+        const updatedConditions = conditions.filter(c => c !== condition);
+        // If empty after removal, set to 'none'
+        setConditions(updatedConditions.length > 0 ? updatedConditions : ['none']);
       } else {
         // Add it
         setConditions([...conditions, condition]);
