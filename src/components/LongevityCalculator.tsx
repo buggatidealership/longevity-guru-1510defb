@@ -400,19 +400,9 @@ const LongevityCalculator = () => {
           }}>
               <h3 className="font-medium text-foreground mb-2">About This Tool</h3>
               <div className="space-y-2">
-                <p>
-                  This calculator illustrates general concepts in longevity research in a simplified manner. The impact values
-                  assigned to different factors are approximations rather than precise scientific measurements.
-                </p>
-                <p>
-                  The racial/ethnic differences reflected in the base calculations represent documented disparities that 
-                  primarily stem from social determinants of health, historical inequities, and environmental factors rather 
-                  than biological differences.
-                </p>
-                <p>
-                  For a personalized assessment of health risks and life expectancy, please consult with qualified healthcare 
-                  professionals.
-                </p>
+                <p>Wondering how long you have left to live? Our Lifespan Calculator provides a personalized estimate of your life expectancy based on factors like age, gender, health habits, and lifestyle choices. Whether you're asking "When will I die?" or "How long do I have to live?", this Longevity Calculator helps you understand how your choices impact your future. Start now to see how simple changes can add years to your life!</p>
+                
+                
               </div>
             </div>
           </div>

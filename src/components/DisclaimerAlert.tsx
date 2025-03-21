@@ -1,14 +1,12 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
-
 interface DisclaimerAlertProps {
   className?: string;
 }
-
-const DisclaimerAlert = ({ className }: DisclaimerAlertProps) => {
-  return (
-    <div className={cn("bg-amber-50 border border-amber-200 rounded-xl p-4 animate-fadeIn", className)}>
+const DisclaimerAlert = ({
+  className
+}: DisclaimerAlertProps) => {
+  return <div className={cn("bg-amber-50 border border-amber-200 rounded-xl p-4 animate-fadeIn", className)}>
       <div className="flex space-x-3">
         <div className="flex-shrink-0">
           <svg className="h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -18,17 +16,10 @@ const DisclaimerAlert = ({ className }: DisclaimerAlertProps) => {
         <div>
           <h3 className="text-sm font-medium text-amber-800">Important</h3>
           <div className="mt-1 text-sm text-amber-700">
-            <p>
-              This calculator is for educational purposes only. It uses simplified estimates 
-              to illustrate how different factors might affect longevity. It is not based on a validated scientific model 
-              and should not be used for personal health decisions. The factor weightings are approximations rather than 
-              precise values from scientific studies.
-            </p>
+            <p>For a personalized assessment of health risks and life expectancy, please consult with qualified healthcare professionals.</p>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default DisclaimerAlert;
