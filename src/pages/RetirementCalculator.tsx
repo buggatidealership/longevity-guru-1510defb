@@ -35,22 +35,8 @@ const RetirementCalculator = () => {
             </div>
           </div>
           
-          {/* Educational content section */}
+          {/* Educational content section - Retirement Planning Tips section removed */}
           <div className="mt-8 mb-6 p-4 bg-white rounded-xl shadow-sm">
-            <h2 className="text-xl font-semibold mb-3">Retirement Planning Tips</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div className="border rounded-lg p-3">
-                <h3 className="font-semibold text-sm mb-1">Start Early</h3>
-                <p className="text-xs text-gray-600">The power of compound interest means starting early can significantly increase your retirement savings.</p>
-              </div>
-              
-              <div className="border rounded-lg p-3">
-                <h3 className="font-semibold text-sm mb-1">Diversify Investments</h3>
-                <p className="text-xs text-gray-600">Spread your investments across different asset classes to reduce risk and maximize returns.</p>
-              </div>
-            </div>
-            
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -69,23 +55,17 @@ const RetirementCalculator = () => {
         
         <footer className="max-w-6xl mx-auto px-4 py-6">
           <div className="border-t pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
-                  <li><Link to="/" className="text-sm text-gray-600 hover:text-primary">Home</Link></li>
+                  {/* "Home" link removed from Our Calculators */}
                   <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
                   <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                 </ul>
               </div>
               
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Resources</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy</Link></li>
-                  <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Planning</Link></li>
-                </ul>
-              </div>
+              {/* Resources section removed */}
               
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
