@@ -1,3 +1,4 @@
+
 import React, { useState, KeyboardEvent } from 'react';
 import { 
   Card, 
@@ -9,7 +10,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Calculator, Car, Navigation, AlertTriangle, CheckCircle } from 'lucide-react';
+import { Calculator, Car, Navigation, AlertTriangle, CheckCircle, Info } from 'lucide-react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { 
   Select, 
@@ -198,10 +199,42 @@ const EVRangeCalculator = () => {
   
   const { toast } = useToast();
 
+  // Extract city name from a detailed address
+  const extractCityFromAddress = (address: string): string => {
+    // Common address formats have city names followed by state/zip/postal codes
+    // Try to extract the city part
+    
+    // Remove postal/zip codes and numeric parts
+    let cleaned = address.replace(/\b\d{5}(-\d{4})?\b|\b[A-Z]{1,2}\d{1,2} \d[A-Z]{2}\b|\b\d+\b/g, '');
+    
+    // Remove common address terms
+    cleaned = cleaned.replace(/\b(street|st|avenue|ave|road|rd|boulevard|blvd|lane|ln|drive|dr|court|ct|plaza|plz|square|sq|highway|hwy|parkway|pkwy|apartment|apt|suite|ste|unit|floor|fl|room|rm)\b/gi, '');
+    
+    // Replace commas with spaces
+    cleaned = cleaned.replace(/,/g, ' ');
+    
+    // Remove multiple spaces
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
+    
+    // If we have "City State" or "City, State" format, take the city part
+    const stateSplit = cleaned.match(/(.+?)\s+([A-Z]{2}|alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|nebraska|nevada|new\s+hampshire|new\s+jersey|new\s+mexico|new\s+york|north\s+carolina|north\s+dakota|ohio|oklahoma|oregon|pennsylvania|rhode\s+island|south\s+carolina|south\s+dakota|tennessee|texas|utah|vermont|virginia|washington|west\s+virginia|wisconsin|wyoming)$/i);
+    
+    if (stateSplit) {
+      return stateSplit[1].trim();
+    }
+    
+    // Just return the cleaned text as the best guess for the city
+    return cleaned;
+  };
+
   const calculateDistance = (start: string, dest: string): number => {
+    // Try to extract city names from detailed addresses
+    const startCity = extractCityFromAddress(start).toLowerCase().trim();
+    const destCity = extractCityFromAddress(dest).toLowerCase().trim();
+    
     // Normalize locations by converting to lowercase
-    const normalizedStart = start.toLowerCase().trim();
-    const normalizedDest = dest.toLowerCase().trim();
+    const normalizedStart = startCity;
+    const normalizedDest = destCity;
     
     // Check if we have predefined distance between these cities
     if (cityDistances[normalizedStart]?.[normalizedDest]) {
@@ -359,23 +392,33 @@ const EVRangeCalculator = () => {
           
           <div className="space-y-2">
             <Label htmlFor="startLocation">Starting Location</Label>
-            <Input
-              id="startLocation"
-              value={startLocation}
-              onChange={e => setStartLocation(e.target.value)}
-              placeholder="Enter starting location"
-            />
+            <div className="space-y-1">
+              <Input
+                id="startLocation"
+                value={startLocation}
+                onChange={e => setStartLocation(e.target.value)}
+                placeholder="Enter city name or full address"
+              />
+              <p className="text-xs text-muted-foreground flex items-center gap-1">
+                <Info className="h-3 w-3" /> Works with city names or full addresses
+              </p>
+            </div>
           </div>
           
           <div className="space-y-2">
             <Label htmlFor="destination">Destination</Label>
-            <Input
-              id="destination"
-              value={destination}
-              onChange={e => setDestination(e.target.value)}
-              placeholder="Enter destination"
-              onKeyDown={handleKeyPress}
-            />
+            <div className="space-y-1">
+              <Input
+                id="destination"
+                value={destination}
+                onChange={e => setDestination(e.target.value)}
+                placeholder="Enter city name or full address"
+                onKeyDown={handleKeyPress}
+              />
+              <p className="text-xs text-muted-foreground flex items-center gap-1">
+                <Info className="h-3 w-3" /> Press Enter to calculate after entering destination
+              </p>
+            </div>
           </div>
           
           <Button 
