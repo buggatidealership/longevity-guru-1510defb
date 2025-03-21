@@ -5,7 +5,6 @@ import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 import { Clock, Calculator, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import {
   Pagination,
   PaginationContent,
@@ -17,28 +16,6 @@ import {
 } from "@/components/ui/pagination";
 
 const Index = () => {
-  // Featured calculators to highlight at the top
-  const featuredCalculators = [
-    {
-      title: "Life Expectancy Calculator",
-      description: "Estimate your lifespan based on health factors, lifestyle choices, and demographics.",
-      icon: <Clock className="h-6 w-6 text-blue-500" />,
-      bgColor: "bg-blue-50",
-      iconColor: "text-blue-500",
-      link: "/lifespan",
-      buttonText: "Calculate Your Lifespan"
-    },
-    {
-      title: "Retirement Savings Calculator",
-      description: "Determine how much you can spend daily, monthly, and yearly in retirement.",
-      icon: <Calculator className="h-6 w-6 text-green-500" />,
-      bgColor: "bg-green-50",
-      iconColor: "text-green-500",
-      link: "/retirementsavings",
-      buttonText: "Calculate Your Savings Longevity"
-    },
-  ];
-
   return (
     <>
       <SEOHead 
@@ -59,27 +36,6 @@ const Index = () => {
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3 text-gray-800">Longevity Calculators</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Tools to help you live longer and plan for a financially secure future</p>
-          </div>
-          
-          {/* Featured Calculators - More modern design */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {featuredCalculators.map((calc, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                <div className="p-6">
-                  <div className={`w-12 h-12 ${calc.bgColor} rounded-full flex items-center justify-center mb-4`}>
-                    {calc.icon}
-                  </div>
-                  <h2 className="text-2xl font-semibold mb-2 text-gray-800">{calc.title}</h2>
-                  <p className="text-gray-600 mb-4">{calc.description}</p>
-                  <Link to={calc.link}>
-                    <Button className="group">
-                      {calc.buttonText}
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            ))}
           </div>
           
           {/* All Calculators Section - Redesigned for better scaling */}
