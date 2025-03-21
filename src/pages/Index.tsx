@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -127,7 +126,7 @@ const Index = () => {
         
         <footer className="max-w-6xl mx-auto px-4 py-6">
           <div className="border-t pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
@@ -136,16 +135,6 @@ const Index = () => {
                   <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                   <li><Link to="/fertility" className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                   <li><Link to="/growth" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Resources</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy</Link></li>
-                  <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Planning</Link></li>
-                  <li><Link to="/fertility" className="text-sm text-gray-600 hover:text-primary">Fertility Planning</Link></li>
-                  <li><Link to="/growth" className="text-sm text-gray-600 hover:text-primary">Child Growth Charts</Link></li>
                 </ul>
               </div>
               
