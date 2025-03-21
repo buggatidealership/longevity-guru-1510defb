@@ -41,7 +41,7 @@ const Index = () => {
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
         <header className="max-w-6xl mx-auto pt-8 px-4">
           <Logo className="mb-8" />
-          {/* Single Ad Banner at the top */}
+          {/* Top Ad Banner */}
           <AdUnit 
             className="mb-6 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
             slot="1111111111" 
@@ -54,8 +54,23 @@ const Index = () => {
               <LongevityCalculator />
             </div>
           </div>
+          
+          {/* Middle Ad Banner */}
+          <AdUnit 
+            className="my-8 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
+            slot="2222222222" 
+          />
         </main>
-        <footer className="text-center text-xs text-gray-500 py-8 mt-8">
+        
+        {/* Bottom Ad Banner */}
+        <div className="max-w-6xl mx-auto px-4">
+          <AdUnit 
+            className="mt-8 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
+            slot="3333333333" 
+          />
+        </div>
+        
+        <footer className="text-center text-xs text-gray-500 py-8">
           <p>© {new Date().getFullYear()} Life Expectancy Calculator. For educational purposes only.</p>
         </footer>
       </div>
