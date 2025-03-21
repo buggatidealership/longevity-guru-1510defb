@@ -28,10 +28,10 @@ const LongevityCalculatorPage = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          {/* Grid layout with fixed center alignment */}
-          <div className="grid grid-cols-12 gap-6">
+          {/* Layout with proper centering */}
+          <div className="flex flex-col md:flex-row gap-6">
             {/* Left sidebar ad - Visible on desktop */}
-            <div className="hidden md:block col-span-3">
+            <div className="hidden md:block md:w-1/4 flex-shrink-0">
               <div className="sticky top-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '600px' }}>
                 <AdUnit 
                   className="w-full h-full"
@@ -42,20 +42,20 @@ const LongevityCalculatorPage = () => {
               </div>
             </div>
             
-            {/* Main Calculator - Centered in available space */}
-            <div className="col-span-12 md:col-span-9">
-              <div className="max-w-3xl mx-auto">
+            {/* Main Calculator - Properly centered */}
+            <div className="w-full md:w-3/4 flex justify-center">
+              <div className="w-full max-w-3xl">
                 <LongevityCalculator />
-              </div>
-              
-              {/* Mobile-only ad after calculator - Visible only on mobile */}
-              <div className="block md:hidden mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-                <AdUnit 
-                  className="w-full"
-                  slot="5555555555" 
-                  format="rectangle"
-                  responsive={true}
-                />
+                
+                {/* Mobile-only ad after calculator - Visible only on mobile */}
+                <div className="block md:hidden mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+                  <AdUnit 
+                    className="w-full"
+                    slot="5555555555" 
+                    format="rectangle"
+                    responsive={true}
+                  />
+                </div>
               </div>
             </div>
           </div>

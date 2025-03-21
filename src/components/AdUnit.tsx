@@ -16,15 +16,18 @@ export const AdUnit = ({
 }: AdUnitProps) => {
   const adRef = useRef<HTMLDivElement>(null);
   const [adLoaded, setAdLoaded] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   useEffect(() => {
     // Reset ad loaded state when component mounts
     setAdLoaded(false);
+    setAttempts(0);
     
     // Load ad with a small delay to ensure container has rendered properly
     const loadAd = () => {
       if (window.adsbygoogle && adRef.current) {
         const { clientWidth } = adRef.current;
+        
         // Only push to adsbygoogle if container has width
         if (clientWidth > 0) {
           try {
@@ -37,7 +40,13 @@ export const AdUnit = ({
         } else {
           console.log('Waiting for ad container to have width...');
           // Try again after a slight delay if the container has no width yet
-          setTimeout(loadAd, 200);
+          // Limit attempts to prevent infinite loops
+          if (attempts < 10) {
+            setAttempts(prev => prev + 1);
+            setTimeout(loadAd, 200);
+          } else {
+            console.log('Max attempts reached, giving up on ad load');
+          }
         }
       }
     };
@@ -60,7 +69,7 @@ export const AdUnit = ({
       clearTimeout(timer);
       window.removeEventListener('resize', handleResize);
     };
-  }, [format, responsive]);
+  }, [format, responsive, attempts]);
 
   // Define class and style based on format
   const getFormatStyles = () => {
