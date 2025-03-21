@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -32,14 +33,14 @@ const LongevityCalculatorPage = () => {
           
           {/* Middle Ad Banner */}
           <AdUnit 
-            className="my-8 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
+            className="my-6 p-2 bg-gray-50 rounded-lg text-center min-h-[250px] flex items-center justify-center"
             slot="2222222222" 
           />
           
           {/* SEO-optimized calculators section - redesigned to be more compact */}
-          <div className="my-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-bold mb-4">Free Longevity Calculators</h2>
-            <p className="text-gray-600 mb-4">Discover our suite of research-backed calculators to help you live longer and plan for a financially secure future.</p>
+          <div className="mt-6 mb-6 p-5 bg-white rounded-xl shadow-sm">
+            <h2 className="text-2xl font-bold mb-3">Free Longevity Calculators</h2>
+            <p className="text-gray-600 mb-3">Discover our suite of research-backed calculators to help you live longer and plan for a financially secure future.</p>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
@@ -60,7 +61,7 @@ const LongevityCalculatorPage = () => {
         {/* Bottom Ad Banner */}
         <div className="max-w-6xl mx-auto px-4">
           <AdUnit 
-            className="mt-8 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
+            className="mt-6 mb-4 p-2 bg-gray-50 rounded-lg text-center min-h-[90px] flex items-center justify-center"
             slot="3333333333" 
           />
         </div>
