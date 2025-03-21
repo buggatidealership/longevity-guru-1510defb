@@ -112,7 +112,7 @@ const LongevityCalculator = () => {
     </select>;
   return <div className="w-full max-w-6xl mx-auto px-4 py-12 space-y-8">
       <div className="text-center space-y-2 max-w-2xl mx-auto">
-        <h1 className="text-3xl font-display font-bold tracking-tight">Free Longevity Calculator</h1>
+        <h1 className="text-3xl font-display font-bold tracking-tight">Free Longevity &amp; Lifespan Calculator</h1>
         <p className="text-muted-foreground">Explore how different factors might influence your lifespan</p>
       </div>
       
