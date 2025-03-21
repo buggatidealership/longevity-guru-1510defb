@@ -1,9 +1,10 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight, Baby, RulerSquare } from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby, Ruler } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -78,10 +79,10 @@ const Index = () => {
               <Link to="/growth" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-orange-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mb-3">
-                    <RulerSquare className="h-5 w-5 text-orange-500" />
+                    <Ruler className="h-5 w-5 text-orange-500" />
                   </div>
                   <h3 className="font-semibold text-sm mb-2 line-clamp-1">Child Growth</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Track height and weight percentiles.</p>
+                  <p className="text-xs text-gray-500 mb-2 flex-grow">Track children's height and weight percentiles.</p>
                   <span className="text-xs text-orange-500 flex items-center group-hover:underline">
                     Calculate
                     <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
