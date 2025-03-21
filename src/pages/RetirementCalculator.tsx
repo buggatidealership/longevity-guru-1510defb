@@ -7,6 +7,14 @@ import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 
 const RetirementCalculator = () => {
+  // Handler to scroll to top when clicking internal links
+  const handleLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       <SEOHead 
@@ -49,12 +57,12 @@ const RetirementCalculator = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
-                <Link to="/retirementsavings" className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
+                <Link to="/retirementsavings" onClick={handleLinkClick} className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
               </div>
               
               <div className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
-                <Link to="/lifespan" className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
+                <Link to="/lifespan" onClick={handleLinkClick} className="text-xs text-blue-500 hover:underline font-medium">Calculate →</Link>
               </div>
             </div>
           </div>
@@ -66,16 +74,16 @@ const RetirementCalculator = () => {
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
-                  <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
-                  <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
+                  <li><Link to="/lifespan" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
+                  <li><Link to="/retirementsavings" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                 </ul>
               </div>
               
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
                 <ul className="space-y-2">
-                  <li><Link to="/privacy" className="text-sm text-gray-600 hover:text-primary">Privacy Policy</Link></li>
-                  <li><Link to="/terms" className="text-sm text-gray-600 hover:text-primary">Terms of Service</Link></li>
+                  <li><Link to="/privacy" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Privacy Policy</Link></li>
+                  <li><Link to="/terms" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Terms of Service</Link></li>
                 </ul>
               </div>
             </div>
