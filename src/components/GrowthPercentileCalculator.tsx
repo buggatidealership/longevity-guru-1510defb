@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -29,15 +28,12 @@ const GrowthPercentileCalculator = () => {
   const [weight, setWeight] = useState<string>("18");
   const [units, setUnits] = useState<string>('metric');
   
-  // LMS parameters for height-for-age and weight-for-age
-  // These are simplified reference data based on CDC growth charts
   const growthData = {
     male: {
       height: {
-        // Age (years): [L, M, S] values
-        0.25: [1, 62.1, 0.03507], // 3 months
-        0.5: [1, 67.8, 0.03508],  // 6 months
-        0.75: [1, 72.3, 0.03624], // 9 months
+        0.25: [1, 62.1, 0.03507],
+        0.5: [1, 67.8, 0.03508],
+        0.75: [1, 72.3, 0.03624],
         1: [1, 76.1, 0.03621],
         1.5: [1, 82.4, 0.03613],
         2: [1, 86.8, 0.03674],
@@ -51,9 +47,9 @@ const GrowthPercentileCalculator = () => {
         10: [1, 137.5, 0.03758],
       },
       weight: {
-        0.25: [-0.5560, 6.4, 0.14069], // 3 months
-        0.5: [-0.5280, 8.0, 0.13552],  // 6 months
-        0.75: [-0.4532, 9.2, 0.13248], // 9 months
+        0.25: [-0.5560, 6.4, 0.14069],
+        0.5: [-0.5280, 8.0, 0.13552],
+        0.75: [-0.4532, 9.2, 0.13248],
         1: [-0.3716, 10.2, 0.13344],
         1.5: [-0.3804, 11.5, 0.13536],
         2: [-0.3833, 12.7, 0.14170],
@@ -69,9 +65,9 @@ const GrowthPercentileCalculator = () => {
     },
     female: {
       height: {
-        0.25: [1, 60.5, 0.03504], // 3 months
-        0.5: [1, 65.9, 0.03593],  // 6 months
-        0.75: [1, 70.4, 0.03624], // 9 months
+        0.25: [1, 60.5, 0.03504],
+        0.5: [1, 65.9, 0.03593],
+        0.75: [1, 70.4, 0.03624],
         1: [1, 74.3, 0.03676],
         1.5: [1, 80.9, 0.03743],
         2: [1, 85.7, 0.03775],
@@ -85,9 +81,9 @@ const GrowthPercentileCalculator = () => {
         10: [1, 138.6, 0.03815],
       },
       weight: {
-        0.25: [-0.5560, 5.8, 0.14253], // 3 months
-        0.5: [-0.5280, 7.3, 0.13932],  // 6 months
-        0.75: [-0.4532, 8.4, 0.13939], // 9 months
+        0.25: [-0.5560, 5.8, 0.14253],
+        0.5: [-0.5280, 7.3, 0.13932],
+        0.75: [-0.4532, 8.4, 0.13939],
         1: [-0.3716, 9.5, 0.13893],
         1.5: [-0.3804, 10.8, 0.13700],
         2: [-0.3709, 12.2, 0.13735],
@@ -103,18 +99,15 @@ const GrowthPercentileCalculator = () => {
     }
   };
   
-  // Get age in years for calculations
   const getAgeInYears = () => {
     const ageNum = parseFloat(ageValue) || 0;
     if (ageUnit === 'years') {
       return ageNum;
     } else {
-      // Convert months to years
       return ageNum / 12;
     }
   };
   
-  // Convert imperial to metric for calculations
   const getMetricValues = () => {
     const heightNum = parseFloat(height) || 0;
     const weightNum = parseFloat(weight) || 0;
@@ -122,7 +115,6 @@ const GrowthPercentileCalculator = () => {
     if (units === 'metric') {
       return { height: heightNum, weight: weightNum };
     } else {
-      // Convert inches to cm, pounds to kg
       return {
         height: heightNum * 2.54,
         weight: weightNum * 0.453592
@@ -130,7 +122,6 @@ const GrowthPercentileCalculator = () => {
     }
   };
   
-  // Calculate z-score using LMS method
   const calculateZScore = (measurement: number, L: number, M: number, S: number) => {
     if (L === 0) {
       return Math.log(measurement / M) / S;
@@ -139,9 +130,7 @@ const GrowthPercentileCalculator = () => {
     }
   };
   
-  // Convert z-score to percentile
   const zScoreToPercentile = (z: number) => {
-    // Approximation of the cumulative distribution function
     if (z < -6) return 0;
     if (z > 6) return 100;
     
@@ -155,7 +144,6 @@ const GrowthPercentileCalculator = () => {
     return Math.round(p * 100);
   };
   
-  // Get the closest age data
   const getClosestAgeData = (ageData: Record<string, number[]>, targetAge: number) => {
     const ages = Object.keys(ageData).map(Number);
     const closestAge = ages.reduce((prev, curr) => {
@@ -164,20 +152,16 @@ const GrowthPercentileCalculator = () => {
     return { age: closestAge, data: ageData[closestAge] };
   };
   
-  // Calculate percentiles
   const calculatePercentiles = () => {
     const { height: metricHeight, weight: metricWeight } = getMetricValues();
     const ageInYears = getAgeInYears();
     
-    // Get the closest age data for height and weight
     const heightData = getClosestAgeData(growthData[gender as keyof typeof growthData].height, ageInYears);
     const weightData = getClosestAgeData(growthData[gender as keyof typeof growthData].weight, ageInYears);
     
-    // Calculate z-scores
     const heightZ = calculateZScore(metricHeight, heightData.data[0], heightData.data[1], heightData.data[2]);
     const weightZ = calculateZScore(metricWeight, weightData.data[0], weightData.data[1], weightData.data[2]);
     
-    // Convert to percentiles
     const heightPercentile = zScoreToPercentile(heightZ);
     const weightPercentile = zScoreToPercentile(weightZ);
     
@@ -192,7 +176,6 @@ const GrowthPercentileCalculator = () => {
   
   const results = calculatePercentiles();
 
-  // Interpret percentiles
   const interpretPercentile = (percentile: number) => {
     if (percentile < 3) return "Well below average";
     if (percentile < 15) return "Below average";
@@ -202,7 +185,6 @@ const GrowthPercentileCalculator = () => {
     return "Well above average";
   };
 
-  // Handle input validation for text inputs
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
     setter(e.target.value);
   };
@@ -210,9 +192,9 @@ const GrowthPercentileCalculator = () => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Child Growth Percentile Calculator</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Children's Growth Percentile Calculator</h1>
         <p className="text-muted-foreground mt-2">
-          Calculate height and weight percentiles based on CDC growth charts
+          Calculate your child's height and weight percentiles based on CDC pediatric growth charts
         </p>
       </div>
       
@@ -220,14 +202,13 @@ const GrowthPercentileCalculator = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Baby className="h-5 w-5 text-primary" />
-            Growth Percentile Calculator
+            Children's Growth Percentile Calculator
           </CardTitle>
           <CardDescription>
-            Estimate where your child falls on the growth chart percentiles for their age and gender
+            Estimate where your child falls on the pediatric growth chart percentiles for their age and gender
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Units */}
           <div className="space-y-2">
             <Label className="block">Units</Label>
             <RadioGroup 
@@ -246,7 +227,6 @@ const GrowthPercentileCalculator = () => {
             </RadioGroup>
           </div>
           
-          {/* Gender */}
           <div className="space-y-2">
             <Label className="block">Gender</Label>
             <RadioGroup 
@@ -265,7 +245,6 @@ const GrowthPercentileCalculator = () => {
             </RadioGroup>
           </div>
           
-          {/* Age with unit selection */}
           <div className="space-y-2">
             <Label htmlFor="age" className="flex items-center gap-2">
               <Activity className="h-4 w-4 text-blue-600" />
@@ -297,7 +276,6 @@ const GrowthPercentileCalculator = () => {
             </p>
           </div>
           
-          {/* Height */}
           <div className="space-y-2">
             <Label htmlFor="height" className="flex items-center gap-2">
               <Ruler className="h-4 w-4 text-green-600" />
@@ -313,7 +291,6 @@ const GrowthPercentileCalculator = () => {
             />
           </div>
           
-          {/* Weight */}
           <div className="space-y-2">
             <Label htmlFor="weight" className="flex items-center gap-2">
               <Scale className="h-4 w-4 text-orange-600" />
@@ -333,7 +310,6 @@ const GrowthPercentileCalculator = () => {
         </CardContent>
       </Card>
       
-      {/* Results Section */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
