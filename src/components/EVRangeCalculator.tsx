@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
 import { 
   Card, 
   CardHeader, 
@@ -21,7 +20,6 @@ import {
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 
-// EV model data
 const evModels = {
   "teslaModel3": { name: "Tesla Model 3 (SR+)", range: 267 },
   "teslaModelY": { name: "Tesla Model Y (LR)", range: 330 },
@@ -54,15 +52,12 @@ const EVRangeCalculator = () => {
   
   const { toast } = useToast();
 
-  // Simulate distance calculation (in a real app this would use a Maps API)
   const calculateDistance = () => {
-    // This is just a demo calculation - in a real app you'd use a mapping API
     const seed = (startLocation.length * destination.length) % 500;
     return Math.max(25, seed + Math.floor(Math.random() * 100));
   };
 
   const handleCalculate = () => {
-    // Basic validation
     if (!evModel || !startLocation || !destination) {
       toast({
         title: "Missing information",
@@ -74,27 +69,22 @@ const EVRangeCalculator = () => {
 
     setCalculating(true);
     
-    // Simulate API call with delay
     setTimeout(() => {
       const distance = calculateDistance();
       const selectedEv = evModels[evModel];
       const range = selectedEv.range;
       
-      // Calculate if trip is possible
       const remainingRange = range - distance;
       let resultMessage = '';
       let resultType: 'success' | 'warning' | 'danger' = 'success';
       
       if (remainingRange >= range * 0.2) {
-        // Comfortable margin
         resultType = 'success';
         resultMessage = `Good to go! Your ${selectedEv.name} can easily make this trip on a full charge.`;
       } else if (remainingRange > 0) {
-        // Cutting it close
         resultType = 'warning';
         resultMessage = `Possible, but cutting it close. Your ${selectedEv.name} can make this trip, but you'll arrive with low battery.`;
       } else {
-        // Not possible
         resultType = 'danger';
         resultMessage = `Charging needed. Your ${selectedEv.name} cannot make this trip on a single charge.`;
       }
@@ -109,6 +99,13 @@ const EVRangeCalculator = () => {
       
       setCalculating(false);
     }, 1000);
+  };
+
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleCalculate();
+    }
   };
 
   return (
@@ -164,6 +161,7 @@ const EVRangeCalculator = () => {
               value={destination}
               onChange={e => setDestination(e.target.value)}
               placeholder="Enter destination"
+              onKeyDown={handleKeyPress}
             />
           </div>
           
