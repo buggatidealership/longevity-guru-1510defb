@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -16,7 +17,7 @@ const RetirementCalculator = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner - Only ad we'll keep */}
+          {/* Top Ad Banner */}
           <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
@@ -33,6 +34,16 @@ const RetirementCalculator = () => {
             <div className="w-full">
               <RetirementSavingsCalculator />
             </div>
+          </div>
+          
+          {/* Bottom Ad Banner */}
+          <div className="mt-8 mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="2222222222" 
+              format="horizontal"
+              responsive={true}
+            />
           </div>
           
           {/* Educational content section - Retirement Planning Tips section removed */}

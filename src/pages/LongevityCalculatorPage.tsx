@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -16,7 +17,7 @@ const LongevityCalculatorPage = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          {/* Top Ad Banner - Only ad we'll keep */}
+          {/* Top Ad Banner */}
           <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
@@ -33,6 +34,16 @@ const LongevityCalculatorPage = () => {
             <div className="w-full">
               <LongevityCalculator />
             </div>
+          </div>
+          
+          {/* Bottom Ad Banner */}
+          <div className="mt-8 mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+            <AdUnit 
+              className="w-full"
+              slot="2222222222" 
+              format="horizontal"
+              responsive={true}
+            />
           </div>
           
           {/* Calculator links section */}
@@ -55,23 +66,17 @@ const LongevityCalculatorPage = () => {
         
         <footer className="max-w-6xl mx-auto px-4 py-6">
           <div className="border-t pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
-                  <li><Link to="/" className="text-sm text-gray-600 hover:text-primary">Home</Link></li>
+                  {/* "Home" link removed */}
                   <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
                   <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                 </ul>
               </div>
               
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Resources</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy</Link></li>
-                  <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Planning</Link></li>
-                </ul>
-              </div>
+              {/* Resources section removed */}
               
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
