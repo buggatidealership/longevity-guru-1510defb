@@ -2,10 +2,9 @@
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
+import MetabolismCalculator from '@/components/MetabolismCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import MetabolismCalculator from '@/components/MetabolismCalculator';
-import { Calculator, Activity, Scale, HeartPulse, Info } from 'lucide-react';
 
 const MetabolismCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -27,10 +26,9 @@ const MetabolismCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Metabolism Calculator | BMR and TDEE Calculator"
-        description="Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) based on the latest scientific research. Free online metabolism calculator."
+        title="Metabolism Calculator | BMR & Daily Calorie Needs"
+        description="Calculate your Basal Metabolic Rate (BMR) and daily calorie needs based on activity level. Free metabolism calculator for weight management and nutritional planning."
         canonicalUrl="https://longevitycalculator.xyz/metabolism"
-        keywords="metabolism calculator, BMR calculator, TDEE calculator, basal metabolic rate, calorie calculator, weight loss calculator, energy expenditure, body fat calculator"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -44,7 +42,7 @@ const MetabolismCalculatorPage = () => {
             />
           </div>
         </header>
-        
+
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
@@ -86,10 +84,10 @@ const MetabolismCalculatorPage = () => {
                 </li>
                 <li>
                   <button 
-                    onClick={() => scrollToSection('why-matters')} 
+                    onClick={() => scrollToSection('metabolism-factors')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    Why Metabolism Calculation Matters
+                    Factors Affecting Metabolism
                   </button>
                 </li>
                 <li>
@@ -106,7 +104,7 @@ const MetabolismCalculatorPage = () => {
             <div className="space-y-4 text-gray-700">
               <div id="overview">
                 <p>
-                  Our <strong>Metabolism Calculator</strong> is a comprehensive tool designed to help you understand your body's energy requirements based on scientifically-validated formulas. It calculates your Basal Metabolic Rate (BMR)—the calories your body needs at rest—and your Total Daily Energy Expenditure (TDEE), which includes additional energy used during daily activities and exercise.
+                  Our <strong>Metabolism Calculator</strong> helps you determine your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE). Understanding your metabolism is essential for effective weight management, nutritional planning, and overall health optimization.
                 </p>
               </div>
               
@@ -122,10 +120,7 @@ const MetabolismCalculatorPage = () => {
               <div id="how-it-works">
                 <h3 className="text-xl font-medium mt-6">How The Metabolism Calculator Works</h3>
                 <p>
-                  The calculator employs multiple scientifically-validated equations, each with specific strengths for different populations. The Mifflin-St Jeor equation provides accurate estimates for most people, while specialized formulas like Katch-McArdle and Cunningham offer enhanced precision for athletic individuals with known body fat percentages. The calculator converts your personal metrics—height, weight, age, biological sex, activity level, and optionally body fat percentage—into precise caloric requirements.
-                </p>
-                <p className="mt-2">
-                  Based on recent research, we've incorporated age-related metabolic insights from Pontzer et al. (2021), which revealed that metabolism remains relatively stable from ages 20-60 before declining at approximately 0.7% annually. This scientific foundation ensures you receive the most current, evidence-based metabolic estimates available.
+                  This calculator uses scientifically validated formulas (including Mifflin-St Jeor and Harris-Benedict equations) to estimate your Basal Metabolic Rate—the number of calories your body needs at complete rest. It then factors in your activity level to determine your Total Daily Energy Expenditure, providing a comprehensive view of your caloric needs for maintenance, weight loss, or weight gain.
                 </p>
               </div>
               
@@ -133,35 +128,37 @@ const MetabolismCalculatorPage = () => {
                 <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
-                    <strong>Multiple Formula Options:</strong> Choose from five different scientifically-validated equations to find the one that works best for your body type and activity level.
+                    <strong>Personalized Energy Needs:</strong> Receive tailored calorie recommendations based on your unique characteristics.
                   </li>
                   <li>
-                    <strong>Personalized Calorie Targets:</strong> Receive customized daily calorie recommendations for weight maintenance, different rates of weight loss, or weight gain.
+                    <strong>Weight Management Support:</strong> Understand your maintenance calories and appropriate targets for weight loss or gain.
                   </li>
                   <li>
-                    <strong>Body Composition Insights:</strong> Understand your lean body mass and fat-free mass, which drive your metabolic rate.
+                    <strong>Nutritional Planning:</strong> Use your BMR and TDEE values to develop more effective meal plans.
                   </li>
                   <li>
-                    <strong>Latest Research Integration:</strong> Benefit from calculations that incorporate the most recent scientific findings on human metabolism.
-                  </li>
-                  <li>
-                    <strong>Educational Content:</strong> Learn about the science behind each formula and how different factors affect your metabolism.
+                    <strong>Fitness Goal Optimization:</strong> Align your nutritional intake with your specific fitness and health objectives.
                   </li>
                 </ul>
               </div>
               
-              <div id="why-matters">
-                <h3 className="text-xl font-medium mt-6">Why Metabolism Calculation Matters</h3>
+              <div id="metabolism-factors">
+                <h3 className="text-xl font-medium mt-6">Factors Affecting Metabolism</h3>
                 <p>
-                  Understanding your metabolic rate is the foundation of effective nutrition planning, whether your goal is weight management, athletic performance, or general health optimization. Research consistently shows that personalized caloric targets based on individual metabolic needs lead to more successful and sustainable outcomes compared to generic dietary recommendations.
+                  Your metabolic rate is influenced by numerous factors, many of which are reflected in our calculator:
                 </p>
                 
-                <p className="mt-2">
-                  Many people underestimate their caloric needs when trying to lose weight, leading to extreme restrictions that slow metabolism and trigger compensatory mechanisms. Conversely, others may overestimate their requirements when building muscle, resulting in excessive fat gain. Our metabolism calculator helps you avoid these pitfalls by providing science-based estimates tailored to your unique physiological profile.
-                </p>
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li><strong>Body Composition:</strong> Muscle tissue burns more calories at rest than fat tissue.</li>
+                  <li><strong>Age:</strong> Metabolic rate typically decreases by about 2-3% per decade after age 20.</li>
+                  <li><strong>Gender:</strong> Biological males generally have higher metabolic rates due to greater muscle mass.</li>
+                  <li><strong>Physical Activity:</strong> Regular exercise increases calorie expenditure and can boost BMR.</li>
+                  <li><strong>Hormonal Factors:</strong> Thyroid function, stress hormones, and sex hormones all influence metabolism.</li>
+                  <li><strong>Genetics:</strong> Individual genetic factors can affect how efficiently your body converts food to energy.</li>
+                </ul>
                 
                 <p className="mt-2">
-                  For weight management specifically, studies indicate that understanding your TDEE allows for creating moderate caloric deficits (typically 500-750 calories per day) that maximize fat loss while preserving muscle mass and metabolic rate. This evidence-based approach supports sustainable body composition changes without the metabolic adaptation common in severe caloric restriction.
+                  While our calculator provides valuable estimates, metabolism can vary between individuals even with identical metrics. Use these results as a starting point and adjust based on your body's actual response.
                 </p>
               </div>
               
@@ -171,37 +168,37 @@ const MetabolismCalculatorPage = () => {
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Which metabolic calculation formula is most accurate?</h4>
+                    <h4 className="font-semibold text-lg">What's the difference between BMR and TDEE?</h4>
                     <p className="mt-2">
-                      The most accurate formula depends on your individual characteristics. For most people, the Mifflin-St Jeor equation provides reliable estimates and is recommended by the Academy of Nutrition and Dietetics. If you know your body fat percentage, the Katch-McArdle formula may offer enhanced accuracy by accounting for lean body mass. Athletes and very active individuals often find the Cunningham equation most appropriate for their higher muscle mass. Since individual variations exist, you might try different formulas and compare which best matches your real-world energy needs.
+                      Basal Metabolic Rate (BMR) represents the calories your body needs to perform essential functions at complete rest—like breathing, circulating blood, and cell production. It's essentially your baseline calorie requirement. Total Daily Energy Expenditure (TDEE) includes your BMR plus additional calories for daily activities, from basic movements to structured exercise. Think of BMR as your body's minimum operating cost and TDEE as your total daily calorie "budget."
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Why is my metabolism lower or higher than I expected?</h4>
+                    <h4 className="font-semibold text-lg">Can I increase my metabolism?</h4>
                     <p className="mt-2">
-                      Several factors influence metabolic rate beyond the basics captured in standard formulas. Genetics play a significant role, with studies suggesting up to 10-16% variation between individuals with similar characteristics. Hormonal factors, including thyroid function, cortisol levels, and sex hormones, significantly impact energy expenditure. Previous dieting history may affect your metabolism through adaptive thermogenesis, where the body becomes more efficient after periods of caloric restriction. Additionally, factors like sleep quality, medication use, and ambient temperature can all influence metabolic rate.
+                      Yes, you can influence your metabolism through several approaches: building muscle mass through strength training (muscle burns more calories than fat); high-intensity interval training (HIIT) which creates an "afterburn" effect; eating protein-rich foods (which have a higher thermic effect); staying hydrated; getting adequate sleep; reducing stress; and maintaining consistent meal timing. However, dramatic metabolism changes are difficult to achieve—most interventions result in modest improvements, typically in the 5-10% range.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How can I increase my metabolism naturally?</h4>
+                    <h4 className="font-semibold text-lg">How accurate are metabolic calculations?</h4>
                     <p className="mt-2">
-                      Research supports several effective strategies for enhancing metabolic rate: Building muscle mass through resistance training increases your resting metabolic rate since muscle tissue is metabolically active. High-intensity interval training (HIIT) creates a pronounced afterburn effect (excess post-exercise oxygen consumption) that elevates metabolism for hours after exercise. Eating sufficient protein (1.6-2.2g per kg of body weight) increases the thermic effect of food since protein requires more energy to digest. Staying hydrated, getting adequate sleep (7-9 hours), managing stress, and avoiding severe caloric restriction all help maintain optimal metabolic function.
+                      Metabolic calculations are generally accurate within 10-15% for most individuals, but variations can occur due to factors not captured by formulas, such as genetics, body composition details, hormonal status, and recent dietary patterns. For greater precision, professional metabolic testing (indirect calorimetry) can measure your actual oxygen consumption and carbon dioxide production. If you find significant discrepancies between calculated estimates and your actual results, adjust your caloric intake accordingly.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Does metabolism really slow with age?</h4>
+                    <h4 className="font-semibold text-lg">Will eating more small meals boost metabolism?</h4>
                     <p className="mt-2">
-                      Recent research published in Science (Pontzer et al., 2021) has reshaped our understanding of age-related metabolic changes. The study found that, contrary to popular belief, metabolism remains relatively stable between ages 20 and 60 after accounting for changes in body composition. The significant decline in metabolic rate (about 0.7% per year) begins after age 60. What's often perceived as "slowing metabolism" in middle age is primarily due to decreasing muscle mass and increasing fat mass, along with reduced physical activity. This research highlights the importance of resistance training and maintaining muscle mass throughout life to preserve metabolic health.
+                      The idea that eating frequent small meals "stokes the metabolic fire" has been largely debunked by research. Total caloric intake and macronutrient composition matter more than meal frequency for metabolic rate. Each time you eat, you experience a small increase in energy expenditure called the thermic effect of food (TEF), but this effect is proportional to the amount of food consumed, whether in smaller frequent meals or larger infrequent ones. Focus on overall nutrition quality and appropriate portions rather than specific meal timing for metabolic benefits.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How do I use the calorie targets for weight management?</h4>
+                    <h4 className="font-semibold text-lg">Does metabolism slow significantly with age?</h4>
                     <p className="mt-2">
-                      For effective weight management, the calculator provides graduated calorie targets based on your TDEE. For weight loss, mild deficits (250-275 calories below TDEE) support gradual weight loss of about 0.25kg per week, while moderate deficits (500-550 calories) aim for approximately 0.5kg weekly. The aggressive deficit (1000-1100 calories) targets 1kg weekly but may be more challenging to sustain. For weight maintenance, consume calories at your TDEE level. For muscle gain, mild surpluses (250 calories above TDEE) support lean gains, while moderate surpluses (500 calories) allow faster growth with some fat accumulation. Always prioritize nutritious foods, adequate protein, and regular adjustment of calorie targets as your weight changes.
+                      Yes, metabolism typically declines with age, but recent research suggests this decline is more nuanced than previously thought. Metabolism remains relatively stable from ages 20 to 60, decreasing only about 0.7% per decade. The more significant drop (approximately 0.7% per year) occurs after age 60. The perceived metabolic slowdown in middle age often results from decreased activity levels and loss of muscle mass rather than aging itself. Maintaining muscle through strength training and staying physically active can significantly offset age-related metabolic decline.
                     </p>
                   </div>
                 </div>
@@ -257,6 +254,8 @@ const MetabolismCalculatorPage = () => {
                   <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
                   <li><Link to="/adultheight" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
                   <li><Link to="/metabolism" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
+                  <li><Link to="/breastimplant" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
+                  <li><Link to="/botox" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                 </ul>
               </div>
               

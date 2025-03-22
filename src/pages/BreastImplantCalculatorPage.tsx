@@ -2,10 +2,9 @@
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
+import BreastImplantCalculator from '@/components/BreastImplantCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import BreastImplantCalculator from '@/components/BreastImplantCalculator';
-import { Calculator, AlertTriangle, Ruler, Activity } from 'lucide-react';
 
 const BreastImplantCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -27,10 +26,9 @@ const BreastImplantCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Breast Implant Size Calculator | Augmentation Cost Estimator"
-        description="Calculate your ideal breast implant size based on body measurements and get cost estimates for breast augmentation surgery across different regions."
+        title="Breast Implant Size Calculator | Cost and CC Estimator"
+        description="Calculate the ideal breast implant size in CC based on your measurements and desired cup size. Estimate surgery costs and explore implant options with our free calculator."
         canonicalUrl="https://longevitycalculator.xyz/breastimplant"
-        keywords="breast implant calculator, breast augmentation cost, implant size estimator, breast surgery cost, implant cc calculator, cosmetic surgery calculator"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -44,7 +42,7 @@ const BreastImplantCalculatorPage = () => {
             />
           </div>
         </header>
-        
+
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
@@ -106,7 +104,7 @@ const BreastImplantCalculatorPage = () => {
             <div className="space-y-4 text-gray-700">
               <div id="overview">
                 <p>
-                  Our <strong>Breast Implant Size Calculator</strong> is designed to help you estimate appropriate implant volumes and potential costs associated with breast augmentation surgery. This tool provides a starting point for understanding how different implant sizes might work with your unique body proportions and what budget you might need to plan for this procedure.
+                  Our <strong>Breast Implant Size Calculator</strong> helps you estimate appropriate implant sizes based on your measurements and aesthetic goals. This tool provides guidance on potential CC (cubic centimeter) volumes for breast implants, helping you understand sizing options before consulting with a plastic surgeon.
                 </p>
               </div>
               
@@ -122,10 +120,7 @@ const BreastImplantCalculatorPage = () => {
               <div id="how-it-works">
                 <h3 className="text-xl font-medium mt-6">How The Breast Implant Calculator Works</h3>
                 <p>
-                  The calculator uses a combination of your physical measurements (height, weight, chest circumference), current breast size, desired increase, and body frame to suggest an appropriate implant volume range measured in cubic centimeters (cc). It takes into account that different body types may require different implant volumes to achieve similar visual results.
-                </p>
-                <p className="mt-2">
-                  Additionally, the calculator provides regional cost estimates based on your location and chosen implant type. The cost breakdown includes typical expenses for the surgeon's fee, anesthesia, facility fees, implant costs, and additional expenses like post-surgical garments and medications.
+                  This calculator analyzes your current measurements (breast width, tissue thickness) along with your desired cup size increase to suggest appropriate implant volumes. It considers factors like your frame size, existing breast tissue, and aesthetic goals to recommend implant sizes that may achieve natural-looking results.
                 </p>
               </div>
               
@@ -133,45 +128,28 @@ const BreastImplantCalculatorPage = () => {
                 <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
-                    <strong>Personalized Size Recommendations:</strong> Receive implant size suggestions tailored to your body's proportions rather than generic recommendations.
+                    <strong>Better Preparation:</strong> Walk into surgeon consultations with a clearer understanding of implant sizing concepts.
                   </li>
                   <li>
-                    <strong>Visual Result Estimation:</strong> Get an estimate of your potential cup size after surgery based on your current measurements and desired increase.
+                    <strong>Visual References:</strong> Understand what different cc volumes might look like for your specific body measurements.
                   </li>
                   <li>
-                    <strong>Regional Cost Awareness:</strong> Understand the typical price ranges for breast augmentation in your geographic area with a detailed breakdown.
+                    <strong>Realistic Expectations:</strong> Get insights into what sizes might be appropriate for your body proportions.
                   </li>
                   <li>
-                    <strong>Implant Type Comparison:</strong> Compare how different implant materials (saline, silicone, and cohesive gel) affect the overall cost of your procedure.
-                  </li>
-                  <li>
-                    <strong>Pre-Consultation Planning:</strong> Gather valuable information to have a more productive initial consultation with plastic surgeons.
+                    <strong>Cost Awareness:</strong> Receive approximate cost ranges for breast augmentation procedures in your region.
                   </li>
                 </ul>
               </div>
               
               <div id="considerations">
-                <h3 className="text-xl font-medium mt-6">Important Considerations When Using This Calculator</h3>
+                <h3 className="text-xl font-medium mt-6">Important Considerations</h3>
                 <p>
-                  While our breast implant calculator provides useful estimates, it's essential to understand its limitations. The suggested implant sizes should be considered general guidelines rather than definitive recommendations. Many factors beyond basic measurements influence the ideal implant size, including:
+                  While our calculator provides helpful estimates, final implant selection should always be determined through in-person consultations with a board-certified plastic surgeon. Many factors affect optimal implant sizing, including existing breast tissue elasticity, chest wall anatomy, implant profile, and placement method.
                 </p>
                 
-                <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li>Breast tissue elasticity and composition</li>
-                  <li>Chest wall shape and asymmetry</li>
-                  <li>Skin quality and thickness</li>
-                  <li>Placement options (submuscular vs. subglandular)</li>
-                  <li>Implant profile (low, moderate, high, or extra-high)</li>
-                  <li>Implant shape (round vs. anatomical/teardrop)</li>
-                  <li>Personal aesthetic goals and lifestyle considerations</li>
-                </ul>
-                
-                <p className="mt-2">
-                  Furthermore, cost estimates are based on industry averages and can vary significantly depending on surgeon experience, geographic location within regions, specific facility charges, and the potential need for additional procedures like a breast lift (mastopexy).
-                </p>
-                
-                <p className="mt-2">
-                  <strong>Always consult with a board-certified plastic surgeon</strong> for personalized advice and accurate quotes based on your specific needs and anatomy. This calculator is meant to be an educational tool, not a substitute for professional medical advice.
+                <p>
+                  Remember that this calculator is for educational purposes only. The results should be used as a starting point for discussions with your surgeon, not as a definitive recommendation.
                 </p>
               </div>
               
@@ -181,37 +159,37 @@ const BreastImplantCalculatorPage = () => {
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate are the implant size recommendations?</h4>
+                    <h4 className="font-semibold text-lg">What does CC mean for breast implants?</h4>
                     <p className="mt-2">
-                      The calculator provides a reasonable starting range based on your measurements and desired increase, but it cannot account for all the nuances of your unique anatomy. Studies show that patient satisfaction is highest when implant selection is done collaboratively between the patient and surgeon, taking into account both measurements and aesthetic goals. Consider our recommendations as a starting point for discussion with your surgeon, who will perform detailed measurements and may use sizers during consultation to help you visualize results.
+                      CC stands for cubic centimeters, which is the volume measurement used for breast implants. It represents the amount of silicone or saline contained within the implant shell. For reference, 30cc is approximately 1 fluid ounce. Common implant sizes range from 200cc to 800cc, with most patients selecting between 300cc to 400cc depending on their frame size and desired outcome.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What's the difference between implant types, and how do I choose?</h4>
+                    <h4 className="font-semibold text-lg">How accurate is this breast implant calculator?</h4>
                     <p className="mt-2">
-                      The three main implant types differ in feel, longevity, and cost: Saline implants are filled with sterile salt water, provide a firmer feel, and are the least expensive option. If they rupture, the saline is safely absorbed by your body. Silicone gel implants contain a cohesive gel that more closely mimics natural breast tissue and provides a softer, more natural feel. Highly cohesive gel implants (sometimes called "gummy bear" implants) maintain their shape even when the implant shell is broken and may provide the most natural appearance, particularly in the upper pole of the breast. Your surgeon can help you select the best option based on your body type, skin thickness, and aesthetic goals.
+                      This calculator provides reasonable estimates based on standard anatomical relationships between measurements and implant volumes. However, it cannot account for all individual factors that surgeons consider. Many variables affect final results, including implant profile (projection), placement (over/under muscle), and your unique anatomy. Consider these results as educational guidelines rather than precise recommendations.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How does implant size relate to cup size?</h4>
+                    <h4 className="font-semibold text-lg">How much do breast implants cost?</h4>
                     <p className="mt-2">
-                      The relationship between implant volume (cc) and cup size is not exact and varies depending on your existing breast tissue, chest width, and other factors. As a general guideline, approximately 150-200cc is often associated with one cup size increase, but this can vary significantly between individuals. A 300cc implant might create a C cup on a petite woman with a narrow chest but result in a smaller visual change on someone with a broader chest. This is why our calculator considers your frame size and chest measurements when making recommendations. Remember that bra sizing is not standardized across manufacturers, making cup size an imperfect target for surgical planning.
+                      Breast augmentation surgery typically costs between $4,000 and $10,000 in the United States. This price varies based on geographic location, surgeon experience, implant type (saline vs. silicone), and facility fees. Additional costs may include anesthesia, pre-operative tests, post-operative garments, and follow-up care. Some practices offer financing options to make the procedure more accessible.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What additional costs should I consider beyond the calculator estimates?</h4>
+                    <h4 className="font-semibold text-lg">What's the difference between implant profiles?</h4>
                     <p className="mt-2">
-                      Our calculator provides base estimates for the primary costs, but you should also budget for: pre-operative tests (blood work, mammograms for patients over 40); prescription medications; specialized surgical bras or compression garments; time off work for recovery (typically 1-2 weeks); follow-up appointments; and possible revision surgery in the future (implants are not lifetime devices). Additionally, if complications occur, there may be additional costs for treatment. Many plastic surgeons offer financing plans to help manage these expenses, and some cosmetic surgery-specific insurance plans are available to cover certain complications.
+                      Implant profiles refer to how much the implant projects forward from the chest wall. Low profile implants are wider with less projection, moderate profile provides balanced width and projection, while high profile implants offer maximum projection with a narrower base. Ultra-high/extra-high profiles provide even more projection. Your body type, chest width, and aesthetic goals help determine which profile might be most appropriate.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg">How long do breast implants last?</h4>
                     <p className="mt-2">
-                      Breast implants are not considered lifetime devices. According to manufacturer data and clinical studies, the risk of complications increases the longer you have implants, with many surgeons suggesting potential replacement or revision after 10-20 years. However, implants only need to be replaced if problems develop, such as rupture, capsular contracture (hardening of scar tissue around the implant), or if you desire a change in size or appearance. Modern cohesive gel implants tend to be more durable than earlier generations. Regular follow-up with your plastic surgeon and periodic imaging studies (ultrasound or MRI) can help monitor implant integrity over time, especially for silicone implants where ruptures may not be immediately apparent.
+                      Breast implants are not considered lifetime devices, but they don't automatically need replacement after a certain time period. Modern implants can last 10-20+ years without issues. Manufacturers typically offer warranties of 10 years. Reasons for eventual replacement might include capsular contracture, rupture, displacement, or simply wanting a size change. Regular monitoring through mammograms, MRIs, or ultrasounds is recommended.
                     </p>
                   </div>
                 </div>
@@ -265,9 +243,8 @@ const BreastImplantCalculatorPage = () => {
                   <li><Link to="/retirementsavings" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                   <li><Link to="/fertility" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                   <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/adultheight" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
-                  <li><Link to="/metabolism" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
                   <li><Link to="/breastimplant" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
+                  <li><Link to="/botox" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                 </ul>
               </div>
               

@@ -2,10 +2,9 @@
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
+import BotoxCalculator from '@/components/BotoxCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import BotoxCalculator from '@/components/BotoxCalculator';
-import { Syringe, AlertCircle, HelpCircle, ExternalLink, Calculator } from 'lucide-react';
 
 const BotoxCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -27,10 +26,9 @@ const BotoxCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Botox Dosage and Cost Calculator | Estimate Botox Treatment Units & Price"
-        description="Calculate potential Botox dosage and cost estimates based on treatment areas, gender, age, and regional pricing factors. Free online estimator for neurotoxin treatments."
+        title="Botox Dosage Calculator | Estimate Units and Treatment Costs"
+        description="Calculate recommended Botox units and treatment costs for different facial areas. Personalized dosage estimates based on gender, age, and desired results."
         canonicalUrl="https://longevitycalculator.xyz/botox"
-        keywords="botox calculator, botox cost estimator, botox dosage, botox units, neurotoxin treatment, cosmetic injections, anti-wrinkle treatments, botox pricing, facial aesthetics"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -44,7 +42,7 @@ const BotoxCalculatorPage = () => {
             />
           </div>
         </header>
-        
+
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
@@ -73,23 +71,23 @@ const BotoxCalculatorPage = () => {
                     onClick={() => scrollToSection('how-it-works')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    How It Works
+                    How The Calculator Works
                   </button>
                 </li>
                 <li>
                   <button 
-                    onClick={() => scrollToSection('accuracy')} 
+                    onClick={() => scrollToSection('benefits')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    Accuracy & Limitations
+                    Key Benefits
                   </button>
                 </li>
                 <li>
                   <button 
-                    onClick={() => scrollToSection('treatments')} 
+                    onClick={() => scrollToSection('considerations')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    Common Treatment Areas
+                    Important Considerations
                   </button>
                 </li>
                 <li>
@@ -106,7 +104,7 @@ const BotoxCalculatorPage = () => {
             <div className="space-y-4 text-gray-700">
               <div id="overview">
                 <p>
-                  Our <strong>Botox Dosage and Cost Calculator</strong> helps estimate the amount of Botox (botulinum toxin) needed for various facial areas and approximates the cost based on regional pricing factors. This tool provides personalized estimates based on your gender, age, treatment history, facial muscle strength, and desired results.
+                  Our <strong>Botox Dosage Calculator</strong> helps estimate how many units of Botox you might need for different treatment areas and the associated costs. Based on clinical guidelines and research literature, this tool provides personalized dosage estimates accounting for factors like gender, age, muscle strength, and treatment goals.
                 </p>
               </div>
               
@@ -122,79 +120,37 @@ const BotoxCalculatorPage = () => {
               <div id="how-it-works">
                 <h3 className="text-xl font-medium mt-6">How The Botox Calculator Works</h3>
                 <p>
-                  This calculator uses established dosage guidelines from clinical research and practice to estimate appropriate Botox units for different facial areas. It adjusts these estimates based on several personalized factors:
-                </p>
-                <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li>
-                    <strong>Gender:</strong> Men typically require higher dosages due to stronger facial muscles.
-                  </li>
-                  <li>
-                    <strong>Age:</strong> Younger patients may need less product, while older patients might require more.
-                  </li>
-                  <li>
-                    <strong>Treatment Experience:</strong> First-time patients typically receive conservative dosing, while experienced patients may need more.
-                  </li>
-                  <li>
-                    <strong>Muscle Strength:</strong> Stronger facial muscles require more units for effective treatment.
-                  </li>
-                  <li>
-                    <strong>Desired Results:</strong> Subtle effects require less product than dramatic results.
-                  </li>
-                </ul>
-                <p className="mt-2">
-                  The calculator then applies current pricing data for different regions to provide cost estimates for each treatment area and the total treatment.
+                  This calculator utilizes established dosage ranges for different facial areas and applies adjustments based on your unique characteristics. By analyzing factors known to influence Botox requirements (gender, age, facial muscle strength, previous treatment experience), it generates a customized estimate of units needed and approximate treatment costs based on regional pricing data.
                 </p>
               </div>
-
-              <div id="accuracy">
-                <h3 className="text-xl font-medium mt-6">Accuracy and Limitations</h3>
-                <p>
-                  While our calculator is based on standard clinical dosing practices, it's important to understand its limitations:
-                </p>
-                <ul className="list-disc pl-5 space-y-2 mt-2">
+              
+              <div id="benefits">
+                <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
+                <ul className="list-disc pl-5 space-y-2">
                   <li>
-                    This is an <strong>estimate only</strong> and should not replace consultation with a qualified medical professional.
+                    <strong>Personalized Estimates:</strong> Receive dosage and cost estimates tailored to your specific characteristics and treatment goals.
                   </li>
                   <li>
-                    Actual dosages will vary based on provider technique, product dilution, and individual anatomy.
+                    <strong>Treatment Planning:</strong> Better prepare for consultations with a more informed understanding of potential unit requirements.
                   </li>
                   <li>
-                    Pricing varies significantly between providers even within the same region, based on expertise, clinic location, and practice settings.
+                    <strong>Budget Awareness:</strong> Get regional price estimates to help plan for the financial aspect of treatments.
                   </li>
                   <li>
-                    The calculator doesn't account for medical contraindications or suitability for treatment.
+                    <strong>Educational Tool:</strong> Learn about standard dosage ranges for different facial areas and factors that influence Botox requirements.
                   </li>
                 </ul>
               </div>
               
-              <div id="treatments">
-                <h3 className="text-xl font-medium mt-6">Common Botox Treatment Areas</h3>
+              <div id="considerations">
+                <h3 className="text-xl font-medium mt-6">Important Considerations</h3>
                 <p>
-                  Our calculator includes the most common areas for Botox treatment:
+                  While our calculator provides evidence-based estimates, final dosing decisions should always be made by qualified healthcare providers. Individual anatomy, muscle activity patterns, and treatment history all play important roles in determining optimal Botox dosages.
                 </p>
-                <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li>
-                    <strong>Glabellar Lines:</strong> The vertical lines between eyebrows (frown lines), typically requiring 20-40 units.
-                  </li>
-                  <li>
-                    <strong>Forehead Lines:</strong> Horizontal lines across the forehead, typically requiring 10-30 units.
-                  </li>
-                  <li>
-                    <strong>Crow's Feet:</strong> Lines radiating from the corners of the eyes, typically requiring 12-24 units total for both sides.
-                  </li>
-                  <li>
-                    <strong>Bunny Lines:</strong> Lines on the nose when scrunching, typically requiring 5-10 units.
-                  </li>
-                  <li>
-                    <strong>Perioral Lines:</strong> Lines around the mouth, typically requiring 4-8 units.
-                  </li>
-                  <li>
-                    <strong>Masseter:</strong> Jaw muscles for slimming treatments, typically requiring 40-60 units total for both sides.
-                  </li>
-                  <li>
-                    <strong>Neck Bands:</strong> Vertical platysmal bands, typically requiring 25-50 units.
-                  </li>
-                </ul>
+                
+                <p>
+                  Remember that this calculator is for educational purposes only. The results should be used as a starting point for discussions with your provider, not as definitive recommendations. Only licensed medical professionals can prescribe and administer Botox treatments.
+                </p>
               </div>
               
               {/* FAQ Section */}
@@ -203,37 +159,37 @@ const BotoxCalculatorPage = () => {
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">What is a unit of Botox?</h4>
+                    <p className="mt-2">
+                      A unit of Botox is a standardized measurement of the botulinum toxin's biological activity. It's the standard dosing measurement for Botox treatments. Different facial areas require different numbers of units based on muscle size and activity. For example, the glabellar lines (between eyebrows) typically require 20-40 units, while crow's feet might need 12-24 units. The number of units directly affects both the treatment's effectiveness and its cost.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">Why do men typically need more Botox units than women?</h4>
+                    <p className="mt-2">
+                      Men generally require higher Botox dosages than women because they have larger, stronger facial muscles with greater muscle mass. Research indicates men may need approximately 20-30% more units for equivalent results. Additionally, male skin tends to be thicker with more sebaceous glands, which can affect how the product disperses. These physiological differences explain why our calculator applies a gender-based adjustment factor to dosage recommendations.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg">How long do Botox results last?</h4>
                     <p className="mt-2">
-                      Botox results typically last 3-4 months for most patients. First-time users may see shorter duration (2-3 months), while regular users might experience longer-lasting results (4-6 months). Factors influencing duration include metabolism, treatment area, dosage, and muscle activity levels.
+                      Botox results typically last 3-4 months for most patients. However, duration varies based on several factors: treatment area (forehead treatments often last longer than crow's feet), dosage (higher doses may last longer), metabolism (faster metabolizers may see shorter durations), muscle strength, and treatment frequency. First-time patients often experience shorter durations, while regular users may gradually develop longer-lasting results as muscles become conditioned over time.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What's the difference between Botox, Dysport, and other neurotoxins?</h4>
+                    <h4 className="font-semibold text-lg">Do Botox prices vary by location?</h4>
                     <p className="mt-2">
-                      Botox (onabotulinumtoxinA), Dysport (abobotulinumtoxinA), Xeomin (incobotulinumtoxinA), and Jeuveau (prabotulinumtoxinA) are all botulinum toxin type A products that work similarly to relax muscles. They differ in formulation, diffusion properties, onset of action, and dosing. Conversion ratios are approximately: 1 unit Botox ≈ 2.5-3 units Dysport ≈ 1 unit Xeomin ≈ 1 unit Jeuveau.
+                      Yes, Botox pricing varies significantly by geographic location, with urban areas and regions with higher costs of living typically charging more per unit. Our calculator includes regional pricing data for many countries. Additionally, prices can vary based on the provider's expertise (dermatologists and plastic surgeons often charge more than medical spas), facility type, and whether the treatment is performed by a physician or a nurse injector.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Is getting Botox painful?</h4>
+                    <h4 className="font-semibold text-lg">Is there any preparation needed before a Botox treatment?</h4>
                     <p className="mt-2">
-                      Botox injections cause minimal discomfort. Most patients describe the sensation as a brief pinch or sting lasting only seconds per injection. The procedure uses very small needles. Many providers apply topical numbing cream or ice before treatment to enhance comfort, particularly for sensitive areas like crow's feet or upper lip treatments.
-                    </p>
-                  </div>
-                  
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">When will I see results after Botox treatment?</h4>
-                    <p className="mt-2">
-                      Initial effects may be noticeable within 24-72 hours, but full results typically develop 7-14 days after treatment. Don't judge your results until the two-week mark. If you're concerned about your results after two weeks, most providers offer complementary touch-up appointments to adjust as needed.
-                    </p>
-                  </div>
-                  
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What are the potential side effects of Botox?</h4>
-                    <p className="mt-2">
-                      Common side effects include temporary bruising, mild pain or swelling at injection sites, and headache. Rare but possible effects include eyelid drooping (ptosis), asymmetry, or unwanted muscle weakness. Choosing an experienced, qualified injector significantly reduces these risks. Serious complications are extremely rare when Botox is administered by properly trained medical professionals.
+                      To prepare for Botox treatment, avoid blood-thinning medications and supplements (like aspirin, ibuprofen, vitamin E, fish oil) for 1-2 weeks before treatment to reduce bruising risk. Avoid alcohol 24 hours before, and arrive with a clean face free of makeup. Some providers recommend arnica supplements to minimize bruising. Inform your provider about any medical conditions, allergies, medications, and if you've had previous botulinum toxin treatments.
                     </p>
                   </div>
                 </div>
@@ -287,7 +243,7 @@ const BotoxCalculatorPage = () => {
                   <li><Link to="/retirementsavings" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                   <li><Link to="/fertility" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                   <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/adultheight" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
+                  <li><Link to="/breastimplant" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
                   <li><Link to="/botox" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                 </ul>
               </div>

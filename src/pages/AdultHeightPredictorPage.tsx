@@ -1,10 +1,10 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
+import AdultHeightPredictor from '@/components/AdultHeightPredictor';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
-import { Calculator, AlertCircle, HelpCircle, ExternalLink, Book } from 'lucide-react';
 
 const AdultHeightPredictorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -26,10 +26,9 @@ const AdultHeightPredictorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Adult Height Predictor | Birth Size to Adult Height Calculator"
-        description="Calculate potential adult height based on a baby's birth weight and length. Free online tool based on research showing correlation between birth measurements and final adult height."
+        title="Child to Adult Height Predictor | Future Height Calculator"
+        description="Predict your child's adult height with our scientifically-based calculator. Uses parent heights, current measurements, and growth patterns to forecast future height."
         canonicalUrl="https://longevitycalculator.xyz/adultheight"
-        keywords="adult height calculator, birth size adult height, height prediction tool, baby height calculator, height correlation, birth measurements, height prediction algorithm"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -43,11 +42,11 @@ const AdultHeightPredictorPage = () => {
             />
           </div>
         </header>
-        
+
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <AdultHeightPredictorCalculator />
+              <AdultHeightPredictor />
             </div>
           </div>
           
@@ -72,15 +71,7 @@ const AdultHeightPredictorPage = () => {
                     onClick={() => scrollToSection('how-it-works')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    How It Works
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('accuracy')} 
-                    className="text-blue-600 hover:underline text-sm"
-                  >
-                    Accuracy & Limitations
+                    How The Calculator Works
                   </button>
                 </li>
                 <li>
@@ -93,10 +84,10 @@ const AdultHeightPredictorPage = () => {
                 </li>
                 <li>
                   <button 
-                    onClick={() => scrollToSection('why-it-matters')} 
+                    onClick={() => scrollToSection('factors')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
-                    Why It Matters
+                    Factors Affecting Adult Height
                   </button>
                 </li>
                 <li>
@@ -113,7 +104,7 @@ const AdultHeightPredictorPage = () => {
             <div className="space-y-4 text-gray-700">
               <div id="overview">
                 <p>
-                  Our <strong>Adult Height Predictor</strong> is a calculator designed to estimate potential adult height based on a baby's birth measurements. This tool uses research-based formulas from Sorensen et al. that found correlations between birth weight, birth length, and eventual adult height.
+                  Our <strong>Adult Height Predictor</strong> helps parents estimate their child's potential adult height based on scientifically validated methods. This calculator combines parental heights, current child measurements, and established growth patterns to provide a reasonable prediction range for your child's eventual adult stature.
                 </p>
               </div>
               
@@ -129,28 +120,7 @@ const AdultHeightPredictorPage = () => {
               <div id="how-it-works">
                 <h3 className="text-xl font-medium mt-6">How The Adult Height Predictor Works</h3>
                 <p>
-                  The calculator uses research-based formulas that correlate birth measurements with adult height. For males, the formula is: Adult height (cm) = 45.63 + (2.97 × birth length in cm) + (1.02 × birth weight in kg). For females: Adult height (cm) = 37.85 + (2.78 × birth length in cm) + (1.42 × birth weight in kg).
-                </p>
-              </div>
-
-              <div id="accuracy">
-                <h3 className="text-xl font-medium mt-6">Accuracy and Limitations</h3>
-                <p>
-                  According to the Sorensen et al. research, this prediction method has moderate but not perfect accuracy:
-                </p>
-                <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li>
-                    The 95% prediction interval is approximately ±6.85 cm (2.7 inches) for males and ±6.52 cm (2.6 inches) for females, representing the statistical margin of error in either direction.
-                  </li>
-                  <li>
-                    Birth measurements account for roughly 25-30% of the variation in adult height, as many other factors significantly impact growth.
-                  </li>
-                  <li>
-                    Important factors not accounted for include genetic influences beyond birth size, nutrition throughout childhood, overall health, presence of chronic conditions, timing of puberty, and environmental factors during growth years.
-                  </li>
-                </ul>
-                <p className="mt-2">
-                  While this calculator provides a scientifically-based prediction using established correlations, it should be viewed as an educated estimate rather than a definitive prediction. Individual outcomes can vary considerably based on the many factors that influence growth during childhood and adolescence.
+                  This calculator employs multiple scientifically validated methods for height prediction, including the Khamis-Roche method, mid-parental height calculation, and bone age correlations. By analyzing factors such as the child's current height, weight, age, gender, and parental heights, our algorithm generates a predicted adult height range with statistical confidence intervals.
                 </p>
               </div>
               
@@ -158,28 +128,36 @@ const AdultHeightPredictorPage = () => {
                 <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>
-                    <strong>Early Height Estimation:</strong> Get an early indication of potential adult height based on birth measurements.
+                    <strong>Scientific Approach:</strong> Utilizes evidence-based formulas developed through longitudinal growth studies.
                   </li>
                   <li>
-                    <strong>Statistical Accuracy:</strong> Calculations include prediction intervals to show the range of likely outcomes.
+                    <strong>Multiple Methods:</strong> Combines different prediction techniques for a more comprehensive analysis.
                   </li>
                   <li>
-                    <strong>Research-Based:</strong> Formulas derived from peer-reviewed research studies on growth patterns.
+                    <strong>Growth Tracking:</strong> Helps parents understand if their child's growth is following expected patterns.
                   </li>
                   <li>
-                    <strong>Educational Value:</strong> Learn about the relationship between birth size and adult height.
+                    <strong>Early Identification:</strong> May help identify potential growth concerns that could benefit from medical evaluation.
                   </li>
                 </ul>
               </div>
               
-              <div id="why-it-matters">
-                <h3 className="text-xl font-medium mt-6">Why Height Prediction Matters</h3>
+              <div id="factors">
+                <h3 className="text-xl font-medium mt-6">Factors Affecting Adult Height</h3>
                 <p>
-                  Understanding the potential relationship between birth measurements and adult height can be valuable for parents curious about their child's growth trajectory. While genetics play the largest role in determining height (accounting for 60-80% of height variation), birth measurements do show modest correlations with final adult height.
+                  While genetics plays a primary role in determining adult height (accounting for approximately 60-80% of the variation), several other factors influence a child's growth potential and ultimate adult height:
                 </p>
                 
-                <p>
-                  This calculator provides an estimate based on statistical correlations, which can be useful for educational purposes and general interest. However, it's important to remember that many factors beyond birth measurements influence a person's ultimate adult height, including nutrition, overall health, and environmental factors.
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li><strong>Nutrition:</strong> Adequate protein, calories, vitamins, and minerals are essential for optimal growth.</li>
+                  <li><strong>Sleep:</strong> Growth hormone is primarily released during deep sleep.</li>
+                  <li><strong>Physical Activity:</strong> Regular exercise promotes healthy bone and muscle development.</li>
+                  <li><strong>Overall Health:</strong> Chronic illnesses and certain medications can affect growth patterns.</li>
+                  <li><strong>Hormones:</strong> Growth hormone, thyroid hormone, and sex hormones all influence growth.</li>
+                </ul>
+                
+                <p className="mt-2">
+                  It's important to note that our calculator provides estimates based on typical growth patterns. Individual growth can vary based on these and other factors not captured in the prediction models.
                 </p>
               </div>
               
@@ -189,37 +167,37 @@ const AdultHeightPredictorPage = () => {
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate is this adult height prediction?</h4>
+                    <h4 className="font-semibold text-lg">How accurate are adult height predictions?</h4>
                     <p className="mt-2">
-                      The prediction is based on statistical correlations observed in research studies. It provides an estimate with a 95% prediction interval, meaning 95% of individuals with similar birth measurements would fall within that range. However, many factors beyond birth measurements influence final adult height, including genetics, nutrition, health conditions, and environmental factors.
+                      Adult height predictions typically have a margin of error of 1-3 inches (2.5-7.6 cm). Prediction accuracy improves as children get closer to puberty. The most reliable predictions come from combining multiple methods and considering the child's current growth percentiles, bone age (if available), and parental heights. Our calculator provides both a predicted value and a statistical range to acknowledge this inherent variability in growth prediction.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can I predict my child's adult height more accurately as they grow older?</h4>
+                    <h4 className="font-semibold text-lg">When do children stop growing taller?</h4>
                     <p className="mt-2">
-                      Yes, height predictions become more accurate as children grow older. Methods that use a child's current height, parental heights, and bone age (determined by X-ray) at ages 2+ provide better predictions than birth measurements alone. The most accurate predictions typically come during early adolescence.
+                      Girls typically reach their final adult height between ages 14-16, about 1-2 years after menarche (first menstrual period). Boys usually continue growing until ages 16-18, though some may grow into their early 20s. Growth plates (epiphyses) in the long bones close under the influence of sex hormones during puberty, making further height increase impossible. Growth velocity peaks during adolescent growth spurts: around age 12 for girls and age 14 for boys.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Do birth measurements have a strong influence on adult height?</h4>
+                    <h4 className="font-semibold text-lg">Can nutrition or supplements increase a child's height?</h4>
                     <p className="mt-2">
-                      Birth measurements show modest correlations with adult height, but they're just one factor. Research suggests that birth length has a stronger correlation than birth weight. Genetic factors, which determine approximately 60-80% of height variation, and post-birth factors like nutrition and health have larger influences on final adult height.
+                      Proper nutrition is essential for children to reach their genetic height potential, but supplements or special diets won't make a child grow taller than their genetic programming allows. Ensuring adequate protein, calories, calcium, vitamin D, and other nutrients helps optimize growth. However, except in cases of malnutrition or specific deficiencies, supplements generally don't increase height beyond genetic potential. Focus instead on providing a balanced diet with sufficient protein, fruits, vegetables, and dairy products to support healthy growth.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can a baby's birth measurements predict future health conditions?</h4>
+                    <h4 className="font-semibold text-lg">What if my child is much shorter or taller than predicted?</h4>
                     <p className="mt-2">
-                      Some studies have found associations between birth measurements and certain health outcomes later in life. For example, both very low and very high birth weights have been associated with different health risks. However, these are statistical associations rather than predictions for individuals, and many other factors influence health outcomes.
+                      If your child's height consistently deviates significantly from predictions or if their growth rate changes dramatically, consult a pediatrician. Concerning signs include: dropping percentiles on growth charts; growing less than 2 inches (5 cm) per year during childhood; puberty occurring very early or late; or height significantly below what's expected based on parental heights. Most variations are normal variations, but occasionally, underlying medical conditions like growth hormone deficiency or thyroid disorders may be present.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What factors have the greatest influence on a child's ultimate adult height?</h4>
+                    <h4 className="font-semibold text-lg">Do late bloomers eventually catch up in height?</h4>
                     <p className="mt-2">
-                      Genetics is the primary determinant of height, accounting for 60-80% of height variation. Parental heights are strong predictors of a child's potential height. Other important factors include nutrition, overall health, presence of medical conditions, hormone levels (especially growth hormone and thyroid hormone), and environmental factors during development.
+                      Yes, many "late bloomers" (children with constitutional growth delay) eventually catch up to their peers in height. These children often have delayed bone age and puberty, growing slowly during childhood but continuing to grow later than their peers. They may experience growth spurts in their late teens or even early twenties. If you suspect your child is a late bloomer, tracking their growth pattern and bone age (which can be assessed by a pediatric endocrinologist) can provide reassurance and help predict their eventual adult height.
                     </p>
                   </div>
                 </div>
@@ -274,6 +252,8 @@ const AdultHeightPredictorPage = () => {
                   <li><Link to="/fertility" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                   <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
                   <li><Link to="/adultheight" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
+                  <li><Link to="/breastimplant" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
+                  <li><Link to="/botox" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                 </ul>
               </div>
               
@@ -298,4 +278,3 @@ const AdultHeightPredictorPage = () => {
 };
 
 export default AdultHeightPredictorPage;
-
