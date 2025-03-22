@@ -1,9 +1,11 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import AlcoholLifespanCalculator from '@/components/AlcoholLifespanCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const AlcoholCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -46,6 +48,22 @@ const AlcoholCalculatorPage = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
+              <h1 className="text-2xl font-bold text-center sm:text-3xl mb-6">Alcohol and Lifespan Calculator</h1>
+              
+              <div className="w-full my-4">
+                <AdUnit 
+                  className="w-full"
+                  slot="3333333333" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
+              
+              <DisclaimerAlert 
+                title="Health Disclaimer" 
+                content="This calculator provides general estimates only and should not replace professional medical advice. The impact of alcohol consumption varies based on individual factors including genetics, overall health, and other lifestyle choices."
+              />
+              
               <AlcoholLifespanCalculator />
             </div>
           </div>
