@@ -57,22 +57,22 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Prevent crawlers from thinking this is linked to lifespan-calculator.com */}
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
       
-      {/* Performance optimizations */}
+      {/* Performance optimizations - ensure all attributes are strings */}
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin={String("anonymous")} />
+      <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin={String("anonymous")} />
       
       {/* Preload critical assets - can be customized per page */}
       {preloadFonts && (
         <>
-          <link rel="preload" href="/src/index.css" as="style" />
-          <link rel="preload" href="https://cdn.gpteng.co/gptengineer.js" as="script" />
+          <link rel="preload" href="/src/index.css" as={String("style")} />
+          <link rel="preload" href="https://cdn.gpteng.co/gptengineer.js" as={String("script")} />
         </>
       )}
       
       {/* Sitemap reference */}
-      <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      <link rel="sitemap" type={String("application/xml")} href="/sitemap.xml" />
     </Helmet>
   );
 };
