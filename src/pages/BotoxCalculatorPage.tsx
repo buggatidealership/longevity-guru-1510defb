@@ -4,20 +4,17 @@ import BotoxCalculator from '@/components/BotoxCalculator';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
-import { createCalculatorSEOProps } from '@/utils/seoUtils';
 import { Link } from 'react-router-dom';
 
 const BotoxCalculatorPage = () => {
-  // Use the utility function to create consistent SEO props
-  const seoProps = createCalculatorSEOProps(
-    "Botox Dosage Calculator", 
-    "Calculate the optimal Botox dosage for different facial areas and estimate treatment costs with our free Botox Calculator. Evidence-based dosage recommendations.",
-    "/botox"
-  );
-
   return (
     <>
-      <SEOHead {...seoProps} />
+      <SEOHead 
+        title="Botox Dosage Calculator | Cost & Units Estimator"
+        description="Calculate the optimal Botox dosage for different facial areas and estimate treatment costs with our free Botox Calculator. Evidence-based dosage recommendations for forehead, crow's feet, and more."
+        canonicalUrl="https://longevitycalculator.xyz/botox"
+        keywords="botox calculator, botox units, botox cost calculator, botox dosage, facial aesthetics, cosmetic treatments, forehead lines, crow's feet, glabellar lines"
+      />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
