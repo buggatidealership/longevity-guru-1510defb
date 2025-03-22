@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -12,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Calculator, Coins, PiggyBank, TrendingUp } from 'lucide-react';
 import RetirementResultCard from './RetirementResultCard';
+import { AdUnit } from './AdUnit';
 
 const RetirementSavingsCalculator = () => {
   // State for form inputs
@@ -77,9 +79,10 @@ const RetirementSavingsCalculator = () => {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Retirement Savings Calculator</h1>
-        <p className="text-muted-foreground mt-2">
+        <p className="text-muted-foreground mt-2 mb-4">
           Calculate how much you can spend in retirement based on your savings
         </p>
+        <AdUnit slot="1111111111" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
       <Card>

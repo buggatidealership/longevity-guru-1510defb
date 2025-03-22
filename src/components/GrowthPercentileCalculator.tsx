@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -19,6 +20,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/ui/select';
+import { AdUnit } from './AdUnit';
 
 const GrowthPercentileCalculator = () => {
   const [ageValue, setAgeValue] = useState<string>("5");
@@ -193,9 +195,10 @@ const GrowthPercentileCalculator = () => {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Children's Growth Percentile Calculator</h1>
-        <p className="text-muted-foreground mt-2">
+        <p className="text-muted-foreground mt-2 mb-4">
           Calculate your child's height and weight percentiles based on CDC pediatric growth charts
         </p>
+        <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
       <Card>

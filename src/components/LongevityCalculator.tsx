@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import DisclaimerAlert from './DisclaimerAlert';
 import ResultCard from './ResultCard';
 import { Slider } from '@/components/ui/slider';
+import { AdUnit } from './AdUnit';
 
 const LongevityCalculator = () => {
   const [age, setAge] = useState(30);
@@ -121,6 +123,7 @@ const LongevityCalculator = () => {
       <div className="text-center space-y-2 max-w-2xl mx-auto">
         <h1 className="text-3xl font-display font-bold tracking-tight">Life Expectancy Calculator</h1>
         <p className="text-muted-foreground">Explore how different factors might influence your lifespan</p>
+        <AdUnit slot="3333333333" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
       {/* Information panels with consistent styling */}
