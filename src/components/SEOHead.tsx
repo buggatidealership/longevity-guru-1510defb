@@ -30,23 +30,24 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
   return (
     <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={correctedCanonicalUrl} />
-      {keywords && <meta name="keywords" content={keywords} />}
+      {/* Only pass string values to Helmet - nothing that could be a Symbol */}
+      <title>{String(title)}</title>
+      <meta name="description" content={String(description)} />
+      <link rel="canonical" href={String(correctedCanonicalUrl)} />
+      {keywords && <meta name="keywords" content={String(keywords)} />}
       
       {/* Open Graph */}
-      <meta property="og:url" content={correctedCanonicalUrl} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
+      <meta property="og:url" content={String(correctedCanonicalUrl)} />
+      <meta property="og:type" content={String(ogType)} />
+      <meta property="og:title" content={String(title)} />
+      <meta property="og:description" content={String(description)} />
+      <meta property="og:image" content={String(ogImage)} />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:title" content={String(title)} />
+      <meta name="twitter:description" content={String(description)} />
+      <meta name="twitter:image" content={String(ogImage)} />
       
       {/* Additional tags to strengthen canonical status */}
       <meta name="robots" content="index, follow" />

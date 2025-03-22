@@ -16,10 +16,15 @@ document.head.appendChild(sitemapLink);
 
 // Performance optimizations
 const registerPerfOptimizations = () => {
+  // Safely check for navigator.connection with type guard
+  const connection = navigator && 'connection' in navigator 
+    ? (navigator as any).connection 
+    : null;
+  
   // Detect slow connections and reduce animations
-  if (navigator.connection && 
-      ('effectiveType' in navigator.connection) && 
-      (navigator.connection.effectiveType === '2g' || navigator.connection.effectiveType === 'slow-2g')) {
+  if (connection && 
+      ('effectiveType' in connection) && 
+      (connection.effectiveType === '2g' || connection.effectiveType === 'slow-2g')) {
     document.documentElement.classList.add('reduced-motion');
   }
   
