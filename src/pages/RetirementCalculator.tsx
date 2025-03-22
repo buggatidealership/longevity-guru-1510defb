@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -26,11 +25,12 @@ const RetirementCalculator = () => {
   return (
     <>
       <SEOHead 
-        title="Will I Have Enough Money To Retire? | Retirement Savings Calculator"
+        title="Retirement Savings Calculator | Will I Have Enough Money To Retire?"
         description="Find out if you have enough money to retire with our free retirement savings calculator. Determine how much you can safely spend each month without running out."
         canonicalUrl="https://longevitycalculator.xyz/retirementsavings"
         keywords="will I have enough money to retire, retirement calculator, retirement savings calculator, retirement planning, retirement income, enough money for retirement"
       />
+      
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
@@ -53,7 +53,7 @@ const RetirementCalculator = () => {
           
           {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">Will I Have Enough Money To Retire? Our Calculator Helps You Find Out</h2>
+            <h2 className="text-2xl font-semibold mb-4">Retirement Savings Calculator: Will You Have Enough?</h2>
             
             {/* Table of Contents */}
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">
@@ -279,3 +279,4 @@ const RetirementCalculator = () => {
 };
 
 export default RetirementCalculator;
+

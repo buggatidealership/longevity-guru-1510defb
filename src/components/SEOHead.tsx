@@ -12,7 +12,7 @@ interface SEOHeadProps {
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
-  title = 'Longevity Calculators | Health & Financial Planning Tools',
+  title = 'Longevity Calculators | Free Health & Financial Planning Tools',
   description = 'Free online calculators and tools for health assessment, financial planning, lifestyle optimization, and personal development. Evidence-based resources for better decision-making.',
   canonicalUrl = 'https://longevitycalculator.xyz/',
   ogType = 'website',
