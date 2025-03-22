@@ -430,70 +430,72 @@ const BotoxCalculator = () => {
             Choose the areas you want to treat with Botox and adjust the recommended units
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
-          {Object.entries(treatmentAreas).map(([areaKey, areaData]) => (
-            <div key={areaKey} className="border rounded-lg p-4 hover:border-primary/50 transition-colors">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-start gap-2">
-                  <div>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox 
-                        id={`area-${areaKey}`}
-                        checked={selectedAreas.includes(areaKey)}
-                        onCheckedChange={() => toggleAreaSelection(areaKey)}
-                      />
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {Object.entries(treatmentAreas).map(([areaKey, areaData]) => (
+              <div key={areaKey} className="border rounded-md p-2 hover:border-primary/50 transition-colors">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Checkbox 
+                      id={`area-${areaKey}`}
+                      checked={selectedAreas.includes(areaKey)}
+                      onCheckedChange={() => toggleAreaSelection(areaKey)}
+                    />
+                    <div>
                       <label 
                         htmlFor={`area-${areaKey}`} 
-                        className={`font-medium cursor-pointer ${selectedAreas.includes(areaKey) ? 'text-primary' : ''}`}
+                        className={`text-sm font-medium cursor-pointer ${selectedAreas.includes(areaKey) ? 'text-primary' : ''}`}
                       >
                         {areaData.name}
                       </label>
-                    </div>
-                    <div className="text-xs text-muted-foreground ml-6 mt-1">
-                      Typical range: {areaData.unitsRange[0]}-{areaData.unitsRange[1]} units
+                      <p className="text-xs text-muted-foreground">
+                        {areaData.unitsRange[0]}-{areaData.unitsRange[1]} units
+                      </p>
                     </div>
                   </div>
+                  <div className="text-sm font-medium">
+                    {selectedAreas.includes(areaKey) ? `${areaUnits[areaKey] || 0}` : ''}
+                  </div>
                 </div>
-                <div className="text-sm font-medium">
-                  {selectedAreas.includes(areaKey) ? `${areaUnits[areaKey] || 0} units` : ''}
-                </div>
+                
+                {selectedAreas.includes(areaKey) && (
+                  <div className="mt-2 grid grid-cols-4 gap-2 items-center">
+                    <div className="col-span-3">
+                      <Slider
+                        value={[areaUnits[areaKey] || areaData.defaultUnits]}
+                        min={areaData.unitsRange[0]}
+                        max={areaData.unitsRange[1]}
+                        step={1}
+                        onValueChange={(value) => updateAreaUnits(areaKey, value[0])}
+                        className="h-2"
+                      />
+                    </div>
+                    <div className="col-span-1">
+                      <Input
+                        type="number"
+                        min={areaData.unitsRange[0]}
+                        max={areaData.unitsRange[1]}
+                        value={areaUnits[areaKey] || areaData.defaultUnits}
+                        onChange={(e) => {
+                          const value = parseInt(e.target.value);
+                          if (!isNaN(value)) {
+                            updateAreaUnits(
+                              areaKey, 
+                              Math.min(
+                                Math.max(value, areaData.unitsRange[0]), 
+                                areaData.unitsRange[1]
+                              )
+                            );
+                          }
+                        }}
+                        className="h-8 text-sm"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
-              
-              {selectedAreas.includes(areaKey) && (
-                <div className="mt-3 grid grid-cols-12 gap-2 items-center">
-                  <div className="col-span-8 md:col-span-10">
-                    <Slider
-                      value={[areaUnits[areaKey] || areaData.defaultUnits]}
-                      min={areaData.unitsRange[0]}
-                      max={areaData.unitsRange[1]}
-                      step={1}
-                      onValueChange={(value) => updateAreaUnits(areaKey, value[0])}
-                    />
-                  </div>
-                  <div className="col-span-4 md:col-span-2">
-                    <Input
-                      type="number"
-                      min={areaData.unitsRange[0]}
-                      max={areaData.unitsRange[1]}
-                      value={areaUnits[areaKey] || areaData.defaultUnits}
-                      onChange={(e) => {
-                        const value = parseInt(e.target.value);
-                        if (!isNaN(value)) {
-                          updateAreaUnits(
-                            areaKey, 
-                            Math.min(
-                              Math.max(value, areaData.unitsRange[0]), 
-                              areaData.unitsRange[1]
-                            )
-                          );
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
           
           <div className="flex justify-between mt-6">
             <Button 
