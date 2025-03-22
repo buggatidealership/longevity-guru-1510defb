@@ -1,8 +1,7 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
-import AdultHeightPredictor from '@/components/AdultHeightPredictor';
+import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -46,7 +45,7 @@ const AdultHeightPredictorPage = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <AdultHeightPredictor />
+              <AdultHeightPredictorCalculator />
             </div>
           </div>
           
