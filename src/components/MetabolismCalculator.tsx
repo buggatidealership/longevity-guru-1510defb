@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -292,7 +293,7 @@ const MetabolismCalculator = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="body-fat" className="flex items-center">
+                  <Label htmlFor="body-fat" className="flex items-center gap-1">
                     Body Fat Percentage (optional)
                     <InfoTooltip text="Including your body fat percentage makes your calculation more accurate, especially if you have more muscle or less fat than average. This is optional but recommended if you know your body fat percentage." />
                   </Label>
@@ -316,7 +317,7 @@ const MetabolismCalculator = () => {
                 </h3>
                 
                 <div className="space-y-2">
-                  <Label htmlFor="activity" className="flex items-center">
+                  <Label htmlFor="activity" className="flex items-center gap-1">
                     Daily Activity Level
                     <InfoTooltip text="Choose the option that best matches your typical weekly activity. Be honest about your actual activity level - many people overestimate this!" />
                   </Label>
@@ -336,7 +337,7 @@ const MetabolismCalculator = () => {
                 </div>
                 
                 <div className="mt-6 space-y-2">
-                  <Label htmlFor="formula" className="flex items-center">
+                  <Label htmlFor="formula" className="flex items-center gap-1">
                     Calculation Formula
                     <InfoTooltip text="These are different scientific methods for calculating your metabolism. Each works better for different people. The default (Mifflin-St Jeor) works well for most people." />
                   </Label>
@@ -375,7 +376,7 @@ const MetabolismCalculator = () => {
                   <div className={`grid grid-cols-1 ${isMobile ? "" : "md:grid-cols-2"} gap-4`}>
                     <div className="p-3 bg-white rounded shadow-sm">
                       <div className="flex flex-col space-y-1">
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-1">
                           <span className="font-medium">Basal Metabolic Rate (BMR)</span>
                           <InfoTooltip text="The number of calories your body needs at complete rest just to maintain basic functions like breathing, circulation, and cell production." />
                         </div>
@@ -385,7 +386,7 @@ const MetabolismCalculator = () => {
                     
                     <div className="p-3 bg-white rounded shadow-sm">
                       <div className="flex flex-col space-y-1">
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-1">
                           <span className="font-medium">Total Daily Energy Expenditure (TDEE)</span>
                           <InfoTooltip text="Your total daily calorie needs, including your BMR plus calories burned through daily activities and exercise." />
                         </div>
@@ -395,7 +396,7 @@ const MetabolismCalculator = () => {
                     
                     <div className="p-3 bg-white rounded shadow-sm">
                       <div className="flex flex-col space-y-1">
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-1">
                           <span className="font-medium">Fat-Free Mass (FFM)</span>
                           <InfoTooltip text="The weight of everything in your body except fat, including muscles, bones, organs, and water." />
                         </div>
@@ -405,7 +406,7 @@ const MetabolismCalculator = () => {
                     
                     <div className="p-3 bg-white rounded shadow-sm">
                       <div className="flex flex-col space-y-1">
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-1">
                           <span className="font-medium">Lean Body Mass (LBM)</span>
                           <InfoTooltip text="Similar to FFM, this is your weight excluding body fat. This is especially important as it drives your metabolism." />
                         </div>
@@ -417,4 +418,146 @@ const MetabolismCalculator = () => {
                   <div className="mt-6">
                     <h4 className="text-lg font-semibold mb-3">Daily Calorie Targets</h4>
                     
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4 bg-red-50 rounded shadow-sm border border-red-100">
+                        <h5 className="font-medium mb-2 text-red-800">Weight Loss</h5>
+                        <ul className="space-y-2">
+                          <li className="flex justify-between">
+                            <span>Mild (0.25kg/week):</span>
+                            <span className="font-semibold">{results.mildDeficit} cal</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Moderate (0.5kg/week):</span>
+                            <span className="font-semibold">{results.moderateDeficit} cal</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Aggressive (1kg/week):</span>
+                            <span className="font-semibold">{results.aggressiveDeficit} cal</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="p-4 bg-blue-50 rounded shadow-sm border border-blue-100">
+                        <h5 className="font-medium mb-2 text-blue-800">Maintenance</h5>
+                        <div className="h-full flex flex-col justify-center">
+                          <div className="flex justify-between items-center">
+                            <span>Daily calories:</span>
+                            <span className="font-semibold text-lg">{results.maintenance} cal</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="p-4 bg-green-50 rounded shadow-sm border border-green-100">
+                        <h5 className="font-medium mb-2 text-green-800">Weight Gain</h5>
+                        <ul className="space-y-2">
+                          <li className="flex justify-between">
+                            <span>Mild (0.25kg/week):</span>
+                            <span className="font-semibold">{results.mildSurplus} cal</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Moderate (0.5kg/week):</span>
+                            <span className="font-semibold">{results.moderateSurplus} cal</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="about">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <HeartPulse className="w-5 h-5" /> Understanding Your Metabolism
+              </CardTitle>
+              <CardDescription>
+                Learn how metabolism works and how to optimize it.
+              </CardDescription>
+            </CardHeader>
+            
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold mb-2">What is Metabolism?</h3>
+                <p>
+                  Metabolism refers to all the chemical processes that occur within your body to maintain life. These processes include converting food and drinks into energy and building or repairing your body. Your metabolic rate is the rate at which your body burns calories to perform these essential functions.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Understanding BMR and TDEE</h3>
+                <p className="mb-2">
+                  <strong>Basal Metabolic Rate (BMR):</strong> This is the number of calories your body needs at complete rest just to perform essential functions like breathing, circulation, cell production, and nutrient processing. BMR typically accounts for 60-70% of your total daily calorie expenditure.
+                </p>
+                <p>
+                  <strong>Total Daily Energy Expenditure (TDEE):</strong> This is your total daily calorie needs, which includes your BMR plus additional calories for daily activities and exercise. TDEE is what you need to maintain your current weight.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Calculation Formulas</h3>
+                <p className="mb-2">This calculator offers several well-established formulas for estimating BMR:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    <strong>Mifflin-St Jeor (Default):</strong> Developed in 1990, this is considered the most accurate for most people.
+                  </li>
+                  <li>
+                    <strong>Harris-Benedict:</strong> A classic formula originally developed in 1919 and revised in 1984.
+                  </li>
+                  <li>
+                    <strong>Katch-McArdle:</strong> Takes into account lean body mass, making it more accurate for people who know their body fat percentage.
+                  </li>
+                  <li>
+                    <strong>Cunningham:</strong> Similar to Katch-McArdle but uses a different formula, often preferred for athletes.
+                  </li>
+                  <li>
+                    <strong>Oxford Equations:</strong> Based on more recent research that accounts for changing metabolic rates across different age groups.
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2">How to Use Your Results</h3>
+                <p className="mb-2">
+                  <strong>Weight Loss:</strong> To lose weight, consume fewer calories than your TDEE. A deficit of 500-1000 calories per day will result in approximately 0.5-1kg of weight loss per week.
+                </p>
+                <p className="mb-2">
+                  <strong>Weight Maintenance:</strong> To maintain your weight, consume calories equal to your TDEE.
+                </p>
+                <p>
+                  <strong>Weight Gain:</strong> To gain weight, consume more calories than your TDEE. A surplus of 250-500 calories per day will result in approximately 0.25-0.5kg of weight gain per week.
+                </p>
+              </div>
+              
+              <div className="p-4 bg-yellow-50 border-l-4 border-yellow-500">
+                <h3 className="text-lg font-semibold mb-2">Important Considerations</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    These calculations provide estimates based on statistical averages. Individual metabolism can vary.
+                  </li>
+                  <li>
+                    For the most accurate results, use the Katch-McArdle or Cunningham formula with a measured body fat percentage.
+                  </li>
+                  <li>
+                    Be honest about your activity level. Many people overestimate how active they are.
+                  </li>
+                  <li>
+                    Factors like genetics, hormones, sleep quality, stress, and certain medications can all affect your metabolism.
+                  </li>
+                  <li>
+                    Consider tracking your actual intake and weight changes to fine-tune your calorie targets.
+                  </li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
 
+export default MetabolismCalculator;
