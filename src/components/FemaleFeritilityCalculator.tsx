@@ -39,18 +39,13 @@ const FemaleFeritilityCalculator = () => {
       return;
     }
     
-    // If 'none' is currently selected and user selects another condition, remove 'none'
     if (conditions.includes('none')) {
       setConditions([condition]);
     } else {
-      // Check if condition is already selected
       if (conditions.includes(condition)) {
-        // Remove it
         const updatedConditions = conditions.filter(c => c !== condition);
-        // If empty after removal, set to 'none'
         setConditions(updatedConditions.length > 0 ? updatedConditions : ['none']);
       } else {
-        // Add it
         setConditions([...conditions, condition]);
       }
     }
@@ -63,42 +58,38 @@ const FemaleFeritilityCalculator = () => {
 
   // Calculate fertility
   const calculateFertility = () => {
-    // Validate inputs
     if (!age || age < 18 || age > 60) {
       alert("Please enter a valid age between 18 and 60");
       return;
     }
     
-    // Base fertility status assessment based on age - significantly updated for more accurate science
     let fertilityStatus = "";
     let baseYearsRemaining = 0;
-    let estimatedAge = 51; // Default average menopause age
+    let estimatedAge = 51;
     
-    // Calculate base fertility status and years remaining by age
-    // Updated to more accurately reflect fertility science
     if (age < 30) {
       fertilityStatus = "Optimal";
-      baseYearsRemaining = Math.max(5, 35 - age); // Peak fertility starts declining from 30-35
+      baseYearsRemaining = Math.max(5, 35 - age);
       estimatedAge = 51;
     } else if (age < 35) {
       fertilityStatus = "Good";
-      baseYearsRemaining = Math.max(3, 38 - age); // Significant decline starts around 35-38
+      baseYearsRemaining = Math.max(3, 38 - age);
       estimatedAge = 51;
     } else if (age < 38) {
       fertilityStatus = "Moderate";
-      baseYearsRemaining = Math.max(2, 40 - age); // More pronounced decline from 38-40
+      baseYearsRemaining = Math.max(2, 40 - age);
       estimatedAge = 50;
     } else if (age < 40) {
       fertilityStatus = "Declining";
-      baseYearsRemaining = Math.max(1, 42 - age); // Very rapid decline after 40
+      baseYearsRemaining = Math.max(1, 42 - age);
       estimatedAge = 49;
     } else if (age < 43) {
       fertilityStatus = "Low";
-      baseYearsRemaining = 1; // Minimal remaining fertility
+      baseYearsRemaining = 1;
       estimatedAge = 48;
     } else if (age < 45) {
       fertilityStatus = "Very Low";
-      baseYearsRemaining = 0; // Extremely limited
+      baseYearsRemaining = 0;
       estimatedAge = 47;
     } else {
       fertilityStatus = "Minimal or None";
@@ -106,12 +97,10 @@ const FemaleFeritilityCalculator = () => {
       estimatedAge = 46;
     }
     
-    // Adjustment factors for years remaining
     let yearAdjustment = 0;
-    let statusAdjustment = 0; // 0 = no change, -1 = one category worse, 1 = one category better
+    let statusAdjustment = 0;
     let amhComment = "";
     
-    // AMH level impact on fertility (if provided) - refined for better accuracy
     const amhValue = amh ? parseFloat(amh) : null;
     if (amhValue !== null) {
       if (age < 35) {
@@ -161,73 +150,65 @@ const FemaleFeritilityCalculator = () => {
       }
     }
     
-    // Family history impact - increased impact
     if (familyHistory === "yes") {
       yearAdjustment -= 4;
       statusAdjustment -= 1;
     }
     
-    // Medical conditions impact - cumulative effect
     let conditionImpact = 0;
     
-    // Each condition has a different impact level
     if (conditions.includes("pcos")) {
-      conditionImpact += 2; // Can affect ovulation but not always permanently
+      conditionImpact += 2;
     }
     
     if (conditions.includes("endometriosis")) {
-      conditionImpact += 3; // Can cause anatomical issues and inflammation
+      conditionImpact += 3;
     }
     
     if (conditions.includes("poi")) {
-      conditionImpact += 5; // Significant impact on ovarian function
+      conditionImpact += 5;
     }
     
     if (conditions.includes("fibroids")) {
-      conditionImpact += 2; // Can affect implantation depending on location
+      conditionImpact += 2;
     }
     
     if (conditions.includes("pid")) {
-      conditionImpact += 3; // Can cause tubal damage
+      conditionImpact += 3;
     }
     
     if (conditions.includes("thyroid")) {
-      conditionImpact += 2; // Hormonal impact on ovulation
+      conditionImpact += 2;
     }
     
     if (conditions.includes("asherman")) {
-      conditionImpact += 3; // Affects implantation
+      conditionImpact += 3;
     }
     
     if (conditions.includes("autoimmune")) {
-      conditionImpact += 3; // Can create hostile environment for pregnancy
+      conditionImpact += 3;
     }
     
     if (conditions.includes("uterine_anomalies")) {
-      conditionImpact += 3; // Structural issues affecting implantation
+      conditionImpact += 3;
     }
     
     if (conditions.includes("premature_ovarian_failure")) {
-      conditionImpact += 6; // Major impact on ovarian function
+      conditionImpact += 6;
     }
     
-    // More conditions means more complex fertility issues
-    // Apply a progressive adjustment based on number of conditions
     if (!conditions.includes("none")) {
       const conditionCount = conditions.length;
       
       if (conditionCount >= 3) {
-        // With 3+ conditions, the compounding effect is greater
-        yearAdjustment -= Math.min(conditionImpact, 8); // Cap at 8 years reduction
-        statusAdjustment -= 2; // Two categories worse
+        yearAdjustment -= Math.min(conditionImpact, 8);
+        statusAdjustment -= 2;
       } else {
-        // With 1-2 conditions, impact is more moderate
-        yearAdjustment -= Math.min(conditionImpact / 2, 5); // Cap at 5 years reduction
-        statusAdjustment -= 1; // One category worse
+        yearAdjustment -= Math.min(conditionImpact / 2, 5);
+        statusAdjustment -= 1;
       }
     }
     
-    // Lifestyle factors
     if (smoking === "current") {
       yearAdjustment -= 2;
       statusAdjustment -= 1;
@@ -242,19 +223,15 @@ const FemaleFeritilityCalculator = () => {
       yearAdjustment -= 1;
     }
     
-    // Calculate final years remaining with all adjustments
     let yearsRemaining = Math.max(0, baseYearsRemaining + yearAdjustment);
     
-    // Apply the status adjustment
     const statusLevels = ["Minimal or None", "Very Low", "Low", "Declining", "Moderate", "Good", "Optimal"];
     let statusIndex = statusLevels.indexOf(fertilityStatus);
     statusIndex = Math.max(0, Math.min(statusLevels.length - 1, statusIndex + statusAdjustment));
     fertilityStatus = statusLevels[statusIndex];
     
-    // Adjust estimated menopause age based on all factors
     estimatedAge = Math.max(age + 1, estimatedAge + yearAdjustment);
     
-    // Collect factors for display
     let factors: string[] = [];
     factors.push(`Age (${age} years)`);
     
@@ -291,7 +268,6 @@ const FemaleFeritilityCalculator = () => {
     
     factors.push(`BMI (${bmi})`);
     
-    // Add descriptive explanation to fertility status
     switch(fertilityStatus) {
       case "Optimal":
         fertilityStatus = "Optimal - Fertility at peak levels for your age";
@@ -316,7 +292,6 @@ const FemaleFeritilityCalculator = () => {
         break;
     }
     
-    // Set results
     setResults({
       fertilityStatus,
       yearsRemaining,
@@ -325,11 +300,9 @@ const FemaleFeritilityCalculator = () => {
       factors
     });
     
-    // Show results
     setShowResults(true);
   };
 
-  // Handle numeric input validation
   const handleNumericInput = (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<any>>, isFloat: boolean = false) => {
     const value = e.target.value;
     if (value === '' || (isFloat ? /^\d*\.?\d*$/ : /^\d*$/).test(value)) {
@@ -357,7 +330,6 @@ const FemaleFeritilityCalculator = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Current Age */}
           <div className="space-y-2">
             <Label htmlFor="age" className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-blue-600" />
@@ -374,7 +346,6 @@ const FemaleFeritilityCalculator = () => {
             />
           </div>
           
-          {/* AMH Level */}
           <div className="space-y-2">
             <Label htmlFor="amh" className="flex items-center gap-2">
               <Activity className="h-4 w-4 text-green-600" />
@@ -390,7 +361,6 @@ const FemaleFeritilityCalculator = () => {
             />
           </div>
           
-          {/* Family History */}
           <div className="space-y-2">
             <Label htmlFor="family-history">
               Family History of Early Menopause
@@ -406,7 +376,6 @@ const FemaleFeritilityCalculator = () => {
             </Select>
           </div>
           
-          {/* Medical Conditions */}
           <div className="space-y-2">
             <Label className="mb-2 block">Medical Conditions (select all that apply)</Label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -522,7 +491,6 @@ const FemaleFeritilityCalculator = () => {
             </div>
           </div>
           
-          {/* Smoking Status */}
           <div className="space-y-2">
             <Label htmlFor="smoking">Smoking Status</Label>
             <Select value={smoking} onValueChange={setSmoking}>
@@ -537,7 +505,6 @@ const FemaleFeritilityCalculator = () => {
             </Select>
           </div>
           
-          {/* BMI */}
           <div className="space-y-2">
             <Label htmlFor="bmi">BMI</Label>
             <Select value={bmi} onValueChange={setBmi}>
@@ -553,7 +520,6 @@ const FemaleFeritilityCalculator = () => {
             </Select>
           </div>
           
-          {/* Calculate Button */}
           <Button 
             className="w-full"
             onClick={calculateFertility}
@@ -564,18 +530,5 @@ const FemaleFeritilityCalculator = () => {
         </CardContent>
       </Card>
       
-      {/* Results Section */}
-      {showResults && results && (
-        <FertilityResultCard
-          fertilityStatus={results.fertilityStatus}
-          yearsRemaining={results.yearsRemaining}
-          estimatedAge={results.estimatedAge}
-          amhComment={results.amhComment}
-          factors={results.factors}
-        />
-      )}
-    </div>
-  );
-};
+      {
 
-export default FemaleFeritilityCalculator;
