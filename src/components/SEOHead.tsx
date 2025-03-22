@@ -19,15 +19,22 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
 }) => {
+  // Enforce longevitycalculator.xyz as the canonical domain
+  let correctedCanonicalUrl = canonicalUrl;
+  if (correctedCanonicalUrl.includes('lifespan-calculator.com')) {
+    // Replace any occurrences of lifespan-calculator.com with longevitycalculator.xyz
+    correctedCanonicalUrl = correctedCanonicalUrl.replace('lifespan-calculator.com', 'longevitycalculator.xyz');
+  }
+
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonicalUrl} />
+      <link rel="canonical" href={correctedCanonicalUrl} />
       {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Open Graph */}
-      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:url" content={correctedCanonicalUrl} />
       <meta property="og:type" content={ogType} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -43,6 +50,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
       <meta property="og:site_name" content="Longevity Calculator" />
+      
+      {/* Prevent crawlers from thinking this is linked to lifespan-calculator.com */}
+      <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
       
       {/* Sitemap reference */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />

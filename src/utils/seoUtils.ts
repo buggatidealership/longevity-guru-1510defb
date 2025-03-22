@@ -79,6 +79,7 @@ export const createCalculatorSEOProps = (
 ) => {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.substring(1) : path;
+  // Force our domain instead of any potential incorrect domain
   const canonicalUrl = `https://longevitycalculator.xyz/${cleanPath}`;
   
   return {
@@ -101,12 +102,16 @@ export const checkCanonicalUrl = (url: string) => {
   const cleanUrl = url.startsWith('/') ? url.substring(1) : url;
   const fullUrl = `${baseUrl}/${cleanUrl}`;
   
+  const hasIncorrectDomain = url.includes('lifespan-calculator.com');
+  
   return {
-    isCanonical: url.startsWith(baseUrl) || url.startsWith('/'),
+    isCanonical: (url.startsWith(baseUrl) || url.startsWith('/')) && !hasIncorrectDomain,
     suggestedCanonical: fullUrl,
-    message: url.startsWith(baseUrl) || url.startsWith('/') 
-      ? 'URL is properly formatted for canonicalization'
-      : `URL should start with ${baseUrl} for proper canonicalization`
+    message: hasIncorrectDomain 
+      ? `URL contains incorrect domain. Should be ${fullUrl}`
+      : (url.startsWith(baseUrl) || url.startsWith('/'))
+        ? 'URL is properly formatted for canonicalization'
+        : `URL should start with ${baseUrl} for proper canonicalization`
   };
 };
 
