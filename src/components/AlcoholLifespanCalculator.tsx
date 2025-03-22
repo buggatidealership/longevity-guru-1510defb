@@ -185,17 +185,6 @@ const AlcoholLifespanCalculator = () => {
               </ul>
             </div>
             
-            <div className="mt-3 p-2 bg-gray-100 rounded text-sm">
-              <p className="font-medium">Risk Level Scale:</p>
-              <ul className="list-disc pl-5 mt-1">
-                <li><span className="text-green-600 font-medium">Minimal</span>: Less than 1 month impact</li>
-                <li><span className="text-green-500 font-medium">Low</span>: 1-6 months impact</li>
-                <li><span className="text-yellow-500 font-medium">Moderate</span>: 6 months to 2 years impact</li>
-                <li><span className="text-orange-500 font-medium">High</span>: 2-3 years impact</li>
-                <li><span className="text-red-600 font-medium">Very High</span>: More than 3 years impact</li>
-              </ul>
-            </div>
-            
             <p className="mt-4 text-xs text-gray-600">
               Note: This calculator provides population-level estimates based on published research. 
               Individual results may vary based on genetics, lifestyle factors, and other health conditions.
