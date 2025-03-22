@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -7,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calculator, Ruler, Baby, Scale } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { AdUnit } from './AdUnit';
+import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const AdultHeightPredictorCalculator = () => {
   const [gender, setGender] = useState<string>('male');
@@ -103,6 +105,8 @@ const AdultHeightPredictorCalculator = () => {
         </p>
         <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
+      
+      <DisclaimerAlert className="mb-6" />
       
       <Card>
         <CardHeader>

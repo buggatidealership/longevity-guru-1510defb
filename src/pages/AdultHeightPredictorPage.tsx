@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -6,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
 import { Calculator, AlertCircle, HelpCircle, ExternalLink, Book } from 'lucide-react';
-import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const AdultHeightPredictorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -49,9 +47,6 @@ const AdultHeightPredictorPage = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <div className="mb-6">
-                <DisclaimerAlert />
-              </div>
               <AdultHeightPredictorCalculator />
             </div>
           </div>
@@ -303,3 +298,4 @@ const AdultHeightPredictorPage = () => {
 };
 
 export default AdultHeightPredictorPage;
+
