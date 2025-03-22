@@ -51,6 +51,15 @@ const GrowthPercentilePage = () => {
                 Our <strong>Child Growth Percentile Calculator</strong> helps parents and caregivers understand how their child's height and weight compare to other children of the same age and gender. Based on the CDC (Centers for Disease Control and Prevention) growth charts, this tool provides insights into where your child falls on standard growth curves.
               </p>
               
+              <div className="my-4">
+                <AdUnit 
+                  className="w-full"
+                  slot="6666666666" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
+              
               <h3 className="text-xl font-medium mt-6">How The Growth Percentile Calculator Works</h3>
               <p>
                 The calculator uses the LMS method (Lambda-Mu-Sigma) which is the statistical technique used to create standardized growth charts. By inputting your child's age, gender, height, and weight, the calculator determines which percentile your child falls into compared to the reference population of children.

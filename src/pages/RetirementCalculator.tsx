@@ -52,6 +52,15 @@ const RetirementCalculator = () => {
                 Worried about having <strong>enough money to retire</strong>? Our <strong>Retirement Savings Calculator</strong> helps you answer the crucial question: <em>"Will I have enough money to retire comfortably?"</em> This comprehensive retirement income calculator provides personalized projections for your daily, monthly, and yearly spending capacity throughout your retirement years, ensuring you don't outlive your savings.
               </p>
               
+              <div className="my-4">
+                <AdUnit 
+                  className="w-full"
+                  slot="7777777777" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
+              
               <h3 className="text-xl font-medium mt-6">How Our Retirement Calculator Determines If You Have Enough Money</h3>
               <p>
                 Unlike basic retirement calculators, our tool uses advanced financial algorithms that account for your total retirement savings, current age, life expectancy, expected investment returns, and anticipated inflation rates. It calculates a safe withdrawal rate that helps you determine exactly how much you can spend in retirement without depleting your nest egg prematurely - giving you a clear answer to "will I have enough money when I retire?"

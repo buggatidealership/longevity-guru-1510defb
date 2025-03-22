@@ -51,6 +51,15 @@ const FertilityCalculator = () => {
                 Our <strong>Female Fertility Calculator</strong> helps women understand their current fertility status and estimate their reproductive timeline. This tool provides personalized insights based on age, AMH levels, family history, medical conditions, and lifestyle factors that influence fertility and reproductive health.
               </p>
               
+              <div className="my-4">
+                <AdUnit 
+                  className="w-full"
+                  slot="5555555555" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
+              
               <h3 className="text-xl font-medium mt-6">How The Female Fertility Calculator Works</h3>
               <p>
                 This calculator analyzes multiple factors known to impact female fertility, including current age, Anti-Müllerian Hormone (AMH) levels (if known), family history of early menopause, relevant medical conditions like PCOS or endometriosis, smoking status, and BMI. Using these inputs, the calculator estimates your current fertility status, projected timeline for fertility decline, and approximate age of menopause.

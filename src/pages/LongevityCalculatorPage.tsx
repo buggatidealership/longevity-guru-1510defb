@@ -51,6 +51,15 @@ const LongevityCalculatorPage = () => {
                 Our <strong>Life Expectancy Calculator</strong> is a comprehensive tool designed to help you predict your potential lifespan based on various health metrics, lifestyle factors, and demographic characteristics. Wondering "how long do I have to live?" or "when will I die?" Our calculator provides a personalized estimate based on your unique profile.
               </p>
               
+              <div className="my-4">
+                <AdUnit 
+                  className="w-full"
+                  slot="4444444444" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
+              
               <h3 className="text-xl font-medium mt-6">How The Life Expectancy Calculator Works</h3>
               <p>
                 The calculator employs a sophisticated algorithm that evaluates multiple factors known to influence longevity, including age, sex, race/ethnicity, exercise habits, sleep patterns, smoking status, alcohol consumption, diet quality, stress levels, social connections, BMI, family history, education, income, chronic conditions, environmental factors, and healthcare access. Each factor is weighted based on scientific research about its impact on lifespan.
