@@ -48,7 +48,7 @@ const AlcoholCalculatorPage = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <h1 className="text-2xl font-bold text-center sm:text-3xl mb-6">Alcohol and Lifespan Calculator</h1>
+              <h1 className="text-2xl font-bold text-center sm:text-3xl mb-6">Alcohol Impact on Lifespan Calculator</h1>
               
               <div className="w-full my-4">
                 <AdUnit 
@@ -128,12 +128,15 @@ const AlcoholCalculatorPage = () => {
             
             <div className="space-y-4 text-gray-700">
               <div id="overview">
-                <h3 className="text-xl font-medium">Alcohol Impact on Lifespan: An Evidence-Based Approach</h3>
+                <h3 className="text-xl font-medium">Alcohol's Impact on Lifespan: What Scientific Research Reveals</h3>
                 <p className="mt-2">
-                  Our <strong>Alcohol Impact Calculator</strong> is a research-based tool designed to help you understand how your drinking habits may affect your longevity. By analyzing key factors like age, biological sex, and weekly consumption patterns, this calculator provides personalized estimates of how alcohol consumption might reduce your potential lifespan.
+                  Our <strong>Alcohol Impact Calculator</strong> provides evidence-based estimates of how alcohol consumption affects longevity. Based on extensive epidemiological research, this tool analyzes your weekly drinking habits to calculate potential lifespan reduction in years and days.
                 </p>
                 <p className="mt-2">
-                  Unlike simplistic approaches, our calculator incorporates age-specific effects, the potential J-curve phenomenon in older adults, and progressive risk increases with heavier drinking - all based on current epidemiological research on alcohol and mortality.
+                  Recent studies from the <strong>World Health Organization</strong> and leading medical journals have established clear links between alcohol consumption patterns and mortality risk. Our calculator incorporates these findings, including the relationship between different types of alcoholic beverages (beer, wine, spirits) and their varying impacts on health outcomes.
+                </p>
+                <p className="mt-2">
+                  Whether you're consuming beer, wine, spirits, or cocktails, understanding how your drinking habits influence your life expectancy is crucial for making informed health decisions. This calculator helps quantify those effects with personalized estimates based on current medical research.
                 </p>
               </div>
               
@@ -147,117 +150,130 @@ const AlcoholCalculatorPage = () => {
               </div>
               
               <div id="how-it-works">
-                <h3 className="text-xl font-medium mt-2">How The Alcohol Impact Calculator Works</h3>
+                <h3 className="text-xl font-medium mt-2">How Our Alcohol Lifespan Impact Calculator Works</h3>
                 <p className="mt-2">
-                  This calculator uses a sophisticated algorithm based on peer-reviewed research to estimate the potential impact of alcohol consumption on lifespan. The calculation considers several important factors:
+                  This calculator uses a sophisticated algorithm derived from peer-reviewed research published in <em>The Lancet</em>, <em>JAMA</em>, and other top medical journals to estimate the potential impact of alcohol consumption on lifespan. The calculation incorporates several critical factors:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li><strong>Age and biological sex differences</strong> - alcohol affects different demographic groups differently</li>
-                  <li><strong>Weekly alcohol consumption</strong> - measured in standard drinks</li>
-                  <li><strong>Age-dependent impact factors</strong> - younger people generally experience more significant long-term effects</li>
-                  <li><strong>The J-curve phenomenon</strong> - the potential small benefits from very light drinking in some older adults</li>
-                  <li><strong>Progressive risk increases</strong> - the exponential increase in health risks with heavier drinking</li>
+                  <li><strong>Beverage-specific impact factors</strong> - different alcoholic drinks (beer, wine, spirits, cocktails) have varying health effects per standard drink</li>
+                  <li><strong>Weekly consumption patterns</strong> - measured precisely in standard drinks per week</li>
+                  <li><strong>The J-curve phenomenon</strong> - accounting for potential small benefits observed with very light wine consumption in some population studies</li>
+                  <li><strong>Heavy drinking exponential risk</strong> - reflecting how health risks increase disproportionately at higher consumption levels</li>
+                  <li><strong>Long-term exposure modeling</strong> - calculating cumulative effects over decades of consistent drinking patterns</li>
                 </ul>
                 <p className="mt-2">
-                  The algorithm analyzes these variables to calculate a personalized estimate of potential lifespan reduction, presented in years and days, along with a risk level assessment from Minimal to Very High.
+                  Our algorithm processes these variables to generate a personalized assessment of potential lifespan reduction, presenting results as specific time measurements (years, days, minutes) and assigning a risk classification from Minimal to Very High based on established medical thresholds.
                 </p>
                 <p className="mt-2">
-                  Similar to other health calculators, this tool helps you understand how lifestyle choices can impact your longevity.
+                  Unlike simplified calculators, our tool accounts for the complex, non-linear relationship between alcohol consumption and mortality risk documented in large-scale population studies from Harvard Medical School, Oxford University, and the National Institutes of Health.
                 </p>
               </div>
               
               <div id="benefits">
-                <h3 className="text-xl font-medium mt-6">Benefits & Uses of Our Alcohol Impact Calculator</h3>
+                <h3 className="text-xl font-medium mt-6">Benefits of Using Our Alcohol Impact Calculator</h3>
                 <p className="mt-2">
-                  Understanding the relationship between alcohol consumption and lifespan can help you make more informed decisions about your drinking habits. Our calculator provides:
+                  Understanding the precise relationship between your alcohol consumption and potential lifespan reduction offers several important benefits:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
                   <li>
-                    <strong>Personalized Assessment:</strong> Get tailored results based on your specific age, gender, and drinking pattern.
+                    <strong>Evidence-Based Decision Making:</strong> Make informed choices about alcohol consumption based on rigorous scientific research rather than general guidelines.
                   </li>
                   <li>
-                    <strong>Evidence-Based Insights:</strong> Our calculations are derived from peer-reviewed research on alcohol mortality risks.
+                    <strong>Personalized Risk Assessment:</strong> Receive tailored results specific to your drinking pattern and preferred alcoholic beverages.
                   </li>
                   <li>
-                    <strong>Risk Level Assessment:</strong> Understand where your drinking pattern falls on a risk scale from Minimal to Very High.
+                    <strong>Visual Risk Representation:</strong> See your potential lifespan impact expressed in concrete terms (years, days, minutes) for better comprehension.
                   </li>
                   <li>
-                    <strong>Health Planning:</strong> Use the results to create a comprehensive health plan.
+                    <strong>Comparative Analysis:</strong> Understand how different drinking levels affect longevity by adjusting the calculator parameters.
                   </li>
                   <li>
-                    <strong>Long-term Planning:</strong> Factor alcohol's impact into your broader health and lifestyle decisions.
+                    <strong>Motivation for Moderation:</strong> Quantifying the health costs of drinking can provide powerful motivation for reducing consumption.
+                  </li>
+                  <li>
+                    <strong>Long-term Health Planning:</strong> Incorporate these insights into your broader health and lifestyle planning for maximum longevity.
                   </li>
                 </ul>
               </div>
               
               <div id="standard-drink">
-                <h3 className="text-xl font-medium mt-6">Understanding Standard Drinks</h3>
+                <h3 className="text-xl font-medium mt-6">Understanding Standard Drinks: Key to Accurate Calculation</h3>
                 <p className="mt-2">
-                  The calculator uses the concept of a "standard drink" which contains approximately 14 grams (0.6 ounces) of pure alcohol. Understanding what constitutes a standard drink is crucial for accurately using this calculator:
+                  For precise results, our calculator requires input in "standard drinks" - a measurement used by health authorities worldwide to quantify alcohol consumption. A standard drink contains approximately 14 grams (0.6 ounces) of pure alcohol, equivalent to:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li>12 ounces (355 ml) of regular beer (about 5% alcohol)</li>
-                  <li>5 ounces (148 ml) of wine (about 12% alcohol)</li>
-                  <li>1.5 ounces (44 ml) of distilled spirits (about 40% alcohol)</li>
+                  <li><strong>Beer:</strong> 12 ounces (355 ml) of regular beer (about 5% alcohol)</li>
+                  <li><strong>Wine:</strong> 5 ounces (148 ml) of wine (about 12% alcohol)</li>
+                  <li><strong>Spirits:</strong> 1.5 ounces (44 ml) of distilled spirits (about 40% alcohol)</li>
+                  <li><strong>Cocktails:</strong> Varies based on ingredients, but often contains 1-3 standard drinks</li>
                 </ul>
                 <p className="mt-2">
-                  Many beverages, especially craft beers (which can be 7-9% alcohol) and cocktails (which often contain multiple shots), may count as more than one standard drink. For accurate results, be sure to count your actual consumption in standard drink equivalents.
+                  <strong>Important:</strong> Many common servings exceed these standard measurements. For example:
+                </p>
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li>A pint (16 oz) of craft beer (7% ABV) = 1.9 standard drinks</li>
+                  <li>A large glass of wine (8 oz) = 1.6 standard drinks</li>
+                  <li>A strong cocktail with multiple spirits = 2-3 standard drinks</li>
+                </ul>
+                <p className="mt-2">
+                  For accurate calculator results, carefully convert your actual consumption to standard drink equivalents based on both volume and alcohol percentage.
                 </p>
               </div>
               
               <div id="health-factors">
-                <h3 className="text-xl font-medium mt-6">Health Factors & Considerations</h3>
+                <h3 className="text-xl font-medium mt-6">Alcohol's Impact on Health: Beyond Lifespan</h3>
                 <p className="mt-2">
-                  The impact of alcohol on health extends beyond just lifespan. Research shows alcohol can affect various aspects of health:
+                  While our calculator focuses on lifespan reduction, research shows alcohol affects numerous aspects of health. Understanding these broader impacts provides important context for the calculator results:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 mt-2">
-                  <li><strong>Liver Health:</strong> Even moderate drinking can affect liver function over time</li>
-                  <li><strong>Cardiovascular System:</strong> Complex effects ranging from potential benefits at very low levels to significant harm at higher levels</li>
-                  <li><strong>Metabolic Health:</strong> Alcohol can impact your metabolism and weight management</li>
-                  <li><strong>Cancer Risk:</strong> Increased risk for several types of cancer, even at moderate consumption levels</li>
-                  <li><strong>Brain Health:</strong> Potential cognitive impacts, especially with long-term use</li>
+                  <li><strong>Liver Health:</strong> Alcohol metabolism in the liver can lead to fatty liver disease, alcoholic hepatitis, fibrosis, and ultimately cirrhosis, even with moderate consumption patterns over time.</li>
+                  <li><strong>Cardiovascular System:</strong> Research indicates complex effects - possible small benefits for heart health at very low levels (particularly with wine) but significant increases in hypertension, stroke, and heart failure risks at higher consumption.</li>
+                  <li><strong>Cancer Risk:</strong> The International Agency for Research on Cancer (IARC) classifies alcohol as a Group 1 carcinogen. Even moderate drinking increases risk for several cancers including breast, colorectal, liver, esophageal, mouth, and throat cancers.</li>
+                  <li><strong>Brain Health:</strong> Neuroimaging studies show alcohol's impact on brain structure and function, with evidence of reduced gray matter volume and impaired cognitive performance with regular consumption.</li>
+                  <li><strong>Mental Health:</strong> Despite temporary mood elevation, alcohol disrupts neurotransmitter balance, potentially worsening anxiety and depression long-term. Heavy drinking significantly increases suicide risk.</li>
+                  <li><strong>Immune Function:</strong> Research demonstrates alcohol's suppressive effects on immune response, increasing susceptibility to infections and impairing recovery.</li>
                 </ul>
                 <p className="mt-2">
-                  For a complete picture of your health, consider how alcohol fits into your overall lifestyle and health goals.
+                  These health impacts contribute to the lifespan reduction calculated by our tool, but also affect quality of life in ways not captured by mortality statistics alone.
                 </p>
               </div>
               
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
-                <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
+                <h3 className="text-xl font-medium mb-4">Frequently Asked Questions About Alcohol and Longevity</h3>
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Is all alcohol consumption harmful?</h4>
+                    <h4 className="font-semibold text-lg">Is any level of alcohol consumption safe for health?</h4>
                     <p className="mt-2">
-                      Current research indicates that, from a purely health perspective, the safest level of alcohol consumption is zero. While some older studies suggested potential cardiovascular benefits from light drinking (the "J-curve" effect), more recent comprehensive research finds that these benefits are smaller than previously thought and are outweighed by other health risks, even at low levels. Our calculator does include a small potential benefit for very light drinking in older adults in keeping with some research, but the most current scientific consensus is that alcohol consumption carries health risks at any level.
+                      The current scientific consensus, reflected in a landmark 2018 global study published in <em>The Lancet</em> analyzing data from 195 countries, concludes that the optimal level of alcohol consumption for health is zero. While older research suggested potential cardiovascular benefits from light drinking (the "J-curve" effect), more recent comprehensive studies using Mendelian randomization techniques have found these benefits to be smaller than previously thought and outweighed by increased risks for cancer, liver disease, and other conditions. Our calculator does include a small potential benefit for very light wine drinking in keeping with some research, but this is increasingly questioned by the most current epidemiological evidence.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Why does biological sex affect alcohol impact?</h4>
+                    <h4 className="font-semibold text-lg">Why do different alcoholic beverages have different health impacts?</h4>
                     <p className="mt-2">
-                      Biological differences between males and females affect how alcohol is processed by the body. On average, women have a higher percentage of body fat and lower percentage of body water than men of similar size, resulting in higher blood alcohol concentrations from the same amount of alcohol. Women also generally have lower levels of alcohol dehydrogenase, an enzyme that breaks down alcohol in the stomach. These biological differences mean that alcohol typically has a more significant health impact per unit consumed in females compared to males.
+                      Research indicates that various alcoholic beverages may have differing health impacts beyond their alcohol content. Wine, particularly red wine, contains compounds like resveratrol and other polyphenols with potential antioxidant and anti-inflammatory properties. Beer contains B vitamins and silicon that may benefit bone health, but also has carbohydrates that increase caloric intake. Spirits lack these additional compounds but deliver alcohol in more concentrated forms. Additionally, drinking patterns differ by beverage type - wine is often consumed with meals (potentially reducing absorption rates) while spirits may be more frequently associated with binge drinking patterns. Our calculator incorporates these beverage-specific factors based on epidemiological research comparing mortality outcomes across different drink preferences.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate is this calculator?</h4>
+                    <h4 className="font-semibold text-lg">How accurate is the Alcohol Impact Calculator?</h4>
                     <p className="mt-2">
-                      This calculator provides estimates based on population-level research and statistical averages. Individual outcomes may vary significantly based on genetics, overall health, concurrent lifestyle factors, patterns of drinking (binge vs. spread out), diet, and other variables not captured in this simple model. The calculator is designed to provide general insights rather than precise predictions for any individual. Always consult healthcare professionals for personalized health advice.
+                      Our calculator synthesizes findings from multiple large-scale epidemiological studies to provide evidence-based estimates of potential lifespan impact. However, several important limitations apply: 1) Results represent statistical averages from population-level research and individual outcomes may vary significantly based on genetics, overall health status, and concurrent lifestyle factors; 2) The calculator cannot account for drinking pattern variations (e.g., moderate weekly consumption spread evenly vs. concentrated binge drinking); 3) Individual biological factors affecting alcohol metabolism (like alcohol dehydrogenase enzyme variants) significantly influence health impacts; 4) The calculator assumes consistent drinking patterns over time rather than fluctuating consumption. Therefore, results should be interpreted as informed estimates rather than precise predictions for any individual. Always consult healthcare professionals for personalized health advice.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can I reverse the effects of past drinking?</h4>
+                    <h4 className="font-semibold text-lg">Can I reverse the effects of previous alcohol consumption?</h4>
                     <p className="mt-2">
-                      The human body has remarkable regenerative capabilities. While some damage from alcohol may be permanent, research suggests that many effects can be partially reversed when people reduce or eliminate alcohol consumption. The liver, for example, can regenerate significantly within weeks or months of alcohol cessation. Cardiovascular health markers often improve within weeks or months of reducing alcohol intake. The best approach for anyone concerned about past alcohol consumption is to reduce current and future consumption, adopt other healthy lifestyle habits, and consult with healthcare providers about personalized strategies for optimizing health.
+                      Scientific research demonstrates remarkable regenerative capacity in the human body following alcohol reduction or cessation. The liver, in particular, can regenerate significantly within 4-12 weeks of abstinence in the absence of advanced cirrhosis. Studies show normalization of liver enzyme levels, reduced inflammation, and improved metabolic function often within months of reducing alcohol intake. Cardiovascular biomarkers typically improve within weeks, with blood pressure normalization and reduced risk of arrhythmias. Neuroimaging research has documented partial recovery of brain volume and cognitive function within months to years of abstinence. While some damage from prolonged heavy drinking may be permanent (advanced cirrhosis or alcoholic cardiomyopathy), research consistently demonstrates substantial health improvements with reduced consumption at nearly any stage. The most effective approach for mitigating previous consumption effects includes complete cessation or significant reduction, optimal nutrition, regular exercise, quality sleep, and regular medical monitoring.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How can I use this information to improve my health?</h4>
+                    <h4 className="font-semibold text-lg">What strategies work best for reducing alcohol consumption?</h4>
                     <p className="mt-2">
-                      This calculator can help you understand the potential long-term impact of your drinking habits on lifespan. If your results indicate a significant potential impact, consider: setting limits on weekly consumption, having several alcohol-free days each week, tracking your consumption to increase awareness, discussing your alcohol use with healthcare providers, and exploring non-alcoholic alternatives for social situations. For those with alcohol dependence, consider seeking professional support through healthcare providers, therapists, or support groups.
+                      If your calculator results indicate concerning potential lifespan reduction, evidence-based strategies for reducing consumption include: 1) Setting specific weekly limits based on national guidelines (typically under 14 standard drinks/week); 2) Scheduling multiple alcohol-free days each week; 3) Tracking consumption with apps designed for this purpose; 4) Practicing mindful drinking techniques that focus attention on each drink; 5) Exploring alcohol-free alternatives like craft non-alcoholic beers, sophisticated mocktails, or adaptogens; 6) Identifying and managing drinking triggers through environmental modifications; 7) Developing alternative stress management strategies like meditation, exercise, or creative pursuits; 8) Seeking social support through community groups or online forums; 9) Consulting healthcare providers about medication-assisted approaches for reducing cravings; and 10) Working with addiction specialists for personalized treatment plans when self-management strategies prove insufficient. Research indicates that even moderate reductions in consumption yield significant health benefits.
                     </p>
                   </div>
                 </div>
