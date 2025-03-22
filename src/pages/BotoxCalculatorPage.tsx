@@ -36,6 +36,15 @@ const BotoxCalculatorPage = () => {
             Calculate the recommended Botox units for different facial areas and estimate treatment costs.
           </p>
           
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+            <AdUnit 
+              className="w-full"
+              slot="6666666666" 
+              format="horizontal"
+              responsive={true}
+            />
+          </div>
+          
           <DisclaimerAlert 
             content="This calculator provides general estimates based on common dosage ranges. Actual treatment should be determined by a qualified healthcare provider."
             className="mb-6"
