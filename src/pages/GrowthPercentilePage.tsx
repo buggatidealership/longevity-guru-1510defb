@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -55,7 +54,7 @@ const GrowthPercentilePage = () => {
           
           {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About The Child Growth Percentile Calculator</h2>
+            <h2 className="text-2xl font-semibold mb-4">Child Growth Percentile Calculator: Track Height & Weight Development</h2>
             
             {/* Table of Contents */}
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">

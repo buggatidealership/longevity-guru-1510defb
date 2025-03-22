@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -52,7 +51,7 @@ const MetabolismCalculatorPage = () => {
           
           {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About The Metabolism Calculator</h2>
+            <h2 className="text-2xl font-semibold mb-4">Metabolism Calculator: Measure Your BMR & Daily Calorie Needs</h2>
             
             {/* Table of Contents */}
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">

@@ -1,11 +1,9 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import AlcoholLifespanCalculator from '@/components/AlcoholLifespanCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const AlcoholCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -27,12 +25,10 @@ const AlcoholCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Alcohol Impact Calculator | Estimate Drinking's Effect on Lifespan"
-        description="Calculate how alcohol consumption might affect your life expectancy based on age, gender, and weekly drinking habits. Our evidence-based calculator helps quantify potential lifespan reduction from drinking patterns."
+        title="Alcohol Impact on Lifespan Calculator | Drinking Health Effects"
+        description="Calculate how alcohol consumption affects your life expectancy. Our free alcohol lifespan impact calculator shows potential health effects based on drinking habits, age, and gender."
         canonicalUrl="https://longevitycalculator.xyz/alcohol"
-        keywords="alcohol impact calculator, drinking lifespan calculator, alcohol mortality risk, alcohol health effects, drinking life expectancy, alcohol consumption impact, standard drinks calculator, alcohol longevity"
-        ogType="website"
-        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
+        keywords="alcohol lifespan calculator, drinking health impact, alcohol life expectancy, alcohol mortality risk, drinking habits health effects"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -48,34 +44,15 @@ const AlcoholCalculatorPage = () => {
         </header>
 
         <main className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center mt-6 mb-2">Alcohol Impact Calculator</h1>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-6">
-            Estimate how your alcohol consumption might impact your life expectancy based on scientific research.
-          </p>
-          
-          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
-            <AdUnit 
-              className="w-full"
-              slot="6666666666" 
-              format="horizontal"
-              responsive={true}
-            />
-          </div>
-          
-          <DisclaimerAlert 
-            content="This calculator provides estimates based on population-level research and should not be considered medical advice. Individual results may vary based on genetics, lifestyle, and other health factors."
-            className="mb-6"
-          />
-          
           <div className="w-full flex justify-center">
             <div className="w-full">
               <AlcoholLifespanCalculator />
             </div>
           </div>
           
-          {/* About This Calculator Section - Optimized for SEO */}
+          {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About The Alcohol Impact Calculator</h2>
+            <h2 className="text-2xl font-semibold mb-4">Alcohol Impact Calculator: How Drinking Affects Your Lifespan</h2>
             
             {/* Table of Contents */}
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">

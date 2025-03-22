@@ -1,4 +1,3 @@
-
 import { AdUnit } from '@/components/AdUnit';
 import BotoxCalculator from '@/components/BotoxCalculator';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
@@ -58,7 +57,7 @@ const BotoxCalculatorPage = () => {
           
           {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
-            <h2 className="text-2xl font-semibold mb-4">About The Botox Dosage Calculator</h2>
+            <h2 className="text-2xl font-semibold mb-4">Botox Dosage Calculator: Treatment Units & Cost Estimator</h2>
             
             <div className="space-y-4 text-gray-700">
               <p>
