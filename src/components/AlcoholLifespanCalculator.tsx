@@ -184,12 +184,6 @@ const AlcoholLifespanCalculator = () => {
                 </li>
               </ul>
             </div>
-            
-            <p className="mt-4 text-xs text-gray-600">
-              Note: This calculator provides population-level estimates based on published research. 
-              Individual results may vary based on genetics, lifestyle factors, and other health conditions.
-              The calculation assumes approximately 40 years of continued drinking at this level.
-            </p>
           </div>
         )}
       </div>

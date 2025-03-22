@@ -162,7 +162,7 @@ const AlcoholCalculatorPage = () => {
                   The algorithm analyzes these variables to calculate a personalized estimate of potential lifespan reduction, presented in years and days, along with a risk level assessment from Minimal to Very High.
                 </p>
                 <p className="mt-2">
-                  Similar to our <Link to="/lifespan" onClick={handleLinkClick} className="text-blue-600 hover:underline">Life Expectancy Calculator</Link>, this tool helps you understand how lifestyle choices can impact your longevity.
+                  Similar to other health calculators, this tool helps you understand how lifestyle choices can impact your longevity.
                 </p>
               </div>
               
@@ -182,10 +182,10 @@ const AlcoholCalculatorPage = () => {
                     <strong>Risk Level Assessment:</strong> Understand where your drinking pattern falls on a risk scale from Minimal to Very High.
                   </li>
                   <li>
-                    <strong>Health Planning:</strong> Use the results alongside our <Link to="/metabolism" onClick={handleLinkClick} className="text-blue-600 hover:underline">Metabolism Calculator</Link> to create a comprehensive health plan.
+                    <strong>Health Planning:</strong> Use the results to create a comprehensive health plan.
                   </li>
                   <li>
-                    <strong>Long-term Planning:</strong> Factor alcohol's impact into your <Link to="/retirementsavings" onClick={handleLinkClick} className="text-blue-600 hover:underline">Retirement Planning</Link> for a more accurate picture of your longevity needs.
+                    <strong>Long-term Planning:</strong> Factor alcohol's impact into your broader health and lifestyle decisions.
                   </li>
                 </ul>
               </div>
@@ -213,12 +213,12 @@ const AlcoholCalculatorPage = () => {
                 <ul className="list-disc pl-5 space-y-2 mt-2">
                   <li><strong>Liver Health:</strong> Even moderate drinking can affect liver function over time</li>
                   <li><strong>Cardiovascular System:</strong> Complex effects ranging from potential benefits at very low levels to significant harm at higher levels</li>
-                  <li><strong>Metabolic Health:</strong> Alcohol can impact your <Link to="/metabolism" onClick={handleLinkClick} className="text-blue-600 hover:underline">metabolism and weight management</Link></li>
+                  <li><strong>Metabolic Health:</strong> Alcohol can impact your metabolism and weight management</li>
                   <li><strong>Cancer Risk:</strong> Increased risk for several types of cancer, even at moderate consumption levels</li>
                   <li><strong>Brain Health:</strong> Potential cognitive impacts, especially with long-term use</li>
                 </ul>
                 <p className="mt-2">
-                  For a complete picture of your health, consider using our alcohol calculator in conjunction with our <Link to="/lifespan" onClick={handleLinkClick} className="text-blue-600 hover:underline">comprehensive Life Expectancy Calculator</Link>, which factors in multiple lifestyle variables.
+                  For a complete picture of your health, consider how alcohol fits into your overall lifestyle and health goals.
                 </p>
               </div>
               
@@ -236,28 +236,28 @@ const AlcoholCalculatorPage = () => {
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg">Why does biological sex affect alcohol impact?</h4>
                     <p className="mt-2">
-                      Biological differences between males and females affect how alcohol is processed by the body. On average, women have a higher percentage of body fat and lower percentage of body water than men of similar size, resulting in higher blood alcohol concentrations from the same amount of alcohol. Women also generally have lower levels of alcohol dehydrogenase, an enzyme that breaks down alcohol in the stomach. These biological differences mean that alcohol typically has a more significant health impact per unit consumed in females compared to males, similar to how other biological factors affect <Link to="/metabolism" onClick={handleLinkClick} className="text-blue-600 hover:underline">metabolic rates</Link> between sexes.
+                      Biological differences between males and females affect how alcohol is processed by the body. On average, women have a higher percentage of body fat and lower percentage of body water than men of similar size, resulting in higher blood alcohol concentrations from the same amount of alcohol. Women also generally have lower levels of alcohol dehydrogenase, an enzyme that breaks down alcohol in the stomach. These biological differences mean that alcohol typically has a more significant health impact per unit consumed in females compared to males.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg">How accurate is this calculator?</h4>
                     <p className="mt-2">
-                      This calculator provides estimates based on population-level research and statistical averages. Individual outcomes may vary significantly based on genetics, overall health, concurrent lifestyle factors, patterns of drinking (binge vs. spread out), diet, and other variables not captured in this simple model. The calculator is designed to provide general insights rather than precise predictions for any individual. Always consult healthcare professionals for personalized health advice and consider this as one factor in your broader <Link to="/lifespan" onClick={handleLinkClick} className="text-blue-600 hover:underline">life expectancy assessment</Link>.
+                      This calculator provides estimates based on population-level research and statistical averages. Individual outcomes may vary significantly based on genetics, overall health, concurrent lifestyle factors, patterns of drinking (binge vs. spread out), diet, and other variables not captured in this simple model. The calculator is designed to provide general insights rather than precise predictions for any individual. Always consult healthcare professionals for personalized health advice.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg">Can I reverse the effects of past drinking?</h4>
                     <p className="mt-2">
-                      The human body has remarkable regenerative capabilities. While some damage from alcohol may be permanent, research suggests that many effects can be partially reversed when people reduce or eliminate alcohol consumption. The liver, for example, can regenerate significantly within weeks or months of alcohol cessation. Cardiovascular health markers often improve within weeks or months of reducing alcohol intake. The best approach for anyone concerned about past alcohol consumption is to reduce current and future consumption, adopt other healthy lifestyle habits, and consult with healthcare providers about personalized strategies for optimizing health and potentially improving your <Link to="/lifespan" onClick={handleLinkClick} className="text-blue-600 hover:underline">life expectancy</Link>.
+                      The human body has remarkable regenerative capabilities. While some damage from alcohol may be permanent, research suggests that many effects can be partially reversed when people reduce or eliminate alcohol consumption. The liver, for example, can regenerate significantly within weeks or months of alcohol cessation. Cardiovascular health markers often improve within weeks or months of reducing alcohol intake. The best approach for anyone concerned about past alcohol consumption is to reduce current and future consumption, adopt other healthy lifestyle habits, and consult with healthcare providers about personalized strategies for optimizing health.
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg">How can I use this information to improve my health?</h4>
                     <p className="mt-2">
-                      This calculator can help you understand the potential long-term impact of your drinking habits on lifespan. If your results indicate a significant potential impact, consider: setting limits on weekly consumption, having several alcohol-free days each week, tracking your consumption to increase awareness, discussing your alcohol use with healthcare providers, and exploring non-alcoholic alternatives for social situations. For those with alcohol dependence, consider seeking professional support through healthcare providers, therapists, or support groups. For a comprehensive view of your health, use this calculator alongside our <Link to="/metabolism" onClick={handleLinkClick} className="text-blue-600 hover:underline">Metabolism Calculator</Link> and <Link to="/lifespan" onClick={handleLinkClick} className="text-blue-600 hover:underline">Life Expectancy Calculator</Link>.
+                      This calculator can help you understand the potential long-term impact of your drinking habits on lifespan. If your results indicate a significant potential impact, consider: setting limits on weekly consumption, having several alcohol-free days each week, tracking your consumption to increase awareness, discussing your alcohol use with healthcare providers, and exploring non-alcoholic alternatives for social situations. For those with alcohol dependence, consider seeking professional support through healthcare providers, therapists, or support groups.
                     </p>
                   </div>
                 </div>
