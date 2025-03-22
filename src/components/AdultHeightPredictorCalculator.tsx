@@ -5,7 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calculator, Ruler, Baby, Scale } from 'lucide-react';
-import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { AdUnit } from './AdUnit';
 
@@ -104,8 +103,6 @@ const AdultHeightPredictorCalculator = () => {
         </p>
         <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
-
-      <DisclaimerAlert className="mb-6" />
       
       <Card>
         <CardHeader>
