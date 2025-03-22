@@ -30,14 +30,24 @@ const Index = () => {
           </div>
         </header>
         <main className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <div className="relative inline-block mb-4">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 pb-1">
-                {calculatorCount} Free Calculators
-              </h1>
-              <div className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full opacity-70"></div>
+          <div className="text-center mb-10">
+            <div className="relative inline-block py-5">
+              <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-lg blur opacity-30 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <div className="relative px-8 py-4 bg-white rounded-lg shadow-xl">
+                <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+                  <span className="relative inline-block">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-floating">
+                      {calculatorCount}
+                    </span>
+                    <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-full"></span>
+                  </span>
+                  <span className="ml-3">Free Calculators</span>
+                </h1>
+                <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Free online calculators for smarter lifestyle planning and informed decision-making
+                </p>
+              </div>
             </div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Free online calculators for smarter lifestyle planning and informed decision-making</p>
           </div>
           
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
