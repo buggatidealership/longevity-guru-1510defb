@@ -54,8 +54,8 @@ export const AdUnit = ({
       case 'rectangle':
         return { 
           width: '100%', 
-          height: '250px',
-          maxHeight: '250px', 
+          height: '200px', // Reduced vertical height from 250px to 200px
+          maxHeight: '200px', // Reduced max-height as well
           border: '1px dashed #ddd' 
         };
       case 'vertical':
@@ -68,8 +68,8 @@ export const AdUnit = ({
       default:
         return { 
           width: '100%', 
-          height: '250px',
-          maxHeight: '250px', 
+          height: '200px', // Reduced vertical height from 250px to 200px
+          maxHeight: '200px', // Reduced max-height as well
           border: '1px dashed #ddd' 
         };
     }
