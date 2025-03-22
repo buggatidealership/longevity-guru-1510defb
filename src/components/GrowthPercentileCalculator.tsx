@@ -201,6 +201,13 @@ const GrowthPercentileCalculator = () => {
         <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
+      {/* Medical disclaimer moved here to be consistent with other calculators */}
+      <DisclaimerAlert 
+        title="Medical Disclaimer" 
+        content="This calculator provides estimates based on CDC growth charts. Results are for educational purposes only and should not replace professional medical advice. Growth percentiles may vary based on many factors." 
+        className="mb-6"
+      />
+      
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -308,8 +315,6 @@ const GrowthPercentileCalculator = () => {
               className="w-full"
             />
           </div>
-          
-          <DisclaimerAlert className="mt-4" />
         </CardContent>
       </Card>
       
