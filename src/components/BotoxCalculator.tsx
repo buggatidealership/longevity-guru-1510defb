@@ -23,6 +23,7 @@ import {
   TableRow 
 } from "@/components/ui/table";
 import { AdUnit } from './AdUnit';
+import { Checkbox } from '@/components/ui/checkbox';
 
 // Treatment area data with units range and average cost
 const treatmentAreas = {
@@ -157,21 +158,21 @@ const BotoxCalculator = () => {
             <div key={areaKey} className="border rounded-lg p-4 hover:border-primary/50 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-start gap-2">
-                  <input
-                    type="checkbox"
-                    id={`area-${areaKey}`}
-                    checked={selectedAreas.includes(areaKey)}
-                    onChange={() => toggleAreaSelection(areaKey)}
-                    className="mt-1"
-                  />
                   <div>
-                    <label 
-                      htmlFor={`area-${areaKey}`} 
-                      className={`font-medium cursor-pointer ${selectedAreas.includes(areaKey) ? 'text-primary' : ''}`}
-                    >
-                      {areaData.name}
-                    </label>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id={`area-${areaKey}`}
+                        checked={selectedAreas.includes(areaKey)}
+                        onCheckedChange={() => toggleAreaSelection(areaKey)}
+                      />
+                      <label 
+                        htmlFor={`area-${areaKey}`} 
+                        className={`font-medium cursor-pointer ${selectedAreas.includes(areaKey) ? 'text-primary' : ''}`}
+                      >
+                        {areaData.name}
+                      </label>
+                    </div>
+                    <div className="text-xs text-muted-foreground ml-6 mt-1">
                       Typical range: {areaData.unitsRange[0]}-{areaData.unitsRange[1]} units
                     </div>
                   </div>
