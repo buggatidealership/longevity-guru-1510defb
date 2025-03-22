@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -12,7 +11,6 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calculator, Clock, Baby, Activity, Heart, Zap, Shield, AlertCircle } from 'lucide-react';
-import DisclaimerAlert from '@/components/DisclaimerAlert';
 import FertilityResultCard from './FertilityResultCard';
 
 const FemaleFeritilityCalculator = () => {
@@ -563,8 +561,6 @@ const FemaleFeritilityCalculator = () => {
             <Calculator className="mr-2 h-4 w-4" />
             Calculate Fertility Estimate
           </Button>
-          
-          <DisclaimerAlert className="mt-4" />
         </CardContent>
       </Card>
       
