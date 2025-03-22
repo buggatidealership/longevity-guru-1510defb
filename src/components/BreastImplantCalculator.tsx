@@ -88,18 +88,13 @@ const BreastImplantCalculator = () => {
   const measurementSystem = form.watch("measurementSystem");
 
   const onSubmit = (data: ImplantFormValues) => {
-    // Convert inputs to metric if needed
     let height = parseFloat(data.height);
     let weight = parseFloat(data.weight);
     let chest = parseFloat(data.chest);
     
-    // Convert imperial to metric if necessary
     if (data.measurementSystem === "imperial") {
-      // Convert inches to cm for height
       height = height * 2.54;
-      // Convert lbs to kg for weight
       weight = weight * 0.453592;
-      // Convert inches to cm for chest
       chest = chest * 2.54;
     }
 
@@ -109,18 +104,14 @@ const BreastImplantCalculator = () => {
     const region = data.region;
     const implantType = data.implantType;
 
-    // Validate inputs
     if (!height || !weight || !chest) {
       return;
     }
 
-    // Calculate BMI for frame adjustment
     const bmi = weight / ((height / 100) * (height / 100));
 
-    // Base volume per cup size (approximation from research)
-    const baseVolumePerCup = 175; // cc
+    const baseVolumePerCup = 175;
 
-    // Adjustments based on frame size and BMI
     let frameMultiplier = 1.0;
     if (frame === "small" || bmi < 19) {
       frameMultiplier = 0.85;
@@ -128,7 +119,6 @@ const BreastImplantCalculator = () => {
       frameMultiplier = 1.15;
     }
 
-    // Chest measurement adjustment
     let chestAdjustment = 1.0;
     if (chest < 75) {
       chestAdjustment = 0.9;
@@ -136,21 +126,16 @@ const BreastImplantCalculator = () => {
       chestAdjustment = 1.1;
     }
 
-    // Calculate baseline volume needed for desired increase
     const baselineVolume = baseVolumePerCup * desiredIncrease * frameMultiplier * chestAdjustment;
 
-    // Create a range (±15%)
     const minVolume = Math.round(baselineVolume * 0.85);
     const maxVolume = Math.round(baselineVolume * 1.15);
 
-    // Ensure minimum volume is not too small
     const adjustedMinVolume = Math.max(minVolume, 125);
 
-    // Estimate new cup size
     const cupNames = ["AA", "A", "B", "C", "D", "DD", "E", "F"];
     const newCupIndex = Math.min(cupSize + desiredIncrease, cupNames.length - 1);
 
-    // Cost calculations
     const costs = calculateCosts(region, implantType, desiredIncrease);
 
     setResults({
@@ -171,7 +156,6 @@ const BreastImplantCalculator = () => {
   };
 
   const calculateCosts = (region: string, implantType: string, desiredIncrease: number) => {
-    // Base cost ranges by region (in USD or local equivalent)
     const regionCosts: Record<string, any> = {
       "us": {
         base: [3500, 7500],
@@ -238,7 +222,6 @@ const BreastImplantCalculator = () => {
       }
     };
 
-    // Implant cost adjustments
     const implantCosts: Record<string, number[]> = {
       "saline": [800, 1200],
       "silicone": [1200, 1800],
@@ -251,22 +234,18 @@ const BreastImplantCalculator = () => {
       "cohesive": "Highly Cohesive Gel"
     };
 
-    // Get regional base costs
     const regionData = regionCosts[region];
     const currency = regionData.currency;
 
-    // Get implant costs
     const implantCost = implantCosts[implantType];
 
-    // Adjustments for desired increase (larger sizes may require more complex surgery)
     let sizeAdjustment = 1.0;
     if (desiredIncrease >= 3) {
-      sizeAdjustment = 1.15; // 15% increase for large size changes
+      sizeAdjustment = 1.15;
     } else if (desiredIncrease <= 1) {
-      sizeAdjustment = 0.95; // 5% discount for modest changes
+      sizeAdjustment = 0.95;
     }
 
-    // Calculate final cost range
     const minSurgeonFee = Math.round(regionData.surgeonFee[0] * sizeAdjustment);
     const maxSurgeonFee = Math.round(regionData.surgeonFee[1] * sizeAdjustment);
 
@@ -282,7 +261,6 @@ const BreastImplantCalculator = () => {
     const minOther = regionData.other[0];
     const maxOther = regionData.other[1];
 
-    // Total costs
     const minTotal = minSurgeonFee + minAnesthesia + minFacility + minImplantCost + minOther;
     const maxTotal = maxSurgeonFee + maxAnesthesia + maxFacility + maxImplantCost + maxOther;
 
@@ -315,6 +293,12 @@ const BreastImplantCalculator = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
+          <DisclaimerAlert 
+            title="Medical Disclaimer"
+            content="This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation."
+            className="mb-6"
+          />
+          
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
               <FormField
@@ -612,14 +596,6 @@ const BreastImplantCalculator = () => {
               </div>
             </div>
           )}
-
-          <div className="mt-6">
-            <DisclaimerAlert
-              title="Important Disclaimer"
-              content="This calculator provides estimates only and is not a substitute for professional medical advice. The results should be used as a starting point for discussion with a board-certified plastic surgeon. All surgical procedures carry risks and require careful consideration."
-              icon={<AlertTriangle className="h-4 w-4" />}
-            />
-          </div>
         </CardContent>
       </Card>
     </div>
