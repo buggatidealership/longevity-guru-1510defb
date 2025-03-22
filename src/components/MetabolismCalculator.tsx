@@ -187,12 +187,12 @@ const MetabolismCalculator = () => {
   };
 
   const renderTooltip = (text: string) => (
-    <div className="relative inline-block ml-1 group">
-      <Info className="w-4 h-4 text-blue-500 cursor-help inline-flex" />
-      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 invisible group-hover:visible bg-gray-800 text-white text-xs rounded p-2 w-60 z-10">
+    <span className="relative group">
+      <Info className="h-4 w-4 inline-block ml-1 text-blue-500 cursor-help" />
+      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 invisible group-hover:visible bg-gray-800 text-white text-xs rounded p-2 w-60 z-10">
         {text}
-      </div>
-    </div>
+      </span>
+    </span>
   );
 
   return (
@@ -381,7 +381,7 @@ const MetabolismCalculator = () => {
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="flex items-center gap-1">
+                        <div>
                           <span className="font-medium">Basal Metabolic Rate (BMR)</span>
                           {renderTooltip("The number of calories your body needs at complete rest just to maintain basic functions like breathing, circulation, and cell production.")}
                         </div>
@@ -389,7 +389,7 @@ const MetabolismCalculator = () => {
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="flex items-center gap-1">
+                        <div>
                           <span className="font-medium">Total Daily Energy Expenditure (TDEE)</span>
                           {renderTooltip("Your total daily calorie needs, including your BMR plus calories burned through daily activities and exercise.")}
                         </div>
@@ -397,7 +397,7 @@ const MetabolismCalculator = () => {
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="flex items-center gap-1">
+                        <div>
                           <span className="font-medium">Fat-Free Mass (FFM)</span>
                           {renderTooltip("The weight of everything in your body except fat, including muscles, bones, organs, and water.")}
                         </div>
@@ -405,7 +405,7 @@ const MetabolismCalculator = () => {
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="flex items-center gap-1">
+                        <div>
                           <span className="font-medium">Lean Body Mass (LBM)</span>
                           {renderTooltip("Similar to FFM, this is your weight excluding body fat. This is especially important as it drives your metabolism.")}
                         </div>
@@ -602,4 +602,3 @@ const MetabolismCalculator = () => {
 };
 
 export default MetabolismCalculator;
-
