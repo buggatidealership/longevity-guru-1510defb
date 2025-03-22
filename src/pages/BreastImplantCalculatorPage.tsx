@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import BreastImplantCalculator from '@/components/BreastImplantCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const BreastImplantCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -47,6 +48,16 @@ const BreastImplantCalculatorPage = () => {
         </header>
 
         <main className="max-w-4xl mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-center mt-6 mb-2">Breast Implant Size Calculator</h1>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-6">
+            Calculate your ideal breast implant size in CC based on measurements and desired outcome.
+          </p>
+          
+          <DisclaimerAlert 
+            content="This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation."
+            className="mb-6"
+          />
+          
           <div className="w-full flex justify-center">
             <div className="w-full">
               <BreastImplantCalculator />
