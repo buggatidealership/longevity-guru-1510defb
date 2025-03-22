@@ -1,16 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
-import { Beer, Wine, Martini, CupSoda, GlassWater, BarChart4 } from 'lucide-react';
+import { Beer, Wine, Martini, CupSoda, BarChart4 } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 
 const AlcoholLifespanCalculator = () => {
   const [drinkType, setDrinkType] = useState('beer');
   const [drinksPerWeek, setDrinksPerWeek] = useState(7);
-  const [useCustomAmount, setUseCustomAmount] = useState(false);
-  const [customDrinks, setCustomDrinks] = useState(7);
   const [result, setResult] = useState(null);
   
   // Define drink types and their relative impact factors
@@ -18,8 +15,7 @@ const AlcoholLifespanCalculator = () => {
     'beer': { factor: 0.8, label: 'Beer', icon: <Beer className="h-5 w-5" /> },
     'wine': { factor: 1.0, label: 'Wine', icon: <Wine className="h-5 w-5" /> },
     'spirits': { factor: 1.3, label: 'Spirits', icon: <Martini className="h-5 w-5" /> },
-    'cocktails': { factor: 1.2, label: 'Cocktails', icon: <CupSoda className="h-5 w-5" /> },
-    'lowAlcohol': { factor: 0.5, label: 'Low Alcohol', icon: <GlassWater className="h-5 w-5" /> }
+    'cocktails': { factor: 1.2, label: 'Cocktails', icon: <CupSoda className="h-5 w-5" /> }
   };
   
   // Minutes of life lost per standard drink (adjusted by drink type)
@@ -27,9 +23,8 @@ const AlcoholLifespanCalculator = () => {
   
   // Calculate estimated impact when inputs change
   useEffect(() => {
-    const actualDrinksPerWeek = useCustomAmount ? customDrinks : drinksPerWeek;
-    calculateImpact(actualDrinksPerWeek);
-  }, [drinkType, drinksPerWeek, useCustomAmount, customDrinks]);
+    calculateImpact(drinksPerWeek);
+  }, [drinkType, drinksPerWeek]);
   
   const calculateImpact = (weeklyDrinks) => {
     // Base impact calculation
@@ -117,55 +112,32 @@ const AlcoholLifespanCalculator = () => {
         <div>
           <div className="flex items-center justify-between mb-2">
             <Label className="text-sm font-medium text-gray-700">Drinks Per Week</Label>
-            <div className="flex items-center">
-              <input 
-                type="checkbox" 
-                id="useCustomAmount" 
-                checked={useCustomAmount}
-                onChange={() => setUseCustomAmount(!useCustomAmount)}
-                className="mr-2"
-              />
-              <Label htmlFor="useCustomAmount" className="text-xs text-gray-600">Custom amount</Label>
-            </div>
           </div>
           
-          {useCustomAmount ? (
-            <div className="space-y-2">
-              <Input
-                type="number"
-                min="0"
-                max="100"
-                value={customDrinks}
-                onChange={(e) => setCustomDrinks(parseInt(e.target.value) || 0)}
-                className="w-full"
-              />
-              <p className="text-xs text-gray-500">
-                A standard drink is: 12oz beer (5%), 5oz wine (12%), or 1.5oz spirits (40%)
-              </p>
+          <div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">{drinksPerWeek} drinks per week</span>
             </div>
-          ) : (
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">{drinksPerWeek} drinks per week</span>
-              </div>
-              <Slider
-                defaultValue={[7]}
-                max={35}
-                step={1}
-                value={[drinksPerWeek]}
-                onValueChange={(value) => setDrinksPerWeek(value[0])}
-                className="my-4"
-              />
-              <div className="flex justify-between text-xs text-gray-500">
-                <span>0</span>
-                <span>7</span>
-                <span>14</span>
-                <span>21</span>
-                <span>28</span>
-                <span>35</span>
-              </div>
+            <Slider
+              defaultValue={[7]}
+              max={35}
+              step={1}
+              value={[drinksPerWeek]}
+              onValueChange={(value) => setDrinksPerWeek(value[0])}
+              className="my-4"
+            />
+            <div className="flex justify-between text-xs text-gray-500">
+              <span>0</span>
+              <span>7</span>
+              <span>14</span>
+              <span>21</span>
+              <span>28</span>
+              <span>35</span>
             </div>
-          )}
+            <p className="text-xs text-gray-500 mt-1">
+              A standard drink is: 12oz beer (5%), 5oz wine (12%), or 1.5oz spirits (40%)
+            </p>
+          </div>
         </div>
       </div>
       
