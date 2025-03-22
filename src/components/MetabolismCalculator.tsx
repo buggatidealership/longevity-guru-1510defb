@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -13,11 +13,82 @@ import { Calculator, Activity, Scale, HeartPulse, Info } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 
+// Unit conversion functions
+const convertHeight = (value: number, fromUnit: string, toUnit: string): number => {
+  // Convert to cm first
+  let inCm: number;
+  
+  if (fromUnit === 'cm') {
+    inCm = value;
+  } else if (fromUnit === 'ft') {
+    inCm = value * 30.48;
+  } else if (fromUnit === 'in') {
+    inCm = value * 2.54;
+  } else if (fromUnit === 'm') {
+    inCm = value * 100;
+  } else {
+    inCm = value;
+  }
+  
+  // Convert from cm to target unit
+  if (toUnit === 'cm') {
+    return inCm;
+  } else if (toUnit === 'ft') {
+    return inCm / 30.48;
+  } else if (toUnit === 'in') {
+    return inCm / 2.54;
+  } else if (toUnit === 'm') {
+    return inCm / 100;
+  } else {
+    return inCm;
+  }
+};
+
+// Convert from feet and inches to cm
+const feetInchesToCm = (feet: number, inches: number): number => {
+  return (feet * 30.48) + (inches * 2.54);
+};
+
+const convertWeight = (value: number, fromUnit: string, toUnit: string): number => {
+  // Convert to kg first
+  let inKg: number;
+  
+  if (fromUnit === 'kg') {
+    inKg = value;
+  } else if (fromUnit === 'lb') {
+    inKg = value * 0.453592;
+  } else if (fromUnit === 'st') {
+    inKg = value * 6.35029;
+  } else {
+    inKg = value;
+  }
+  
+  // Convert from kg to target unit
+  if (toUnit === 'kg') {
+    return inKg;
+  } else if (toUnit === 'lb') {
+    return inKg / 0.453592;
+  } else if (toUnit === 'st') {
+    return inKg / 6.35029;
+  } else {
+    return inKg;
+  }
+};
+
 const MetabolismCalculator = () => {
   const [age, setAge] = useState<string>('');
   const [gender, setGender] = useState<string>('');
-  const [height, setHeight] = useState<string>('');
-  const [weight, setWeight] = useState<string>('');
+  
+  // Updated height state for different units
+  const [heightValue, setHeightValue] = useState<string>('');
+  const [heightUnit, setHeightUnit] = useState<string>('cm');
+  const [heightFeet, setHeightFeet] = useState<string>('');
+  const [heightInches, setHeightInches] = useState<string>('');
+  
+  // Updated weight state for different units
+  const [weightValue, setWeightValue] = useState<string>('');
+  const [weightUnit, setWeightUnit] = useState<string>('kg');
+  
   const [bodyFat, setBodyFat] = useState<string>('');
   const [activity, setActivity] = useState<string>('');
   const [formula, setFormula] = useState<string>('mifflin');
@@ -60,6 +131,20 @@ const MetabolismCalculator = () => {
     }
   };
 
+  // Get height in cm for calculations
+  const getHeightInCm = (): number => {
+    if (heightUnit === 'ft-in') {
+      return feetInchesToCm(Number(heightFeet) || 0, Number(heightInches) || 0);
+    } else {
+      return convertHeight(Number(heightValue) || 0, heightUnit, 'cm');
+    }
+  };
+
+  // Get weight in kg for calculations
+  const getWeightInKg = (): number => {
+    return convertWeight(Number(weightValue) || 0, weightUnit, 'kg');
+  };
+
   const calculateEstimatedFFM = (weight: number, height: number, age: number, gender: string) => {
     let ffm = 0;
     if (gender === 'male') {
@@ -82,14 +167,42 @@ const MetabolismCalculator = () => {
       newErrors.gender = "Please select your biological sex";
     }
     
-    const heightVal = Number(height);
-    if (!height || isNaN(heightVal) || heightVal < 120 || heightVal > 250) {
-      newErrors.height = "Please enter a valid height (120-250 cm)";
+    // Validate height based on selected unit
+    if (heightUnit === 'ft-in') {
+      const feet = Number(heightFeet);
+      const inches = Number(heightInches);
+      if (!heightFeet || isNaN(feet) || feet < 3 || feet > 8) {
+        newErrors.heightFeet = "Please enter valid feet (3-8)";
+      }
+      if (isNaN(inches) || inches < 0 || inches > 11) {
+        newErrors.heightInches = "Please enter valid inches (0-11)";
+      }
+      
+      const totalHeightCm = feetInchesToCm(feet, inches);
+      if (totalHeightCm < 120 || totalHeightCm > 250) {
+        newErrors.height = "Height must be between 120-250 cm (3'11\"-8'2\")";
+      }
+    } else {
+      const heightVal = Number(heightValue);
+      if (!heightValue || isNaN(heightVal)) {
+        newErrors.height = `Please enter a valid height`;
+      } else {
+        const heightInCm = convertHeight(heightVal, heightUnit, 'cm');
+        if (heightInCm < 120 || heightInCm > 250) {
+          newErrors.height = "Height must be between 120-250 cm (3'11\"-8'2\")";
+        }
+      }
     }
     
-    const weightVal = Number(weight);
-    if (!weight || isNaN(weightVal) || weightVal < 30 || weightVal > 300) {
-      newErrors.weight = "Please enter a valid weight (30-300 kg)";
+    // Validate weight based on selected unit
+    const weightVal = Number(weightValue);
+    if (!weightValue || isNaN(weightVal)) {
+      newErrors.weight = "Please enter a valid weight";
+    } else {
+      const weightInKg = convertWeight(weightVal, weightUnit, 'kg');
+      if (weightInKg < 30 || weightInKg > 300) {
+        newErrors.weight = "Weight must be between 30-300 kg (66-661 lbs)";
+      }
     }
     
     const bodyFatVal = Number(bodyFat);
@@ -111,30 +224,30 @@ const MetabolismCalculator = () => {
     }
     
     const ageVal = Number(age);
-    const heightVal = Number(height);
-    const weightVal = Number(weight);
+    const heightCm = getHeightInCm();
+    const weightKg = getWeightInKg();
     const bodyFatVal = bodyFat ? Number(bodyFat) : 0;
     const activityVal = Number(activity);
     
-    const lbm = weightVal * (1 - (bodyFatVal / 100));
-    const ffm = bodyFatVal > 0 ? lbm : calculateEstimatedFFM(weightVal, heightVal, ageVal, gender);
+    const lbm = weightKg * (1 - (bodyFatVal / 100));
+    const ffm = bodyFatVal > 0 ? lbm : calculateEstimatedFFM(weightKg, heightCm, ageVal, gender);
     
     let bmr = 0;
     
     switch (formula) {
       case 'mifflin':
         if (gender === 'male') {
-          bmr = (10 * weightVal) + (6.25 * heightVal) - (5 * ageVal) + 5;
+          bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * ageVal) + 5;
         } else {
-          bmr = (10 * weightVal) + (6.25 * heightVal) - (5 * ageVal) - 161;
+          bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * ageVal) - 161;
         }
         break;
         
       case 'harris':
         if (gender === 'male') {
-          bmr = (13.397 * weightVal) + (4.799 * heightVal) - (5.677 * ageVal) + 88.362;
+          bmr = (13.397 * weightKg) + (4.799 * heightCm) - (5.677 * ageVal) + 88.362;
         } else {
-          bmr = (9.247 * weightVal) + (3.098 * heightVal) - (4.330 * ageVal) + 447.593;
+          bmr = (9.247 * weightKg) + (3.098 * heightCm) - (4.330 * ageVal) + 447.593;
         }
         break;
         
@@ -154,9 +267,9 @@ const MetabolismCalculator = () => {
         
       case 'oxford':
         if (gender === 'male') {
-          bmr = (13.75 * weightVal) + (5 * heightVal) - (6.76 * ageVal) + 66;
+          bmr = (13.75 * weightKg) + (5 * heightCm) - (6.76 * ageVal) + 66;
         } else {
-          bmr = (9.56 * weightVal) + (1.85 * heightVal) - (4.68 * ageVal) + 655;
+          bmr = (9.56 * weightKg) + (1.85 * heightCm) - (4.68 * ageVal) + 655;
         }
         break;
     }
@@ -189,6 +302,43 @@ const MetabolismCalculator = () => {
     });
     
     setShowResults(true);
+  };
+
+  // Get display text for weight and height units
+  const getWeightUnitDisplayText = (unit: string) => {
+    switch (unit) {
+      case 'kg': return 'Kilograms (kg)';
+      case 'lb': return 'Pounds (lb)';
+      case 'st': return 'Stone (st)';
+      default: return 'Kilograms (kg)';
+    }
+  };
+
+  const getHeightUnitDisplayText = (unit: string) => {
+    switch (unit) {
+      case 'cm': return 'Centimeters (cm)';
+      case 'm': return 'Meters (m)';
+      case 'ft-in': return 'Feet & Inches (ft\' in")';
+      default: return 'Centimeters (cm)';
+    }
+  };
+
+  // Get placeholder text based on selected unit
+  const getWeightPlaceholder = (unit: string) => {
+    switch (unit) {
+      case 'kg': return 'Enter weight in kg';
+      case 'lb': return 'Enter weight in pounds';
+      case 'st': return 'Enter weight in stone';
+      default: return 'Enter weight';
+    }
+  };
+
+  const getHeightPlaceholder = (unit: string) => {
+    switch (unit) {
+      case 'cm': return 'Enter height in cm';
+      case 'm': return 'Enter height in meters';
+      default: return 'Enter height';
+    }
   };
 
   return (
@@ -259,37 +409,99 @@ const MetabolismCalculator = () => {
                   {errors.gender && <div className="text-red-500 text-sm">{errors.gender}</div>}
                 </div>
                 
+                {/* Height section with unit selection */}
                 <div className="space-y-2">
-                  <Label htmlFor="height">
-                    Height (cm)
-                  </Label>
-                  <Input 
-                    id="height" 
-                    type="number" 
-                    placeholder="Enter your height in cm"
-                    min={120}
-                    max={250}
-                    value={height}
-                    onChange={(e) => setHeight(e.target.value)}
-                    className={errors.height ? "border-red-500" : ""}
-                  />
+                  <Label htmlFor="height-unit">Height</Label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <Select value={heightUnit} onValueChange={(value) => {
+                      setHeightUnit(value);
+                      // Clear existing values when switching units
+                      setHeightValue('');
+                      setHeightFeet('');
+                      setHeightInches('');
+                    }}>
+                      <SelectTrigger id="height-unit">
+                        <SelectValue placeholder="Unit" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="cm">Centimeters (cm)</SelectItem>
+                        <SelectItem value="m">Meters (m)</SelectItem>
+                        <SelectItem value="ft-in">Feet & Inches</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    
+                    {heightUnit === 'ft-in' ? (
+                      <>
+                        <Input
+                          type="number"
+                          placeholder="Feet"
+                          min={3}
+                          max={8}
+                          value={heightFeet}
+                          onChange={(e) => setHeightFeet(e.target.value)}
+                          className={errors.heightFeet ? "border-red-500" : ""}
+                        />
+                        <Input
+                          type="number"
+                          placeholder="Inches"
+                          min={0}
+                          max={11}
+                          value={heightInches}
+                          onChange={(e) => setHeightInches(e.target.value)}
+                          className={errors.heightInches ? "border-red-500" : ""}
+                        />
+                      </>
+                    ) : (
+                      <Input
+                        className={`col-span-2 ${errors.height ? "border-red-500" : ""}`}
+                        type="number"
+                        placeholder={getHeightPlaceholder(heightUnit)}
+                        value={heightValue}
+                        onChange={(e) => setHeightValue(e.target.value)}
+                        step={heightUnit === 'm' ? '0.01' : '1'}
+                        min={heightUnit === 'm' ? '1.20' : '120'}
+                        max={heightUnit === 'm' ? '2.50' : '250'}
+                      />
+                    )}
+                  </div>
                   {errors.height && <div className="text-red-500 text-sm">{errors.height}</div>}
+                  {errors.heightFeet && <div className="text-red-500 text-sm">{errors.heightFeet}</div>}
+                  {errors.heightInches && <div className="text-red-500 text-sm">{errors.heightInches}</div>}
                 </div>
                 
+                {/* Weight section with unit selection */}
                 <div className="space-y-2">
-                  <Label htmlFor="weight">
-                    Weight (kg)
-                  </Label>
-                  <Input 
-                    id="weight" 
-                    type="number" 
-                    placeholder="Enter your weight in kg"
-                    min={30}
-                    max={300}
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    className={errors.weight ? "border-red-500" : ""}
-                  />
+                  <Label htmlFor="weight-unit">Weight</Label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <Select value={weightUnit} onValueChange={(value) => {
+                      // Convert the current weight to the new unit
+                      if (weightValue && !isNaN(Number(weightValue))) {
+                        const weightInKg = convertWeight(Number(weightValue), weightUnit, 'kg');
+                        const newWeight = convertWeight(weightInKg, 'kg', value);
+                        setWeightValue(Math.round(newWeight).toString());
+                      }
+                      setWeightUnit(value);
+                    }}>
+                      <SelectTrigger id="weight-unit">
+                        <SelectValue placeholder="Unit" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="kg">Kilograms (kg)</SelectItem>
+                        <SelectItem value="lb">Pounds (lb)</SelectItem>
+                        <SelectItem value="st">Stone (st)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      className={`col-span-2 ${errors.weight ? "border-red-500" : ""}`}
+                      type="number"
+                      placeholder={getWeightPlaceholder(weightUnit)}
+                      value={weightValue}
+                      onChange={(e) => setWeightValue(e.target.value)}
+                      step="0.1"
+                      min={weightUnit === 'kg' ? '30' : weightUnit === 'lb' ? '66' : '4.7'}
+                      max={weightUnit === 'kg' ? '300' : weightUnit === 'lb' ? '661' : '47.2'}
+                    />
+                  </div>
                   {errors.weight && <div className="text-red-500 text-sm">{errors.weight}</div>}
                 </div>
                 
