@@ -4,7 +4,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Info } from 'lucide-react';
 
 interface InfoTooltipProps {
-  text: string;
+  text?: string;
+  content?: string;
   className?: string;
   position?: "top" | "right" | "bottom" | "left";
   size?: "sm" | "md" | "lg";
@@ -12,6 +13,7 @@ interface InfoTooltipProps {
 
 const InfoTooltip = ({ 
   text, 
+  content,
   className = "", 
   position = "top", 
   size = "md" 
@@ -22,6 +24,9 @@ const InfoTooltip = ({
     lg: "h-5 w-5"
   }[size];
 
+  // Use content if provided, otherwise use text
+  const tooltipText = content || text;
+
   return (
     <TooltipProvider>
       <Tooltip delayDuration={300}>
@@ -31,7 +36,7 @@ const InfoTooltip = ({
           </span>
         </TooltipTrigger>
         <TooltipContent side={position} className="max-w-[240px] text-xs p-2">
-          <p>{text}</p>
+          <p>{tooltipText}</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

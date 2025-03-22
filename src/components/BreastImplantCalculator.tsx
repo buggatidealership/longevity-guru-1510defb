@@ -302,7 +302,7 @@ const BreastImplantCalculator = () => {
                   name="height"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Height (cm) <InfoTooltip content="Your height in centimeters" /></FormLabel>
+                      <FormLabel>Height (cm) <InfoTooltip text="Your height in centimeters" /></FormLabel>
                       <FormControl>
                         <Input 
                           type="number" 
@@ -320,7 +320,7 @@ const BreastImplantCalculator = () => {
                   name="weight"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Weight (kg) <InfoTooltip content="Your weight in kilograms" /></FormLabel>
+                      <FormLabel>Weight (kg) <InfoTooltip text="Your weight in kilograms" /></FormLabel>
                       <FormControl>
                         <Input 
                           type="number" 
@@ -340,7 +340,7 @@ const BreastImplantCalculator = () => {
                 name="chest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Chest/Underbust Measurement (cm) <InfoTooltip content="The measurement around your ribcage just under your breasts" /></FormLabel>
+                    <FormLabel>Chest/Underbust Measurement (cm) <InfoTooltip text="The measurement around your ribcage just under your breasts" /></FormLabel>
                     <FormControl>
                       <Input 
                         type="number" 
@@ -360,7 +360,7 @@ const BreastImplantCalculator = () => {
                   name="cupSize"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Current Cup Size <InfoTooltip content="Your current cup size" /></FormLabel>
+                      <FormLabel>Current Cup Size <InfoTooltip text="Your current cup size" /></FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -387,7 +387,7 @@ const BreastImplantCalculator = () => {
                   name="desiredCup"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Desired Cup Size Increase <InfoTooltip content="How many cup sizes you would like to increase" /></FormLabel>
+                      <FormLabel>Desired Cup Size Increase <InfoTooltip text="How many cup sizes you would like to increase" /></FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -414,7 +414,7 @@ const BreastImplantCalculator = () => {
                   name="frame"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Body Frame <InfoTooltip content="Your general body frame type" /></FormLabel>
+                      <FormLabel>Body Frame <InfoTooltip text="Your general body frame type" /></FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -438,7 +438,7 @@ const BreastImplantCalculator = () => {
                   name="region"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Region/Country <InfoTooltip content="Your location for cost estimation" /></FormLabel>
+                      <FormLabel>Region/Country <InfoTooltip text="Your location for cost estimation" /></FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -466,7 +466,7 @@ const BreastImplantCalculator = () => {
                   name="implantType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Implant Type <InfoTooltip content="The type of breast implant material" /></FormLabel>
+                      <FormLabel>Implant Type <InfoTooltip text="The type of breast implant material" /></FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
