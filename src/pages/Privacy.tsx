@@ -9,8 +9,11 @@ const Privacy = () => {
     <>
       <SEOHead 
         title="Privacy Policy | Longevity Calculators"
-        description="Privacy policy for Longevity Calculators - how we protect your data and privacy."
+        description="Our privacy policy outlines how we collect, use, and protect your information when using our calculators and tools. Learn about our data practices and your privacy rights."
         canonicalUrl="https://longevitycalculator.xyz/privacy"
+        keywords="privacy policy, data protection, calculator privacy, user information, cookies policy, data collection, GDPR compliance"
+        ogType="website"
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

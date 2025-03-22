@@ -10,10 +10,12 @@ const BotoxCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Botox Dosage Calculator | Cost & Units Estimator"
-        description="Calculate the optimal Botox dosage for different facial areas and estimate treatment costs with our free Botox Calculator. Evidence-based dosage recommendations for forehead, crow's feet, and more."
+        title="Botox Dosage Calculator | Units and Cost Estimator Tool"
+        description="Calculate Botox units needed for different facial areas and estimate treatment costs. Our free Botox calculator provides personalized dosage recommendations for forehead, crow's feet, and more."
         canonicalUrl="https://longevitycalculator.xyz/botox"
-        keywords="botox calculator, botox units, botox cost calculator, botox dosage, facial aesthetics, cosmetic treatments, forehead lines, crow's feet, glabellar lines"
+        keywords="botox calculator, botox dosage, botox units, botox cost calculator, botox price estimator, forehead botox, crow's feet units, glabellar lines, cosmetic injection planner"
+        ogType="website"
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

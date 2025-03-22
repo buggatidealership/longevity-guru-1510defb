@@ -26,10 +26,12 @@ const BreastImplantCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Breast Implant Size Calculator | Cost and CC Estimator"
-        description="Calculate the ideal breast implant size in CC based on your measurements and desired cup size. Estimate surgery costs and explore implant options with our free calculator."
+        title="Breast Implant Size Calculator | CC Volume and Cost Estimator Tool"
+        description="Calculate your ideal breast implant size in CC based on measurements and desired outcome. Our free calculator estimates implant volumes, costs, and helps you prepare for your breast augmentation consultation."
         canonicalUrl="https://longevitycalculator.xyz/breastimplant"
-        keywords="breast implant calculator, implant size, cc calculator, breast augmentation cost, cup size estimator, implant profile, breast width measurement"
+        keywords="breast implant calculator, implant size calculator, breast augmentation calculator, CC volume estimator, breast implant cost, implant dimensions, implant profile selector, cup size calculator"
+        ogType="website"
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

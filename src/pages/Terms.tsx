@@ -9,8 +9,11 @@ const Terms = () => {
     <>
       <SEOHead 
         title="Terms of Service | Longevity Calculators"
-        description="Terms of service for Longevity Calculators - how to use our services responsibly."
+        description="Our terms of service outline the conditions for using our calculators and tools. Understand your rights and responsibilities when using our educational health and financial calculators."
         canonicalUrl="https://longevitycalculator.xyz/terms"
+        keywords="terms of service, user agreement, calculator terms, disclaimer, legal terms, educational purpose, service conditions"
+        ogType="website"
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

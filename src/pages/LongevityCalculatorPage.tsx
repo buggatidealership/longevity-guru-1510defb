@@ -34,10 +34,12 @@ const LongevityCalculatorPage = () => {
   return (
     <>
       <SEOHead 
-        title="Life Expectancy Calculator | Estimate Your Lifespan"
-        description="Calculate your estimated life expectancy based on health factors, lifestyle choices, and demographics. Get personalized insights on how to potentially extend your lifespan with our free calculator."
+        title="Life Expectancy Calculator | How Long Will You Live? Free Lifespan Estimator"
+        description="Calculate your personalized life expectancy based on health, lifestyle, and demographic factors. Our scientific calculator helps predict your potential lifespan and identifies longevity factors you can improve."
         canonicalUrl="https://longevitycalculator.xyz/lifespan"
-        keywords="life expectancy calculator, lifespan estimator, longevity calculator, life prediction, health assessment, mortality risk calculator"
+        keywords="life expectancy calculator, lifespan predictor, longevity calculator, how long will I live, death calculator, mortality calculator, health assessment tool, longevity prediction"
+        ogType="website"
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

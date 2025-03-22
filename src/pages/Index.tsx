@@ -14,7 +14,7 @@ const Index = () => {
     <>
       <SEOHead 
         title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
-        description="Free online calculators and tools for health assessment, financial planning, lifestyle optimization, and personal development. Evidence-based resources for better decision-making."
+        description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
         canonicalUrl="https://longevitycalculator.xyz/"
         keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator"
         ogType="website"

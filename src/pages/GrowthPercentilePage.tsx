@@ -27,9 +27,11 @@ const GrowthPercentilePage = () => {
     <>
       <SEOHead 
         title="Child Growth Percentile Calculator | Height & Weight Charts by Age"
-        description="Track your child's development with our pediatric growth percentile calculator. Compare height and weight to CDC standards for children from birth to 20 years old. Free, accurate percentile charts."
+        description="Calculate your child's height and weight percentiles based on CDC growth charts. Track development from birth to 20 years with our free pediatric growth calculator and see where your child ranks."
         canonicalUrl="https://longevitycalculator.xyz/growth"
-        keywords="child growth calculator, pediatric growth chart, height percentile, weight percentile, child development tracker, CDC growth standards"
+        keywords="child growth calculator, pediatric growth chart, height percentile, weight percentile, CDC growth standards, baby growth tracker, child development calculator, BMI percentile"
+        ogType="website"
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
