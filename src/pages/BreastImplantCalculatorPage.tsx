@@ -53,6 +53,15 @@ const BreastImplantCalculatorPage = () => {
             Calculate your ideal breast implant size in CC based on measurements and desired outcome.
           </p>
           
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+            <AdUnit 
+              className="w-full"
+              slot="3333333333" 
+              format="horizontal"
+              responsive={true}
+            />
+          </div>
+          
           <DisclaimerAlert 
             content="This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation."
             className="mb-6"
