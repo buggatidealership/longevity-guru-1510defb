@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -31,22 +30,17 @@ const Index = () => {
         </header>
         <main className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-10">
-            <div className="relative inline-block py-5">
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-lg blur opacity-30 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <div className="relative px-8 py-4 bg-white rounded-lg shadow-xl">
-                <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-                  <span className="relative inline-block">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 animate-floating">
-                      {calculatorCount}
-                    </span>
-                    <span className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 rounded-full"></span>
-                  </span>
-                  <span className="ml-3">Free Calculators</span>
-                </h1>
-                <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Free online calculators for smarter lifestyle planning and informed decision-making
-                </p>
-              </div>
+            <div className="relative mx-auto max-w-3xl">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-3">
+                <span className="text-primary relative inline-block mr-3">
+                  {calculatorCount}
+                </span>
+                <span>Free Calculators</span>
+              </h1>
+              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-4"></div>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Free online calculators for smarter lifestyle planning and informed decision-making
+              </p>
             </div>
           </div>
           
