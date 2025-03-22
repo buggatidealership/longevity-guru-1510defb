@@ -233,11 +233,6 @@ const FertilityCalculator = () => {
                 <h3 className="font-semibold text-sm mb-1">Child Growth</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
-              
-              <Link to="/evrange" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-sm mb-1">EV Range</h3>
-                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
-              </Link>
             </div>
           </div>
         </main>
@@ -252,7 +247,6 @@ const FertilityCalculator = () => {
                   <li><Link to="/retirementsavings" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                   <li><Link to="/fertility" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                   <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/evrange" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">EV Range Calculator</Link></li>
                 </ul>
               </div>
               
