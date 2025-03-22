@@ -7,7 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { AdUnit } from './AdUnit';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
+import InfoTooltip from '@/components/InfoTooltip';
 import { Calculator, Activity, Scale, HeartPulse, Info } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const MetabolismCalculator = () => {
   const [age, setAge] = useState<string>('');
@@ -31,6 +33,7 @@ const MetabolismCalculator = () => {
     mildSurplus: 0,
     moderateSurplus: 0
   });
+  const isMobile = useIsMobile();
 
   const formulaDescriptions: Record<string, { description: string, recommendation: string }> = {
     mifflin: {
@@ -186,15 +189,6 @@ const MetabolismCalculator = () => {
     setShowResults(true);
   };
 
-  const renderTooltip = (text: string) => (
-    <span className="relative group">
-      <Info className="h-4 w-4 inline-block ml-1 text-blue-500 cursor-help" />
-      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 invisible group-hover:visible bg-gray-800 text-white text-xs rounded p-2 w-60 z-10">
-        {text}
-      </span>
-    </span>
-  );
-
   return (
     <div className="space-y-6">
       <div className="text-center">
@@ -300,7 +294,7 @@ const MetabolismCalculator = () => {
                 <div className="space-y-2">
                   <Label htmlFor="body-fat" className="flex items-center">
                     Body Fat Percentage (optional)
-                    {renderTooltip("Including your body fat percentage makes your calculation more accurate, especially if you have more muscle or less fat than average. This is optional but recommended if you know your body fat percentage.")}
+                    <InfoTooltip text="Including your body fat percentage makes your calculation more accurate, especially if you have more muscle or less fat than average. This is optional but recommended if you know your body fat percentage." />
                   </Label>
                   <Input 
                     id="body-fat" 
@@ -324,7 +318,7 @@ const MetabolismCalculator = () => {
                 <div className="space-y-2">
                   <Label htmlFor="activity" className="flex items-center">
                     Daily Activity Level
-                    {renderTooltip("Choose the option that best matches your typical weekly activity. Be honest about your actual activity level - many people overestimate this!")}
+                    <InfoTooltip text="Choose the option that best matches your typical weekly activity. Be honest about your actual activity level - many people overestimate this!" />
                   </Label>
                   <Select value={activity} onValueChange={setActivity}>
                     <SelectTrigger id="activity" className={errors.activity ? "border-red-500" : ""}>
@@ -344,7 +338,7 @@ const MetabolismCalculator = () => {
                 <div className="mt-6 space-y-2">
                   <Label htmlFor="formula" className="flex items-center">
                     Calculation Formula
-                    {renderTooltip("These are different scientific methods for calculating your metabolism. Each works better for different people. The default (Mifflin-St Jeor) works well for most people.")}
+                    <InfoTooltip text="These are different scientific methods for calculating your metabolism. Each works better for different people. The default (Mifflin-St Jeor) works well for most people." />
                   </Label>
                   <Select value={formula} onValueChange={setFormula}>
                     <SelectTrigger id="formula">
@@ -378,227 +372,49 @@ const MetabolismCalculator = () => {
                 <div className="mt-8 border border-blue-200 rounded-lg p-6 bg-blue-50">
                   <h3 className="text-xl font-semibold mb-4">Your Results</h3>
                   
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div>
+                  <div className={`grid grid-cols-1 ${isMobile ? "" : "md:grid-cols-2"} gap-4`}>
+                    <div className="p-3 bg-white rounded shadow-sm">
+                      <div className="flex flex-col space-y-1">
+                        <div className="flex items-center">
                           <span className="font-medium">Basal Metabolic Rate (BMR)</span>
-                          {renderTooltip("The number of calories your body needs at complete rest just to maintain basic functions like breathing, circulation, and cell production.")}
+                          <InfoTooltip text="The number of calories your body needs at complete rest just to maintain basic functions like breathing, circulation, and cell production." />
                         </div>
-                        <span className="font-bold">{results.bmr} calories/day</span>
+                        <span className="font-bold text-lg">{results.bmr} calories/day</span>
                       </div>
-                      
-                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div>
+                    </div>
+                    
+                    <div className="p-3 bg-white rounded shadow-sm">
+                      <div className="flex flex-col space-y-1">
+                        <div className="flex items-center">
                           <span className="font-medium">Total Daily Energy Expenditure (TDEE)</span>
-                          {renderTooltip("Your total daily calorie needs, including your BMR plus calories burned through daily activities and exercise.")}
+                          <InfoTooltip text="Your total daily calorie needs, including your BMR plus calories burned through daily activities and exercise." />
                         </div>
-                        <span className="font-bold">{results.tdee} calories/day</span>
+                        <span className="font-bold text-lg">{results.tdee} calories/day</span>
                       </div>
-                      
-                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div>
+                    </div>
+                    
+                    <div className="p-3 bg-white rounded shadow-sm">
+                      <div className="flex flex-col space-y-1">
+                        <div className="flex items-center">
                           <span className="font-medium">Fat-Free Mass (FFM)</span>
-                          {renderTooltip("The weight of everything in your body except fat, including muscles, bones, organs, and water.")}
+                          <InfoTooltip text="The weight of everything in your body except fat, including muscles, bones, organs, and water." />
                         </div>
-                        <span className="font-bold">{results.ffm} kg</span>
+                        <span className="font-bold text-lg">{results.ffm} kg</span>
                       </div>
-                      
-                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div>
+                    </div>
+                    
+                    <div className="p-3 bg-white rounded shadow-sm">
+                      <div className="flex flex-col space-y-1">
+                        <div className="flex items-center">
                           <span className="font-medium">Lean Body Mass (LBM)</span>
-                          {renderTooltip("Similar to FFM, this is your weight excluding body fat. This is especially important as it drives your metabolism.")}
+                          <InfoTooltip text="Similar to FFM, this is your weight excluding body fat. This is especially important as it drives your metabolism." />
                         </div>
-                        <span className="font-bold">{results.lbm} kg</span>
+                        <span className="font-bold text-lg">{results.lbm} kg</span>
                       </div>
                     </div>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <h4 className="text-lg font-semibold mb-3">Daily Calorie Targets</h4>
                     
-                    <div className="mt-6">
-                      <h4 className="text-lg font-semibold mb-3">Daily Calorie Targets</h4>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                          <span className="font-medium">Weight Maintenance:</span>
-                          <span className="font-bold">{results.maintenance} calories/day</span>
-                        </div>
-                        
-                        <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                          <span className="font-medium">Mild Weight Loss (-0.25kg/week):</span>
-                          <span className="font-bold">{results.mildDeficit} calories/day</span>
-                        </div>
-                        
-                        <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                          <span className="font-medium">Moderate Weight Loss (-0.5kg/week):</span>
-                          <span className="font-bold">{results.moderateDeficit} calories/day</span>
-                        </div>
-                        
-                        <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                          <span className="font-medium">Aggressive Weight Loss (-1kg/week):</span>
-                          <span className="font-bold">{results.aggressiveDeficit} calories/day</span>
-                        </div>
-                        
-                        <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                          <span className="font-medium">Mild Weight Gain:</span>
-                          <span className="font-bold">{results.mildSurplus} calories/day</span>
-                        </div>
-                        
-                        <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                          <span className="font-medium">Moderate Weight Gain:</span>
-                          <span className="font-bold">{results.moderateSurplus} calories/day</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-4 p-4 bg-gray-100 text-gray-700 text-sm rounded">
-                      <p>Disclaimer: This calculator provides estimates based on scientific formulas. Individual metabolism can vary due to genetic factors, health conditions, and other variables. Consult with healthcare professionals before making significant dietary changes.</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
-        
-        <TabsContent value="about">
-          <Card>
-            <CardHeader>
-              <CardTitle>About This Calculator</CardTitle>
-              <CardDescription>
-                This metabolism calculator incorporates the latest scientific research to provide accurate estimates of your caloric needs.
-              </CardDescription>
-            </CardHeader>
-            
-            <CardContent className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-4">What Are These Formulas?</h3>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-medium">Mifflin-St Jeor Equation (1990)</h4>
-                    <p><strong>Best for:</strong> Most people - general population</p>
-                    <p><strong>Accuracy:</strong> Considered the most accurate formula for the general population</p>
-                    <p><strong>How it works:</strong> Uses your weight, height, age, and sex to calculate your metabolism</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Harris-Benedict Equation (Revised)</h4>
-                    <p><strong>Best for:</strong> People with "average" body types</p>
-                    <p><strong>Accuracy:</strong> The original formula dates to 1919, this is the improved 1984 version</p>
-                    <p><strong>How it works:</strong> Similar to Mifflin-St Jeor but with different coefficients; tends to estimate slightly higher</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Katch-McArdle Formula</h4>
-                    <p><strong>Best for:</strong> People who know their body fat percentage, especially athletic people</p>
-                    <p><strong>Accuracy:</strong> More precise than formulas that don't use body composition</p>
-                    <p><strong>How it works:</strong> Focuses on your lean body mass (which is more metabolically active)</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Cunningham Equation</h4>
-                    <p><strong>Best for:</strong> Athletes and very active individuals</p>
-                    <p><strong>Accuracy:</strong> Specifically designed for athletic populations</p>
-                    <p><strong>How it works:</strong> Similar to Katch-McArdle but with different coefficients; typically estimates higher</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Oxford Equations (2023)</h4>
-                    <p><strong>Best for:</strong> People looking for the most recent scientific approach</p>
-                    <p><strong>Accuracy:</strong> Incorporates recent research on age-related metabolic changes</p>
-                    <p><strong>How it works:</strong> Similar approach to older formulas but with updated coefficients based on new research</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Scientific Foundations</h3>
-                <p>The calculator offers multiple validated equations to estimate your Basal Metabolic Rate (BMR):</p>
-                
-                <div className="space-y-4 mt-4">
-                  <div>
-                    <h4 className="text-lg font-medium">Mifflin-St Jeor Equation (1990)</h4>
-                    <p>Considered the most accurate for the general population according to the Academy of Nutrition and Dietetics. Recent validation studies (Hall et al., 2023) confirm its continued reliability.</p>
-                    <ul className="list-disc pl-5 mt-2">
-                      <li>Men: BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5</li>
-                      <li>Women: BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Revised Harris-Benedict Equation (1984)</h4>
-                    <p>An updated version of the original 1919 equation, with improved accuracy:</p>
-                    <ul className="list-disc pl-5 mt-2">
-                      <li>Men: BMR = (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years) + 88.362</li>
-                      <li>Women: BMR = (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years) + 447.593</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Katch-McArdle Formula (1996)</h4>
-                    <p>Accounts for lean body mass, providing better estimates for individuals with known body fat percentage:</p>
-                    <ul className="list-disc pl-5 mt-2">
-                      <li>BMR = 370 + (21.6 × Lean Body Mass in kg)</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Cunningham Equation (1991)</h4>
-                    <p>Particularly accurate for athletes and highly active individuals:</p>
-                    <ul className="list-disc pl-5 mt-2">
-                      <li>BMR = 500 + (22 × Lean Body Mass in kg)</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Oxford Equations (2023)</h4>
-                    <p>Based on recent research from Oxford University that accounts for age-related metabolic changes:</p>
-                    <ul className="list-disc pl-5 mt-2">
-                      <li>Men: BMR = (13.75 × weight in kg) + (5 × height in cm) - (6.76 × age) + 66</li>
-                      <li>Women: BMR = (9.56 × weight in kg) + (1.85 × height in cm) - (4.68 × age) + 655</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Recent Research Insights</h3>
-                <p>This calculator incorporates findings from several recent studies:</p>
-                
-                <div className="space-y-4 mt-4">
-                  <div>
-                    <h4 className="text-lg font-medium">Metabolic Adaptation (Pontzer et al., 2021)</h4>
-                    <p>Research published in Science shows that metabolism doesn't steadily decline with age as previously thought. Instead, it remains stable from ages 20 to 60, then decreases at about 0.7% per year afterward.</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Activity Multipliers (Migueles et al., 2023)</h4>
-                    <p>Recent systematic review in Sports Medicine refined activity multipliers based on objective measurements from wearable devices, providing more accurate TDEE estimates.</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium">Body Composition Impact (Hall et al., 2023)</h4>
-                    <p>Research in The American Journal of Clinical Nutrition demonstrated that fat-free mass explains approximately 70-80% of the variance in resting energy expenditure, highlighting the importance of accounting for body composition.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Using Your Results</h3>
-                <p>Your TDEE represents an estimate of daily caloric needs for maintenance. For weight loss, a moderate deficit (500 calories below TDEE) is generally recommended for sustainable results. Individual needs may vary based on health status, medications, hormonal factors, and genetic differences.</p>
-                
-                <p className="mt-4">For optimal health and accurate calculations, consider:</p>
-                <ul className="list-disc pl-5 mt-2">
-                  <li>Regular reassessment as your body composition changes</li>
-                  <li>Consulting healthcare professionals before major dietary changes</li>
-                  <li>Tracking actual results and adjusting as needed</li>
-                </ul>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
-};
 
-export default MetabolismCalculator;
