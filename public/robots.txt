@@ -7,6 +7,10 @@ Allow: /lifespan
 Allow: /retirementsavings
 Allow: /fertility
 Allow: /growth
+Allow: /adultheight
+Allow: /metabolism
+Allow: /breastimplant
+Allow: /botox
 Allow: /privacy
 Allow: /terms
 

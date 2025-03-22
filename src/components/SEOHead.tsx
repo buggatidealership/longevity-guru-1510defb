@@ -38,6 +38,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+      
+      {/* Sitemap reference */}
+      <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     </Helmet>
   );
 };
