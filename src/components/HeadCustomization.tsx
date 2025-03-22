@@ -42,7 +42,7 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
         const link = document.createElement('link');
         link.rel = 'preconnect';
         link.href = url;
-        // Make sure crossorigin is a string
+        // Use setAttribute to avoid Symbol conversion issues
         link.setAttribute('crossorigin', 'anonymous');
         link.setAttribute('data-dynamic', 'true');
         document.head.appendChild(link);
@@ -55,14 +55,13 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
         const link = document.createElement('link');
         link.rel = 'preload';
         link.href = asset.href;
-        // Make sure as attribute is a string
-        link.as = String(asset.as);
+        // Use setAttribute to avoid Symbol conversion issues
+        link.setAttribute('as', asset.as);
         if (asset.type) {
-          link.type = String(asset.type);
+          link.setAttribute('type', asset.type);
         }
         if (asset.crossOrigin) {
-          // Make sure crossorigin is a string
-          link.setAttribute('crossorigin', String(asset.crossOrigin));
+          link.setAttribute('crossorigin', asset.crossOrigin);
         }
         link.setAttribute('data-dynamic', 'true');
         document.head.appendChild(link);
@@ -80,11 +79,10 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
           const link = document.createElement('link');
           link.rel = 'preload';
           link.href = font.href;
-          // Make sure as and type are strings
-          link.as = String(font.as);
-          link.type = String(font.type);
-          // Make sure crossorigin is a string
-          link.setAttribute('crossorigin', String(font.crossOrigin || 'anonymous'));
+          // Use setAttribute to avoid Symbol conversion issues
+          link.setAttribute('as', font.as);
+          link.setAttribute('type', font.type);
+          link.setAttribute('crossorigin', font.crossOrigin || 'anonymous');
           link.setAttribute('data-dynamic', 'true');
           document.head.appendChild(link);
         }
