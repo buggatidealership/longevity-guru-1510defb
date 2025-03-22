@@ -420,7 +420,7 @@ const MetabolismCalculator = () => {
                     <h4 className="text-lg font-semibold mb-3">Daily Calorie Targets</h4>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {/* Weight Loss section - Updated for better alignment */}
+                      {/* Weight Loss section */}
                       <div className="p-4 bg-red-50 rounded shadow-sm border border-red-100">
                         <h5 className="font-medium mb-2 text-red-800">Weight Loss</h5>
                         <Table>
@@ -441,16 +441,17 @@ const MetabolismCalculator = () => {
                         </Table>
                       </div>
                       
-                      {/* Maintenance section - Updated for better alignment */}
+                      {/* Maintenance section - Updated design */}
                       <div className="p-4 bg-blue-50 rounded shadow-sm border border-blue-100">
                         <h5 className="font-medium mb-2 text-blue-800">Maintenance</h5>
-                        <div className="flex justify-between items-center h-[80px] px-2">
-                          <span className="text-sm">Daily calories:</span>
-                          <span className="font-semibold text-lg">{results.maintenance} cal</span>
+                        <div className="flex flex-col justify-center items-center h-[80px]">
+                          <div className="text-sm text-gray-600 mb-1">Daily calories to maintain weight</div>
+                          <div className="font-bold text-2xl text-blue-700">{results.maintenance}</div>
+                          <div className="text-xs text-gray-500 mt-1">calories/day</div>
                         </div>
                       </div>
                       
-                      {/* Weight Gain section - Updated for better alignment */}
+                      {/* Weight Gain section */}
                       <div className="p-4 bg-green-50 rounded shadow-sm border border-green-100">
                         <h5 className="font-medium mb-2 text-green-800">Weight Gain</h5>
                         <Table>
