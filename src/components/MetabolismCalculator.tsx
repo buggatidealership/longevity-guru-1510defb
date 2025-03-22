@@ -255,11 +255,11 @@ const MetabolismCalculator = () => {
                 
                 <div className="space-y-2">
                   <Label htmlFor="gender">
-                    Biological Sex
+                    Gender
                   </Label>
                   <Select value={gender} onValueChange={setGender}>
                     <SelectTrigger id="gender" className={errors.gender ? "border-red-500" : ""}>
-                      <SelectValue placeholder="Select your biological sex" />
+                      <SelectValue placeholder="Select your gender" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="male">Male</SelectItem>
@@ -386,35 +386,35 @@ const MetabolismCalculator = () => {
                   
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                        <span className="font-medium flex items-center">
+                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
+                        <div className="font-medium flex items-center">
                           Basal Metabolic Rate (BMR)
                           {renderTooltip("The number of calories your body needs at complete rest just to maintain basic functions like breathing, circulation, and cell production.")}
-                        </span>
+                        </div>
                         <span className="font-bold">{results.bmr} calories/day</span>
                       </div>
                       
-                      <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                        <span className="font-medium flex items-center">
+                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
+                        <div className="font-medium flex items-center">
                           Total Daily Energy Expenditure (TDEE)
                           {renderTooltip("Your total daily calorie needs, including your BMR plus calories burned through daily activities and exercise.")}
-                        </span>
+                        </div>
                         <span className="font-bold">{results.tdee} calories/day</span>
                       </div>
                       
-                      <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                        <span className="font-medium flex items-center">
+                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
+                        <div className="font-medium flex items-center">
                           Fat-Free Mass (FFM)
                           {renderTooltip("The weight of everything in your body except fat, including muscles, bones, organs, and water.")}
-                        </span>
+                        </div>
                         <span className="font-bold">{results.ffm} kg</span>
                       </div>
                       
-                      <div className="flex justify-between p-3 bg-white rounded shadow-sm">
-                        <span className="font-medium flex items-center">
+                      <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
+                        <div className="font-medium flex items-center">
                           Lean Body Mass (LBM)
                           {renderTooltip("Similar to FFM, this is your weight excluding body fat. This is especially important as it drives your metabolism.")}
-                        </span>
+                        </div>
                         <span className="font-bold">{results.lbm} kg</span>
                       </div>
                     </div>
