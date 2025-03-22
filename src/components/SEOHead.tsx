@@ -39,6 +39,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       
+      {/* Additional tags to strengthen canonical status */}
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta property="og:site_name" content="Longevity Calculator" />
+      
       {/* Sitemap reference */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     </Helmet>

@@ -16,3 +16,6 @@ Allow: /terms
 
 # Sitemaps
 Sitemap: https://longevitycalculator.xyz/sitemap.xml
+
+# Prevent crawling of duplicate content
+Disallow: /assets/images/thumbnails/

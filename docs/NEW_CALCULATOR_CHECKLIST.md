@@ -60,8 +60,26 @@ In `src/App.tsx`, add your new route:
 - Test the calculator functionality
 - Test navigation to and from the calculator page
 - Verify SEO metadata using browser dev tools
+- Check that canonical URLs are correctly pointing to your domain
+- Verify that no redirects are happening that could confuse search engines
 
-## Step 7: Deploy
+## Step 7: Deploy and Index
 
 - Deploy the changes and verify the sitemap entry is accessible
 - Submit the sitemap to Google Search Console to request indexing
+- Use Google Search Console's URL Inspection Tool to check for canonical URL issues
+- Request indexing for the new page through Google Search Console
+
+## Step 8: Canonicalization Best Practices
+
+- Ensure all pages use the proper canonical URL with `https://longevitycalculator.xyz/`
+- Check for duplicate content across domains
+- Strengthen the page's authority with internal links from other pages
+- Monitor Google Search Console for any canonicalization issues
+
+## Step 9: Prevent SEO Issues
+
+- Never use the same content as other domains without differentiation
+- Always use consistent URL structures
+- Ensure all pages are accessible and not returning error codes
+- Monitor for any automatic redirects that might be set up on the server
