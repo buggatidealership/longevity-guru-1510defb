@@ -1,41 +1,46 @@
 
 import React, { useState, useEffect } from 'react';
+import { Beer, Wine, Martini, CupSoda, GlassWater } from 'lucide-react';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { Slider } from '@/components/ui/slider';
 
 const AlcoholLifespanCalculator = () => {
-  const [age, setAge] = useState(35);
-  const [gender, setGender] = useState('male');
+  const [drinkType, setDrinkType] = useState('beer');
   const [drinksPerWeek, setDrinksPerWeek] = useState(7);
   const [result, setResult] = useState(null);
   
   // Calculate estimated impact when inputs change
   useEffect(() => {
     calculateImpact();
-  }, [age, gender, drinksPerWeek]);
+  }, [drinkType, drinksPerWeek]);
   
   const calculateImpact = () => {
-    // More conservative base impact factors based on epidemiological studies
-    // Research suggests approximately 30 minutes of life lost per standard drink
-    // Translated to regular drinking patterns and adjusted for long-term effects
-    const daysPerDrinkPerYear = {
-      male: 0.9, // ~0.9 days lost per weekly drink per year
-      female: 1.2, // ~1.2 days lost per weekly drink per year (women affected more)
-    }[gender];
+    // Base impact factors based on epidemiological studies
+    // Approximately 30 minutes of life lost per standard drink
+    // Adjusted for drink type and regular drinking patterns
+    const baseDaysPerDrinkPerYear = 0.9; // Base value for standard drinks
     
-    // For lifetime impact calculation, we assume a 40-year exposure period
-    // This period is the same regardless of current age since we're calculating
-    // the total lifetime impact that alcohol consumption at this level would have
-    const exposureYears = 40; // Standard exposure period for lifetime impact calculation
+    // Drink type modifiers based on alcohol content and typical serving size
+    const drinkTypeModifiers = {
+      'beer': 0.8,           // Lower alcohol content per typical serving
+      'wine': 1.0,           // Medium alcohol content
+      'spirits': 1.3,        // Higher alcohol content
+      'cocktails': 1.2,      // Mixed drinks, typically stronger
+      'lowAlcohol': 0.5,     // Low alcohol options
+    };
     
-    // Basic impact calculation
-    let impactDays = daysPerDrinkPerYear * drinksPerWeek * exposureYears;
+    // Standard exposure period for lifetime impact calculation
+    const exposureYears = 40;
     
-    // Gender modifier is already factored in through daysPerDrinkPerYear
+    // Calculate impact with drink type modifier
+    const modifier = drinkTypeModifiers[drinkType] || 1.0;
+    let impactDays = baseDaysPerDrinkPerYear * modifier * drinksPerWeek * exposureYears;
     
     // J-curve adjustment for moderate drinking 
-    // Some studies still show potential small cardiovascular benefits
+    // Small potential benefit for very light drinking of certain types
     let jCurveAdjustment = 0;
-    if (drinksPerWeek > 0 && drinksPerWeek <= 3) {
-      jCurveAdjustment = -20; // Small potential benefit for very light drinking
+    if (drinksPerWeek > 0 && drinksPerWeek <= 3 && (drinkType === 'wine' || drinkType === 'beer')) {
+      jCurveAdjustment = -20; // Small potential benefit for light wine/beer consumption
     }
     
     // Heavy drinking penalty - progressive risk increase
@@ -60,13 +65,24 @@ const AlcoholLifespanCalculator = () => {
     });
   };
   
-  // Updated to use actual calculated impact
   const getRiskLevel = (impactDays) => {
     if (impactDays <= 30) return 'Minimal';
     if (impactDays <= 180) return 'Low';
     if (impactDays <= 730) return 'Moderate'; // Up to 2 years
     if (impactDays <= 1095) return 'High'; // Up to 3 years
     return 'Very High'; // >3 years
+  };
+
+  // Get drink type icon based on selected drink
+  const getDrinkIcon = () => {
+    switch(drinkType) {
+      case 'beer': return <Beer className="h-5 w-5" />;
+      case 'wine': return <Wine className="h-5 w-5" />;
+      case 'spirits': return <Martini className="h-5 w-5" />;
+      case 'cocktails': return <Martini className="h-5 w-5" />;
+      case 'lowAlcohol': return <CupSoda className="h-5 w-5" />;
+      default: return <GlassWater className="h-5 w-5" />;
+    }
   };
   
   return (
@@ -78,47 +94,47 @@ const AlcoholLifespanCalculator = () => {
       
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">Age</label>
-          <input
-            type="range"
-            min="18"
-            max="90"
-            value={age}
-            onChange={(e) => setAge(parseInt(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-          />
-          <div className="text-center">{age} years</div>
-        </div>
-        
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Biological Sex</label>
-          <div className="flex space-x-4 mt-1">
-            <button
-              className={`px-4 py-2 rounded-md ${gender === 'male' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-              onClick={() => setGender('male')}
-            >
-              Male
-            </button>
-            <button
-              className={`px-4 py-2 rounded-md ${gender === 'female' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-              onClick={() => setGender('female')}
-            >
-              Female
-            </button>
-          </div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Type of Alcoholic Beverage</label>
+          <ToggleGroup 
+            type="single" 
+            value={drinkType} 
+            onValueChange={(value) => value && setDrinkType(value)}
+            className="justify-between flex-wrap gap-2"
+          >
+            <ToggleGroupItem value="beer" aria-label="Beer" className="flex flex-col items-center gap-1 px-3 py-2">
+              <Beer className="h-5 w-5" />
+              <span className="text-xs">Beer</span>
+            </ToggleGroupItem>
+            <ToggleGroupItem value="wine" aria-label="Wine" className="flex flex-col items-center gap-1 px-3 py-2">
+              <Wine className="h-5 w-5" />
+              <span className="text-xs">Wine</span>
+            </ToggleGroupItem>
+            <ToggleGroupItem value="spirits" aria-label="Spirits" className="flex flex-col items-center gap-1 px-3 py-2">
+              <Martini className="h-5 w-5" />
+              <span className="text-xs">Spirits</span>
+            </ToggleGroupItem>
+            <ToggleGroupItem value="cocktails" aria-label="Cocktails" className="flex flex-col items-center gap-1 px-3 py-2">
+              <CupSoda className="h-5 w-5" />
+              <span className="text-xs">Cocktails</span>
+            </ToggleGroupItem>
+            <ToggleGroupItem value="lowAlcohol" aria-label="Low Alcohol" className="flex flex-col items-center gap-1 px-3 py-2">
+              <GlassWater className="h-5 w-5" />
+              <span className="text-xs">Low Alcohol</span>
+            </ToggleGroupItem>
+          </ToggleGroup>
         </div>
         
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Standard Drinks Per Week: {drinksPerWeek}
           </label>
-          <input
-            type="range"
-            min="0"
-            max="35"
-            value={drinksPerWeek}
-            onChange={(e) => setDrinksPerWeek(parseInt(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          <Slider
+            defaultValue={[7]}
+            max={35}
+            step={1}
+            value={[drinksPerWeek]}
+            onValueChange={(value) => setDrinksPerWeek(value[0])}
+            className="my-4"
           />
           <div className="flex justify-between text-xs text-gray-500">
             <span>0</span>
@@ -133,7 +149,10 @@ const AlcoholLifespanCalculator = () => {
       
       {result && (
         <div className="mt-6 p-4 border rounded-lg bg-gray-50">
-          <h3 className="font-semibold text-lg">Estimated Impact:</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <h3 className="font-semibold text-lg">Estimated Impact:</h3>
+            {getDrinkIcon()}
+          </div>
           <div className="mt-2">
             <p className="font-medium">
               Potential lifespan reduction: {result.years > 0 ? `${result.years} years, ` : ''}{result.days} days
