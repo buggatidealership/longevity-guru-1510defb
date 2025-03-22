@@ -15,6 +15,14 @@ const RetirementCalculator = () => {
     });
   };
 
+  // For internal section navigation
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <SEOHead 
@@ -47,10 +55,59 @@ const RetirementCalculator = () => {
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Will I Have Enough Money To Retire? Our Calculator Helps You Find Out</h2>
             
+            {/* Table of Contents */}
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <h3 className="text-lg font-medium mb-2">Table of Contents</h3>
+              <ul className="space-y-1">
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('retirement-overview')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    How Our Calculator Works
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('retirement-benefits')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Benefits of Using Our Calculator
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('retirement-importance')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Why Retirement Planning is Essential
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('retirement-steps')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    How To Use The Calculator
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('retirement-faq')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Frequently Asked Questions
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
             <div className="space-y-4 text-gray-700">
-              <p>
-                Worried about having <strong>enough money to retire</strong>? Our <strong>Retirement Savings Calculator</strong> helps you answer the crucial question: <em>"Will I have enough money to retire comfortably?"</em> This comprehensive retirement income calculator provides personalized projections for your daily, monthly, and yearly spending capacity throughout your retirement years, ensuring you don't outlive your savings.
-              </p>
+              <div id="retirement-overview">
+                <p>
+                  Worried about having <strong>enough money to retire</strong>? Our <strong>Retirement Savings Calculator</strong> helps you answer the crucial question: <em>"Will I have enough money to retire comfortably?"</em> This comprehensive retirement income calculator provides personalized projections for your daily, monthly, and yearly spending capacity throughout your retirement years, ensuring you don't outlive your savings.
+                </p>
+              </div>
               
               <div className="my-4">
                 <AdUnit 
@@ -61,44 +118,94 @@ const RetirementCalculator = () => {
                 />
               </div>
               
-              <h3 className="text-xl font-medium mt-6">How Our Retirement Calculator Determines If You Have Enough Money</h3>
-              <p>
-                Unlike basic retirement calculators, our tool uses advanced financial algorithms that account for your total retirement savings, current age, life expectancy, expected investment returns, and anticipated inflation rates. It calculates a safe withdrawal rate that helps you determine exactly how much you can spend in retirement without depleting your nest egg prematurely - giving you a clear answer to "will I have enough money when I retire?"
-              </p>
+              <div id="retirement-benefits">
+                <h3 className="text-xl font-medium mt-6">How Our Retirement Calculator Determines If You Have Enough Money</h3>
+                <p>
+                  Unlike basic retirement calculators, our tool uses advanced financial algorithms that account for your total retirement savings, current age, life expectancy, expected investment returns, and anticipated inflation rates. It calculates a safe withdrawal rate that helps you determine exactly how much you can spend in retirement without depleting your nest egg prematurely - giving you a clear answer to "will I have enough money when I retire?"
+                </p>
+              </div>
               
-              <h3 className="text-xl font-medium mt-6">Benefits of Using Our Retirement Sufficiency Calculator</h3>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>
-                  <strong>Personalized Retirement Income Plan:</strong> Receive detailed guidance on how much you can safely withdraw each day, month, and year in retirement.
-                </li>
-                <li>
-                  <strong>Inflation-Adjusted Retirement Projections:</strong> Our calculator accounts for inflation's impact on your purchasing power over time, ensuring your retirement savings will be enough.
-                </li>
-                <li>
-                  <strong>Dynamic Scenario Testing:</strong> Adjust parameters to see how changes in investment returns, inflation rates, or life expectancy affect whether you'll have enough money to retire comfortably.
-                </li>
-                <li>
-                  <strong>Long-Term Retirement Planning:</strong> Visualize if your retirement savings will last through your expected lifespan or if you need to save more before retiring.
-                </li>
-              </ul>
+              <div id="retirement-benefits">
+                <h3 className="text-xl font-medium mt-6">Benefits of Using Our Retirement Sufficiency Calculator</h3>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>
+                    <strong>Personalized Retirement Income Plan:</strong> Receive detailed guidance on how much you can safely withdraw each day, month, and year in retirement.
+                  </li>
+                  <li>
+                    <strong>Inflation-Adjusted Retirement Projections:</strong> Our calculator accounts for inflation's impact on your purchasing power over time, ensuring your retirement savings will be enough.
+                  </li>
+                  <li>
+                    <strong>Dynamic Scenario Testing:</strong> Adjust parameters to see how changes in investment returns, inflation rates, or life expectancy affect whether you'll have enough money to retire comfortably.
+                  </li>
+                  <li>
+                    <strong>Long-Term Retirement Planning:</strong> Visualize if your retirement savings will last through your expected lifespan or if you need to save more before retiring.
+                  </li>
+                </ul>
+              </div>
               
-              <h3 className="text-xl font-medium mt-6">Why Determining If You Have Enough Retirement Money Is Essential</h3>
-              <p>
-                According to financial experts, determining if you have enough money saved for retirement is one of the most significant financial challenges adults face. With Americans living longer than ever before, the risk of outliving your retirement savings is real. Studies show that approximately 40% of Americans worry about running out of money in retirement, making proper withdrawal planning essential.
-              </p>
+              <div id="retirement-importance">
+                <h3 className="text-xl font-medium mt-6">Why Determining If You Have Enough Retirement Money Is Essential</h3>
+                <p>
+                  According to financial experts, determining if you have enough money saved for retirement is one of the most significant financial challenges adults face. With Americans living longer than ever before, the risk of outliving your retirement savings is real. Studies show that approximately 40% of Americans worry about running out of money in retirement, making proper withdrawal planning essential.
+                </p>
+                
+                <p>
+                  Our free retirement calculator helps address this concern by providing clear insights into how long your retirement savings will last. By calculating an optimal retirement income strategy today, you can make informed decisions about your spending and potentially extend the life of your retirement portfolio by many years - ensuring you have enough money to retire comfortably.
+                </p>
+              </div>
               
-              <p>
-                Our free retirement calculator helps address this concern by providing clear insights into how long your retirement savings will last. By calculating an optimal retirement income strategy today, you can make informed decisions about your spending and potentially extend the life of your retirement portfolio by many years - ensuring you have enough money to retire comfortably.
-              </p>
+              <div id="retirement-steps">
+                <h3 className="text-xl font-medium mt-6">How To Find Out If You'll Have Enough Money To Retire</h3>
+                <p>
+                  For the most accurate assessment of whether you have enough money to retire, enter your current retirement savings balance, age, estimated life expectancy, expected investment return rate, and anticipated inflation rate. The calculator will instantly show you how much you can safely spend daily, monthly, and yearly throughout retirement without running out of money.
+                </p>
+                
+                <p>
+                  Remember that this retirement sufficiency calculator is a planning tool. For comprehensive retirement income planning, consider consulting with a financial advisor who can help you integrate these calculations with your other retirement income sources like Social Security, pensions, and annuities to determine if you truly have enough money to retire when and how you want.
+                </p>
+              </div>
               
-              <h3 className="text-xl font-medium mt-6">How To Find Out If You'll Have Enough Money To Retire</h3>
-              <p>
-                For the most accurate assessment of whether you have enough money to retire, enter your current retirement savings balance, age, estimated life expectancy, expected investment return rate, and anticipated inflation rate. The calculator will instantly show you how much you can safely spend daily, monthly, and yearly throughout retirement without running out of money.
-              </p>
-              
-              <p>
-                Remember that this retirement sufficiency calculator is a planning tool. For comprehensive retirement income planning, consider consulting with a financial advisor who can help you integrate these calculations with your other retirement income sources like Social Security, pensions, and annuities to determine if you truly have enough money to retire when and how you want.
-              </p>
+              {/* FAQ Section */}
+              <div id="retirement-faq" className="mt-8 pt-4 border-t border-gray-200">
+                <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
+                
+                <div className="space-y-4">
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">How much money do I need to retire comfortably?</h4>
+                    <p className="mt-2">
+                      The amount needed for a comfortable retirement varies based on your desired lifestyle, expected expenses, and longevity. Many financial experts suggest the "4% rule" as a starting point, meaning you should aim to save 25 times your annual expenses. For example, if you need $40,000 annually in retirement, you'd target $1 million in savings. However, this is just a guideline. Our calculator offers a more personalized approach by considering your specific circumstances, including inflation expectations and investment returns, to determine if your savings will be enough for your entire retirement.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">What is the average retirement savings by age?</h4>
+                    <p className="mt-2">
+                      According to recent surveys, average retirement savings vary significantly by age: Adults under 35 have approximately $30,000 saved; those aged 35-44 average $87,000; the 45-54 age group has around $148,000; individuals 55-64 have about $279,000; and those 65+ have approximately $357,000 saved. However, these averages fall short of what most financial advisors recommend. For adequate retirement funding, aim to have saved 1x your annual income by age 30, 3x by 40, 6x by 50, 8x by 60, and 10x by 67. Our calculator helps you assess whether your current savings align with a sustainable withdrawal rate for your expected retirement duration.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">How does inflation impact my retirement savings?</h4>
+                    <p className="mt-2">
+                      Inflation erodes purchasing power over time, making a dollar in the future worth less than a dollar today. For retirement planning, this means the income you'll need in 20-30 years will be significantly higher than what you need now for the same lifestyle. With average inflation historically around 2-3% annually, prices potentially double every 20-30 years. Our retirement calculator accounts for this by incorporating an inflation rate adjustment to your investment returns, calculating what's known as your "real return." This approach gives you more accurate projections of how much you can safely withdraw throughout retirement while maintaining your purchasing power.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">What is the 4% rule for retirement withdrawals?</h4>
+                    <p className="mt-2">
+                      The 4% rule suggests withdrawing 4% of your retirement savings in your first year of retirement, then adjusting that amount annually for inflation in subsequent years. This approach aims to provide a steady income while preserving your principal for 30 years. For example, with $1 million saved, you'd withdraw $40,000 the first year. However, this rule has limitations: it assumes a specific asset allocation, doesn't account for varying market conditions, and may not work for everyone's time horizon. Our calculator offers a more tailored approach by considering your specific life expectancy, investment returns, and inflation expectations to determine a sustainable withdrawal rate for your unique situation.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">Should I pay off my mortgage before retirement?</h4>
+                    <p className="mt-2">
+                      Whether to pay off your mortgage before retirement depends on your specific financial situation. Benefits of paying it off include reduced monthly expenses, less stress, and guaranteed returns equal to your interest rate. However, it might not be the best choice if: your mortgage interest rate is lower than what your investments earn; you lack sufficient emergency savings; you have high-interest debt; or you're not maximizing tax-advantaged retirement accounts. For many retirees, eliminating mortgage payments provides financial security and simplifies budgeting. Our calculator can help you determine if your savings will be sufficient with or without mortgage payments by adjusting your projected expenses accordingly.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           

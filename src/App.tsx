@@ -9,7 +9,6 @@ import LongevityCalculatorPage from "./pages/LongevityCalculatorPage";
 import RetirementCalculator from "./pages/RetirementCalculator";
 import FertilityCalculator from "./pages/FertilityCalculator";
 import GrowthPercentilePage from "./pages/GrowthPercentilePage";
-import EVRangeCalculator from "./pages/EVRangeCalculator";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -38,7 +37,6 @@ const App = () => (
           <Route path="/retirementsavings" element={<RetirementCalculator />} />
           <Route path="/fertility" element={<FertilityCalculator />} />
           <Route path="/growth" element={<GrowthPercentilePage />} />
-          <Route path="/evrange" element={<EVRangeCalculator />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
