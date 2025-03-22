@@ -41,17 +41,17 @@ export const AdUnit = ({
     };
   }, [format, slot]);
 
-  // Define styling based on format
+  // Define styling based on format with consistent sizing
   const getFormatStyles = () => {
     switch (format) {
       case 'horizontal':
-        return { minHeight: '90px', border: '1px dashed #ddd' };
+        return { minHeight: '90px', height: '90px', border: '1px dashed #ddd' };
       case 'rectangle':
-        return { minHeight: '250px', border: '1px dashed #ddd' };
+        return { minHeight: '250px', height: '250px', border: '1px dashed #ddd' };
       case 'vertical':
-        return { minHeight: '600px', height: '100%', border: '1px dashed #ddd' };
+        return { minHeight: '600px', height: '600px', border: '1px dashed #ddd' };
       default:
-        return { minHeight: '100px', border: '1px dashed #ddd' };
+        return { minHeight: '250px', height: '250px', border: '1px dashed #ddd' };
     }
   };
 
