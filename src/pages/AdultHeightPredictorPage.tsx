@@ -5,7 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
-import { Calculator, AlertCircle, HelpCircle, ExternalLink, BookQuestion } from 'lucide-react';
+import { Calculator, AlertCircle, HelpCircle, ExternalLink, Book } from 'lucide-react';
 
 const AdultHeightPredictorPage = () => {
   return (
@@ -126,7 +126,7 @@ const AdultHeightPredictorPage = () => {
               
               <section id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <BookQuestion className="h-5 w-5 mr-2 text-blue-600" />
+                  <Book className="h-5 w-5 mr-2 text-blue-600" />
                   Frequently Asked Questions
                 </h3>
                 
