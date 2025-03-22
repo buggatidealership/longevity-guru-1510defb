@@ -7,11 +7,7 @@ interface HeadCustomizationProps {
     href: string;
     as: string;
     type?: string;
-    crossOrigin?: string;
   }>;
-  dnsPrefetch?: string[];
-  preloadFonts?: boolean;
-  deferScripts?: boolean;
 }
 
 /**
@@ -20,30 +16,14 @@ interface HeadCustomizationProps {
 const HeadCustomization: React.FC<HeadCustomizationProps> = ({
   preconnectUrls = [],
   preloadAssets = [],
-  dnsPrefetch = [],
-  preloadFonts = true,
-  deferScripts = true,
 }) => {
   useEffect(() => {
-    // Add DNS prefetch links
-    dnsPrefetch.forEach(url => {
-      if (!document.querySelector(`link[rel="dns-prefetch"][href="${url}"]`)) {
-        const link = document.createElement('link');
-        link.rel = 'dns-prefetch';
-        link.href = url;
-        link.setAttribute('data-dynamic', 'true');
-        document.head.appendChild(link);
-      }
-    });
-
     // Add preconnect links dynamically
     preconnectUrls.forEach(url => {
       if (!document.querySelector(`link[rel="preconnect"][href="${url}"]`)) {
         const link = document.createElement('link');
         link.rel = 'preconnect';
         link.href = url;
-        link.setAttribute('crossorigin', 'anonymous');
-        link.setAttribute('data-dynamic', 'true');
         document.head.appendChild(link);
       }
     });
@@ -58,43 +38,9 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
         if (asset.type) {
           link.type = asset.type;
         }
-        if (asset.crossOrigin) {
-          link.setAttribute('crossorigin', asset.crossOrigin);
-        }
-        link.setAttribute('data-dynamic', 'true');
         document.head.appendChild(link);
       }
     });
-
-    // Preload common fonts if enabled
-    if (preloadFonts) {
-      const fontPreloads = [
-        { href: '/fonts/inter-var.woff2', as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }
-      ];
-      
-      fontPreloads.forEach(font => {
-        if (!document.querySelector(`link[rel="preload"][href="${font.href}"]`)) {
-          const link = document.createElement('link');
-          link.rel = 'preload';
-          link.href = font.href;
-          link.as = font.as;
-          link.type = font.type;
-          link.setAttribute('crossorigin', font.crossOrigin || 'anonymous');
-          link.setAttribute('data-dynamic', 'true');
-          document.head.appendChild(link);
-        }
-      });
-    }
-
-    // Optimize scripts if defer is enabled
-    if (deferScripts) {
-      const scripts = document.querySelectorAll('script:not([async]):not([defer]):not([type="module"])');
-      scripts.forEach(script => {
-        if (!script.hasAttribute('data-critical')) {
-          script.setAttribute('defer', '');
-        }
-      });
-    }
 
     // Cleanup
     return () => {
@@ -106,7 +52,7 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
         }
       });
     };
-  }, [preconnectUrls, preloadAssets, dnsPrefetch, preloadFonts, deferScripts]);
+  }, [preconnectUrls, preloadAssets]);
 
   return null;
 };

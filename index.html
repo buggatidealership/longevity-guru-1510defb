@@ -10,42 +10,25 @@
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
 
-    <!-- Performance optimizations -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="anonymous" />
-    <link rel="preload" href="/src/index.css" as="style" />
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FHX7T4MP9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
       gtag('config', 'G-7FHX7T4MP9');
     </script>
 
-    <!-- Google AdSense - load with slight delay for faster initial page load -->
-    <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          const adScript = document.createElement('script');
-          adScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697";
-          adScript.crossOrigin = "anonymous";
-          adScript.async = true;
-          document.head.appendChild(adScript);
-        }, 1000); // 1 second delay
-      });
-    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697"
+     crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- Load the performance optimization script first -->
-    <script src="/loader.js"></script>
     <!-- Lovable Script -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module" defer></script>
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
     
     <!-- Structured Data for SEO - Enhanced with more properties -->
