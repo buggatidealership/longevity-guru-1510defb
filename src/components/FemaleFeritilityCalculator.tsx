@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -312,13 +313,6 @@ const FemaleFeritilityCalculator = () => {
 
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Female Fertility Calculator</h1>
-        <p className="text-muted-foreground mt-2">
-          Estimate your fertility status and reproductive timeline
-        </p>
-      </div>
-      
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -530,5 +524,17 @@ const FemaleFeritilityCalculator = () => {
         </CardContent>
       </Card>
       
-      {
+      {showResults && results && (
+        <FertilityResultCard
+          fertilityStatus={results.fertilityStatus}
+          yearsRemaining={results.yearsRemaining}
+          estimatedAge={results.estimatedAge}
+          amhComment={results.amhComment}
+          factors={results.factors}
+        />
+      )}
+    </div>
+  );
+};
 
+export default FemaleFeritilityCalculator;
