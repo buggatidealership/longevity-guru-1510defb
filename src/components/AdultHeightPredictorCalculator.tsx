@@ -1,27 +1,13 @@
-
 import React, { useState } from 'react';
-import { 
-  Card, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription, 
-  CardContent
-} from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Calculator, Ruler, Baby, Scale } from 'lucide-react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { AdUnit } from './AdUnit';
-
 const AdultHeightPredictorCalculator = () => {
   const [gender, setGender] = useState<string>('male');
   const [birthWeight, setBirthWeight] = useState<string>('');
@@ -36,33 +22,29 @@ const AdultHeightPredictorCalculator = () => {
     upperBound: number;
   } | null>(null);
   const [error, setError] = useState<string>('');
-
   const calculateAdultHeight = () => {
     setError('');
-    
+
     // Validate inputs
     if (!birthWeight || !birthLength) {
       setError('Please enter both birth weight and birth length.');
       return;
     }
-    
     const weightInput = parseFloat(birthWeight);
     const lengthInput = parseFloat(birthLength);
-    
     if (isNaN(weightInput) || isNaN(lengthInput)) {
       setError('Please enter valid numbers.');
       return;
     }
-    
     if (weightInput <= 0 || lengthInput <= 0) {
       setError('Values must be greater than zero.');
       return;
     }
-    
+
     // Convert to grams and cm for calculation
     let weightInGrams;
     let lengthInCm;
-    
+
     // Convert weight to grams based on selected unit
     if (weightUnit === 'kg') {
       weightInGrams = weightInput * 1000;
@@ -71,36 +53,34 @@ const AdultHeightPredictorCalculator = () => {
     } else {
       weightInGrams = weightInput; // already in grams
     }
-    
+
     // Convert length to cm based on selected unit
     if (lengthUnit === 'in') {
       lengthInCm = lengthInput * 2.54;
     } else {
       lengthInCm = lengthInput; // already in cm
     }
-    
+
     // Calculate adult height based on the research paper
     let predictedHeight;
     let predictionInterval;
-    
     if (gender === 'male') {
       // Males: Birth weight in kg, birth length in cm
       // Formula from Sorensen research: height in cm = 45.63 + 2.97 × birth length + 1.02 × birth weight
-      predictedHeight = 45.63 + (2.97 * lengthInCm) + (1.02 * (weightInGrams/1000));
+      predictedHeight = 45.63 + 2.97 * lengthInCm + 1.02 * (weightInGrams / 1000);
       predictionInterval = 6.85; // 95% prediction interval from research
     } else {
       // Females: Birth weight in kg, birth length in cm
       // Formula from Sorensen research: height in cm = 37.85 + 2.78 × birth length + 1.42 × birth weight
-      predictedHeight = 37.85 + (2.78 * lengthInCm) + (1.42 * (weightInGrams/1000));
+      predictedHeight = 37.85 + 2.78 * lengthInCm + 1.42 * (weightInGrams / 1000);
       predictionInterval = 6.52; // 95% prediction interval from research
     }
-    
+
     // Convert to feet and inches for display
     const heightInCm = predictedHeight;
     const heightInInches = heightInCm / 2.54;
     const feet = Math.floor(heightInInches / 12);
-    const inches = Math.round((heightInInches % 12) * 10) / 10;
-    
+    const inches = Math.round(heightInInches % 12 * 10) / 10;
     setResult({
       cm: Math.round(heightInCm * 10) / 10,
       feet,
@@ -109,15 +89,12 @@ const AdultHeightPredictorCalculator = () => {
       upperBound: Math.round((heightInCm + predictionInterval) * 10) / 10
     });
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
     setter(e.target.value);
   };
-
-  return (
-    <div className="space-y-6">
+  return <div className="space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Adult Height Predictor</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Adult Height Predictor Calculator</h1>
         <p className="text-muted-foreground mt-2 mb-4">
           Calculate a child's potential adult height based on birth measurements
         </p>
@@ -137,11 +114,7 @@ const AdultHeightPredictorCalculator = () => {
         <CardContent className="space-y-6">
           <div className="space-y-2">
             <Label className="block">Gender</Label>
-            <RadioGroup 
-              value={gender} 
-              onValueChange={setGender}
-              className="flex space-x-4"
-            >
+            <RadioGroup value={gender} onValueChange={setGender} className="flex space-x-4">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="male" id="male" />
                 <Label htmlFor="male">Male</Label>
@@ -159,15 +132,7 @@ const AdultHeightPredictorCalculator = () => {
               Birth Weight
             </Label>
             <div className="flex gap-2">
-              <Input
-                id="birthWeight"
-                type="text"
-                inputMode="numeric"
-                value={birthWeight}
-                onChange={(e) => handleInputChange(e, setBirthWeight)}
-                placeholder={weightUnit === 'kg' ? "e.g., 3.5" : weightUnit === 'lb' ? "e.g., 7.7" : "e.g., 3500"}
-                className="flex-1"
-              />
+              <Input id="birthWeight" type="text" inputMode="numeric" value={birthWeight} onChange={e => handleInputChange(e, setBirthWeight)} placeholder={weightUnit === 'kg' ? "e.g., 3.5" : weightUnit === 'lb' ? "e.g., 7.7" : "e.g., 3500"} className="flex-1" />
               <Select value={weightUnit} onValueChange={setWeightUnit}>
                 <SelectTrigger className="w-24">
                   <SelectValue placeholder="Unit" />
@@ -190,15 +155,7 @@ const AdultHeightPredictorCalculator = () => {
               Birth Length
             </Label>
             <div className="flex gap-2">
-              <Input
-                id="birthLength"
-                type="text"
-                inputMode="numeric"
-                value={birthLength}
-                onChange={(e) => handleInputChange(e, setBirthLength)}
-                placeholder={lengthUnit === 'cm' ? "e.g., 50" : "e.g., 19.7"}
-                className="flex-1"
-              />
+              <Input id="birthLength" type="text" inputMode="numeric" value={birthLength} onChange={e => handleInputChange(e, setBirthLength)} placeholder={lengthUnit === 'cm' ? "e.g., 50" : "e.g., 19.7"} className="flex-1" />
               <Select value={lengthUnit} onValueChange={setLengthUnit}>
                 <SelectTrigger className="w-24">
                   <SelectValue placeholder="Unit" />
@@ -216,10 +173,7 @@ const AdultHeightPredictorCalculator = () => {
           
           {error && <p className="text-destructive text-sm mb-4">{error}</p>}
           
-          <Button
-            onClick={calculateAdultHeight}
-            className="w-full"
-          >
+          <Button onClick={calculateAdultHeight} className="w-full">
             <Calculator className="mr-2 h-4 w-4" />
             Calculate Predicted Height
           </Button>
@@ -228,8 +182,7 @@ const AdultHeightPredictorCalculator = () => {
         </CardContent>
       </Card>
       
-      {result && (
-        <Card>
+      {result && <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Calculator className="h-5 w-5 text-primary" />
@@ -263,10 +216,7 @@ const AdultHeightPredictorCalculator = () => {
               <p className="italic">Note: This is an estimate based on statistical correlation. Individual growth can vary based on many factors including genetics, nutrition, and environment.</p>
             </div>
           </CardContent>
-        </Card>
-      )}
-    </div>
-  );
+        </Card>}
+    </div>;
 };
-
 export default AdultHeightPredictorCalculator;
