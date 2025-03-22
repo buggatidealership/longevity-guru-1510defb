@@ -45,6 +45,34 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ]
   };
 
+  // Structured data for WebSite
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Longevity Calculators",
+    "url": "https://longevitycalculator.xyz",
+    "description": description,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://longevitycalculator.xyz/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  // Breadcrumb structured data for better navigation representation
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://longevitycalculator.xyz/"
+      }
+    ]
+  };
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -72,7 +100,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Additional tags for canonical reinforcement */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large" />
       <meta name="googlebot" content="index, follow" />
       <meta property="og:site_name" content="Longevity Calculator" />
       
@@ -85,9 +113,17 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Sitemap reference */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       
-      {/* Structured data for Organization with logo */}
+      {/* Structured data */}
       <script type="application/ld+json">
         {JSON.stringify(organizationStructuredData)}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify(websiteStructuredData)}
+      </script>
+      
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumbStructuredData)}
       </script>
     </Helmet>
   );
