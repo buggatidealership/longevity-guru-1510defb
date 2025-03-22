@@ -24,7 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, RotateCw } from "lucide-react";
 import { useForm } from "react-hook-form";
 import DisclaimerAlert from "./DisclaimerAlert";
 import {
@@ -34,6 +34,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import InfoTooltip from './InfoTooltip';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/ui/tabs";
 
 interface ImplantFormValues {
   height: string;
@@ -44,6 +50,7 @@ interface ImplantFormValues {
   frame: string;
   region: string;
   implantType: string;
+  measurementSystem: string;
 }
 
 interface CostBreakdown {
@@ -75,13 +82,28 @@ const BreastImplantCalculator = () => {
       frame: "medium",
       region: "us",
       implantType: "silicone",
+      measurementSystem: "metric",
     },
   });
 
+  const measurementSystem = form.watch("measurementSystem");
+
   const onSubmit = (data: ImplantFormValues) => {
-    const height = parseFloat(data.height);
-    const weight = parseFloat(data.weight);
-    const chest = parseFloat(data.chest);
+    // Convert inputs to metric if needed
+    let height = parseFloat(data.height);
+    let weight = parseFloat(data.weight);
+    let chest = parseFloat(data.chest);
+    
+    // Convert imperial to metric if necessary
+    if (data.measurementSystem === "imperial") {
+      // Convert inches to cm for height
+      height = height * 2.54;
+      // Convert lbs to kg for weight
+      weight = weight * 0.453592;
+      // Convert inches to cm for chest
+      chest = chest * 2.54;
+    }
+
     const cupSize = parseInt(data.cupSize);
     const desiredIncrease = parseInt(data.desiredCup);
     const frame = data.frame;
@@ -287,7 +309,7 @@ const BreastImplantCalculator = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <Card className="border-none shadow-md bg-white rounded-xl">
-        <CardHeader className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-t-xl pb-4">
+        <CardHeader className="rounded-t-xl pb-4">
           <CardTitle className="text-2xl md:text-3xl text-center text-gray-900">Breast Implant Size Calculator</CardTitle>
           <CardDescription className="text-center text-gray-600">
             Estimate appropriate implant sizes based on your body measurements and see cost estimates for breast augmentation surgery.
@@ -296,19 +318,49 @@ const BreastImplantCalculator = () => {
         <CardContent className="pt-6">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+              <FormField
+                control={form.control}
+                name="measurementSystem"
+                render={({ field }) => (
+                  <FormItem>
+                    <div className="flex justify-center mb-4">
+                      <TabsList>
+                        <TabsTrigger 
+                          value="metric" 
+                          onClick={() => field.onChange("metric")}
+                          className={field.value === "metric" ? "bg-primary text-primary-foreground" : ""}
+                        >
+                          Metric (cm/kg)
+                        </TabsTrigger>
+                        <TabsTrigger 
+                          value="imperial" 
+                          onClick={() => field.onChange("imperial")}
+                          className={field.value === "imperial" ? "bg-primary text-primary-foreground" : ""}
+                        >
+                          Imperial (in/lbs)
+                        </TabsTrigger>
+                      </TabsList>
+                    </div>
+                  </FormItem>
+                )}
+              />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <FormField
                   control={form.control}
                   name="height"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Height (cm) <InfoTooltip text="Your height in centimeters" /></FormLabel>
+                      <FormLabel>
+                        Height {measurementSystem === "metric" ? "(cm)" : "(inches)"}
+                        <InfoTooltip text={`Your height in ${measurementSystem === "metric" ? "centimeters" : "inches"}`} />
+                      </FormLabel>
                       <FormControl>
                         <Input 
                           type="number" 
-                          placeholder="e.g., 165"
-                          min={140}
-                          max={200}
+                          placeholder={measurementSystem === "metric" ? "e.g., 165" : "e.g., 65"}
+                          min={measurementSystem === "metric" ? 140 : 55}
+                          max={measurementSystem === "metric" ? 200 : 79}
                           {...field} 
                         />
                       </FormControl>
@@ -320,13 +372,16 @@ const BreastImplantCalculator = () => {
                   name="weight"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Weight (kg) <InfoTooltip text="Your weight in kilograms" /></FormLabel>
+                      <FormLabel>
+                        Weight {measurementSystem === "metric" ? "(kg)" : "(lbs)"}
+                        <InfoTooltip text={`Your weight in ${measurementSystem === "metric" ? "kilograms" : "pounds"}`} />
+                      </FormLabel>
                       <FormControl>
                         <Input 
                           type="number" 
-                          placeholder="e.g., 60"
-                          min={40}
-                          max={120}
+                          placeholder={measurementSystem === "metric" ? "e.g., 60" : "e.g., 132"}
+                          min={measurementSystem === "metric" ? 40 : 88}
+                          max={measurementSystem === "metric" ? 120 : 265}
                           {...field} 
                         />
                       </FormControl>
@@ -340,13 +395,16 @@ const BreastImplantCalculator = () => {
                 name="chest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Chest/Underbust Measurement (cm) <InfoTooltip text="The measurement around your ribcage just under your breasts" /></FormLabel>
+                    <FormLabel>
+                      Chest/Underbust Measurement {measurementSystem === "metric" ? "(cm)" : "(inches)"}
+                      <InfoTooltip text={`The measurement around your ribcage just under your breasts in ${measurementSystem === "metric" ? "centimeters" : "inches"}`} />
+                    </FormLabel>
                     <FormControl>
                       <Input 
                         type="number" 
-                        placeholder="e.g., 75"
-                        min={60}
-                        max={120}
+                        placeholder={measurementSystem === "metric" ? "e.g., 75" : "e.g., 30"}
+                        min={measurementSystem === "metric" ? 60 : 24}
+                        max={measurementSystem === "metric" ? 120 : 47}
                         {...field} 
                       />
                     </FormControl>
