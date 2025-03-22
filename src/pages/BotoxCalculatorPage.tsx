@@ -1,4 +1,3 @@
-
 import { AdUnit } from '@/components/AdUnit';
 import BotoxCalculator from '@/components/BotoxCalculator';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
@@ -37,12 +36,13 @@ const BotoxCalculatorPage = () => {
             Calculate the recommended Botox units for different facial areas and estimate treatment costs.
           </p>
           
-          <DisclaimerAlert>
-            This calculator provides general estimates based on common dosage ranges. 
-            Actual treatment should be determined by a qualified healthcare provider.
-          </DisclaimerAlert>
+          <DisclaimerAlert 
+            content="This calculator provides general estimates based on common dosage ranges. Actual treatment should be determined by a qualified healthcare provider."
+          />
           
-          <BotoxCalculator />
+          <div className="mt-6">
+            <BotoxCalculator />
+          </div>
           
           <div className="mt-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
             <AdUnit 

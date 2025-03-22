@@ -7,14 +7,18 @@ interface DisclaimerAlertProps {
   title?: string;
   content?: string;
   icon?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const DisclaimerAlert = ({
   className,
   title = "Medical Disclaimer",
-  content = "This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation.",
-  icon
+  content,
+  icon,
+  children
 }: DisclaimerAlertProps) => {
+  const defaultContent = "This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation.";
+
   return (
     <aside className={cn("bg-amber-50 border border-amber-200 rounded-xl p-4 animate-fadeIn", className)} role="complementary" aria-label="Disclaimer">
       <div className="flex space-x-3">
@@ -28,7 +32,7 @@ const DisclaimerAlert = ({
         <div>
           <h3 className="text-sm font-medium text-amber-800">{title}</h3>
           <div className="mt-1 text-sm text-amber-700">
-            <p>{content}</p>
+            <p>{content || children || defaultContent}</p>
           </div>
         </div>
       </div>
