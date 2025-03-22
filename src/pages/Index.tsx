@@ -4,11 +4,11 @@ import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity } from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors } from 'lucide-react';
 
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
-  const calculatorCount = 6; // Current count: lifespan, retirement, fertility, growth, adult height, metabolism
+  const calculatorCount = 7; // Current count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant
 
   return (
     <>
@@ -131,7 +131,21 @@ const Index = () => {
                 </div>
               </Link>
               
-              {[...Array(6)].map((_, index) => (
+              <Link to="/breastimplant" className="group">
+                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-pink-300 hover:shadow-md transition-all duration-200">
+                  <div className="w-10 h-10 bg-pink-50 rounded-full flex items-center justify-center mb-3">
+                    <Scissors className="h-5 w-5 text-pink-500" />
+                  </div>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Breast Implant</h3>
+                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate implant size and surgery costs.</p>
+                  <span className="text-xs text-pink-500 flex items-center group-hover:underline">
+                    Calculate
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+              
+              {[...Array(5)].map((_, index) => (
                 <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
                     <span className="text-gray-400 font-medium text-xs">Soon</span>
@@ -179,6 +193,7 @@ const Index = () => {
                   <li><Link to="/growth" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
                   <li><Link to="/adultheight" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
                   <li><Link to="/metabolism" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
+                  <li><Link to="/breastimplant" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
                 </ul>
               </div>
               
