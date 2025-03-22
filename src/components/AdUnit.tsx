@@ -41,17 +41,39 @@ export const AdUnit = ({
     };
   }, [format, slot]);
 
-  // Define styling based on format with consistent sizing
+  // Define fixed dimensions for each ad format to ensure consistency across pages
   const getFormatStyles = () => {
     switch (format) {
       case 'horizontal':
-        return { minHeight: '90px', height: '90px', border: '1px dashed #ddd' };
+        return { 
+          width: '100%', 
+          height: '90px', 
+          maxHeight: '90px',
+          border: '1px dashed #ddd' 
+        };
       case 'rectangle':
-        return { minHeight: '250px', height: '250px', border: '1px dashed #ddd' };
+        return { 
+          width: '300px', 
+          height: '250px',
+          maxHeight: '250px', 
+          margin: '0 auto',
+          border: '1px dashed #ddd' 
+        };
       case 'vertical':
-        return { minHeight: '600px', height: '600px', border: '1px dashed #ddd' };
+        return { 
+          width: '160px', 
+          height: '600px',
+          maxHeight: '600px', 
+          border: '1px dashed #ddd' 
+        };
       default:
-        return { minHeight: '250px', height: '250px', border: '1px dashed #ddd' };
+        return { 
+          width: '300px', 
+          height: '250px',
+          maxHeight: '250px', 
+          margin: '0 auto',
+          border: '1px dashed #ddd' 
+        };
     }
   };
 
