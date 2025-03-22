@@ -1,10 +1,11 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
-import { Calculator, AlertCircle, HelpCircle, ExternalLink } from 'lucide-react';
+import { Calculator, AlertCircle, HelpCircle, ExternalLink, BookQuestion } from 'lucide-react';
 
 const AdultHeightPredictorPage = () => {
   return (
@@ -123,39 +124,42 @@ const AdultHeightPredictorPage = () => {
                 </p>
               </section>
               
-              <section id="faq" className="mb-6">
-                <h3 className="text-xl font-bold mb-4">Frequently Asked Questions</h3>
+              <section id="faq" className="mt-8 pt-4 border-t border-gray-200">
+                <h3 className="text-xl font-bold mb-4 flex items-center">
+                  <BookQuestion className="h-5 w-5 mr-2 text-blue-600" />
+                  Frequently Asked Questions
+                </h3>
                 
                 <div className="space-y-4">
-                  <div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg mb-1">How accurate is this adult height prediction?</h4>
                     <p className="text-gray-700">
                       The prediction is based on statistical correlations observed in research studies. It provides an estimate with a 95% prediction interval, meaning 95% of individuals with similar birth measurements would fall within that range. However, many factors beyond birth measurements influence final adult height, including genetics, nutrition, health conditions, and environmental factors.
                     </p>
                   </div>
                   
-                  <div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg mb-1">Can I predict my child's adult height more accurately as they grow older?</h4>
                     <p className="text-gray-700">
                       Yes, height predictions become more accurate as children grow older. Methods that use a child's current height, parental heights, and bone age (determined by X-ray) at ages 2+ provide better predictions than birth measurements alone. The most accurate predictions typically come during early adolescence.
                     </p>
                   </div>
                   
-                  <div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg mb-1">Do birth measurements have a strong influence on adult height?</h4>
                     <p className="text-gray-700">
                       Birth measurements show modest correlations with adult height, but they're just one factor. Research suggests that birth length has a stronger correlation than birth weight. Genetic factors, which determine approximately 60-80% of height variation, and post-birth factors like nutrition and health have larger influences on final adult height.
                     </p>
                   </div>
                   
-                  <div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg mb-1">Can a baby's birth measurements predict future health conditions?</h4>
                     <p className="text-gray-700">
                       Some studies have found associations between birth measurements and certain health outcomes later in life. For example, both very low and very high birth weights have been associated with different health risks. However, these are statistical associations rather than predictions for individuals, and many other factors influence health outcomes.
                     </p>
                   </div>
                   
-                  <div>
+                  <div className="p-4 bg-gray-50 rounded-lg">
                     <h4 className="font-semibold text-lg mb-1">What factors have the greatest influence on a child's ultimate adult height?</h4>
                     <p className="text-gray-700">
                       Genetics is the primary determinant of height, accounting for 60-80% of height variation. Parental heights are strong predictors of a child's potential height. Other important factors include nutrition, overall health, presence of medical conditions, hormone levels (especially growth hormone and thyroid hormone), and environmental factors during development.
