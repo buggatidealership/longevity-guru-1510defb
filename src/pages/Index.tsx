@@ -7,10 +7,13 @@ import { AdUnit } from '@/components/AdUnit';
 import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity } from 'lucide-react';
 
 const Index = () => {
+  // Count the number of calculator pages (excluding placeholder/coming soon calculators)
+  const calculatorCount = 6; // Current count: lifespan, retirement, fertility, growth, adult height, metabolism
+
   return (
     <>
       <SEOHead 
-        title="Longevity Calculators | Health & Financial Planning Tools"
+        title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
         description="Free online calculators and tools for health assessment, financial planning, lifestyle optimization, and personal development. Evidence-based resources for better decision-making."
         canonicalUrl="https://longevitycalculator.xyz/"
       />
@@ -28,7 +31,7 @@ const Index = () => {
         </header>
         <main className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-4">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-gray-800">Longevity Calculators</h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-gray-800">{calculatorCount} Free Calculators</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Free online calculators for smarter lifestyle planning and informed decision-making</p>
           </div>
           
