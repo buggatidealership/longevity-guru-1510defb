@@ -82,6 +82,14 @@ const AdultHeightPredictorPage = () => {
                 </li>
                 <li>
                   <button 
+                    onClick={() => scrollToSection('accuracy')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Accuracy & Limitations
+                  </button>
+                </li>
+                <li>
+                  <button 
                     onClick={() => scrollToSection('benefits')} 
                     className="text-blue-600 hover:underline text-sm"
                   >
@@ -127,6 +135,27 @@ const AdultHeightPredictorPage = () => {
                 <h3 className="text-xl font-medium mt-6">How The Adult Height Predictor Works</h3>
                 <p>
                   The calculator uses research-based formulas that correlate birth measurements with adult height. For males, the formula is: Adult height (cm) = 45.63 + (2.97 × birth length in cm) + (1.02 × birth weight in kg). For females: Adult height (cm) = 37.85 + (2.78 × birth length in cm) + (1.42 × birth weight in kg).
+                </p>
+              </div>
+
+              <div id="accuracy">
+                <h3 className="text-xl font-medium mt-6">Accuracy and Limitations</h3>
+                <p>
+                  According to the Sorensen et al. research, this prediction method has moderate but not perfect accuracy:
+                </p>
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li>
+                    The 95% prediction interval is approximately ±6.85 cm (2.7 inches) for males and ±6.52 cm (2.6 inches) for females, representing the statistical margin of error in either direction.
+                  </li>
+                  <li>
+                    Birth measurements account for roughly 25-30% of the variation in adult height, as many other factors significantly impact growth.
+                  </li>
+                  <li>
+                    Important factors not accounted for include genetic influences beyond birth size, nutrition throughout childhood, overall health, presence of chronic conditions, timing of puberty, and environmental factors during growth years.
+                  </li>
+                </ul>
+                <p className="mt-2">
+                  While this calculator provides a scientifically-based prediction using established correlations, it should be viewed as an educated estimate rather than a definitive prediction. Individual outcomes can vary considerably based on the many factors that influence growth during childhood and adolescence.
                 </p>
               </div>
               
