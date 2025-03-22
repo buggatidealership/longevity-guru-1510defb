@@ -51,7 +51,10 @@ export const AdUnit = ({
           maxHeight: '90px',
           minHeight: '90px',
           overflow: 'hidden',
-          border: '1px dashed #ddd' 
+          border: '1px dashed #ddd',
+          boxSizing: 'border-box',
+          display: 'block',
+          position: 'relative'
         };
       case 'rectangle':
         return { 
@@ -60,7 +63,10 @@ export const AdUnit = ({
           maxHeight: '250px',
           minHeight: '250px', 
           overflow: 'hidden',
-          border: '1px dashed #ddd' 
+          border: '1px dashed #ddd',
+          boxSizing: 'border-box',
+          display: 'block',
+          position: 'relative'
         };
       case 'vertical':
         return { 
@@ -69,7 +75,10 @@ export const AdUnit = ({
           maxHeight: '600px',
           minHeight: '600px',
           overflow: 'hidden', 
-          border: '1px dashed #ddd' 
+          border: '1px dashed #ddd',
+          boxSizing: 'border-box',
+          display: 'block',
+          position: 'relative'
         };
       default:
         return { 
@@ -78,7 +87,10 @@ export const AdUnit = ({
           maxHeight: '250px',
           minHeight: '250px',
           overflow: 'hidden',
-          border: '1px dashed #ddd' 
+          border: '1px dashed #ddd',
+          boxSizing: 'border-box',
+          display: 'block',
+          position: 'relative'
         };
     }
   };
@@ -97,7 +109,10 @@ export const AdUnit = ({
           width: '100%', 
           height: '100%',
           maxHeight: '100%',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          position: 'absolute',
+          top: 0,
+          left: 0
         }}
         data-ad-client="ca-pub-1580600669281697"
         data-ad-slot={slot}
