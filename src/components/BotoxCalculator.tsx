@@ -148,10 +148,6 @@ const BotoxCalculator = () => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Botox Dosage Calculator</h1>
-        <p className="text-muted-foreground mt-2 mb-4">
-          Estimate Botox units needed for different facial areas and treatment costs
-        </p>
         <AdUnit slot="5555555555" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       

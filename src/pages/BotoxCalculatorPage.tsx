@@ -38,9 +38,10 @@ const BotoxCalculatorPage = () => {
           
           <DisclaimerAlert 
             content="This calculator provides general estimates based on common dosage ranges. Actual treatment should be determined by a qualified healthcare provider."
+            className="mb-6"
           />
           
-          <div className="mt-6">
+          <div>
             <BotoxCalculator />
           </div>
           
