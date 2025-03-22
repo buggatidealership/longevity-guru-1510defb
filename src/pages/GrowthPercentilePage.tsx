@@ -15,6 +15,14 @@ const GrowthPercentilePage = () => {
     });
   };
 
+  // For internal section navigation
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <SEOHead 
@@ -46,10 +54,59 @@ const GrowthPercentilePage = () => {
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">About The Child Growth Percentile Calculator</h2>
             
+            {/* Table of Contents */}
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <h3 className="text-lg font-medium mb-2">Table of Contents</h3>
+              <ul className="space-y-1">
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('overview')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Overview
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('how-it-works')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    How The Calculator Works
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('benefits')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Key Benefits
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('understanding-percentiles')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Understanding Percentiles
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('faq')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Frequently Asked Questions
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
             <div className="space-y-4 text-gray-700">
-              <p>
-                Our <strong>Child Growth Percentile Calculator</strong> helps parents and caregivers understand how their child's height and weight compare to other children of the same age and gender. Based on the CDC (Centers for Disease Control and Prevention) growth charts, this tool provides insights into where your child falls on standard growth curves.
-              </p>
+              <div id="overview">
+                <p>
+                  Our <strong>Child Growth Percentile Calculator</strong> helps parents and caregivers understand how their child's height and weight compare to other children of the same age and gender. Based on the CDC (Centers for Disease Control and Prevention) growth charts, this tool provides insights into where your child falls on standard growth curves.
+                </p>
+              </div>
               
               <div className="my-4">
                 <AdUnit 
@@ -60,39 +117,87 @@ const GrowthPercentilePage = () => {
                 />
               </div>
               
-              <h3 className="text-xl font-medium mt-6">How The Growth Percentile Calculator Works</h3>
-              <p>
-                The calculator uses the LMS method (Lambda-Mu-Sigma) which is the statistical technique used to create standardized growth charts. By inputting your child's age, gender, height, and weight, the calculator determines which percentile your child falls into compared to the reference population of children.
-              </p>
+              <div id="how-it-works">
+                <h3 className="text-xl font-medium mt-6">How The Growth Percentile Calculator Works</h3>
+                <p>
+                  The calculator uses the LMS method (Lambda-Mu-Sigma) which is the statistical technique used to create standardized growth charts. By inputting your child's age, gender, height, and weight, the calculator determines which percentile your child falls into compared to the reference population of children.
+                </p>
+              </div>
               
-              <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>
-                  <strong>Track Growth Over Time:</strong> Regular measurements help monitor your child's growth pattern and ensure they're developing consistently.
-                </li>
-                <li>
-                  <strong>Early Identification:</strong> Recognize potential growth issues early when intervention may be most effective.
-                </li>
-                <li>
-                  <strong>Better Understanding:</strong> Gain insight into how your child compares to standardized growth expectations.
-                </li>
-                <li>
-                  <strong>Informed Discussions:</strong> Have more productive conversations with healthcare providers about your child's development.
-                </li>
-              </ul>
+              <div id="benefits">
+                <h3 className="text-xl font-medium mt-6">Key Benefits of Using Our Calculator</h3>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>
+                    <strong>Track Growth Over Time:</strong> Regular measurements help monitor your child's growth pattern and ensure they're developing consistently.
+                  </li>
+                  <li>
+                    <strong>Early Identification:</strong> Recognize potential growth issues early when intervention may be most effective.
+                  </li>
+                  <li>
+                    <strong>Better Understanding:</strong> Gain insight into how your child compares to standardized growth expectations.
+                  </li>
+                  <li>
+                    <strong>Informed Discussions:</strong> Have more productive conversations with healthcare providers about your child's development.
+                  </li>
+                </ul>
+              </div>
               
-              <h3 className="text-xl font-medium mt-6">Understanding Percentiles</h3>
-              <p>
-                A percentile shows the relative position of your child's measurement among children of the same age and gender. For example, if your child is in the 75th percentile for height, it means they are taller than 75% of children their age and gender. Being in a high or low percentile is not necessarily better or worse – what's most important is consistency in growth over time.
-              </p>
+              <div id="understanding-percentiles">
+                <h3 className="text-xl font-medium mt-6">Understanding Percentiles</h3>
+                <p>
+                  A percentile shows the relative position of your child's measurement among children of the same age and gender. For example, if your child is in the 75th percentile for height, it means they are taller than 75% of children their age and gender. Being in a high or low percentile is not necessarily better or worse – what's most important is consistency in growth over time.
+                </p>
+                
+                <p>
+                  It's important to note that growth percentiles should be interpreted by healthcare professionals within the context of your child's overall health, genetic background, and previous growth history. This calculator is designed as an educational tool, not a substitute for professional medical advice.
+                </p>
+                
+                <p>
+                  For the most accurate assessment, healthcare providers typically measure children with specialized equipment and plot measurements on detailed growth charts over multiple visits to establish growth patterns.
+                </p>
+              </div>
               
-              <p>
-                It's important to note that growth percentiles should be interpreted by healthcare professionals within the context of your child's overall health, genetic background, and previous growth history. This calculator is designed as an educational tool, not a substitute for professional medical advice.
-              </p>
-              
-              <p>
-                For the most accurate assessment, healthcare providers typically measure children with specialized equipment and plot measurements on detailed growth charts over multiple visits to establish growth patterns.
-              </p>
+              {/* FAQ Section */}
+              <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
+                <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
+                
+                <div className="space-y-4">
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">What is a normal percentile for a child's growth?</h4>
+                    <p className="mt-2">
+                      There is no single "normal" percentile for child growth. Any percentile between the 5th and 95th is generally considered within the normal range. What's most important is consistency in growth patterns over time, rather than reaching a specific percentile. A child who consistently grows along the 20th percentile may be perfectly healthy, while rapid crossing of percentile lines (up or down) might warrant medical attention.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">Why is my child's height and weight in different percentiles?</h4>
+                    <p className="mt-2">
+                      It's completely normal for a child to be in different percentiles for height and weight. Children have unique body compositions influenced by genetics, diet, activity levels, and development timing. For example, a child may be in the 40th percentile for height but the 60th for weight, reflecting their individual body type. Consistent tracking over time is more important than comparing different measurements to each other.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">When should I be concerned about my child's growth percentile?</h4>
+                    <p className="mt-2">
+                      Consider consulting a healthcare provider if: your child's measurements fall below the 3rd or above the 97th percentile; there's a significant change in percentile across multiple measurements; your child crosses two or more major percentile lines in either direction; or if growth seems to have stalled. Remember that percentiles are screening tools, not diagnostic instruments, and should be interpreted by healthcare professionals.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">How often should I measure my child's growth?</h4>
+                    <p className="mt-2">
+                      For children under 2 years old, growth measurements are typically recommended at 2, 4, 6, 9, 12, 15, 18, and 24 months as part of regular well-child visits. For children 2-5 years old, annual measurements are generally sufficient. School-age children may be measured once per year or during annual check-ups. Always follow your pediatrician's recommendations for your specific child's needs.
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-50 rounded-lg">
+                    <h4 className="font-semibold text-lg">Can nutrition affect my child's growth percentile?</h4>
+                    <p className="mt-2">
+                      Yes, nutrition plays a crucial role in a child's growth and development. Inadequate caloric intake or nutritional deficiencies can slow growth, while excessive caloric consumption may lead to accelerated weight gain. A balanced diet with appropriate proteins, carbohydrates, fats, vitamins, and minerals supports optimal growth. If you have concerns about your child's nutrition or growth pattern, consult with a pediatrician or registered dietitian.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
