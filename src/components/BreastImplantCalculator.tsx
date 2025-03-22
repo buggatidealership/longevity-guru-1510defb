@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -324,22 +323,16 @@ const BreastImplantCalculator = () => {
                 render={({ field }) => (
                   <FormItem>
                     <div className="flex justify-center mb-4">
-                      <TabsList>
-                        <TabsTrigger 
-                          value="metric" 
-                          onClick={() => field.onChange("metric")}
-                          className={field.value === "metric" ? "bg-primary text-primary-foreground" : ""}
-                        >
-                          Metric (cm/kg)
-                        </TabsTrigger>
-                        <TabsTrigger 
-                          value="imperial" 
-                          onClick={() => field.onChange("imperial")}
-                          className={field.value === "imperial" ? "bg-primary text-primary-foreground" : ""}
-                        >
-                          Imperial (in/lbs)
-                        </TabsTrigger>
-                      </TabsList>
+                      <Tabs defaultValue={field.value} onValueChange={field.onChange}>
+                        <TabsList>
+                          <TabsTrigger value="metric">
+                            Metric (cm/kg)
+                          </TabsTrigger>
+                          <TabsTrigger value="imperial">
+                            Imperial (in/lbs)
+                          </TabsTrigger>
+                        </TabsList>
+                      </Tabs>
                     </div>
                   </FormItem>
                 )}
