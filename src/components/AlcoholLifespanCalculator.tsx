@@ -21,46 +21,21 @@ const AlcoholLifespanCalculator = () => {
       female: 1.2, // ~1.2 days lost per weekly drink per year (women affected more)
     }[gender];
     
-    // Life expectancy remaining (simplified approximation)
-    let yearsRemaining = 85 - age; // Using 85 as rough average life expectancy
-    if (gender === 'female') yearsRemaining = 88 - age; // Women tend to live longer
+    // For lifetime impact calculation, we assume a 40-year exposure period
+    // This period is the same regardless of current age since we're calculating
+    // the total lifetime impact that alcohol consumption at this level would have
+    const exposureYears = 40; // Standard exposure period for lifetime impact calculation
     
-    // Calculate cumulative impact over remaining lifespan
-    // For older people, we need to consider BOTH:
-    // 1. Future impact (based on remaining years)
-    // 2. Past accumulated impact (based on assumed drinking history)
-    
-    // Future impact calculation
-    const exposureYears = Math.max(Math.min(yearsRemaining, 40), 1); // Cap at 40 years of exposure, minimum 1 year
-    
+    // Basic impact calculation
     let impactDays = daysPerDrinkPerYear * drinksPerWeek * exposureYears;
     
-    // Age modifier (impact is more significant for younger people)
-    let ageModifier = 1.0;
-    if (age < 30) ageModifier = 1.2;
-    else if (age < 45) ageModifier = 1.1;
-    else if (age < 65) ageModifier = 0.9;
-    else ageModifier = 0.7;
+    // Gender modifier is already factored in through daysPerDrinkPerYear
     
-    impactDays *= ageModifier;
-    
-    // Past accumulated impact for older individuals
-    // Assume similar drinking pattern for previous years
-    if (age > 65) {
-      // Simplified past impact calculation - assume same drinking pattern
-      // for the previous 20 years (or less if person is younger)
-      const pastYears = Math.min(age - 45, 20); // Assume impactful drinking for up to 20 years prior
-      const pastImpact = daysPerDrinkPerYear * drinksPerWeek * pastYears * 0.8; // 80% weight for past impact
-      
-      // Add past impact to current calculation
-      impactDays += pastImpact;
-    }
-    
-    // J-curve adjustment for moderate drinking in older adults
+    // J-curve adjustment for moderate drinking 
     // Some studies still show potential small cardiovascular benefits
     let jCurveAdjustment = 0;
-    if (drinksPerWeek > 0 && drinksPerWeek <= 3 && age > 45) {
-      jCurveAdjustment = -20; // Small potential benefit for very light drinking in older adults
+    if (drinksPerWeek > 0 && drinksPerWeek <= 3) {
+      jCurveAdjustment = -20; // Small potential benefit for very light drinking
     }
     
     // Heavy drinking penalty - progressive risk increase
