@@ -11,6 +11,7 @@ import DisclaimerAlert from '@/components/DisclaimerAlert';
 import InfoTooltip from '@/components/InfoTooltip';
 import { Calculator, Activity, Scale, HeartPulse, Info } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 
 const MetabolismCalculator = () => {
   const [age, setAge] = useState<string>('');
@@ -419,46 +420,51 @@ const MetabolismCalculator = () => {
                     <h4 className="text-lg font-semibold mb-3">Daily Calorie Targets</h4>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {/* Weight Loss section - Updated for better alignment */}
                       <div className="p-4 bg-red-50 rounded shadow-sm border border-red-100">
                         <h5 className="font-medium mb-2 text-red-800">Weight Loss</h5>
-                        <ul className="space-y-2">
-                          <li className="flex justify-between">
-                            <span>Mild (0.25kg/week):</span>
-                            <span className="font-semibold">{results.mildDeficit} cal</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Moderate (0.5kg/week):</span>
-                            <span className="font-semibold">{results.moderateDeficit} cal</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Aggressive (1kg/week):</span>
-                            <span className="font-semibold">{results.aggressiveDeficit} cal</span>
-                          </li>
-                        </ul>
+                        <Table>
+                          <TableBody>
+                            <TableRow className="border-0">
+                              <TableCell className="py-1 pl-0 pr-2 text-sm">Mild (0.25kg/week):</TableCell>
+                              <TableCell className="py-1 px-0 text-sm font-semibold text-right">{results.mildDeficit} cal</TableCell>
+                            </TableRow>
+                            <TableRow className="border-0">
+                              <TableCell className="py-1 pl-0 pr-2 text-sm">Moderate (0.5kg/week):</TableCell>
+                              <TableCell className="py-1 px-0 text-sm font-semibold text-right">{results.moderateDeficit} cal</TableCell>
+                            </TableRow>
+                            <TableRow className="border-0">
+                              <TableCell className="py-1 pl-0 pr-2 text-sm">Aggressive (1kg/week):</TableCell>
+                              <TableCell className="py-1 px-0 text-sm font-semibold text-right">{results.aggressiveDeficit} cal</TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
                       </div>
                       
+                      {/* Maintenance section - Updated for better alignment */}
                       <div className="p-4 bg-blue-50 rounded shadow-sm border border-blue-100">
                         <h5 className="font-medium mb-2 text-blue-800">Maintenance</h5>
-                        <div className="h-full flex flex-col justify-center">
-                          <div className="flex justify-between items-center">
-                            <span>Daily calories:</span>
-                            <span className="font-semibold text-lg">{results.maintenance} cal</span>
-                          </div>
+                        <div className="flex justify-between items-center h-[80px] px-2">
+                          <span className="text-sm">Daily calories:</span>
+                          <span className="font-semibold text-lg">{results.maintenance} cal</span>
                         </div>
                       </div>
                       
+                      {/* Weight Gain section - Updated for better alignment */}
                       <div className="p-4 bg-green-50 rounded shadow-sm border border-green-100">
                         <h5 className="font-medium mb-2 text-green-800">Weight Gain</h5>
-                        <ul className="space-y-2">
-                          <li className="flex justify-between">
-                            <span>Mild (0.25kg/week):</span>
-                            <span className="font-semibold">{results.mildSurplus} cal</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Moderate (0.5kg/week):</span>
-                            <span className="font-semibold">{results.moderateSurplus} cal</span>
-                          </li>
-                        </ul>
+                        <Table>
+                          <TableBody>
+                            <TableRow className="border-0">
+                              <TableCell className="py-1 pl-0 pr-2 text-sm">Mild (0.25kg/week):</TableCell>
+                              <TableCell className="py-1 px-0 text-sm font-semibold text-right">{results.mildSurplus} cal</TableCell>
+                            </TableRow>
+                            <TableRow className="border-0">
+                              <TableCell className="py-1 pl-0 pr-2 text-sm">Moderate (0.5kg/week):</TableCell>
+                              <TableCell className="py-1 px-0 text-sm font-semibold text-right">{results.moderateSurplus} cal</TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
                       </div>
                     </div>
                   </div>
