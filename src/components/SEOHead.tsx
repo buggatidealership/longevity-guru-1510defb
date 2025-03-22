@@ -9,6 +9,7 @@ interface SEOHeadProps {
   ogType?: string;
   ogImage?: string;
   keywords?: string;
+  preloadFonts?: boolean;
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
@@ -18,6 +19,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   ogType = 'website',
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
+  preloadFonts = true,
 }) => {
   // Enforce longevitycalculator.xyz as the canonical domain
   let correctedCanonicalUrl = canonicalUrl;
@@ -53,6 +55,20 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       {/* Prevent crawlers from thinking this is linked to lifespan-calculator.com */}
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
+      
+      {/* Performance optimizations */}
+      <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+      <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+      
+      {/* Preload critical assets - can be customized per page */}
+      {preloadFonts && (
+        <>
+          <link rel="preload" href="/src/index.css" as="style" />
+          <link rel="preload" href="https://cdn.gpteng.co/gptengineer.js" as="script" />
+        </>
+      )}
       
       {/* Sitemap reference */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
