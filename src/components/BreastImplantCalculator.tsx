@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription 
+  CardContent
 } from "@/components/ui/card";
 import { 
   Form, 
@@ -22,16 +19,7 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { AlertTriangle, RotateCw } from "lucide-react";
 import { useForm } from "react-hook-form";
-import DisclaimerAlert from "./DisclaimerAlert";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import InfoTooltip from './InfoTooltip';
 import {
   Tabs,
@@ -39,6 +27,12 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface ImplantFormValues {
   height: string;
@@ -286,19 +280,7 @@ const BreastImplantCalculator = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <Card className="border-none shadow-md bg-white rounded-xl">
-        <CardHeader className="rounded-t-xl pb-4">
-          <CardTitle className="text-2xl md:text-3xl text-center text-gray-900">Breast Implant Size Calculator</CardTitle>
-          <CardDescription className="text-center text-gray-600">
-            Estimate appropriate implant sizes based on your body measurements and see cost estimates for breast augmentation surgery.
-          </CardDescription>
-        </CardHeader>
         <CardContent className="pt-6">
-          <DisclaimerAlert 
-            title="Medical Disclaimer"
-            content="This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation."
-            className="mb-6"
-          />
-          
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
               <FormField
