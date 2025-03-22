@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -39,7 +40,7 @@ const Index = () => {
               </h1>
               <div className="h-0.5 w-32 bg-gray-200 mx-auto my-4"></div>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Free online calculators for smarter lifestyle planning and informed decision-making
+                ... for smarter lifestyle planning and informed decision-making
               </p>
             </div>
           </div>
