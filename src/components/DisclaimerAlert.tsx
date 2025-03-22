@@ -11,8 +11,8 @@ interface DisclaimerAlertProps {
 
 const DisclaimerAlert = ({
   className,
-  title,
-  content,
+  title = "Medical Disclaimer",
+  content = "This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation.",
   icon
 }: DisclaimerAlertProps) => {
   return (
@@ -26,9 +26,9 @@ const DisclaimerAlert = ({
           )}
         </div>
         <div>
-          <h3 className="text-sm font-medium text-amber-800">{title || "Important"}</h3>
+          <h3 className="text-sm font-medium text-amber-800">{title}</h3>
           <div className="mt-1 text-sm text-amber-700">
-            <p>{content || "This calculator is for educational purposes only, offering simplified estimates. It is not scientifically validated and should not be used for health decisions. Factor weightings are approximations."}</p>
+            <p>{content}</p>
           </div>
         </div>
       </div>
