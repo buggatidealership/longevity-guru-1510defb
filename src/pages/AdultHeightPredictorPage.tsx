@@ -26,8 +26,9 @@ const AdultHeightPredictorPage = () => {
     <>
       <SEOHead 
         title="Child to Adult Height Predictor | Future Height Calculator"
-        description="Predict your child's adult height with our scientifically-based calculator. Uses parent heights, current measurements, and growth patterns to forecast future height."
+        description="Predict your child's adult height with our scientifically-based calculator. Uses parent heights, current measurements, and growth patterns to forecast future adult stature."
         canonicalUrl="https://longevitycalculator.xyz/adultheight"
+        keywords="adult height predictor, child height calculator, final height estimator, genetic height potential, growth prediction, pediatric height forecast"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

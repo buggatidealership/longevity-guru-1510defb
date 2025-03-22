@@ -29,6 +29,7 @@ const BreastImplantCalculatorPage = () => {
         title="Breast Implant Size Calculator | Cost and CC Estimator"
         description="Calculate the ideal breast implant size in CC based on your measurements and desired cup size. Estimate surgery costs and explore implant options with our free calculator."
         canonicalUrl="https://longevitycalculator.xyz/breastimplant"
+        keywords="breast implant calculator, implant size, cc calculator, breast augmentation cost, cup size estimator, implant profile, breast width measurement"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
