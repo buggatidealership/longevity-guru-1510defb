@@ -19,11 +19,18 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
 }) => {
-  // Enforce longevitycalculator.xyz as the canonical domain
+  // Make sure the canonical URL is using the correct domain
   let correctedCanonicalUrl = canonicalUrl;
+  
+  // Don't allow lifespan-calculator.com domain to be used for canonical URLs
   if (correctedCanonicalUrl.includes('lifespan-calculator.com')) {
     // Replace any occurrences of lifespan-calculator.com with longevitycalculator.xyz
     correctedCanonicalUrl = correctedCanonicalUrl.replace('lifespan-calculator.com', 'longevitycalculator.xyz');
+  }
+  
+  // Ensure the URL has https protocol
+  if (!correctedCanonicalUrl.startsWith('http')) {
+    correctedCanonicalUrl = `https://longevitycalculator.xyz${correctedCanonicalUrl.startsWith('/') ? '' : '/'}${correctedCanonicalUrl}`;
   }
 
   return (
@@ -46,12 +53,15 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
       
-      {/* Additional tags to strengthen canonical status */}
+      {/* Additional tags for canonical reinforcement */}
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
       <meta property="og:site_name" content="Longevity Calculator" />
       
-      {/* Prevent crawlers from thinking this is linked to lifespan-calculator.com */}
+      {/* Explicitly declare the correct domain */}
+      <meta name="domain-verification" content="longevitycalculator.xyz" />
+      
+      {/* Add a specific directive to disallow the incorrect domain */}
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
       
       {/* Sitemap reference */}

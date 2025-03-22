@@ -20,5 +20,8 @@ Sitemap: https://longevitycalculator.xyz/sitemap.xml
 # Prevent crawling of duplicate content
 Disallow: /assets/images/thumbnails/
 
-# Prevent association with incorrect domain
+# Explicitly declare canonical domain
 Host: longevitycalculator.xyz
+
+# Explicitly disallow the wrong domain
+Disallow: https://lifespan-calculator.com/
