@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -57,7 +56,6 @@ const MetabolismCalculator = () => {
   };
 
   const calculateEstimatedFFM = (weight: number, height: number, age: number, gender: string) => {
-    // Use Boer formula to estimate Fat-Free Mass when body fat % is unknown
     let ffm = 0;
     if (gender === 'male') {
       ffm = (0.407 * weight) + (0.267 * height) - 19.2;
@@ -113,11 +111,9 @@ const MetabolismCalculator = () => {
     const bodyFatVal = bodyFat ? Number(bodyFat) : 0;
     const activityVal = Number(activity);
     
-    // Calculate LBM and FFM
     const lbm = weightVal * (1 - (bodyFatVal / 100));
     const ffm = bodyFatVal > 0 ? lbm : calculateEstimatedFFM(weightVal, heightVal, ageVal, gender);
     
-    // Calculate BMR based on selected formula
     let bmr = 0;
     
     switch (formula) {
@@ -160,14 +156,12 @@ const MetabolismCalculator = () => {
         break;
     }
     
-    // Apply age-related metabolic adjustment based on Pontzer et al. (2021)
     if (ageVal > 60) {
       const yearsOver60 = ageVal - 60;
       const reductionFactor = 1 - (0.007 * yearsOver60);
       bmr = bmr * reductionFactor;
     }
     
-    // Calculate TDEE and calorie targets
     const tdee = bmr * activityVal;
     const maintenance = Math.round(tdee);
     const mildDeficit = Math.round(tdee - 275);
@@ -194,7 +188,7 @@ const MetabolismCalculator = () => {
 
   const renderTooltip = (text: string) => (
     <div className="relative inline-block ml-1 group">
-      <Info className="w-4 h-4 text-blue-500 cursor-help" />
+      <Info className="w-4 h-4 text-blue-500 cursor-help inline-flex" />
       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 invisible group-hover:visible bg-gray-800 text-white text-xs rounded p-2 w-60 z-10">
         {text}
       </div>
@@ -387,32 +381,32 @@ const MetabolismCalculator = () => {
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="font-medium flex items-center">
-                          Basal Metabolic Rate (BMR)
+                        <div className="flex items-center gap-1">
+                          <span className="font-medium">Basal Metabolic Rate (BMR)</span>
                           {renderTooltip("The number of calories your body needs at complete rest just to maintain basic functions like breathing, circulation, and cell production.")}
                         </div>
                         <span className="font-bold">{results.bmr} calories/day</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="font-medium flex items-center">
-                          Total Daily Energy Expenditure (TDEE)
+                        <div className="flex items-center gap-1">
+                          <span className="font-medium">Total Daily Energy Expenditure (TDEE)</span>
                           {renderTooltip("Your total daily calorie needs, including your BMR plus calories burned through daily activities and exercise.")}
                         </div>
                         <span className="font-bold">{results.tdee} calories/day</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="font-medium flex items-center">
-                          Fat-Free Mass (FFM)
+                        <div className="flex items-center gap-1">
+                          <span className="font-medium">Fat-Free Mass (FFM)</span>
                           {renderTooltip("The weight of everything in your body except fat, including muscles, bones, organs, and water.")}
                         </div>
                         <span className="font-bold">{results.ffm} kg</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-3 bg-white rounded shadow-sm">
-                        <div className="font-medium flex items-center">
-                          Lean Body Mass (LBM)
+                        <div className="flex items-center gap-1">
+                          <span className="font-medium">Lean Body Mass (LBM)</span>
                           {renderTooltip("Similar to FFM, this is your weight excluding body fat. This is especially important as it drives your metabolism.")}
                         </div>
                         <span className="font-bold">{results.lbm} kg</span>
@@ -608,3 +602,4 @@ const MetabolismCalculator = () => {
 };
 
 export default MetabolismCalculator;
+
