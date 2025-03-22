@@ -8,6 +8,7 @@ import { Calculator, Ruler, Baby, Scale } from 'lucide-react';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { AdUnit } from './AdUnit';
+
 const AdultHeightPredictorCalculator = () => {
   const [gender, setGender] = useState<string>('male');
   const [birthWeight, setBirthWeight] = useState<string>('');
@@ -22,6 +23,7 @@ const AdultHeightPredictorCalculator = () => {
     upperBound: number;
   } | null>(null);
   const [error, setError] = useState<string>('');
+
   const calculateAdultHeight = () => {
     setError('');
 
@@ -89,9 +91,11 @@ const AdultHeightPredictorCalculator = () => {
       upperBound: Math.round((heightInCm + predictionInterval) * 10) / 10
     });
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
     setter(e.target.value);
   };
+
   return <div className="space-y-6">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold tracking-tight">Adult Height Predictor Calculator</h1>
@@ -100,6 +104,8 @@ const AdultHeightPredictorCalculator = () => {
         </p>
         <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
+
+      <DisclaimerAlert className="mb-6" />
       
       <Card>
         <CardHeader>
@@ -177,8 +183,6 @@ const AdultHeightPredictorCalculator = () => {
             <Calculator className="mr-2 h-4 w-4" />
             Calculate Predicted Height
           </Button>
-          
-          <DisclaimerAlert className="mt-4" />
         </CardContent>
       </Card>
       
@@ -219,4 +223,5 @@ const AdultHeightPredictorCalculator = () => {
         </Card>}
     </div>;
 };
+
 export default AdultHeightPredictorCalculator;
