@@ -26,8 +26,12 @@ const AlcoholLifespanCalculator = () => {
     if (gender === 'female') yearsRemaining = 88 - age; // Women tend to live longer
     
     // Calculate cumulative impact over remaining lifespan
-    // Consider diminishing returns and limit maximum years of exposure considered
-    const exposureYears = Math.min(yearsRemaining, 40); // Cap at 40 years of exposure
+    // For older people, we need to consider BOTH:
+    // 1. Future impact (based on remaining years)
+    // 2. Past accumulated impact (based on assumed drinking history)
+    
+    // Future impact calculation
+    const exposureYears = Math.max(Math.min(yearsRemaining, 40), 1); // Cap at 40 years of exposure, minimum 1 year
     
     let impactDays = daysPerDrinkPerYear * drinksPerWeek * exposureYears;
     
@@ -39,6 +43,18 @@ const AlcoholLifespanCalculator = () => {
     else ageModifier = 0.7;
     
     impactDays *= ageModifier;
+    
+    // Past accumulated impact for older individuals
+    // Assume similar drinking pattern for previous years
+    if (age > 65) {
+      // Simplified past impact calculation - assume same drinking pattern
+      // for the previous 20 years (or less if person is younger)
+      const pastYears = Math.min(age - 45, 20); // Assume impactful drinking for up to 20 years prior
+      const pastImpact = daysPerDrinkPerYear * drinksPerWeek * pastYears * 0.8; // 80% weight for past impact
+      
+      // Add past impact to current calculation
+      impactDays += pastImpact;
+    }
     
     // J-curve adjustment for moderate drinking in older adults
     // Some studies still show potential small cardiovascular benefits
