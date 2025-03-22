@@ -42,7 +42,6 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
         const link = document.createElement('link');
         link.rel = 'preconnect';
         link.href = url;
-        // Use setAttribute to avoid Symbol conversion issues
         link.setAttribute('crossorigin', 'anonymous');
         link.setAttribute('data-dynamic', 'true');
         document.head.appendChild(link);
@@ -55,10 +54,9 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
         const link = document.createElement('link');
         link.rel = 'preload';
         link.href = asset.href;
-        // Use setAttribute to avoid Symbol conversion issues
-        link.setAttribute('as', asset.as);
+        link.as = asset.as;
         if (asset.type) {
-          link.setAttribute('type', asset.type);
+          link.type = asset.type;
         }
         if (asset.crossOrigin) {
           link.setAttribute('crossorigin', asset.crossOrigin);
@@ -79,9 +77,8 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
           const link = document.createElement('link');
           link.rel = 'preload';
           link.href = font.href;
-          // Use setAttribute to avoid Symbol conversion issues
-          link.setAttribute('as', font.as);
-          link.setAttribute('type', font.type);
+          link.as = font.as;
+          link.type = font.type;
           link.setAttribute('crossorigin', font.crossOrigin || 'anonymous');
           link.setAttribute('data-dynamic', 'true');
           document.head.appendChild(link);

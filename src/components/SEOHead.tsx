@@ -30,24 +30,23 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
   return (
     <Helmet>
-      {/* Only pass string values to Helmet - nothing that could be a Symbol */}
-      <title>{String(title)}</title>
-      <meta name="description" content={String(description)} />
-      <link rel="canonical" href={String(correctedCanonicalUrl)} />
-      {keywords && <meta name="keywords" content={String(keywords)} />}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={correctedCanonicalUrl} />
+      {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Open Graph */}
-      <meta property="og:url" content={String(correctedCanonicalUrl)} />
-      <meta property="og:type" content={String(ogType)} />
-      <meta property="og:title" content={String(title)} />
-      <meta property="og:description" content={String(description)} />
-      <meta property="og:image" content={String(ogImage)} />
+      <meta property="og:url" content={correctedCanonicalUrl} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={ogImage} />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={String(title)} />
-      <meta name="twitter:description" content={String(description)} />
-      <meta name="twitter:image" content={String(ogImage)} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
       
       {/* Additional tags to strengthen canonical status */}
       <meta name="robots" content="index, follow" />
@@ -57,7 +56,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Prevent crawlers from thinking this is linked to lifespan-calculator.com */}
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
       
-      {/* Performance optimizations - ensure all attributes are strings */}
+      {/* Performance optimizations */}
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
       <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
