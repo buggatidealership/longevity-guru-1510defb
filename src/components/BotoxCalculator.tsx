@@ -11,7 +11,6 @@ import {
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
 import { Calculator, Info, DollarSign, Syringe, User, MapPin, RefreshCw } from 'lucide-react';
 import { 
   Table, 
@@ -109,19 +108,9 @@ const BotoxCalculator = () => {
   
   // Treatment areas
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
-  const [areaUnits, setAreaUnits] = useState<Record<string, number>>({});
   
   // UI state
   const [showResults, setShowResults] = useState(false);
-  
-  // Initialize default units for each area
-  useEffect(() => {
-    const initialAreaUnits: Record<string, number> = {};
-    Object.keys(treatmentAreas).forEach(area => {
-      initialAreaUnits[area] = treatmentAreas[area as keyof typeof treatmentAreas].defaultUnits;
-    });
-    setAreaUnits(initialAreaUnits);
-  }, []);
   
   // Get current pricing based on selected country
   const getCurrentPricing = () => {
@@ -172,7 +161,7 @@ const BotoxCalculator = () => {
     
     selectedAreas.forEach(area => {
       const areaData = treatmentAreas[area as keyof typeof treatmentAreas];
-      let baseUnits = areaUnits[area];
+      let baseUnits = areaData.defaultUnits;
       
       // Special case for crow's feet and age
       if (area === 'crowsFeet' && age === 'over50') {
@@ -216,14 +205,6 @@ const BotoxCalculator = () => {
     }
   };
   
-  // Update units for a specific area
-  const updateAreaUnits = (area: string, units: number) => {
-    setAreaUnits(prev => ({
-      ...prev,
-      [area]: units
-    }));
-  };
-  
   const handleCountryChange = (value: string) => {
     setCountry(value);
     setUseCustomPrice(value === 'custom');
@@ -244,13 +225,6 @@ const BotoxCalculator = () => {
     setUseCustomPrice(false);
     setSelectedAreas([]);
     setShowResults(false);
-    
-    // Reset area units to default
-    const initialAreaUnits: Record<string, number> = {};
-    Object.keys(treatmentAreas).forEach(area => {
-      initialAreaUnits[area] = treatmentAreas[area as keyof typeof treatmentAreas].defaultUnits;
-    });
-    setAreaUnits(initialAreaUnits);
   };
   
   // Format currency
@@ -427,72 +401,26 @@ const BotoxCalculator = () => {
             Select Botox Treatment Areas
           </CardTitle>
           <CardDescription>
-            Choose the areas you want to treat with Botox and adjust the recommended units
+            Choose the areas you want to treat with Botox
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {Object.entries(treatmentAreas).map(([areaKey, areaData]) => (
               <div key={areaKey} className="border rounded-md p-2 hover:border-primary/50 transition-colors">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Checkbox 
-                      id={`area-${areaKey}`}
-                      checked={selectedAreas.includes(areaKey)}
-                      onCheckedChange={() => toggleAreaSelection(areaKey)}
-                    />
-                    <div>
-                      <label 
-                        htmlFor={`area-${areaKey}`} 
-                        className={`text-sm font-medium cursor-pointer ${selectedAreas.includes(areaKey) ? 'text-primary' : ''}`}
-                      >
-                        {areaData.name}
-                      </label>
-                      <p className="text-xs text-muted-foreground">
-                        {areaData.unitsRange[0]}-{areaData.unitsRange[1]} units
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-sm font-medium">
-                    {selectedAreas.includes(areaKey) ? `${areaUnits[areaKey] || 0}` : ''}
-                  </div>
+                <div className="flex items-center gap-2">
+                  <Checkbox 
+                    id={`area-${areaKey}`}
+                    checked={selectedAreas.includes(areaKey)}
+                    onCheckedChange={() => toggleAreaSelection(areaKey)}
+                  />
+                  <label 
+                    htmlFor={`area-${areaKey}`} 
+                    className={`text-sm font-medium cursor-pointer ${selectedAreas.includes(areaKey) ? 'text-primary' : ''}`}
+                  >
+                    {areaData.name}
+                  </label>
                 </div>
-                
-                {selectedAreas.includes(areaKey) && (
-                  <div className="mt-2 grid grid-cols-4 gap-2 items-center">
-                    <div className="col-span-3">
-                      <Slider
-                        value={[areaUnits[areaKey] || areaData.defaultUnits]}
-                        min={areaData.unitsRange[0]}
-                        max={areaData.unitsRange[1]}
-                        step={1}
-                        onValueChange={(value) => updateAreaUnits(areaKey, value[0])}
-                        className="h-2"
-                      />
-                    </div>
-                    <div className="col-span-1">
-                      <Input
-                        type="number"
-                        min={areaData.unitsRange[0]}
-                        max={areaData.unitsRange[1]}
-                        value={areaUnits[areaKey] || areaData.defaultUnits}
-                        onChange={(e) => {
-                          const value = parseInt(e.target.value);
-                          if (!isNaN(value)) {
-                            updateAreaUnits(
-                              areaKey, 
-                              Math.min(
-                                Math.max(value, areaData.unitsRange[0]), 
-                                areaData.unitsRange[1]
-                              )
-                            );
-                          }
-                        }}
-                        className="h-8 text-sm"
-                      />
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </div>
