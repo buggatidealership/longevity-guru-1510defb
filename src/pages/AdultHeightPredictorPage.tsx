@@ -1,11 +1,10 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
-import { ArrowLeft, Calculator, AlertCircle, HelpCircle, ExternalLink } from 'lucide-react';
+import { Calculator, AlertCircle, HelpCircle, ExternalLink } from 'lucide-react';
 
 const AdultHeightPredictorPage = () => {
   return (
@@ -30,13 +29,6 @@ const AdultHeightPredictorPage = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4 pb-12">
-          <div className="mb-4">
-            <Link to="/" className="text-sm text-blue-600 hover:text-blue-800 flex items-center">
-              <ArrowLeft className="h-3 w-3 mr-1" /> 
-              Back to Calculators
-            </Link>
-          </div>
-          
           <div className="max-w-4xl mx-auto">
             <AdultHeightPredictorCalculator />
             
