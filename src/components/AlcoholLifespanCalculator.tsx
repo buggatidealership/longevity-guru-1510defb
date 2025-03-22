@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Beer, Wine, Martini, CupSoda, BarChart4 } from 'lucide-react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
-import DisclaimerAlert from './DisclaimerAlert';
 import { AdUnit } from './AdUnit';
 
 const AlcoholLifespanCalculator = () => {
@@ -83,22 +81,6 @@ const AlcoholLifespanCalculator = () => {
   
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-center sm:text-3xl">Alcohol and Lifespan Calculator</h1>
-      
-      <DisclaimerAlert 
-        title="Health Disclaimer" 
-        content="This calculator provides general estimates only and should not replace professional medical advice. The impact of alcohol consumption varies based on individual factors including genetics, overall health, and other lifestyle choices."
-      />
-      
-      <div className="w-full my-4">
-        <AdUnit 
-          className="w-full"
-          slot="3333333333" 
-          format="rectangle"
-          responsive={true}
-        />
-      </div>
-      
       <div className="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md">
         <h2 className="text-xl font-bold mb-4 text-center">Alcohol and Lifespan Impact Calculator</h2>
         <p className="mb-4 text-sm text-gray-600">

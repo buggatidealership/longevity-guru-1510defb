@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -60,7 +59,6 @@ const AlcoholCalculatorPage = () => {
               </div>
               
               <DisclaimerAlert 
-                title="Health Disclaimer" 
                 content="This calculator provides general estimates only and should not replace professional medical advice. The impact of alcohol consumption varies based on individual factors including genetics, overall health, and other lifestyle choices."
               />
               
@@ -68,11 +66,9 @@ const AlcoholCalculatorPage = () => {
             </div>
           </div>
           
-          {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Alcohol Impact Calculator: How Drinking Affects Your Lifespan</h2>
             
-            {/* Table of Contents */}
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">
               <h3 className="text-lg font-medium mb-2">Table of Contents</h3>
               <ul className="space-y-1">
@@ -223,7 +219,6 @@ const AlcoholCalculatorPage = () => {
                 </p>
               </div>
               
-              {/* FAQ Section */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
