@@ -32,6 +32,18 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   if (!correctedCanonicalUrl.startsWith('http')) {
     correctedCanonicalUrl = `https://longevitycalculator.xyz${correctedCanonicalUrl.startsWith('/') ? '' : '/'}${correctedCanonicalUrl}`;
   }
+  
+  // Structured data for organization with logo
+  const organizationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Longevity Calculator",
+    "url": "https://longevitycalculator.xyz",
+    "logo": "https://longevitycalculator.xyz/logo.png",
+    "sameAs": [
+      "https://longevitycalculator.xyz"
+    ]
+  };
 
   return (
     <Helmet>
@@ -39,6 +51,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={correctedCanonicalUrl} />
       {keywords && <meta name="keywords" content={keywords} />}
+      
+      {/* Favicon links */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       
       {/* Open Graph */}
       <meta property="og:url" content={correctedCanonicalUrl} />
@@ -66,6 +84,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       {/* Sitemap reference */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      
+      {/* Structured data for Organization with logo */}
+      <script type="application/ld+json">
+        {JSON.stringify(organizationStructuredData)}
+      </script>
     </Helmet>
   );
 };
