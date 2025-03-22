@@ -10,6 +10,7 @@ import RetirementCalculator from "./pages/RetirementCalculator";
 import FertilityCalculator from "./pages/FertilityCalculator";
 import GrowthPercentilePage from "./pages/GrowthPercentilePage";
 import AdultHeightPredictorPage from "./pages/AdultHeightPredictorPage";
+import MetabolismCalculatorPage from "./pages/MetabolismCalculatorPage";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/fertility" element={<FertilityCalculator />} />
           <Route path="/growth" element={<GrowthPercentilePage />} />
           <Route path="/adultheight" element={<AdultHeightPredictorPage />} />
+          <Route path="/metabolism" element={<MetabolismCalculatorPage />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
