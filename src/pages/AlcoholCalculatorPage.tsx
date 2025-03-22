@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -47,7 +48,8 @@ const AlcoholCalculatorPage = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <h1 className="text-2xl font-bold text-center sm:text-3xl mb-6">Alcohol Impact on Lifespan Calculator</h1>
+              <h1 className="text-2xl font-bold text-center sm:text-3xl mb-2">Alcohol Impact on Lifespan Calculator</h1>
+              <p className="text-center text-gray-600 mb-6">Discover how your drinking habits affect your life expectancy with our evidence-based calculator</p>
               
               <div className="w-full my-4">
                 <AdUnit 
