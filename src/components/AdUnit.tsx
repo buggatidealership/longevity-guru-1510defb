@@ -41,7 +41,7 @@ export const AdUnit = ({
     };
   }, [format, slot]);
 
-  // Define fixed dimensions for each ad format to ensure consistency across pages
+  // Define fixed dimensions for each ad format to ensure consistency across browsers
   const getFormatStyles = () => {
     switch (format) {
       case 'horizontal':
@@ -49,27 +49,35 @@ export const AdUnit = ({
           width: '100%', 
           height: '90px', 
           maxHeight: '90px',
+          minHeight: '90px',
+          overflow: 'hidden',
           border: '1px dashed #ddd' 
         };
       case 'rectangle':
         return { 
           width: '100%', 
           height: '250px', 
-          maxHeight: '250px', 
+          maxHeight: '250px',
+          minHeight: '250px', 
+          overflow: 'hidden',
           border: '1px dashed #ddd' 
         };
       case 'vertical':
         return { 
           width: '160px', 
           height: '600px',
-          maxHeight: '600px', 
+          maxHeight: '600px',
+          minHeight: '600px',
+          overflow: 'hidden', 
           border: '1px dashed #ddd' 
         };
       default:
         return { 
           width: '100%', 
           height: '250px',
-          maxHeight: '250px', 
+          maxHeight: '250px',
+          minHeight: '250px',
+          overflow: 'hidden',
           border: '1px dashed #ddd' 
         };
     }
@@ -77,7 +85,7 @@ export const AdUnit = ({
 
   return (
     <div 
-      className={`ad-container overflow-hidden ${className || ''}`} 
+      className={`ad-container ${className || ''}`} 
       ref={adRef}
       style={getFormatStyles()}
     >
@@ -87,7 +95,9 @@ export const AdUnit = ({
         style={{ 
           display: 'block', 
           width: '100%', 
-          height: '100%' 
+          height: '100%',
+          maxHeight: '100%',
+          overflow: 'hidden'
         }}
         data-ad-client="ca-pub-1580600669281697"
         data-ad-slot={slot}
