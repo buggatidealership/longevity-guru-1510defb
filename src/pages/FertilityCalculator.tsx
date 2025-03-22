@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import FemaleFeritilityCalculator from '@/components/FemaleFeritilityCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import DisclaimerAlert from '@/components/DisclaimerAlert';
 
 const FertilityCalculator = () => {
   // Handler to scroll to top when clicking internal links
@@ -47,7 +48,18 @@ const FertilityCalculator = () => {
         <main className="max-w-4xl mx-auto px-4">
           <div className="w-full flex justify-center">
             <div className="w-full">
-              <FemaleFeritilityCalculator />
+              <h1 className="text-3xl md:text-4xl font-bold text-center mt-6 mb-2">Female Fertility Calculator</h1>
+              <p className="text-gray-600 text-center max-w-2xl mx-auto mb-6">
+                Estimate your fertility status and reproductive timeline based on age, health, and lifestyle factors.
+              </p>
+              
+              <DisclaimerAlert 
+                content="This calculator provides general estimates based on statistical data. Results are for educational purposes only and should not replace professional medical advice from a healthcare provider."
+              />
+              
+              <div className="mt-6">
+                <FemaleFeritilityCalculator />
+              </div>
             </div>
           </div>
           
