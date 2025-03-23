@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -49,7 +48,7 @@ const Index = () => {
           </div>
           
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               <Link to="/life-expectancy-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
@@ -189,20 +188,6 @@ const Index = () => {
                   </span>
                 </div>
               </Link>
-              
-              {[...Array(2)].map((_, index) => (
-                <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
-                  <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
-                    <span className="text-gray-400 font-medium text-xs">Soon</span>
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2">Coming Soon</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">New calculator coming soon.</p>
-                  <span className="text-xs text-gray-400 flex items-center">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
           
