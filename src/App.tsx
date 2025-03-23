@@ -20,6 +20,9 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 import HeadCustomization from "./components/HeadCustomization";
+// Import resource pages
+import ResourcesIndex from "./pages/resources";
+import HowToIncreaseLifeExpectancy from "./pages/resources/HowToIncreaseLifeExpectancy";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +58,10 @@ const App = () => (
           <Route path="/baldness-risk-calculator" element={<BaldnessRiskCalculatorPage />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          
+          {/* Resource Articles */}
+          <Route path="/resources" element={<ResourcesIndex />} />
+          <Route path="/resources/how-to-increase-life-expectancy" element={<HowToIncreaseLifeExpectancy />} />
           
           {/* Legacy URL routes for backward compatibility */}
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
