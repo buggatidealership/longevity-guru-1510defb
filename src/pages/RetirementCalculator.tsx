@@ -11,6 +11,19 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { 
+  generateBreadcrumbSchema, 
+  generateFAQSchema, 
+  generateArticleSchema 
+} from '@/utils/seoUtils';
 
 const RetirementCalculator = () => {
   // Handler to scroll to top when clicking internal links
@@ -29,13 +42,57 @@ const RetirementCalculator = () => {
     }
   };
 
+  // FAQ data for both display and schema
+  const faqs = [
+    {
+      question: "What is a safe withdrawal rate in retirement?",
+      answer: "The traditional \"4% rule\" suggests withdrawing 4% of your retirement savings in the first year, then adjusting that amount for inflation each subsequent year. This approach aims to provide a high probability that your savings will last 30 years. However, the optimal withdrawal rate depends on your specific circumstances including investment returns, inflation expectations, life expectancy, and risk tolerance. Our calculator provides a personalized safe withdrawal amount based on your inputs, which may differ from the standard 4% rule depending on your situation."
+    },
+    {
+      question: "How does inflation affect retirement savings?",
+      answer: "Inflation gradually reduces your purchasing power over time, meaning the same dollar amount buys less in the future than it does today. This is a critical factor in retirement planning since retirements can last 30+ years. A 3% annual inflation rate will approximately cut your purchasing power in half after 24 years. Our calculator accounts for inflation by calculating a \"real return rate\" (investment returns minus inflation), ensuring your spending estimates maintain their purchasing power throughout retirement. Without accounting for inflation, retirees risk significantly underestimating how much they need for a comfortable retirement."
+    },
+    {
+      question: "How should I adjust my retirement strategy as I age?",
+      answer: "As you age, it's important to regularly reassess your retirement strategy. In early retirement (ages 60-70), you might maintain a balanced portfolio with moderate growth potential. During mid-retirement (70-80), gradually increasing income allocation while reducing volatility often makes sense. In late retirement (80+), further reducing risk exposure while ensuring sufficient liquidity for healthcare needs becomes important. Additionally, spending patterns typically follow a \"smile curve\" - higher in early active retirement years, lower in middle retirement, then potentially higher again in late retirement due to healthcare costs. Revisit your calculator inputs every few years, especially after significant market movements or changes in health status."
+    },
+    {
+      question: "Should I include my home equity in my retirement savings calculations?",
+      answer: "Generally, you should only include home equity in your retirement calculations if you plan to access it through downsizing, a reverse mortgage, or selling your home. If you intend to remain in your current home, the equity represents a potential emergency resource rather than available retirement funds. Some financial planners suggest excluding home equity from primary retirement calculations, treating it instead as a separate contingency plan. If you do plan to tap home equity, be conservative in your estimates, accounting for transaction costs, potential market fluctuations, and the fact that you'll still need housing regardless. Our calculator works best with liquid assets that generate returns and can be drawn down systematically."
+    },
+    {
+      question: "How can I increase my retirement income if the calculator shows I can't spend enough?",
+      answer: "If your retirement spending calculations show inadequate income, consider these strategies: 1) Delay retirement to increase savings and potentially boost Social Security benefits; 2) Work part-time during early retirement years to reduce portfolio withdrawals; 3) Optimize your investment strategy for potentially higher returns (though this increases risk); 4) Consider a reverse mortgage if you have substantial home equity; 5) Reduce fixed expenses by downsizing or relocating to a lower-cost area; 6) Explore annuities that provide guaranteed lifetime income (carefully evaluating fees and terms); 7) Maximize tax efficiency of withdrawals to keep more of your money; 8) Reevaluate your budget to distinguish between essential and discretionary expenses. Remember that even small adjustments to savings, returns, or spending can significantly impact long-term financial sustainability."
+    }
+  ];
+
+  // Prepare schema data
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Retirement Savings Calculator", path: "/retirement-savings-calculator" }
+  ]);
+
+  const faqSchema = generateFAQSchema(faqs);
+
+  const articleSchema = generateArticleSchema(
+    "Retirement Savings Calculator | Daily & Monthly Spending Estimator",
+    "Calculate how much you can spend daily, monthly, and yearly in retirement. Our free retirement savings calculator helps you plan your financial future.",
+    "/retirement-savings-calculator",
+    "2023-01-15T00:00:00Z",
+    new Date().toISOString()
+  );
+
+  const pageTitle = "Retirement Savings Calculator | Daily & Monthly Spending Estimator";
+  const pageDescription = "Calculate how much you can spend daily, monthly, and yearly in retirement. Our free retirement savings calculator helps you plan your financial future.";
+
   return (
     <>
       <SEOHead 
-        title="Retirement Savings Calculator | Daily & Monthly Spending Estimator"
-        description="Calculate how much you can spend daily, monthly, and yearly in retirement. Our free retirement savings calculator helps you plan your financial future."
+        title={pageTitle}
+        description={pageDescription}
         canonicalUrl="https://longevitycalculator.xyz/retirement-savings-calculator"
-        keywords="retirement calculator, retirement savings calculator, retirement spending, retirement planning, retirement income calculator"
+        keywords="retirement calculator, retirement savings calculator, retirement spending, retirement planning, retirement income calculator, retirement withdrawal calculator, daily spending retirement, monthly retirement income"
+        schemas={[breadcrumbSchema, faqSchema, articleSchema]}
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -51,6 +108,19 @@ const RetirementCalculator = () => {
         </header>
 
         <main className="max-w-4xl mx-auto px-4 pb-8">
+          {/* Breadcrumb navigation */}
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Retirement Savings Calculator</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
           <div className="w-full flex justify-center">
             <div className="w-full">
               <RetirementSavingsCalculator />
@@ -174,70 +244,18 @@ const RetirementCalculator = () => {
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
                 <Accordion type="single" collapsible className="space-y-4">
-                  <AccordionItem value="item-1" className="border rounded-lg overflow-hidden">
-                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
-                      <h4 className="font-semibold text-lg text-left">
-                        What is a safe withdrawal rate in retirement?
-                      </h4>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 py-3 bg-white">
-                      <p>
-                        The traditional "4% rule" suggests withdrawing 4% of your retirement savings in the first year, then adjusting that amount for inflation each subsequent year. This approach aims to provide a high probability that your savings will last 30 years. However, the optimal withdrawal rate depends on your specific circumstances including investment returns, inflation expectations, life expectancy, and risk tolerance. Our calculator provides a personalized safe withdrawal amount based on your inputs, which may differ from the standard 4% rule depending on your situation.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-2" className="border rounded-lg overflow-hidden">
-                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
-                      <h4 className="font-semibold text-lg text-left">
-                        How does inflation affect retirement savings?
-                      </h4>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 py-3 bg-white">
-                      <p>
-                        Inflation gradually reduces your purchasing power over time, meaning the same dollar amount buys less in the future than it does today. This is a critical factor in retirement planning since retirements can last 30+ years. A 3% annual inflation rate will approximately cut your purchasing power in half after 24 years. Our calculator accounts for inflation by calculating a "real return rate" (investment returns minus inflation), ensuring your spending estimates maintain their purchasing power throughout retirement. Without accounting for inflation, retirees risk significantly underestimating how much they need for a comfortable retirement.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-3" className="border rounded-lg overflow-hidden">
-                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
-                      <h4 className="font-semibold text-lg text-left">
-                        How should I adjust my retirement strategy as I age?
-                      </h4>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 py-3 bg-white">
-                      <p>
-                        As you age, it's important to regularly reassess your retirement strategy. In early retirement (ages 60-70), you might maintain a balanced portfolio with moderate growth potential. During mid-retirement (70-80), gradually increasing income allocation while reducing volatility often makes sense. In late retirement (80+), further reducing risk exposure while ensuring sufficient liquidity for healthcare needs becomes important. Additionally, spending patterns typically follow a "smile curve" - higher in early active retirement years, lower in middle retirement, then potentially higher again in late retirement due to healthcare costs. Revisit your calculator inputs every few years, especially after significant market movements or changes in health status.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-4" className="border rounded-lg overflow-hidden">
-                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
-                      <h4 className="font-semibold text-lg text-left">
-                        Should I include my home equity in my retirement savings calculations?
-                      </h4>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 py-3 bg-white">
-                      <p>
-                        Generally, you should only include home equity in your retirement calculations if you plan to access it through downsizing, a reverse mortgage, or selling your home. If you intend to remain in your current home, the equity represents a potential emergency resource rather than available retirement funds. Some financial planners suggest excluding home equity from primary retirement calculations, treating it instead as a separate contingency plan. If you do plan to tap home equity, be conservative in your estimates, accounting for transaction costs, potential market fluctuations, and the fact that you'll still need housing regardless. Our calculator works best with liquid assets that generate returns and can be drawn down systematically.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-5" className="border rounded-lg overflow-hidden">
-                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
-                      <h4 className="font-semibold text-lg text-left">
-                        How can I increase my retirement income if the calculator shows I can't spend enough?
-                      </h4>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 py-3 bg-white">
-                      <p>
-                        If your retirement spending calculations show inadequate income, consider these strategies: 1) Delay retirement to increase savings and potentially boost Social Security benefits; 2) Work part-time during early retirement years to reduce portfolio withdrawals; 3) Optimize your investment strategy for potentially higher returns (though this increases risk); 4) Consider a reverse mortgage if you have substantial home equity; 5) Reduce fixed expenses by downsizing or relocating to a lower-cost area; 6) Explore annuities that provide guaranteed lifetime income (carefully evaluating fees and terms); 7) Maximize tax efficiency of withdrawals to keep more of your money; 8) Reevaluate your budget to distinguish between essential and discretionary expenses. Remember that even small adjustments to savings, returns, or spending can significantly impact long-term financial sustainability.
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index + 1}`} className="border rounded-lg overflow-hidden">
+                      <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                        <h4 className="font-semibold text-lg text-left">
+                          {faq.question}
+                        </h4>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-4 py-3 bg-white">
+                        <p>{faq.answer}</p>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
                 </Accordion>
               </div>
             </div>

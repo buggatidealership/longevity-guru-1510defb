@@ -14,7 +14,19 @@ import {
   TableRow 
 } from "@/components/ui/table";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { createCalculatorSEOProps } from '@/utils/seoUtils';
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { 
+  generateBreadcrumbSchema, 
+  generateFAQSchema, 
+  generateArticleSchema 
+} from '@/utils/seoUtils';
 
 const LongevityCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -33,15 +45,71 @@ const LongevityCalculatorPage = () => {
     }
   };
 
+  // FAQ data for both display and schema
+  const faqs = [
+    {
+      question: "What makes this the most accurate life expectancy calculator?",
+      answer: "Our calculator achieves superior accuracy by analyzing more variables than standard calculators, including detailed medical history, lifestyle factors, and demographic elements. It incorporates the latest peer-reviewed research on longevity factors and employs sophisticated algorithms that weigh each factor according to scientific evidence of its impact. While no calculator can predict with absolute certainty, ours provides a more comprehensive assessment than simpler tools that only consider basic factors like age and gender."
+    },
+    {
+      question: "How does your free calculator compare to paid longevity calculators?",
+      answer: "Our free life expectancy calculator offers comparable or better accuracy than many paid alternatives. We've designed it to include the same comprehensive range of factors that premium calculators use, including detailed medical history analysis, lifestyle assessment, and demographic considerations. Unlike some paid calculators that use proprietary \"black box\" algorithms, we're transparent about our methodology, which is based on peer-reviewed medical research. We believe accurate longevity prediction should be accessible to everyone without cost barriers."
+    },
+    {
+      question: "How does age affect the calculator's predictions?",
+      answer: "Age is a foundational input in our longevity calculator. The algorithm begins with actuarial life tables based on your current age, then adjusts this baseline according to your personal health factors and lifestyle choices. Interestingly, as you age, some risk factors actually have less impact on your remaining life expectancy. Our calculator accounts for these age-dependent effects, providing more nuanced predictions for people at different life stages. For example, the impact of smoking decreases somewhat in very advanced ages, while the protective effect of social connections remains strong throughout life."
+    },
+    {
+      question: "How does medical history impact my life expectancy calculation?",
+      answer: "Medical history plays a crucial role in our calculator's predictions. Each chronic condition is assigned a specific impact value based on research data about its effect on longevity. For example, diabetes typically reduces life expectancy by 5-10 years, while heart disease may reduce it by 5-12 years depending on severity. However, our calculator also considers management of these conditions—well-controlled conditions have less impact than poorly managed ones. The calculator also accounts for interactions between conditions; having multiple related conditions (like diabetes and heart disease) can have compounding effects beyond their individual impacts."
+    },
+    {
+      question: "What lifestyle factors most significantly affect life expectancy?",
+      answer: "According to our research, the lifestyle factors with the greatest impact on life expectancy are: 1) Smoking status (can reduce lifespan by up to 10 years), 2) Physical activity (regular exercise can add 3-5 years), 3) Diet quality (a Mediterranean or DASH diet can add 2-3 years), 4) Sleep patterns (consistently sleeping 7-8 hours may add 2-3 years), and 5) Alcohol consumption (heavy drinking can reduce lifespan by 4-5 years). Other significant factors include stress management, social connections, and maintaining a healthy weight. Our calculator weights each of these factors proportionally to their demonstrated impact in longevity research."
+    },
+    {
+      question: "Can I increase my life expectancy based on the calculator's results?",
+      answer: "Yes, for most people, there are significant opportunities to increase life expectancy based on our calculator's results. Research shows that lifestyle modifications can add 10+ years to your lifespan, even when started in middle age. The most effective changes include quitting smoking (adds 5-10 years depending on current age), increasing physical activity to 150+ minutes weekly (adds 3-5 years), adopting a Mediterranean-style diet (adds 2-3 years), maintaining healthy sleep patterns (adds 2-3 years), and cultivating strong social connections (adds 2-4 years). Our calculator identifies your specific modifiable factors so you can focus on changes that will have the greatest impact on your personal longevity."
+    },
+    {
+      question: "How accurately can a calculator predict when I will die?",
+      answer: "No calculator, including ours, can predict the exact date or year of death. Life expectancy calculations provide statistical averages based on population data and known risk factors. Our calculator provides an estimate with approximately ±5 years of accuracy for most users. The prediction becomes more accurate as you age and for those with stable lifestyle factors. Unexpected events, accidents, rapid medical advances, and new diseases can all affect actual lifespan in ways no calculator can predict. The greatest value of our calculator is not in predicting an exact age of death, but in identifying modifiable factors that could significantly extend your life."
+    },
+    {
+      question: "How can I use my life expectancy result for retirement planning?",
+      answer: "Your estimated life expectancy is invaluable for financial planning, particularly retirement savings. Knowing your likely lifespan helps determine how much to save and how to structure withdrawals to avoid outliving your assets. Financial advisors typically use average life expectancy plus 5-10 years for conservative planning, but a personalized estimate is more accurate. For a complete picture, pair your life expectancy result with our Retirement Savings Calculator. This helps you calculate if your current savings rate is sufficient based on your personalized life expectancy rather than generic averages."
+    }
+  ];
+
+  // Prepare schema data
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Life Expectancy Calculator", path: "/life-expectancy-calculator" }
+  ]);
+
+  const faqSchema = generateFAQSchema(faqs);
+
+  const articleSchema = generateArticleSchema(
+    "Most Accurate Life Expectancy Calculator | Free Longevity Calculator by Age",
+    "Our most accurate free life expectancy calculator predicts how long you'll live based on age, medical history, and lifestyle factors. Get a personalized estimate now.",
+    "/life-expectancy-calculator",
+    "2023-01-15T00:00:00Z",
+    new Date().toISOString()
+  );
+
+  const pageTitle = "Most Accurate Life Expectancy Calculator | Free Longevity Calculator by Age";
+  const pageDescription = "Our most accurate free life expectancy calculator predicts how long you'll live based on age, medical history, and lifestyle factors. Get a personalized estimate now.";
+
   return (
     <>
       <SEOHead 
-        title="Most Accurate Life Expectancy Calculator | Free Longevity Calculator by Age"
-        description="Our most accurate free life expectancy calculator predicts how long you'll live based on age, medical history, and lifestyle factors. Get a personalized estimate now."
+        title={pageTitle}
+        description={pageDescription}
         canonicalUrl="https://longevitycalculator.xyz/life-expectancy-calculator"
         keywords="most accurate life expectancy calculator, free longevity calculator, longevity calculator by age, life expectancy calculator based on medical history, free life expectancy calculator, how long will I live, death calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
+        schemas={[breadcrumbSchema, faqSchema, articleSchema]}
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -57,6 +125,19 @@ const LongevityCalculatorPage = () => {
         </header>
         
         <main className="max-w-4xl mx-auto px-4">
+          {/* Breadcrumb navigation */}
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Life Expectancy Calculator</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
           <div className="w-full flex justify-center">
             <div className="w-full">
               <LongevityCalculator />
@@ -217,77 +298,16 @@ const LongevityCalculatorPage = () => {
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
                 <Accordion type="single" collapsible className="w-full">
-                  <AccordionItem value="item-1" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      What makes this the most accurate life expectancy calculator?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Our calculator achieves superior accuracy by analyzing more variables than standard calculators, including detailed medical history, lifestyle factors, and demographic elements. It incorporates the latest peer-reviewed research on longevity factors and employs sophisticated algorithms that weigh each factor according to scientific evidence of its impact. While no calculator can predict with absolute certainty, ours provides a more comprehensive assessment than simpler tools that only consider basic factors like age and gender.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-2" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      How does your free calculator compare to paid longevity calculators?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Our free life expectancy calculator offers comparable or better accuracy than many paid alternatives. We've designed it to include the same comprehensive range of factors that premium calculators use, including detailed medical history analysis, lifestyle assessment, and demographic considerations. Unlike some paid calculators that use proprietary "black box" algorithms, we're transparent about our methodology, which is based on peer-reviewed medical research. We believe accurate longevity prediction should be accessible to everyone without cost barriers.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-3" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      How does age affect the calculator's predictions?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Age is a foundational input in our longevity calculator. The algorithm begins with actuarial life tables based on your current age, then adjusts this baseline according to your personal health factors and lifestyle choices. Interestingly, as you age, some risk factors actually have less impact on your remaining life expectancy. Our calculator accounts for these age-dependent effects, providing more nuanced predictions for people at different life stages. For example, the impact of smoking decreases somewhat in very advanced ages, while the protective effect of social connections remains strong throughout life.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-4" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      How does medical history impact my life expectancy calculation?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Medical history plays a crucial role in our calculator's predictions. Each chronic condition is assigned a specific impact value based on research data about its effect on longevity. For example, diabetes typically reduces life expectancy by 5-10 years, while heart disease may reduce it by 5-12 years depending on severity. However, our calculator also considers management of these conditions—well-controlled conditions have less impact than poorly managed ones. The calculator also accounts for interactions between conditions; having multiple related conditions (like diabetes and heart disease) can have compounding effects beyond their individual impacts.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-5" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      What lifestyle factors most significantly affect life expectancy?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      According to our research, the lifestyle factors with the greatest impact on life expectancy are: 1) Smoking status (can reduce lifespan by up to 10 years), 2) Physical activity (regular exercise can add 3-5 years), 3) Diet quality (a Mediterranean or DASH diet can add 2-3 years), 4) Sleep patterns (consistently sleeping 7-8 hours may add 2-3 years), and 5) Alcohol consumption (heavy drinking can reduce lifespan by 4-5 years). Other significant factors include stress management, social connections, and maintaining a healthy weight. Our calculator weights each of these factors proportionally to their demonstrated impact in longevity research.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-6" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      Can I increase my life expectancy based on the calculator's results?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Yes, for most people, there are significant opportunities to increase life expectancy based on our calculator's results. Research shows that lifestyle modifications can add 10+ years to your lifespan, even when started in middle age. The most effective changes include quitting smoking (adds 5-10 years depending on current age), increasing physical activity to 150+ minutes weekly (adds 3-5 years), adopting a Mediterranean-style diet (adds 2-3 years), maintaining healthy sleep patterns (adds 2-3 years), and cultivating strong social connections (adds 2-4 years). Our calculator identifies your specific modifiable factors so you can focus on changes that will have the greatest impact on your personal longevity.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-7" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      How accurately can a calculator predict when I will die?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      No calculator, including ours, can predict the exact date or year of death. Life expectancy calculations provide statistical averages based on population data and known risk factors. Our calculator provides an estimate with approximately ±5 years of accuracy for most users. The prediction becomes more accurate as you age and for those with stable lifestyle factors. Unexpected events, accidents, rapid medical advances, and new diseases can all affect actual lifespan in ways no calculator can predict. The greatest value of our calculator is not in predicting an exact age of death, but in identifying modifiable factors that could significantly extend your life.
-                    </AccordionContent>
-                  </AccordionItem>
-                  
-                  <AccordionItem value="item-8" className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-semibold">
-                      How can I use my life expectancy result for retirement planning?
-                    </AccordionTrigger>
-                    <AccordionContent>
-                      Your estimated life expectancy is invaluable for financial planning, particularly retirement savings. Knowing your likely lifespan helps determine how much to save and how to structure withdrawals to avoid outliving your assets. Financial advisors typically use average life expectancy plus 5-10 years for conservative planning, but a personalized estimate is more accurate. For a complete picture, pair your life expectancy result with our <Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="text-blue-600 hover:underline">Retirement Savings Calculator</Link>. This helps you calculate if your current savings rate is sufficient based on your personalized life expectancy rather than generic averages.
-                    </AccordionContent>
-                  </AccordionItem>
+                  {faqs.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index + 1}`} className="border-b border-gray-200">
+                      <AccordionTrigger className="text-lg font-semibold">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
                 </Accordion>
               </div>
             </div>

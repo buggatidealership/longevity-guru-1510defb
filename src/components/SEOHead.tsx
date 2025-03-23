@@ -2,6 +2,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+interface SchemaMarkup {
+  '@context': string;
+  '@type': string;
+  [key: string]: any;
+}
+
 interface SEOHeadProps {
   title?: string;
   description?: string;
@@ -9,6 +15,7 @@ interface SEOHeadProps {
   ogType?: string;
   ogImage?: string;
   keywords?: string;
+  schemas?: SchemaMarkup[];
 }
 
 const SEOHead: React.FC<SEOHeadProps> = ({
@@ -18,6 +25,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   ogType = 'website',
   ogImage = 'https://longevitycalculator.xyz/longevity-calculator-og.png',
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
+  schemas = [],
 }) => {
   // Make sure the canonical URL is using the correct domain
   let correctedCanonicalUrl = canonicalUrl;
@@ -59,8 +67,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     }
   };
 
-  // Breadcrumb structured data for better navigation representation
-  const breadcrumbStructuredData = {
+  // Default breadcrumb structured data
+  const defaultBreadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -72,6 +80,13 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       }
     ]
   };
+
+  // Combine default schemas with custom schemas
+  const allSchemas = [
+    organizationStructuredData, 
+    websiteStructuredData,
+    ...schemas
+  ];
 
   return (
     <Helmet>
@@ -114,17 +129,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       
       {/* Structured data */}
-      <script type="application/ld+json">
-        {JSON.stringify(organizationStructuredData)}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify(websiteStructuredData)}
-      </script>
-      
-      <script type="application/ld+json">
-        {JSON.stringify(breadcrumbStructuredData)}
-      </script>
+      {allSchemas.map((schema, index) => (
+        <script key={`schema-${index}`} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      ))}
     </Helmet>
   );
 };
