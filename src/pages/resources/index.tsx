@@ -89,6 +89,25 @@ const ResourcesIndex = () => {
                 </CardFooter>
               </Card>
               
+              {/* Resource Card: How Much to Save for Retirement */}
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
+                <CardHeader>
+                  <CardTitle className="text-xl">How Much to Save for Retirement</CardTitle>
+                  <CardDescription>Real-Life Examples & Guide</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">Discover exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical formulas and real-world examples.</p>
+                  <p className="mt-2 text-muted-foreground">Learn proven strategies for retirement planning at every life stage, from early career savers to those approaching retirement age.</p>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full justify-between">
+                    <Link to="/resources/how-much-to-save-for-retirement">
+                      Read Article <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+              
               {/* Placeholder for Nutrition & Longevity (Coming Soon) */}
               <Card className="h-full flex flex-col bg-muted/50">
                 <CardHeader>
@@ -98,23 +117,6 @@ const ResourcesIndex = () => {
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground">Explore the essential nutrients and dietary patterns linked to extended lifespan and reduced age-related diseases in scientific studies.</p>
                   <p className="mt-2 text-muted-foreground">Coming soon: A comprehensive guide to optimizing your diet for cellular health, inflammation reduction, and metabolic balance.</p>
-                </CardContent>
-                <CardFooter>
-                  <Button disabled variant="outline" className="w-full justify-between">
-                    Coming Soon <ArrowRight className="h-4 w-4" />
-                  </Button>
-                </CardFooter>
-              </Card>
-              
-              {/* Placeholder for Financial Planning for Longevity (Coming Soon) */}
-              <Card className="h-full flex flex-col bg-muted/50">
-                <CardHeader>
-                  <CardTitle className="text-xl text-muted-foreground">Financial Planning for Longevity</CardTitle>
-                  <CardDescription>Securing Your Extended Future</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">Learn essential strategies to ensure your retirement savings last throughout a potentially longer lifespan, accounting for healthcare needs and lifestyle goals.</p>
-                  <p className="mt-2 text-muted-foreground">Coming soon: Expert guidance on investment approaches, insurance considerations, and estate planning optimized for longevity.</p>
                 </CardContent>
                 <CardFooter>
                   <Button disabled variant="outline" className="w-full justify-between">

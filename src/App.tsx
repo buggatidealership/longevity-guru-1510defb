@@ -23,6 +23,7 @@ import HeadCustomization from "./components/HeadCustomization";
 // Import resource pages
 import ResourcesIndex from "./pages/resources";
 import HowToIncreaseLifeExpectancy from "./pages/resources/how-to-increase-life-expectancy";
+import HowMuchToSaveForRetirement from "./pages/resources/how-much-to-save-for-retirement";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const App = () => (
           {/* Resource Articles */}
           <Route path="/resources" element={<ResourcesIndex />} />
           <Route path="/resources/how-to-increase-life-expectancy" element={<HowToIncreaseLifeExpectancy />} />
+          <Route path="/resources/how-much-to-save-for-retirement" element={<HowMuchToSaveForRetirement />} />
           
           {/* Legacy URL routes for backward compatibility */}
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
