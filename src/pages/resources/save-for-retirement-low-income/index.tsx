@@ -19,14 +19,14 @@ const SaveForRetirementLowIncome = () => {
     { name: 'Save for Retirement on a Low Income', path: '/resources/save-for-retirement-low-income' }
   ]);
 
-  // Generate article schema
-  const articleSchema = generateArticleSchema({
-    headline: "Save for Retirement on a Low Income: Practical Strategies That Work",
-    image: "https://longevitycalculator.xyz/longevity-calculator-og.png",
-    datePublished: "2023-07-12T08:00:00+00:00",
-    dateModified: "2023-11-20T10:30:00+00:00",
-    description: "Learn how to build a retirement fund even on a tight budget. Discover government programs, tax credits, and saving techniques specifically designed for low-income earners."
-  });
+  // Generate article schema - Fixed by providing separate arguments instead of an object
+  const articleSchema = generateArticleSchema(
+    "Save for Retirement on a Low Income: Practical Strategies That Work",
+    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "2023-07-12T08:00:00+00:00",
+    "2023-11-20T10:30:00+00:00",
+    "Learn how to build a retirement fund even on a tight budget. Discover government programs, tax credits, and saving techniques specifically designed for low-income earners."
+  );
 
   const schemas = [breadcrumbSchema, articleSchema];
 

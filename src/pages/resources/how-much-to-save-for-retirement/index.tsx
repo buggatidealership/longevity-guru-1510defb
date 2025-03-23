@@ -19,14 +19,14 @@ const HowMuchToSaveForRetirement = () => {
     { name: 'How Much to Save for Retirement', path: '/resources/how-much-to-save-for-retirement' }
   ]);
 
-  // Generate article schema
-  const articleSchema = generateArticleSchema({
-    headline: "How Much to Save for Retirement: Real-Life Examples & Guide",
-    image: "https://longevitycalculator.xyz/longevity-calculator-og.png",
-    datePublished: "2023-06-21T08:00:00+00:00",
-    dateModified: "2023-11-15T10:30:00+00:00",
-    description: "Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples."
-  });
+  // Generate article schema - Fixed by providing separate arguments instead of an object
+  const articleSchema = generateArticleSchema(
+    "How Much to Save for Retirement: Real-Life Examples & Guide",
+    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "2023-06-21T08:00:00+00:00",
+    "2023-11-15T10:30:00+00:00",
+    "Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples."
+  );
 
   const schemas = [breadcrumbSchema, articleSchema];
 

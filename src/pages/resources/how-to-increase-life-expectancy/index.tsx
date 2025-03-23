@@ -19,14 +19,14 @@ const HowToIncreaseLifeExpectancy = () => {
     { name: 'How to Increase Life Expectancy', path: '/resources/how-to-increase-life-expectancy' }
   ]);
 
-  // Generate article schema
-  const articleSchema = generateArticleSchema({
-    headline: "How to Increase Life Expectancy: 10 Proven Ways to Live Longer",
-    image: "https://longevitycalculator.xyz/longevity-calculator-og.png",
-    datePublished: "2023-05-15T08:00:00+00:00",
-    dateModified: "2023-11-10T10:30:00+00:00",
-    description: "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity."
-  });
+  // Generate article schema - Fixed by providing separate arguments instead of an object
+  const articleSchema = generateArticleSchema(
+    "How to Increase Life Expectancy: 10 Proven Ways to Live Longer",
+    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "2023-05-15T08:00:00+00:00",
+    "2023-11-10T10:30:00+00:00",
+    "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity."
+  );
 
   const schemas = [breadcrumbSchema, articleSchema];
 
