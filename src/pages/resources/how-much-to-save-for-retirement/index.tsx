@@ -9,46 +9,32 @@ import CallToAction from './CallToAction';
 import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
-
 const HowMuchToSaveForRetirement = () => {
   // Generate schema for breadcrumbs
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Resources', path: '/resources' },
-    { name: 'How Much to Save for Retirement', path: '/resources/how-much-to-save-for-retirement' }
-  ]);
+  const breadcrumbSchema = generateBreadcrumbSchema([{
+    name: 'Home',
+    path: '/'
+  }, {
+    name: 'Resources',
+    path: '/resources'
+  }, {
+    name: 'How Much to Save for Retirement',
+    path: '/resources/how-much-to-save-for-retirement'
+  }]);
 
   // Generate article schema - Fixed by providing separate arguments instead of an object
-  const articleSchema = generateArticleSchema(
-    "How Much to Save for Retirement: Expert Guide & Calculator 2023",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png",
-    "2023-06-21T08:00:00+00:00",
-    "2023-11-15T10:30:00+00:00",
-    "Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples."
-  );
-
+  const articleSchema = generateArticleSchema("How Much to Save for Retirement: Expert Guide & Calculator 2023", "https://longevitycalculator.xyz/longevity-calculator-og.png", "2023-06-21T08:00:00+00:00", "2023-11-15T10:30:00+00:00", "Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples.");
   const schemas = [breadcrumbSchema, articleSchema];
-
-  return (
-    <>
-      <SEOHead 
-        title="How Much to Save for Retirement: Complete Financial Guide [2023]"
-        description="Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples."
-        canonicalUrl="/resources/how-much-to-save-for-retirement"
-        keywords="retirement savings, retirement planning, 401k planning, retirement calculator, retirement income, retirement age"
-        schemas={schemas}
-      />
+  return <>
+      <SEOHead title="How Much to Save for Retirement: Complete Financial Guide [2023]" description="Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples." canonicalUrl="/resources/how-much-to-save-for-retirement" keywords="retirement savings, retirement planning, 401k planning, retirement calculator, retirement income, retirement age" schemas={schemas} />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="1111111111" 
-              format="horizontal"
-              responsive={true}
-            />
+          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '90px'
+        }}>
+            <AdUnit className="w-full" slot="1111111111" format="horizontal" responsive={true} />
           </div>
         </header>
         
@@ -74,42 +60,33 @@ const HowMuchToSaveForRetirement = () => {
           </Breadcrumb>
           
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Much to Save for Retirement: Complete Financial Guide [2023]</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Much to Save for Retirement: Real-Life Examples & Guide</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
             <IntroSection />
             
-            <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-              <AdUnit 
-                className="w-full"
-                slot="2222222222" 
-                format="rectangle"
-                responsive={true}
-              />
+            <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{
+            minHeight: '250px'
+          }}>
+              <AdUnit className="w-full" slot="2222222222" format="rectangle" responsive={true} />
             </div>
             
             <ContentSections />
             
-            <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-              <AdUnit 
-                className="w-full"
-                slot="3333333333" 
-                format="rectangle"
-                responsive={true}
-              />
+            <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{
+            minHeight: '250px'
+          }}>
+              <AdUnit className="w-full" slot="3333333333" format="rectangle" responsive={true} />
             </div>
             
             <FAQSection />
             <CallToAction />
           </article>
           
-          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="4444444444" 
-              format="horizontal"
-              responsive={true}
-            />
+          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '90px'
+        }}>
+            <AdUnit className="w-full" slot="4444444444" format="horizontal" responsive={true} />
           </div>
         </main>
         
@@ -143,8 +120,6 @@ const HowMuchToSaveForRetirement = () => {
           </div>
         </footer>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default HowMuchToSaveForRetirement;
