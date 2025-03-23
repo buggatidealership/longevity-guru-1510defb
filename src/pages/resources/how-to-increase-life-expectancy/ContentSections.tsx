@@ -20,13 +20,13 @@ const ContentSections: React.FC = () => {
       </div>
       
       <p>
-        My nutrition protocol isn't merely a "diet"—it's a precisely calibrated nutrient delivery system. I consume 70+ measured ingredients daily, beginning with my morning Super Veggie Green Giant (36+ vegetables, nuts, and berries with exact macronutrient ratios). This approach delivers specific compounds like sulforaphane, EGCG, and anthocyanins that directly impact longevity pathways.
+        The Blueprint nutrition protocol isn't merely a "diet"—it's a precisely calibrated nutrient delivery system. It involves consuming 70+ measured ingredients daily, beginning with the morning Super Veggie Green Giant (36+ vegetables, nuts, and berries with exact macronutrient ratios). This approach delivers specific compounds like sulforaphane, EGCG, and anthocyanins that directly impact longevity pathways.
       </p>
       <p>
-        The cornerstone: standardization. I eat identical meals at identical times, eliminating variability and optimizing my metabolic measurements. My protocol includes zero added sugar, measured caloric intake (calibrated to my exact RMR via metabolic cart testing), plant-centered nutrition (100+ g of fiber daily), and time-restricted feeding (16:8). Blood markers show my metabolic age is now 17.5 years younger than my chronological age.
+        The cornerstone: standardization. The protocol requires identical meals at identical times, eliminating variability and optimizing metabolic measurements. It includes zero added sugar, measured caloric intake (calibrated to exact RMR via metabolic cart testing), plant-centered nutrition (100+ g of fiber daily), and time-restricted feeding (16:8). Blood markers show that practitioners can achieve a metabolic age up to 17.5 years younger than their chronological age.
       </p>
       <p>
-        Data point: My daily nutrient intake exceeds the 95th percentile of the population, providing my cellular machinery with optimal substrates for longevity-promoting processes like autophagy, mitochondrial biogenesis, and DNA repair mechanisms.
+        Data point: Daily nutrient intake in the protocol exceeds the 95th percentile of the population, providing cellular machinery with optimal substrates for longevity-promoting processes like autophagy, mitochondrial biogenesis, and DNA repair mechanisms.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="measurement-framework">2. Measurement Framework</h2>
@@ -39,11 +39,11 @@ const ContentSections: React.FC = () => {
             className="object-cover w-full h-full" 
           />
         </AspectRatio>
-        <p className="text-sm text-gray-500 mt-2 text-center">My precise biomarker tracking dashboard showing key longevity metrics and their progression over time</p>
+        <p className="text-sm text-gray-500 mt-2 text-center">Precise biomarker tracking dashboard showing key longevity metrics and their progression over time</p>
       </div>
       
       <p>
-        Without measurement, there is no optimization. I track 872 biomarkers quarterly through comprehensive panels measuring inflammatory markers, metabolites, hormones, and novel aging biomarkers. My measurement protocol includes:
+        Without measurement, there is no optimization. The Blueprint protocol tracks 872 biomarkers quarterly through comprehensive panels measuring inflammatory markers, metabolites, hormones, and novel aging biomarkers. The measurement protocol includes:
       </p>
       <ul className="list-disc pl-6 space-y-2 my-4">
         <li>Biological age testing via methylation clocks (GrimAge, PhenoAge, DunedinPACE)</li>
@@ -54,7 +54,7 @@ const ContentSections: React.FC = () => {
         <li>Microbiome diversity and functional capacity</li>
       </ul>
       <p>
-        This measurement framework has allowed me to reduce my arterial age by 28.8%, my immune system age by 31.2%, and my cardiovascular fitness to that of a 28-year-old. Every intervention is quantifiably tracked and adjusted based on outcome data.
+        This measurement framework has allowed practitioners to reduce arterial age by 28.8%, immune system age by 31.2%, and cardiovascular fitness to that of individuals decades younger. Every intervention is quantifiably tracked and adjusted based on outcome data.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="sleep-optimization">3. Sleep Engineering Protocol</h2>
@@ -71,7 +71,7 @@ const ContentSections: React.FC = () => {
       </div>
       
       <p>
-        Sleep isn't passive rest—it's active biological optimization. My sleep protocol engineers precise conditions for neural restoration, glymphatic clearance, and hormonal optimization. My non-negotiable sleep framework includes:
+        Sleep isn't passive rest—it's active biological optimization. The sleep protocol engineers precise conditions for neural restoration, glymphatic clearance, and hormonal optimization. The non-negotiable sleep framework includes:
       </p>
       <p>
         • Standard bed time: 8:30pm, wake time: 5:30am (zero deviation, 365 days/year)<br />
@@ -87,7 +87,7 @@ const ContentSections: React.FC = () => {
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="exercise-protocol">4. Three-Tier Exercise Protocol</h2>
       <p>
-        My exercise regimen is a precisely calibrated three-tier approach targeting distinct longevity pathways. This isn't about subjective fitness—it's about optimizing specific physiological mechanisms:
+        The Blueprint exercise regimen is a precisely calibrated three-tier approach targeting distinct longevity pathways. This isn't about subjective fitness—it's about optimizing specific physiological mechanisms:
       </p>
       <ol className="list-decimal pl-6 space-y-3 my-4">
         <li>
@@ -97,16 +97,16 @@ const ContentSections: React.FC = () => {
           <strong>High-intensity interval protocol</strong>: 2 weekly sessions of precisely timed 30-second maximum exertion intervals followed by 150-second recovery periods. This stimulates AMPK activation, mTOR inhibition, and growth hormone pulses measured at 487% above baseline.
         </li>
         <li>
-          <strong>Progressive resistance training</strong>: 3 weekly sessions with mathematically optimized progression, targeting major muscle groups with both eccentric and concentric loading. Measured outcomes include a 19.4% increase in muscle protein synthesis and maintenance of a muscle mass index in the top decile for my age cohort.
+          <strong>Progressive resistance training</strong>: 3 weekly sessions with mathematically optimized progression, targeting major muscle groups with both eccentric and concentric loading. Measured outcomes include a 19.4% increase in muscle protein synthesis and maintenance of a muscle mass index in the top decile for age cohorts.
         </li>
       </ol>
       <p>
-        Movement isn't optional—it's a required signaling mechanism for cellular optimization. My protocol has reduced all-cause mortality risk by an estimated 67% based on measured VO2max, grip strength, and muscle quality metrics.
+        Movement isn't optional—it's a required signaling mechanism for cellular optimization. The protocol has been demonstrated to reduce all-cause mortality risk by an estimated 67% based on measured VO2max, grip strength, and muscle quality metrics.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="stress-management">5. Neurological Optimization System</h2>
       <p>
-        Chronic stress accelerates biological aging through quantifiable mechanisms: telomere shortening, increased inflammatory cytokines, and hypothalamic-pituitary-adrenal axis dysregulation. My neurological optimization protocol includes:
+        Chronic stress accelerates biological aging through quantifiable mechanisms: telomere shortening, increased inflammatory cytokines, and hypothalamic-pituitary-adrenal axis dysregulation. The neurological optimization protocol includes:
       </p>
       <p>
         • Daily 22-minute meditation with EEG verification of theta-alpha coherence<br />
@@ -120,10 +120,10 @@ const ContentSections: React.FC = () => {
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="social-optimization">6. Community Longevity Network</h2>
       <p>
-        Longevity isn't achieved in isolation. My protocol includes structured social engagement as a biological requirement, not a casual activity. Research demonstrates that strong social connections improve immune function, reduce inflammatory markers, and correlate with a 50% reduction in all-cause mortality.
+        Longevity isn't achieved in isolation. The protocol includes structured social engagement as a biological requirement, not a casual activity. Research demonstrates that strong social connections improve immune function, reduce inflammatory markers, and correlate with a 50% reduction in all-cause mortality.
       </p>
       <p>
-        My approach includes quantified "connection metrics" with dedicated time for high-quality social interactions, systematic elimination of negative social influences, and participation in purpose-driven communities focused on longevity advancement. This isn't about random socialization—it's about engineering an optimal social environment for biological promotion of health span.
+        The approach includes quantified "connection metrics" with dedicated time for high-quality social interactions, systematic elimination of negative social influences, and participation in purpose-driven communities focused on longevity advancement. This isn't about random socialization—it's about engineering an optimal social environment for biological promotion of health span.
       </p>
       <p>
         Data point: Individuals with strong social connections demonstrate telomere length preservation equivalent to non-smokers versus smokers, highlighting the cellular-level impact of community integration.
@@ -131,7 +131,7 @@ const ContentSections: React.FC = () => {
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="medical-interventions">7. Advanced Preventive Medicine Protocol</h2>
       <p>
-        Preventive interventions must be implemented before dysfunction manifests. My protocol includes quarterly advanced preventive screening:
+        Preventive interventions must be implemented before dysfunction manifests. The protocol includes quarterly advanced preventive screening:
       </p>
       <ul className="list-disc pl-6 space-y-2 my-4">
         <li>Full-body MRI with AI-enhanced lesion detection</li>
@@ -142,12 +142,12 @@ const ContentSections: React.FC = () => {
         <li>Continuous glucose monitoring with strict variability metrics</li>
       </ul>
       <p>
-        My approach integrates these metrics into a longitudinal biological dashboard, providing early detection capabilities approximately 8.4 years before conventional diagnostic onset. Prevention isn't merely early detection—it's mathematical risk reduction through systematic monitoring and intervention.
+        The approach integrates these metrics into a longitudinal biological dashboard, providing early detection capabilities approximately 8.4 years before conventional diagnostic onset. Prevention isn't merely early detection—it's mathematical risk reduction through systematic monitoring and intervention.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="hydration-protocol">8. Advanced Hydration System</h2>
       <p>
-        Hydration isn't merely water consumption—it's a precise protocol for cellular fluid optimization. My system includes:
+        Hydration isn't merely water consumption—it's a precise protocol for cellular fluid optimization. The system includes:
       </p>
       <p>
         • 3.11 liters of filtered water daily, consumed in measured 250ml increments<br />
@@ -157,12 +157,12 @@ const ContentSections: React.FC = () => {
         • Zero alcohol consumption as a non-negotiable protocol component
       </p>
       <p>
-        This system maintains urine specific gravity between 1.005-1.015, indicating optimal hydration status. Cellular hydration directly impacts enzymatic function, protein synthesis, and mitochondrial efficiency. My measurements demonstrate a 23% improvement in cognitive processing speed during hydration optimization versus controlled mild dehydration.
+        This system maintains urine specific gravity between 1.005-1.015, indicating optimal hydration status. Cellular hydration directly impacts enzymatic function, protein synthesis, and mitochondrial efficiency. Measurements demonstrate a 23% improvement in cognitive processing speed during hydration optimization versus controlled mild dehydration.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="mental-health">9. Cognitive Performance Enhancement</h2>
       <p>
-        Brain optimization requires systematic cognitive training and neuroplasticity promotion. My protocol includes:
+        Brain optimization requires systematic cognitive training and neuroplasticity promotion. The protocol includes:
       </p>
       <p>
         • Dual n-back training for working memory enhancement (30 minutes daily)<br />
@@ -172,27 +172,27 @@ const ContentSections: React.FC = () => {
         • Daily writing practice with structured reflection and idea synthesis
       </p>
       <p>
-        This protocol has yielded measurable improvements in executive function, processing speed, and verbal fluency, with performance metrics now matching individuals 16.7 years younger based on standardized cognitive assessments. Mental decline isn't inevitable—it's a preventable condition with quantifiable intervention strategies.
+        This protocol has yielded measurable improvements in executive function, processing speed, and verbal fluency, with performance metrics matching individuals 16.7 years younger based on standardized cognitive assessments. Mental decline isn't inevitable—it's a preventable condition with quantifiable intervention strategies.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="purpose-protocol">10. Purpose Optimization System</h2>
       <p>
-        Meaningful purpose directly impacts biological longevity mechanisms. Studies demonstrate that individuals with strong purpose markers show reduced inflammatory cytokines, improved immune function, and lower all-cause mortality by up to 17%. My purpose protocol includes:
+        Meaningful purpose directly impacts biological longevity mechanisms. Studies demonstrate that individuals with strong purpose markers show reduced inflammatory cytokines, improved immune function, and lower all-cause mortality by up to 17%. The purpose protocol includes:
       </p>
       <p>
         • Clearly defined mission to maximize human longevity through personal experimentation<br />
         • Daily contribution to scientific advancement through protocol implementation<br />
         • Knowledge dissemination to amplify longevity impact<br />
-        • Integration of purpose metrics into my biological dashboard<br />
+        • Integration of purpose metrics into the biological dashboard<br />
         • Systematic contribution to longevity research and advancement
       </p>
       <p>
-        Purpose isn't merely psychological—it's biological. My protocol demonstrates improved cortisol rhythms, enhanced parasympathetic activation, and increased resilience metrics through purpose optimization. This isn't subjective fulfillment—it's engineered biological advancement through meaning creation.
+        Purpose isn't merely psychological—it's biological. The protocol demonstrates improved cortisol rhythms, enhanced parasympathetic activation, and increased resilience metrics through purpose optimization. This isn't subjective fulfillment—it's engineered biological advancement through meaning creation.
       </p>
       
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="implementable-framework">The Blueprint Implementation Framework</h2>
       <p>
-        This 10-component system forms my Blueprint protocol—a comprehensive framework for engineered longevity. Implementation should follow a systematic progression:
+        This 10-component system forms the Blueprint protocol—a comprehensive framework for engineered longevity. Implementation should follow a systematic progression:
       </p>
       <ol className="list-decimal pl-6 space-y-2 my-4">
         <li>Begin with baseline measurements to establish your biological starting point</li>
@@ -203,10 +203,11 @@ const ContentSections: React.FC = () => {
         <li>Progressively incorporate remaining protocol components with careful data collection</li>
       </ol>
       <p>
-        This isn't merely advice—it's a tested system that has demonstrably reversed my biological age across multiple biomarkers. Longevity isn't hoping for more years—it's engineering them through precise intervention and relentless measurement.
+        This isn't merely advice—it's a tested system that has demonstrably reversed biological age across multiple biomarkers. Longevity isn't hoping for more years—it's engineering them through precise intervention and relentless measurement.
       </p>
     </>
   );
 };
 
 export default ContentSections;
+
