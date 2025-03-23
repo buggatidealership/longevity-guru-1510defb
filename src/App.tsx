@@ -38,6 +38,19 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/life-expectancy-calculator" element={<LongevityCalculatorPage />} />
+          <Route path="/retirement-savings-calculator" element={<RetirementCalculator />} />
+          <Route path="/female-fertility-calculator" element={<FertilityCalculator />} />
+          <Route path="/child-growth-percentile-calculator" element={<GrowthPercentilePage />} />
+          <Route path="/adult-height-predictor-calculator" element={<AdultHeightPredictorPage />} />
+          <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />
+          <Route path="/breast-implant-calculator" element={<BreastImplantCalculatorPage />} />
+          <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
+          <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          
+          {/* Legacy URL routes for backward compatibility */}
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
           <Route path="/retirementsavings" element={<RetirementCalculator />} />
           <Route path="/fertility" element={<FertilityCalculator />} />
@@ -47,8 +60,7 @@ const App = () => (
           <Route path="/breastimplant" element={<BreastImplantCalculatorPage />} />
           <Route path="/botox" element={<BotoxCalculatorPage />} />
           <Route path="/alcohol" element={<AlcoholCalculatorPage />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

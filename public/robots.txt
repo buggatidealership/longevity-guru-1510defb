@@ -2,7 +2,20 @@
 User-agent: *
 Allow: /
 
-# Important pages
+# Important pages with descriptive URLs
+Allow: /life-expectancy-calculator
+Allow: /retirement-savings-calculator
+Allow: /female-fertility-calculator
+Allow: /child-growth-percentile-calculator
+Allow: /adult-height-predictor-calculator
+Allow: /metabolism-calculator
+Allow: /breast-implant-calculator
+Allow: /botox-dosage-calculator
+Allow: /alcohol-impact-calculator
+Allow: /privacy
+Allow: /terms
+
+# Legacy URLs (maintained for backward compatibility)
 Allow: /lifespan
 Allow: /retirementsavings
 Allow: /fertility
@@ -11,8 +24,7 @@ Allow: /adultheight
 Allow: /metabolism
 Allow: /breastimplant
 Allow: /botox
-Allow: /privacy
-Allow: /terms
+Allow: /alcohol
 
 # Allow access to logo files
 Allow: /logo.png

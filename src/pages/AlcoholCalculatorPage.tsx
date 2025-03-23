@@ -29,7 +29,7 @@ const AlcoholCalculatorPage = () => {
       <SEOHead 
         title="Alcohol Impact on Lifespan Calculator | Drinking Health Effects"
         description="Calculate how alcohol consumption affects your life expectancy. Our free alcohol lifespan impact calculator shows potential health effects based on drinking habits, age, and gender."
-        canonicalUrl="https://longevitycalculator.xyz/alcohol"
+        canonicalUrl="https://longevitycalculator.xyz/alcohol-impact-calculator"
         keywords="alcohol lifespan calculator, drinking health impact, alcohol life expectancy, alcohol mortality risk, drinking habits health effects"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -295,22 +295,22 @@ const AlcoholCalculatorPage = () => {
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              <Link to="/retirementsavings" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/lifespan" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/life-expectancy-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/fertility" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/female-fertility-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Female Fertility</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/growth" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/child-growth-percentile-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Child Growth</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
@@ -324,12 +324,12 @@ const AlcoholCalculatorPage = () => {
               <div>
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
-                  <li><Link to="/lifespan" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
-                  <li><Link to="/retirementsavings" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
-                  <li><Link to="/fertility" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
-                  <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/alcohol" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
-                  <li><Link to="/botox" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
+                  <li><Link to="/life-expectancy-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
+                  <li><Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
+                  <li><Link to="/female-fertility-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
+                  <li><Link to="/child-growth-percentile-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
+                  <li><Link to="/alcohol-impact-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
+                  <li><Link to="/botox-dosage-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                 </ul>
               </div>
               
