@@ -20,7 +20,7 @@ const ContentSections: React.FC = () => {
       </div>
       
       <p>
-        The Blueprint nutrition protocol isn't merely a "diet"—it's a precisely calibrated nutrient delivery system. It involves consuming 70+ measured ingredients daily, beginning with the morning Super Veggie Green Giant (36+ vegetables, nuts, and berries with exact macronutrient ratios). This approach delivers specific compounds like sulforaphane, EGCG, and anthocyanins that directly impact longevity pathways.
+        The nutrition protocol isn't merely a "diet"—it's a precisely calibrated nutrient delivery system. It involves consuming 70+ measured ingredients daily, beginning with the morning Super Veggie Green Giant (36+ vegetables, nuts, and berries with exact macronutrient ratios). This approach delivers specific compounds like sulforaphane, EGCG, and anthocyanins that directly impact longevity pathways.
       </p>
       <p>
         The cornerstone: standardization. The protocol requires identical meals at identical times, eliminating variability and optimizing metabolic measurements. It includes zero added sugar, measured caloric intake (calibrated to exact RMR via metabolic cart testing), plant-centered nutrition (100+ g of fiber daily), and time-restricted feeding (16:8). Blood markers show that practitioners can achieve a metabolic age up to 17.5 years younger than their chronological age.
@@ -43,7 +43,7 @@ const ContentSections: React.FC = () => {
       </div>
       
       <p>
-        Without measurement, there is no optimization. The Blueprint protocol tracks 872 biomarkers quarterly through comprehensive panels measuring inflammatory markers, metabolites, hormones, and novel aging biomarkers. The measurement protocol includes:
+        Without measurement, there is no optimization. The protocol tracks 872 biomarkers quarterly through comprehensive panels measuring inflammatory markers, metabolites, hormones, and novel aging biomarkers. The measurement protocol includes:
       </p>
       <ul className="list-disc pl-6 space-y-2 my-4">
         <li>Biological age testing via methylation clocks (GrimAge, PhenoAge, DunedinPACE)</li>
@@ -87,7 +87,7 @@ const ContentSections: React.FC = () => {
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="exercise-protocol">4. Three-Tier Exercise Protocol</h2>
       <p>
-        The Blueprint exercise regimen is a precisely calibrated three-tier approach targeting distinct longevity pathways. This isn't about subjective fitness—it's about optimizing specific physiological mechanisms:
+        The exercise regimen is a precisely calibrated three-tier approach targeting distinct longevity pathways. This isn't about subjective fitness—it's about optimizing specific physiological mechanisms:
       </p>
       <ol className="list-decimal pl-6 space-y-3 my-4">
         <li>
@@ -142,7 +142,8 @@ const ContentSections: React.FC = () => {
         <li>Continuous glucose monitoring with strict variability metrics</li>
       </ul>
       <p>
-        The approach integrates these metrics into a longitudinal biological dashboard, providing early detection capabilities approximately 8.4 years before conventional diagnostic onset. Prevention isn't merely early detection—it's mathematical risk reduction through systematic monitoring and intervention.
+        The approach integrates these metrics into a longitudinal biological dashboard, providing early detection capabilities approximately
+        8.4 years before conventional diagnostic onset. Prevention isn't merely early detection—it's mathematical risk reduction through systematic monitoring and intervention.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-4" id="hydration-protocol">8. Advanced Hydration System</h2>
@@ -190,9 +191,9 @@ const ContentSections: React.FC = () => {
         Purpose isn't merely psychological—it's biological. The protocol demonstrates improved cortisol rhythms, enhanced parasympathetic activation, and increased resilience metrics through purpose optimization. This isn't subjective fulfillment—it's engineered biological advancement through meaning creation.
       </p>
       
-      <h2 className="text-2xl font-semibold mt-8 mb-4" id="implementable-framework">The Blueprint Implementation Framework</h2>
+      <h2 className="text-2xl font-semibold mt-8 mb-4" id="implementable-framework">The Implementation Framework</h2>
       <p>
-        This 10-component system forms the Blueprint protocol—a comprehensive framework for engineered longevity. Implementation should follow a systematic progression:
+        This 10-component system forms a comprehensive framework for engineered longevity. Implementation should follow a systematic progression:
       </p>
       <ol className="list-decimal pl-6 space-y-2 my-4">
         <li>Begin with baseline measurements to establish your biological starting point</li>
@@ -210,4 +211,3 @@ const ContentSections: React.FC = () => {
 };
 
 export default ContentSections;
-
