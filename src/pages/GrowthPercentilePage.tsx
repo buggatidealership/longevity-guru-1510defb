@@ -5,6 +5,7 @@ import SEOHead from '@/components/SEOHead';
 import GrowthPercentileCalculator from '@/components/GrowthPercentileCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const GrowthPercentilePage = () => {
   // Handler to scroll to top when clicking internal links
@@ -160,46 +161,56 @@ const GrowthPercentilePage = () => {
                 </p>
               </div>
               
-              {/* FAQ Section */}
+              {/* FAQ Section with Accordion */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What is a normal percentile for a child's growth?</h4>
-                    <p className="mt-2">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      What is a normal percentile for a child's growth?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       There is no single "normal" percentile for child growth. Any percentile between the 5th and 95th is generally considered within the normal range. What's most important is consistency in growth patterns over time, rather than reaching a specific percentile. A child who consistently grows along the 20th percentile may be perfectly healthy, while rapid crossing of percentile lines (up or down) might warrant medical attention.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Why is my child's height and weight in different percentiles?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-2" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Why is my child's height and weight in different percentiles?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       It's completely normal for a child to be in different percentiles for height and weight. Children have unique body compositions influenced by genetics, diet, activity levels, and development timing. For example, a child may be in the 40th percentile for height but the 60th for weight, reflecting their individual body type. Consistent tracking over time is more important than comparing different measurements to each other.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">When should I be concerned about my child's growth percentile?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-3" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      When should I be concerned about my child's growth percentile?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Consider consulting a healthcare provider if: your child's measurements fall below the 3rd or above the 97th percentile; there's a significant change in percentile across multiple measurements; your child crosses two or more major percentile lines in either direction; or if growth seems to have stalled. Remember that percentiles are screening tools, not diagnostic instruments, and should be interpreted by healthcare professionals.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How often should I measure my child's growth?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-4" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      How often should I measure my child's growth?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       For children under 2 years old, growth measurements are typically recommended at 2, 4, 6, 9, 12, 15, 18, and 24 months as part of regular well-child visits. For children 2-5 years old, annual measurements are generally sufficient. School-age children may be measured once per year or during annual check-ups. Always follow your pediatrician's recommendations for your specific child's needs.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can nutrition affect my child's growth percentile?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-5" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Can nutrition affect my child's growth percentile?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Yes, nutrition plays a crucial role in a child's growth and development. Inadequate caloric intake or nutritional deficiencies can slow growth, while excessive caloric consumption may lead to accelerated weight gain. A balanced diet with appropriate proteins, carbohydrates, fats, vitamins, and minerals supports optimal growth. If you have concerns about your child's nutrition or growth pattern, consult with a pediatrician or registered dietitian.
-                    </p>
-                  </div>
-                </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>

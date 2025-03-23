@@ -13,6 +13,7 @@ import {
   TableHeader, 
   TableRow 
 } from "@/components/ui/table";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const LongevityCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -164,46 +165,56 @@ const LongevityCalculatorPage = () => {
                 </p>
               </div>
               
-              {/* FAQ Section */}
+              {/* FAQ Section with Accordion */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate is a life expectancy calculator?</h4>
-                    <p className="mt-2">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      How accurate is a life expectancy calculator?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Life expectancy calculators provide estimates based on population statistics and risk factors, not precise predictions. Our calculator incorporates the latest peer-reviewed research on longevity factors, but individual outcomes may vary. The calculator is most valuable for identifying modifiable lifestyle factors that could impact your longevity rather than predicting an exact lifespan.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What factors most affect life expectancy?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-2" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      What factors most affect life expectancy?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       The most significant factors influencing life expectancy include smoking status, physical activity level, diet quality, alcohol consumption, sleep habits, chronic conditions (like diabetes or heart disease), genetics, access to healthcare, socioeconomic status, and environmental factors. Our calculator weights each of these factors based on their relative impact according to current research.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can I increase my life expectancy?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-3" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Can I increase my life expectancy?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Yes, research shows that lifestyle modifications can significantly impact longevity. The most effective changes include quitting smoking, increasing physical activity, maintaining a healthy weight, following a balanced diet rich in fruits and vegetables, limiting alcohol consumption, managing stress, and getting adequate sleep. Even small improvements in these areas can potentially add years to your life expectancy.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Why is my life expectancy different from the national average?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-4" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Why is my life expectancy different from the national average?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Life expectancy varies widely based on individual factors. Your result may differ from national averages due to your specific combination of lifestyle habits, medical conditions, genetics, and socioeconomic factors. The national average represents the entire population, while our calculator provides a personalized estimate based on your unique profile and modifiable risk factors.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How can I use my life expectancy result for retirement planning?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-5" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      How can I use my life expectancy result for retirement planning?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Your estimated life expectancy is valuable for financial planning, particularly retirement savings. Knowing how long you might live helps determine how much to save and how to structure withdrawals to avoid outliving your assets. Financial advisors often use life expectancy calculations to create more accurate retirement plans. For a complete picture, pair your life expectancy result with our <Link to="/retirementsavings" onClick={handleLinkClick} className="text-blue-600 hover:underline">Retirement Savings Calculator</Link>.
-                    </p>
-                  </div>
-                </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>

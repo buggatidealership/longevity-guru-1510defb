@@ -1,9 +1,11 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import MetabolismCalculator from '@/components/MetabolismCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const MetabolismCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -161,46 +163,56 @@ const MetabolismCalculatorPage = () => {
                 </p>
               </div>
               
-              {/* FAQ Section */}
+              {/* FAQ Section with Accordion */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What's the difference between BMR and TDEE?</h4>
-                    <p className="mt-2">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      What's the difference between BMR and TDEE?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Basal Metabolic Rate (BMR) represents the calories your body needs to perform essential functions at complete rest—like breathing, circulating blood, and cell production. It's essentially your baseline calorie requirement. Total Daily Energy Expenditure (TDEE) includes your BMR plus additional calories for daily activities, from basic movements to structured exercise. Think of BMR as your body's minimum operating cost and TDEE as your total daily calorie "budget."
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can I increase my metabolism?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-2" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Can I increase my metabolism?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Yes, you can influence your metabolism through several approaches: building muscle mass through strength training (muscle burns more calories than fat); high-intensity interval training (HIIT) which creates an "afterburn" effect; eating protein-rich foods (which have a higher thermic effect); staying hydrated; getting adequate sleep; reducing stress; and maintaining consistent meal timing. However, dramatic metabolism changes are difficult to achieve—most interventions result in modest improvements, typically in the 5-10% range.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate are metabolic calculations?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-3" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      How accurate are metabolic calculations?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Metabolic calculations are generally accurate within 10-15% for most individuals, but variations can occur due to factors not captured by formulas, such as genetics, body composition details, hormonal status, and recent dietary patterns. For greater precision, professional metabolic testing (indirect calorimetry) can measure your actual oxygen consumption and carbon dioxide production. If you find significant discrepancies between calculated estimates and your actual results, adjust your caloric intake accordingly.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Will eating more small meals boost metabolism?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-4" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Will eating more small meals boost metabolism?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       The idea that eating frequent small meals "stokes the metabolic fire" has been largely debunked by research. Total caloric intake and macronutrient composition matter more than meal frequency for metabolic rate. Each time you eat, you experience a small increase in energy expenditure called the thermic effect of food (TEF), but this effect is proportional to the amount of food consumed, whether in smaller frequent meals or larger infrequent ones. Focus on overall nutrition quality and appropriate portions rather than specific meal timing for metabolic benefits.
-                    </p>
-                  </div>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Does metabolism slow significantly with age?</h4>
-                    <p className="mt-2">
+                  <AccordionItem value="item-5" className="border-b border-gray-200">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      Does metabolism slow significantly with age?
+                    </AccordionTrigger>
+                    <AccordionContent>
                       Yes, metabolism typically declines with age, but recent research suggests this decline is more nuanced than previously thought. Metabolism remains relatively stable from ages 20 to 60, decreasing only about 0.7% per decade. The more significant drop (approximately 0.7% per year) occurs after age 60. The perceived metabolic slowdown in middle age often results from decreased activity levels and loss of muscle mass rather than aging itself. Maintaining muscle through strength training and staying physically active can significantly offset age-related metabolic decline.
-                    </p>
-                  </div>
-                </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>
