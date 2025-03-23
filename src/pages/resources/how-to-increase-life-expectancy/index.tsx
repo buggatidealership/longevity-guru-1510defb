@@ -43,8 +43,8 @@ const HowToIncreaseLifeExpectancy = () => {
 
   // Generate article schema
   const articleSchema = generateArticleSchema(
-    "Blueprint Protocol: Bryan Johnson's Engineered Longevity System for Biological Age Reversal",
-    "Discover the exact science-backed Blueprint protocol Bryan Johnson uses to reverse biological aging by 5+ years. Learn the 10 precise, measured interventions to extend lifespan and optimize healthspan through data-driven longevity engineering.",
+    "Blueprint Protocol: Engineered Longevity System for Biological Age Reversal",
+    "Discover the exact science-backed Blueprint protocol to reverse biological aging by 5+ years. Learn the 10 precise, measured interventions to extend lifespan and optimize healthspan through data-driven longevity engineering.",
     "/resources/how-to-increase-life-expectancy",
     "2024-09-02T12:00:00+00:00", // Publication date
     new Date().toISOString()     // Last modified date
@@ -56,10 +56,10 @@ const HowToIncreaseLifeExpectancy = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <SEOHead 
-        title="Blueprint Protocol: Bryan Johnson's Engineered Longevity System for Biological Age Reversal"
-        description="Discover the exact science-backed Blueprint protocol Bryan Johnson uses to reverse biological aging by 5+ years. Learn the 10 precise, measured interventions to extend lifespan and optimize healthspan through data-driven longevity engineering."
+        title="Blueprint Protocol: Engineered Longevity System for Biological Age Reversal"
+        description="Discover the exact science-backed Blueprint protocol to reverse biological aging by 5+ years. Learn the 10 precise, measured interventions to extend lifespan and optimize healthspan through data-driven longevity engineering."
         canonicalUrl="/resources/how-to-increase-life-expectancy"
-        keywords="Bryan Johnson Blueprint protocol, biological age reversal, longevity protocol, increase lifespan, biological age reduction, longevity diet, anti-aging protocol, scientific longevity, data-driven longevity, epigenetic age reversal, Blueprint longevity system"
+        keywords="Blueprint protocol, biological age reversal, longevity protocol, increase lifespan, biological age reduction, longevity diet, anti-aging protocol, scientific longevity, data-driven longevity, epigenetic age reversal, Blueprint longevity system"
         schemas={schemas}
       />
 
@@ -85,7 +85,7 @@ const HowToIncreaseLifeExpectancy = () => {
       </Breadcrumb>
 
       <article className="prose lg:prose-xl max-w-none">
-        <h1 className="text-3xl font-bold mb-6">Blueprint Protocol: Bryan Johnson's Engineered Longevity System for Biological Age Reversal</h1>
+        <h1 className="text-3xl font-bold mb-6">Blueprint Protocol: Engineered Longevity System for Biological Age Reversal</h1>
         
         <IntroSection />
         <ContentSections />
