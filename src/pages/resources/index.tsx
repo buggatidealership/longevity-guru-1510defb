@@ -78,6 +78,7 @@ const ResourcesIndex = () => {
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground">Discover science-backed lifestyle changes that can add years to your life, from diet and exercise to stress management and social connections.</p>
+                  <p className="mt-2 text-muted-foreground">Based on peer-reviewed longevity research, these practical strategies can help increase your lifespan potential and improve quality of life as you age.</p>
                 </CardContent>
                 <CardFooter>
                   <Button asChild variant="outline" className="w-full justify-between">
@@ -88,18 +89,36 @@ const ResourcesIndex = () => {
                 </CardFooter>
               </Card>
               
-              {/* Placeholder for future articles */}
+              {/* Placeholder for Nutrition & Longevity (Coming Soon) */}
               <Card className="h-full flex flex-col bg-muted/50">
                 <CardHeader>
-                  <CardTitle className="text-xl text-muted-foreground">Coming Soon</CardTitle>
-                  <CardDescription>New resources are being added regularly</CardDescription>
+                  <CardTitle className="text-xl text-muted-foreground">Nutrition & Longevity</CardTitle>
+                  <CardDescription>Foods That Support Healthy Aging</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">Check back soon for more evidence-based articles on health optimization, financial planning, and longevity science.</p>
+                  <p className="text-muted-foreground">Explore the essential nutrients and dietary patterns linked to extended lifespan and reduced age-related diseases in scientific studies.</p>
+                  <p className="mt-2 text-muted-foreground">Coming soon: A comprehensive guide to optimizing your diet for cellular health, inflammation reduction, and metabolic balance.</p>
                 </CardContent>
                 <CardFooter>
                   <Button disabled variant="outline" className="w-full justify-between">
-                    Stay Tuned <ArrowRight className="h-4 w-4" />
+                    Coming Soon <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </CardFooter>
+              </Card>
+              
+              {/* Placeholder for Financial Planning for Longevity (Coming Soon) */}
+              <Card className="h-full flex flex-col bg-muted/50">
+                <CardHeader>
+                  <CardTitle className="text-xl text-muted-foreground">Financial Planning for Longevity</CardTitle>
+                  <CardDescription>Securing Your Extended Future</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">Learn essential strategies to ensure your retirement savings last throughout a potentially longer lifespan, accounting for healthcare needs and lifestyle goals.</p>
+                  <p className="mt-2 text-muted-foreground">Coming soon: Expert guidance on investment approaches, insurance considerations, and estate planning optimized for longevity.</p>
+                </CardContent>
+                <CardFooter>
+                  <Button disabled variant="outline" className="w-full justify-between">
+                    Coming Soon <ArrowRight className="h-4 w-4" />
                   </Button>
                 </CardFooter>
               </Card>
