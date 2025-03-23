@@ -202,3 +202,32 @@ export const validateSitemapFile = async (sitemapFilePath: string): Promise<bool
     return false;
   }
 };
+
+/**
+ * Ensures sitemap.xml starts correctly without any whitespace
+ * @param content The content to be written to sitemap.xml
+ * @returns Properly formatted XML content for sitemap
+ */
+export const ensureCorrectSitemapStart = (content: string): string => {
+  // Ensure content starts with XML declaration with no preceding whitespace
+  const xmlDeclaration = '<?xml version="1.0" encoding="UTF-8"?>';
+  
+  // Remove any BOM or whitespace
+  let cleanContent = content.replace(/^\uFEFF/, '').trim();
+  
+  // Ensure it starts with the XML declaration
+  if (!cleanContent.startsWith(xmlDeclaration)) {
+    // Try to find and extract XML declaration if it exists
+    const xmlDeclMatch = cleanContent.match(/<\?xml[^?]*\?>/);
+    if (xmlDeclMatch) {
+      // Remove it first, then prepend
+      cleanContent = cleanContent.replace(xmlDeclMatch[0], '');
+      cleanContent = `${xmlDeclaration}\n${cleanContent.trimStart()}`;
+    } else {
+      // No XML declaration found, add it
+      cleanContent = `${xmlDeclaration}\n${cleanContent}`;
+    }
+  }
+  
+  return cleanContent;
+};
