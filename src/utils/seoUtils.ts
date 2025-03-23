@@ -172,6 +172,17 @@ export const validateSitemap = (sitemapContent: string) => {
     errors.push(`Every URL entry should have exactly one loc tag, found ${locCount} loc tags for ${urlOpenCount} URL entries`);
   }
   
+  // Check for XML declaration position
+  const firstLine = sitemapContent.split('\n')[0].trim();
+  if (firstLine !== '<?xml version="1.0" encoding="UTF-8"?>') {
+    errors.push('XML declaration must be the first line of the document');
+  }
+  
+  // Check for any whitespace before XML declaration
+  if (sitemapContent.indexOf('<?xml') > 0) {
+    errors.push('No whitespace or content allowed before XML declaration');
+  }
+  
   return {
     isValid: errors.length === 0,
     errors,
