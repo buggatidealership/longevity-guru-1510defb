@@ -139,6 +139,15 @@ ${footer}`;
  * @returns Validation result with errors if any
  */
 export const validateSitemap = (sitemapContent: string) => {
+  // Check for any whitespace before XML declaration (this is the most common cause of errors)
+  if (sitemapContent.trim() !== sitemapContent || sitemapContent.indexOf('<?xml') !== 0) {
+    return {
+      isValid: false,
+      errors: ['Whitespace or characters detected before XML declaration'],
+      message: 'Critical error: XML declaration must be at the very beginning of the file with no whitespace before it'
+    };
+  }
+  
   // Basic structural validation
   const hasXmlDeclaration = sitemapContent.includes('<?xml version="1.0" encoding="UTF-8"?>');
   const hasUrlsetOpen = sitemapContent.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
@@ -190,4 +199,30 @@ export const validateSitemap = (sitemapContent: string) => {
       ? 'Sitemap structure appears valid' 
       : `Sitemap validation failed with ${errors.length} errors`
   };
+};
+
+/**
+ * Cleans a sitemap file by ensuring proper XML structure
+ * @param sitemapContent The sitemap content to clean
+ * @returns Properly formatted sitemap content
+ */
+export const cleanSitemapContent = (sitemapContent: string): string => {
+  // Remove any whitespace before XML declaration
+  let cleanedContent = sitemapContent.trim();
+  
+  // Ensure XML declaration is at the start
+  if (!cleanedContent.startsWith('<?xml')) {
+    const xmlDeclarationMatch = cleanedContent.match(/<\?xml.*?\?>/);
+    if (xmlDeclarationMatch) {
+      // Remove the existing XML declaration
+      cleanedContent = cleanedContent.replace(xmlDeclarationMatch[0], '');
+      // Add it to the beginning
+      cleanedContent = '<?xml version="1.0" encoding="UTF-8"?>' + cleanedContent;
+    } else {
+      // No XML declaration found, add one
+      cleanedContent = '<?xml version="1.0" encoding="UTF-8"?>' + cleanedContent;
+    }
+  }
+  
+  return cleanedContent;
 };
