@@ -29,7 +29,7 @@ const FertilityCalculator = () => {
       <SEOHead 
         title="Female Fertility Calculator | Estimate Your Reproductive Timeline"
         description="Assess your fertility potential and reproductive timeline based on age, AMH levels, and lifestyle factors. Plan your family with our evidence-based female fertility calculator."
-        canonicalUrl="https://longevitycalculator.xyz/fertility"
+        canonicalUrl="https://longevitycalculator.xyz/female-fertility-calculator"
         keywords="fertility calculator, reproductive timeline, AMH level calculator, egg count estimator, ovarian reserve, menopause predictor, family planning"
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">

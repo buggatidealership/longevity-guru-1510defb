@@ -9,7 +9,7 @@ Allow: /female-fertility-calculator
 Allow: /child-growth-percentile-calculator
 Allow: /adult-height-predictor-calculator
 Allow: /metabolism-calculator
-Allow: /breast-implant-calculator
+Allow: /breast-implant-size-calculator
 Allow: /botox-dosage-calculator
 Allow: /alcohol-impact-calculator
 Allow: /privacy

@@ -36,7 +36,7 @@ const LongevityCalculatorPage = () => {
       <SEOHead 
         title="Life Expectancy Calculator | How Long Will You Live? Free Lifespan Estimator"
         description="Calculate your personalized life expectancy based on health, lifestyle, and demographic factors. Our scientific calculator helps predict your potential lifespan and identifies longevity factors you can improve."
-        canonicalUrl="https://longevitycalculator.xyz/lifespan"
+        canonicalUrl="https://longevitycalculator.xyz/life-expectancy-calculator"
         keywords="life expectancy calculator, lifespan predictor, longevity calculator, how long will I live, death calculator, mortality calculator, health assessment tool, longevity prediction"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"

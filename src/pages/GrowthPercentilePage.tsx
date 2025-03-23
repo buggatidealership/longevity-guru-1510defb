@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -27,7 +28,7 @@ const GrowthPercentilePage = () => {
       <SEOHead 
         title="Child Growth Percentile Calculator | Height & Weight Charts by Age"
         description="Calculate your child's height and weight percentiles based on CDC growth charts. Track development from birth to 20 years with our free pediatric growth calculator and see where your child ranks."
-        canonicalUrl="https://longevitycalculator.xyz/growth"
+        canonicalUrl="https://longevitycalculator.xyz/child-growth-percentile-calculator"
         keywords="child growth calculator, pediatric growth chart, height percentile, weight percentile, CDC growth standards, baby growth tracker, child development calculator, BMI percentile"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"

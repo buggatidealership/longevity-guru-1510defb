@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -50,7 +49,7 @@ const Index = () => {
           
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-              <Link to="/lifespan" className="group">
+              <Link to="/life-expectancy-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
                     <Clock className="h-5 w-5 text-blue-500" />
@@ -64,7 +63,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/retirementsavings" className="group">
+              <Link to="/retirement-savings-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-3">
                     <Calculator className="h-5 w-5 text-green-500" />
@@ -78,7 +77,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/fertility" className="group">
+              <Link to="/female-fertility-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-purple-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mb-3">
                     <Baby className="h-5 w-5 text-purple-500" />
@@ -92,7 +91,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/growth" className="group">
+              <Link to="/child-growth-percentile-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-orange-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mb-3">
                     <Ruler className="h-5 w-5 text-orange-500" />
@@ -106,7 +105,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/adultheight" className="group">
+              <Link to="/adult-height-predictor-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-indigo-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center mb-3">
                     <LineChart className="h-5 w-5 text-indigo-500" />
@@ -120,7 +119,7 @@ const Index = () => {
                 </div>
               </Link>
 
-              <Link to="/metabolism" className="group">
+              <Link to="/metabolism-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-red-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center mb-3">
                     <Activity className="h-5 w-5 text-red-500" />
@@ -134,7 +133,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/breastimplant" className="group">
+              <Link to="/breast-implant-size-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-pink-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-pink-50 rounded-full flex items-center justify-center mb-3">
                     <Scissors className="h-5 w-5 text-pink-500" />
@@ -148,7 +147,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/botox" className="group">
+              <Link to="/botox-dosage-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-cyan-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-cyan-50 rounded-full flex items-center justify-center mb-3">
                     <Syringe className="h-5 w-5 text-cyan-500" />
@@ -162,7 +161,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/alcohol" className="group">
+              <Link to="/alcohol-impact-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-amber-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center mb-3">
                     <Beer className="h-5 w-5 text-amber-500" />
@@ -218,15 +217,15 @@ const Index = () => {
                 <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
                 <ul className="space-y-2">
                   <li><Link to="/" className="text-sm text-gray-600 hover:text-primary">Home</Link></li>
-                  <li><Link to="/lifespan" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
-                  <li><Link to="/retirementsavings" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
-                  <li><Link to="/fertility" className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
-                  <li><Link to="/growth" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/adultheight" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
-                  <li><Link to="/metabolism" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
-                  <li><Link to="/breastimplant" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
-                  <li><Link to="/botox" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
-                  <li><Link to="/alcohol" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
+                  <li><Link to="/life-expectancy-calculator" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
+                  <li><Link to="/retirement-savings-calculator" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
+                  <li><Link to="/female-fertility-calculator" className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
+                  <li><Link to="/child-growth-percentile-calculator" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
+                  <li><Link to="/adult-height-predictor-calculator" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
+                  <li><Link to="/metabolism-calculator" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
+                  <li><Link to="/breast-implant-size-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
+                  <li><Link to="/botox-dosage-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
+                  <li><Link to="/alcohol-impact-calculator" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
                 </ul>
               </div>
               

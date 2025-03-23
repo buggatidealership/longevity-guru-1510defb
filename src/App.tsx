@@ -38,13 +38,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          
+          {/* SEO-optimized descriptive URLs */}
           <Route path="/life-expectancy-calculator" element={<LongevityCalculatorPage />} />
           <Route path="/retirement-savings-calculator" element={<RetirementCalculator />} />
           <Route path="/female-fertility-calculator" element={<FertilityCalculator />} />
           <Route path="/child-growth-percentile-calculator" element={<GrowthPercentilePage />} />
           <Route path="/adult-height-predictor-calculator" element={<AdultHeightPredictorPage />} />
           <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />
-          <Route path="/breast-implant-calculator" element={<BreastImplantCalculatorPage />} />
+          <Route path="/breast-implant-size-calculator" element={<BreastImplantCalculatorPage />} />
           <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
           <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />
           <Route path="/privacy" element={<Privacy />} />
