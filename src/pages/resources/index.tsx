@@ -89,6 +89,25 @@ const ResourcesIndex = () => {
                 </CardFooter>
               </Card>
               
+              {/* Resource Card: How to Boost Your Metabolism */}
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
+                <CardHeader>
+                  <CardTitle className="text-xl">How to Boost Your Metabolism Naturally</CardTitle>
+                  <CardDescription>Science-Backed Methods That Work</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">Learn science-backed ways to naturally boost your metabolism and increase your daily energy expenditure through diet, exercise, and lifestyle changes.</p>
+                  <p className="mt-2 text-muted-foreground">Discover which habits truly help increase your metabolic rate and how to calculate exactly how many calories your body burns each day.</p>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full justify-between">
+                    <Link to="/resources/how-to-boost-your-metabolism">
+                      Read Article <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+              
               {/* Resource Card: How Much to Save for Retirement */}
               <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
                 <CardHeader>
