@@ -6,6 +6,12 @@ import AlcoholLifespanCalculator from '@/components/AlcoholLifespanCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const AlcoholCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -239,45 +245,76 @@ const AlcoholCalculatorPage = () => {
                 </p>
               </div>
               
+              {/* FAQ Section with Accordion */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions About Alcohol and Longevity</h3>
                 
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Is any level of alcohol consumption safe for health?</h4>
-                    <p className="mt-2">
-                      The current scientific consensus, reflected in a landmark 2018 global study published in <em>The Lancet</em> analyzing data from 195 countries, concludes that the optimal level of alcohol consumption for health is zero. While older research suggested potential cardiovascular benefits from light drinking (the "J-curve" effect), more recent comprehensive studies using Mendelian randomization techniques have found these benefits to be smaller than previously thought and outweighed by increased risks for cancer, liver disease, and other conditions. Our calculator does include a small potential benefit for very light wine drinking in keeping with some research, but this is increasingly questioned by the most current epidemiological evidence.
-                    </p>
-                  </div>
+                <Accordion type="single" collapsible className="space-y-4">
+                  <AccordionItem value="item-1" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        Is any level of alcohol consumption safe for health?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        The current scientific consensus, reflected in a landmark 2018 global study published in <em>The Lancet</em> analyzing data from 195 countries, concludes that the optimal level of alcohol consumption for health is zero. While older research suggested potential cardiovascular benefits from light drinking (the "J-curve" effect), more recent comprehensive studies using Mendelian randomization techniques have found these benefits to be smaller than previously thought and outweighed by increased risks for cancer, liver disease, and other conditions. Our calculator does include a small potential benefit for very light wine drinking in keeping with some research, but this is increasingly questioned by the most current epidemiological evidence.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Why do different alcoholic beverages have different health impacts?</h4>
-                    <p className="mt-2">
-                      Research indicates that various alcoholic beverages may have differing health impacts beyond their alcohol content. Wine, particularly red wine, contains compounds like resveratrol and other polyphenols with potential antioxidant and anti-inflammatory properties. Beer contains B vitamins and silicon that may benefit bone health, but also has carbohydrates that increase caloric intake. Spirits lack these additional compounds but deliver alcohol in more concentrated forms. Additionally, drinking patterns differ by beverage type - wine is often consumed with meals (potentially reducing absorption rates) while spirits may be more frequently associated with binge drinking patterns. Our calculator incorporates these beverage-specific factors based on epidemiological research comparing mortality outcomes across different drink preferences.
-                    </p>
-                  </div>
+                  <AccordionItem value="item-2" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        Why do different alcoholic beverages have different health impacts?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Research indicates that various alcoholic beverages may have differing health impacts beyond their alcohol content. Wine, particularly red wine, contains compounds like resveratrol and other polyphenols with potential antioxidant and anti-inflammatory properties. Beer contains B vitamins and silicon that may benefit bone health, but also has carbohydrates that increase caloric intake. Spirits lack these additional compounds but deliver alcohol in more concentrated forms. Additionally, drinking patterns differ by beverage type - wine is often consumed with meals (potentially reducing absorption rates) while spirits may be more frequently associated with binge drinking patterns. Our calculator incorporates these beverage-specific factors based on epidemiological research comparing mortality outcomes across different drink preferences.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate is the Alcohol Impact Calculator?</h4>
-                    <p className="mt-2">
-                      Our calculator synthesizes findings from multiple large-scale epidemiological studies to provide evidence-based estimates of potential lifespan impact. However, several important limitations apply: 1) Results represent statistical averages from population-level research and individual outcomes may vary significantly based on genetics, overall health status, and concurrent lifestyle factors; 2) The calculator cannot account for drinking pattern variations (e.g., moderate weekly consumption spread evenly vs. concentrated binge drinking); 3) Individual biological factors affecting alcohol metabolism (like alcohol dehydrogenase enzyme variants) significantly influence health impacts; 4) The calculator assumes consistent drinking patterns over time rather than fluctuating consumption. Therefore, results should be interpreted as informed estimates rather than precise predictions for any individual. Always consult healthcare professionals for personalized health advice.
-                    </p>
-                  </div>
+                  <AccordionItem value="item-3" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        How accurate is the Alcohol Impact Calculator?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Our calculator synthesizes findings from multiple large-scale epidemiological studies to provide evidence-based estimates of potential lifespan impact. However, several important limitations apply: 1) Results represent statistical averages from population-level research and individual outcomes may vary significantly based on genetics, overall health status, and concurrent lifestyle factors; 2) The calculator cannot account for drinking pattern variations (e.g., moderate weekly consumption spread evenly vs. concentrated binge drinking); 3) Individual biological factors affecting alcohol metabolism (like alcohol dehydrogenase enzyme variants) significantly influence health impacts; 4) The calculator assumes consistent drinking patterns over time, whereas many people's consumption varies throughout life. While the estimates provide valuable insight into potential health impacts, they should be viewed as general guidance rather than precise predictions for any individual.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can I reverse the effects of previous alcohol consumption?</h4>
-                    <p className="mt-2">
-                      Scientific research demonstrates remarkable regenerative capacity in the human body following alcohol reduction or cessation. The liver, in particular, can regenerate significantly within 4-12 weeks of abstinence in the absence of advanced cirrhosis. Studies show normalization of liver enzyme levels, reduced inflammation, and improved metabolic function often within months of reducing alcohol intake. Cardiovascular biomarkers typically improve within weeks, with blood pressure normalization and reduced risk of arrhythmias. Neuroimaging research has documented partial recovery of brain volume and cognitive function within months to years of abstinence. While some damage from prolonged heavy drinking may be permanent (advanced cirrhosis or alcoholic cardiomyopathy), research consistently demonstrates substantial health improvements with reduced consumption at nearly any stage. The most effective approach for mitigating previous consumption effects includes complete cessation or significant reduction, optimal nutrition, regular exercise, quality sleep, and regular medical monitoring.
-                    </p>
-                  </div>
+                  <AccordionItem value="item-4" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        Can reducing alcohol consumption reverse health damage?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Research shows that reducing or eliminating alcohol consumption can reverse some, but not all, alcohol-related health damage. The liver has remarkable regenerative capacity - early fatty liver changes can resolve within weeks to months of abstinence. Blood pressure improvements may be noticeable within days to weeks of reducing intake. Cognitive function and sleep quality typically begin improving within weeks to months. However, certain damage may be permanent, particularly with long-term heavy drinking: advanced liver cirrhosis, alcohol-related brain damage with significant neuronal loss, and alcoholic cardiomyopathy with extensive heart scarring. Cancer risk also doesn't immediately return to baseline levels. The greatest health benefits come from reducing consumption earlier, before permanent damage occurs. Our calculator demonstrates potential future impacts that may still be prevented or minimized with changes in drinking habits.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What strategies work best for reducing alcohol consumption?</h4>
-                    <p className="mt-2">
-                      If your calculator results indicate concerning potential lifespan reduction, evidence-based strategies for reducing consumption include: 1) Setting specific weekly limits based on national guidelines (typically under 14 standard drinks/week); 2) Scheduling multiple alcohol-free days each week; 3) Tracking consumption with apps designed for this purpose; 4) Practicing mindful drinking techniques that focus attention on each drink; 5) Exploring alcohol-free alternatives like craft non-alcoholic beers, sophisticated mocktails, or adaptogens; 6) Identifying and managing drinking triggers through environmental modifications; 7) Developing alternative stress management strategies like meditation, exercise, or creative pursuits; 8) Seeking social support through community groups or online forums; 9) Consulting healthcare providers about medication-assisted approaches for reducing cravings; and 10) Working with addiction specialists for personalized treatment plans when self-management strategies prove insufficient. Research indicates that even moderate reductions in consumption yield significant health benefits.
-                    </p>
-                  </div>
-                </div>
+                  <AccordionItem value="item-5" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        How does alcohol affect women differently than men?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Women generally experience more pronounced health effects from alcohol than men due to several biological factors: 1) Lower body water content (52% vs. 61% in men) results in higher blood alcohol concentrations from equivalent drinks; 2) Less alcohol dehydrogenase enzyme activity in the stomach and liver leads to slower alcohol metabolism; 3) Smaller average body size means less tissue to absorb alcohol; 4) Hormonal differences affect alcohol processing. These differences translate to women developing alcohol-related health problems like liver cirrhosis, heart disease, and cognitive impairment more quickly and at lower consumption levels than men. Women also face unique risks including increased breast cancer susceptibility (even with moderate drinking) and potential reproductive health effects. For these reasons, health guidelines typically recommend lower consumption limits for women, and our calculator applies gender-specific risk adjustments to reflect these biological differences.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>
@@ -295,23 +332,23 @@ const AlcoholCalculatorPage = () => {
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              <Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
-                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
-              </Link>
-              
               <Link to="/life-expectancy-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/female-fertility-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
+              
+              <Link to="/female-fertility-calculator" onClick={handleLickClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Female Fertility</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/child-growth-percentile-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
-                <h3 className="font-semibold text-sm mb-1">Child Growth</h3>
+              <Link to="/adult-height-predictor-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Adult Height</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
             </div>
@@ -328,8 +365,10 @@ const AlcoholCalculatorPage = () => {
                   <li><Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                   <li><Link to="/female-fertility-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
                   <li><Link to="/child-growth-percentile-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/alcohol-impact-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
+                  <li><Link to="/adult-height-predictor-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
+                  <li><Link to="/breast-implant-size-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
                   <li><Link to="/botox-dosage-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
+                  <li><Link to="/alcohol-impact-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
                 </ul>
               </div>
               
@@ -343,9 +382,6 @@ const AlcoholCalculatorPage = () => {
             </div>
             
             <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
-            <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <a href="https://longevitycalculator.xyz/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
-            </div>
           </div>
         </footer>
       </div>

@@ -1,9 +1,16 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import AdultHeightPredictorCalculator from '@/components/AdultHeightPredictorCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
+import { 
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const AdultHeightPredictorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -161,46 +168,76 @@ const AdultHeightPredictorPage = () => {
                 </p>
               </div>
               
-              {/* FAQ Section */}
+              {/* FAQ Section with Accordion */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
-                <div className="space-y-4">
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">How accurate are adult height predictions?</h4>
-                    <p className="mt-2">
-                      Adult height predictions typically have a margin of error of 1-3 inches (2.5-7.6 cm). Prediction accuracy improves as children get closer to puberty. The most reliable predictions come from combining multiple methods and considering the child's current growth percentiles, bone age (if available), and parental heights. Our calculator provides both a predicted value and a statistical range to acknowledge this inherent variability in growth prediction.
-                    </p>
-                  </div>
+                <Accordion type="single" collapsible className="space-y-4">
+                  <AccordionItem value="item-1" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        How accurate are adult height predictions?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Adult height predictions typically have a margin of error of 1-3 inches (2.5-7.6 cm). Prediction accuracy improves as children get closer to puberty. The most reliable predictions come from combining multiple methods and considering the child's current growth percentiles, bone age (if available), and parental heights. Our calculator provides both a predicted value and a statistical range to acknowledge this inherent variability in growth prediction.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">When do children stop growing taller?</h4>
-                    <p className="mt-2">
-                      Girls typically reach their final adult height between ages 14-16, about 1-2 years after menarche (first menstrual period). Boys usually continue growing until ages 16-18, though some may grow into their early 20s. Growth plates (epiphyses) in the long bones close under the influence of sex hormones during puberty, making further height increase impossible. Growth velocity peaks during adolescent growth spurts: around age 12 for girls and age 14 for boys.
-                    </p>
-                  </div>
+                  <AccordionItem value="item-2" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        When do children stop growing taller?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Girls typically reach their final adult height between ages 14-16, about 1-2 years after menarche (first menstrual period). Boys usually continue growing until ages 16-18, though some may grow into their early 20s. Growth plates (epiphyses) in the long bones close under the influence of sex hormones during puberty, making further height increase impossible. Growth velocity peaks during adolescent growth spurts: around age 12 for girls and age 14 for boys.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Can nutrition or supplements increase a child's height?</h4>
-                    <p className="mt-2">
-                      Proper nutrition is essential for children to reach their genetic height potential, but supplements or special diets won't make a child grow taller than their genetic programming allows. Ensuring adequate protein, calories, calcium, vitamin D, and other nutrients helps optimize growth. However, except in cases of malnutrition or specific deficiencies, supplements generally don't increase height beyond genetic potential. Focus instead on providing a balanced diet with sufficient protein, fruits, vegetables, and dairy products to support healthy growth.
-                    </p>
-                  </div>
+                  <AccordionItem value="item-3" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        Can nutrition or supplements increase a child's height?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Proper nutrition is essential for children to reach their genetic height potential, but supplements or special diets won't make a child grow taller than their genetic programming allows. Ensuring adequate protein, calories, calcium, vitamin D, and other nutrients helps optimize growth. However, except in cases of malnutrition or specific deficiencies, supplements generally don't increase height beyond genetic potential. Focus instead on providing a balanced diet with sufficient protein, fruits, vegetables, and dairy products to support healthy growth.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">What if my child is much shorter or taller than predicted?</h4>
-                    <p className="mt-2">
-                      If your child's height consistently deviates significantly from predictions or if their growth rate changes dramatically, consult a pediatrician. Concerning signs include: dropping percentiles on growth charts; growing less than 2 inches (5 cm) per year during childhood; puberty occurring very early or late; or height significantly below what's expected based on parental heights. Most variations are normal variations, but occasionally, underlying medical conditions like growth hormone deficiency or thyroid disorders may be present.
-                    </p>
-                  </div>
+                  <AccordionItem value="item-4" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        What if my child is much shorter or taller than predicted?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        If your child's height consistently deviates significantly from predictions or if their growth rate changes dramatically, consult a pediatrician. Concerning signs include: dropping percentiles on growth charts; growing less than 2 inches (5 cm) per year during childhood; puberty occurring very early or late; or height significantly below what's expected based on parental heights. Most variations are normal variations, but occasionally, underlying medical conditions like growth hormone deficiency or thyroid disorders may be present.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
                   
-                  <div className="p-4 bg-gray-50 rounded-lg">
-                    <h4 className="font-semibold text-lg">Do late bloomers eventually catch up in height?</h4>
-                    <p className="mt-2">
-                      Yes, many "late bloomers" (children with constitutional growth delay) eventually catch up to their peers in height. These children often have delayed bone age and puberty, growing slowly during childhood but continuing to grow later than their peers. They may experience growth spurts in their late teens or even early twenties. If you suspect your child is a late bloomer, tracking their growth pattern and bone age (which can be assessed by a pediatric endocrinologist) can provide reassurance and help predict their eventual adult height.
-                    </p>
-                  </div>
-                </div>
+                  <AccordionItem value="item-5" className="border rounded-lg overflow-hidden">
+                    <AccordionTrigger className="px-4 py-3 hover:no-underline bg-gray-50">
+                      <h4 className="font-semibold text-lg text-left">
+                        Do late bloomers eventually catch up in height?
+                      </h4>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 py-3 bg-white">
+                      <p>
+                        Yes, many "late bloomers" (children with constitutional growth delay) eventually catch up to their peers in height. These children often have delayed bone age and puberty, growing slowly during childhood but continuing to grow later than their peers. They may experience growth spurts in their late teens or even early twenties. If you suspect your child is a late bloomer, tracking their growth pattern and bone age (which can be assessed by a pediatric endocrinologist) can provide reassurance and help predict their eventual adult height.
+                      </p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>
