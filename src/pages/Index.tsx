@@ -1,9 +1,12 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon } from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon, FileText } from 'lucide-react';
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
+import { cn } from '@/lib/utils';
 
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
@@ -21,7 +24,27 @@ const Index = () => {
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
-          <Logo className="mb-2" />
+          <div className="flex justify-between items-center mb-2">
+            <Logo className="" />
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      to="/resources"
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        "text-gray-600 hover:text-primary"
+                      )}
+                    >
+                      <FileText className="h-4 w-4 mr-2" />
+                      Resources
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
           <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
@@ -31,6 +54,7 @@ const Index = () => {
             />
           </div>
         </header>
+        
         <main className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-10">
             <div className="relative mx-auto max-w-3xl">
@@ -227,6 +251,7 @@ const Index = () => {
                   <li><Link to="/botox-dosage-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                   <li><Link to="/alcohol-impact-calculator" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
                   <li><Link to="/baldness-risk-calculator" className="text-sm text-gray-600 hover:text-primary">Baldness Risk Calculator</Link></li>
+                  <li><Link to="/resources" className="text-sm text-gray-600 hover:text-primary">Resources</Link></li>
                 </ul>
               </div>
               
