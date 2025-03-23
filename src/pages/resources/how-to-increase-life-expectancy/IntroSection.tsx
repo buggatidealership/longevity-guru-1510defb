@@ -6,13 +6,13 @@ const IntroSection: React.FC = () => {
   return (
     <div className="space-y-4">
       <p className="text-lg">
-        The science is clear—humans can engineer their bodies to extend healthspan and lifespan far beyond conventional expectations through a precise, data-driven protocol. This isn't speculation; it's quantifiable biology measured through validated biomarkers and longitudinal studies on cellular aging.
+        Modern science has revealed numerous ways to potentially extend both healthspan and lifespan through lifestyle interventions and emerging technologies. Today's longevity research combines insights from multiple scientific disciplines to create a comprehensive picture of what contributes to a longer, healthier life.
       </p>
       <p className="text-lg">
-        What follows is an evidence-based framework for adding measurable years to your life. Every intervention recommended is quantified, tested, and integrated into a comprehensive system, which has demonstrably reduced biological age in controlled studies. Before implementing these strategies, establishing your baseline with our <Link to="/life-expectancy-calculator" className="text-primary hover:underline">life expectancy calculator</Link> is recommended to track your progress over time.
+        This article explores evidence-based approaches for improving longevity based on current scientific understanding. These strategies range from nutrition and exercise to sleep optimization and stress management. Before implementing significant lifestyle changes, establishing your baseline with our <Link to="/life-expectancy-calculator" className="text-primary hover:underline">life expectancy calculator</Link> can help track your progress over time.
       </p>
       <p className="text-lg">
-        Optimizing your lifespan isn't about minor tweaks—it's a comprehensive system requiring precision, measurement, and unwavering consistency. Let's begin the process of engineering your longevity.
+        Optimizing your potential lifespan requires a multifaceted approach that considers various health factors. Let's explore what current science suggests about extending healthy lifespan.
       </p>
     </div>
   );
