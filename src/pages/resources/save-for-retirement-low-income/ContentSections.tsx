@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -53,12 +54,12 @@ const ContentSections: React.FC = () => {
       <div className="my-6">
         <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
           <img 
-            src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-            alt="Infographic showing government retirement programs and employer plans including 401(k), IRA, Roth IRA and Saver's Credit with contribution limits and tax advantages for low-income savers" 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+            alt="Low-income retirement planning with government assistance - woman researching 401(k), IRA, Roth IRA and Saver's Credit programs on laptop representing accessible retirement options" 
             className="object-cover w-full h-full" 
           />
         </AspectRatio>
-        <p className="text-sm text-gray-500 mt-2 text-center">Overview of retirement programs with special benefits for low-income savers</p>
+        <p className="text-sm text-gray-500 mt-2 text-center">Accessible retirement programs with special benefits for low-income savers</p>
       </div>
       
       <p>
