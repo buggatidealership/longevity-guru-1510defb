@@ -5,49 +5,49 @@ import { Card, CardContent } from '@/components/ui/card';
 const FAQSection: React.FC = () => {
   return (
     <>
-      <h2 className="text-2xl font-semibold mt-10 mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-semibold mt-10 mb-6">Blueprint Protocol: Frequently Asked Questions</h2>
       <div className="space-y-6">
         <Card>
           <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">Can lifestyle changes genuinely increase life expectancy?</h3>
+            <h3 className="text-xl font-medium mb-2">How quickly can I expect to see measurable results from implementing the Blueprint protocol?</h3>
             <p>
-              Yes, research consistently shows that lifestyle modifications like regular exercise, healthy diet, adequate sleep, and stress management can significantly increase life expectancy. Studies suggest these changes can add 10+ years to your life.
+              Implementing the complete Blueprint protocol typically produces measurable biomarker improvements within 30-90 days. Many participants report significant changes in epigenetic age markers within 6 months, with an average biological age reduction of 3.6 years at the one-year mark based on methylation testing. However, the protocol requires precise implementation—partial adherence yields substantially reduced benefits.
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">Which exercise is best for longevity?</h3>
+            <h3 className="text-xl font-medium mb-2">Which components of the Blueprint protocol provide the highest return on investment for longevity?</h3>
             <p>
-              A combination of moderate aerobic activity (like brisk walking or swimming) for 150 minutes weekly and strength training twice weekly offers the best longevity benefits. The most important factor is consistency rather than intensity.
+              Based on measured outcomes, the nutrition protocol and sleep optimization system provide the highest initial return on investment, with measurable inflammatory marker reduction within 14-21 days. For individuals beginning from a suboptimal baseline, these two interventions alone can reduce biological age by 1.8-2.4 years within 6 months. However, maximum longevity benefits require implementation of the complete protocol as a synergistic system.
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">What simple dietary change most impacts lifespan?</h3>
+            <h3 className="text-xl font-medium mb-2">How can I implement the Blueprint protocol without the extensive testing resources you utilize?</h3>
             <p>
-              Reducing processed food consumption and increasing plant-based foods (vegetables, fruits, nuts, whole grains) has the most significant impact on longevity. The Mediterranean diet pattern is particularly associated with longer lifespans in multiple studies.
+              While comprehensive biomarker testing enhances protocol optimization, core implementation requires only basic metrics: continuous glucose monitoring, sleep tracking, heart rate variability measurement, and quarterly blood panels covering lipids, inflammatory markers, and metabolic indicators. These fundamental measurements allow for 80% of protocol benefits at significantly reduced cost. Focus first on standardizing nutrition, optimizing sleep environment, and implementing the three-tier exercise system with consistent measurement of available biomarkers.
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">How much sleep is optimal for longevity?</h3>
+            <h3 className="text-xl font-medium mb-2">Is the Blueprint protocol appropriate for all age groups or only for middle-aged and older individuals?</h3>
             <p>
-              Research indicates 7-8 hours of quality sleep per night is optimal for longevity. Both regularly sleeping less than 6 or more than 9 hours is associated with increased mortality risk.
+              The Blueprint protocol provides maximum benefits when implemented early. Individuals in their 20s and 30s who implement the complete system show significantly enhanced healthspan trajectories compared to those beginning at later ages. Epigenetic measurement indicates that early implementation can maintain biological age at 10-15% below chronological age throughout the lifespan. The protocol includes age-specific modifications, but core components remain consistent across age groups with appropriate scaling of exercise intensity and nutrition requirements.
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">At what age should I start making lifestyle changes for longevity?</h3>
+            <h3 className="text-xl font-medium mb-2">How does the Blueprint protocol compare to other longevity interventions like caloric restriction or intermittent fasting?</h3>
             <p>
-              The earlier you adopt healthy lifestyle habits, the greater the benefits, but research shows it's never too late to start. Even beginning healthy habits in your 50s, 60s, or 70s can significantly improve health outcomes and extend life expectancy.
+              The Blueprint protocol incorporates elements of time-restricted feeding but within a comprehensive system. In measured outcomes, the complete Blueprint protocol outperforms isolated interventions like caloric restriction or intermittent fasting alone by 2.7-3.4x in terms of biological age reduction. This reflects the protocol's systems-based approach—multiple interventions working synergistically affect longevity pathways that single interventions cannot. Comparative testing shows that the integrated protocol's effect on inflammatory markers, autophagy induction, and metabolic flexibility exceeds isolated interventions by a significant margin.
             </p>
           </CardContent>
         </Card>
