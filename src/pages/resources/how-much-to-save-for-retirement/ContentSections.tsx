@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const ContentSections: React.FC = () => {
   return (
@@ -10,6 +11,19 @@ const ContentSections: React.FC = () => {
         <p>
           Most financial experts recommend aiming to replace 70-80% of your pre-retirement income during retirement. This approach accounts for reduced expenses in retirement (no commuting costs, possibly paid-off mortgage, etc.) while maintaining your standard of living.
         </p>
+        
+        {/* First visual - Income replacement chart */}
+        <div className="my-6">
+          <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
+            <img 
+              src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+              alt="Income replacement chart showing the 70-80% rule - how pre-retirement income translates to retirement needs with sample calculations at different income levels" 
+              className="object-cover w-full h-full" 
+            />
+          </AspectRatio>
+          <p className="text-sm text-gray-500 mt-2 text-center">Income replacement visualization - aiming for 70-80% of pre-retirement income</p>
+        </div>
+        
         <p className="mt-4">
           <strong>Example:</strong> If your household earns $100,000 annually before retirement, you'd need approximately $70,000-$80,000 per year in retirement. Using the 4% withdrawal rule (a sustainable annual withdrawal rate), you would need $1.75-2 million saved ($70,000 ÷ 0.04 = $1.75 million).
         </p>
@@ -34,6 +48,19 @@ const ContentSections: React.FC = () => {
           <li><strong>By age 60:</strong> 8× your annual salary</li>
           <li><strong>By age 67:</strong> 10× your annual salary</li>
         </ul>
+        
+        {/* Second visual - Age-based savings benchmarks */}
+        <div className="my-6">
+          <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
+            <img 
+              src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+              alt="Retirement savings benchmarks chart showing recommended multiples of annual salary at different age milestones from 30 to 67 years old" 
+              className="object-cover w-full h-full" 
+            />
+          </AspectRatio>
+          <p className="text-sm text-gray-500 mt-2 text-center">Age-based retirement savings milestones - multiples of annual salary by age</p>
+        </div>
+        
         <p className="mt-4">
           <strong>Example:</strong> If you're 40 years old earning $75,000 annually, your retirement savings target should be approximately $225,000 (3 × $75,000).
         </p>
@@ -60,6 +87,18 @@ const ContentSections: React.FC = () => {
 
       <section id="real-life-examples">
         <h2 className="text-2xl font-semibold mt-8 mb-4">Real-Life Retirement Savings Examples</h2>
+        
+        {/* Third visual - Compound growth visualization */}
+        <div className="my-6">
+          <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
+            <img 
+              src="https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+              alt="Compound growth chart showing how retirement savings grow exponentially over time when starting early vs. delaying contributions by 10 years" 
+              className="object-cover w-full h-full" 
+            />
+          </AspectRatio>
+          <p className="text-sm text-gray-500 mt-2 text-center">The power of compound growth in retirement savings - starting early vs. delaying contributions</p>
+        </div>
         
         <div className="bg-primary/10 rounded-lg p-5 mb-6">
           <h3 className="text-xl font-medium mb-2">Example 1: Early Career Saver (Age 25)</h3>
