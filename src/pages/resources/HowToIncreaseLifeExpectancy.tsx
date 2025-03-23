@@ -101,11 +101,11 @@ const HowToIncreaseLifeExpectancy = () => {
         {/* Main Content */}
         <h2 className="text-2xl font-semibold mt-8 mb-4" id="balanced-diet">1. Balanced Diet</h2>
         
-        {/* Added visual with descriptive alt text */}
+        {/* Updated visual with proper source and alt text */}
         <div className="my-6">
           <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
             <img 
-              src="/mediterranean-diet-pyramid.jpg" 
+              src="https://images.unsplash.com/photo-1488900128323-21503983a07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
               alt="Mediterranean Diet Pyramid showing recommended food groups with vegetables, fruits, whole grains, and olive oil at the base, fish and poultry in the middle, and red meat at the top - a dietary pattern linked to increased longevity" 
               className="object-cover w-full h-full" 
             />
@@ -122,11 +122,11 @@ const HowToIncreaseLifeExpectancy = () => {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4" id="physical-activity">2. Regular Physical Activity</h2>
         
-        {/* Added visual with descriptive alt text */}
+        {/* Updated visual with proper source and alt text */}
         <div className="my-6">
           <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
             <img 
-              src="/exercise-longevity-chart.jpg" 
+              src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
               alt="Chart showing correlation between weekly exercise minutes and mortality risk reduction, displaying a 30-35% decrease in mortality risk with 150 minutes of moderate activity per week" 
               className="object-cover w-full h-full" 
             />
@@ -143,11 +143,11 @@ const HowToIncreaseLifeExpectancy = () => {
 
         <h2 className="text-2xl font-semibold mt-8 mb-4" id="adequate-sleep">3. Adequate Sleep</h2>
         
-        {/* Added visual with descriptive alt text */}
+        {/* Updated visual with proper source and alt text */}
         <div className="my-6">
           <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
             <img 
-              src="/sleep-duration-mortality.jpg" 
+              src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
               alt="U-shaped curve graph showing optimal sleep duration of 7-8 hours for lowest mortality risk, with higher risks associated with both shorter and longer sleep durations" 
               className="object-cover w-full h-full" 
             />
