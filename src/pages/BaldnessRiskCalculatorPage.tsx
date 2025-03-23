@@ -5,6 +5,7 @@ import DisclaimerAlert from '@/components/DisclaimerAlert';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const BaldnessRiskCalculatorPage = () => {
   return (
@@ -117,6 +118,55 @@ const BaldnessRiskCalculatorPage = () => {
                 If you're experiencing sudden or unusual hair loss, consulting with a healthcare provider is recommended to rule out potential medical causes. This calculator is designed for educational purposes and should not replace professional medical advice or diagnosis.
               </p>
             </div>
+          </div>
+          
+          {/* FAQ Section */}
+          <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
+            <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions About Hair Loss</h2>
+            
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left">Is baldness always inherited from the mother's side?</AccordionTrigger>
+                <AccordionContent>
+                  <p>No, this is a common misconception. While the primary baldness gene is on the X chromosome (inherited from your mother), pattern baldness is actually polygenic, meaning multiple genes from both parents contribute to your risk. The maternal grandfather's hair pattern is an important indicator, but your father's genes also play a significant role. Our calculator considers family history from both sides.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left">At what age does male pattern baldness typically start?</AccordionTrigger>
+                <AccordionContent>
+                  <p>Male pattern baldness can begin as early as the late teens or early 20s for those with strong genetic predispositions. However, the most common onset is between ages 25-35. By age 50, approximately 50% of men have noticeable hair loss. Early signs include a receding hairline (particularly at the temples) and thinning at the crown. The earlier the onset, typically the more extensive the eventual hair loss.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-left">Can women experience pattern baldness too?</AccordionTrigger>
+                <AccordionContent>
+                  <p>Yes, female pattern hair loss (FPHL) affects approximately 40% of women by age 50. Unlike men, women typically experience diffuse thinning across the crown with preservation of the frontal hairline. Hormonal changes during menopause often accelerate this process. Women are less likely to go completely bald but may have significant thinning that affects hair volume and coverage. FPHL is influenced by both genetic and hormonal factors.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-left">What treatments actually work for preventing baldness?</AccordionTrigger>
+                <AccordionContent>
+                  <p>The most effective scientifically-proven treatments include: (1) Minoxidil (Rogaine) - a topical treatment that increases blood flow and extends the growth phase of hair follicles; (2) Finasteride (Propecia) - an oral medication for men that blocks DHT production; (3) Low-level laser therapy devices; (4) PRP (platelet-rich plasma) injections. For advanced hair loss, hair transplantation offers a permanent solution. Early intervention typically yields better results, which is why identifying risk early is valuable.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-left">Can stress cause permanent hair loss?</AccordionTrigger>
+                <AccordionContent>
+                  <p>Acute stress can cause temporary hair loss called telogen effluvium, where hair follicles prematurely enter the resting phase, resulting in increased shedding. This is usually reversible once the stress is managed. However, chronic stress may accelerate pattern baldness in genetically predisposed individuals by increasing inflammation, disrupting hormone balance, and potentially increasing sensitivity to DHT. Stress management is an important component of a comprehensive hair loss prevention strategy.</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-6">
+                <AccordionTrigger className="text-left">Does diet affect hair loss?</AccordionTrigger>
+                <AccordionContent>
+                  <p>Yes, nutrition plays an important role in hair health. Deficiencies in iron, zinc, vitamin D, B vitamins (especially biotin), and protein can contribute to hair thinning and loss. Crash dieting or severe caloric restriction can also trigger temporary hair shedding. While improving nutrition won't reverse genetic pattern baldness, a balanced diet rich in these nutrients supports optimal hair growth and may slow progression in combination with other treatments.</p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
           
           <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
