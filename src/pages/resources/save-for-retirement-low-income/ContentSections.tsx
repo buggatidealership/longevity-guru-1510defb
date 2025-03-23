@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -54,7 +53,7 @@ const ContentSections: React.FC = () => {
       <div className="my-6">
         <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
           <img 
-            src="/lovable-uploads/5efefb9d-7cc2-4090-895a-9055075dd367.png" 
+            src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
             alt="Infographic showing government retirement programs and employer plans including 401(k), IRA, Roth IRA and Saver's Credit with contribution limits and tax advantages for low-income savers" 
             className="object-cover w-full h-full" 
           />
@@ -161,4 +160,3 @@ const ContentSections: React.FC = () => {
 };
 
 export default ContentSections;
-
