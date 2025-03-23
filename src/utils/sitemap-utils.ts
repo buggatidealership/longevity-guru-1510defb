@@ -1,4 +1,3 @@
-
 /**
  * SEO Utilities for handling sitemap and robots.txt files
  * This file contains functions to help maintain SEO-related files
@@ -175,4 +174,31 @@ export const cleanSitemapContent = (sitemapContent: string): string => {
   }
   
   return cleanedContent;
+};
+
+/**
+ * Adds a validation step to ensure sitemap is properly formatted before saving
+ * @param sitemapFilePath The path to the sitemap file
+ * @returns A function that can be called to validate the sitemap
+ */
+export const validateSitemapFile = async (sitemapFilePath: string): Promise<boolean> => {
+  try {
+    // This is a placeholder for a file reading operation
+    // In a browser environment, this would use fetch or similar
+    // In a Node.js environment, this would use fs.readFile
+    const sitemapContent = await fetch(sitemapFilePath).then(response => response.text());
+    
+    const result = validateSitemap(sitemapContent);
+    
+    if (!result.isValid) {
+      console.error('Sitemap validation failed:', result.errors);
+      // In a real application, this might throw an error or trigger a build failure
+      return false;
+    }
+    
+    return true;
+  } catch (error) {
+    console.error('Error validating sitemap:', error);
+    return false;
+  }
 };
