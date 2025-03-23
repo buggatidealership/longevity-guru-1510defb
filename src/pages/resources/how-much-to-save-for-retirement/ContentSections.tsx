@@ -53,8 +53,8 @@ const ContentSections: React.FC = () => {
         <div className="my-6">
           <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
             <img 
-              src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-              alt="Retirement savings benchmarks chart showing recommended multiples of annual salary at different age milestones from 30 to 67 years old" 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+              alt="Retirement benchmarks chart showing financial milestones by age - person reviewing retirement planning document on computer" 
               className="object-cover w-full h-full" 
             />
           </AspectRatio>
