@@ -76,6 +76,10 @@ const SaveForRetirementLowIncome = () => {
           </Breadcrumb>
           
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
+            {/* Article Title */}
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Save for Retirement on a Low Income</h1>
+            <div className="h-1 w-20 bg-primary mb-6"></div>
+            
             <IntroSection />
             
             <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
