@@ -22,7 +22,7 @@ import NotFound from "./pages/NotFound";
 import HeadCustomization from "./components/HeadCustomization";
 // Import resource pages
 import ResourcesIndex from "./pages/resources";
-import HowToIncreaseLifeExpectancy from "./pages/resources/HowToIncreaseLifeExpectancy";
+import HowToIncreaseLifeExpectancy from "./pages/resources/how-to-increase-life-expectancy";
 
 const queryClient = new QueryClient();
 
