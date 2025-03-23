@@ -342,7 +342,7 @@ const AlcoholCalculatorPage = () => {
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
               
-              <Link to="/female-fertility-calculator" onClick={handleLickClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+              <Link to="/female-fertility-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
                 <h3 className="font-semibold text-sm mb-1">Female Fertility</h3>
                 <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
               </Link>
