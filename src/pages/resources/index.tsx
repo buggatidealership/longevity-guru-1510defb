@@ -108,19 +108,21 @@ const ResourcesIndex = () => {
                 </CardFooter>
               </Card>
               
-              {/* Placeholder for Nutrition & Longevity (Coming Soon) */}
-              <Card className="h-full flex flex-col bg-muted/50">
+              {/* Resource Card: Save for Retirement on a Low Income */}
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
                 <CardHeader>
-                  <CardTitle className="text-xl text-muted-foreground">Nutrition & Longevity</CardTitle>
-                  <CardDescription>Foods That Support Healthy Aging</CardDescription>
+                  <CardTitle className="text-xl">Save for Retirement on a Low Income</CardTitle>
+                  <CardDescription>Practical Strategies That Work</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">Explore the essential nutrients and dietary patterns linked to extended lifespan and reduced age-related diseases in scientific studies.</p>
-                  <p className="mt-2 text-muted-foreground">Coming soon: A comprehensive guide to optimizing your diet for cellular health, inflammation reduction, and metabolic balance.</p>
+                  <p className="text-muted-foreground">Learn how to build a retirement fund even on a tight budget. Discover government programs, tax credits, and saving techniques specifically designed for low-income earners.</p>
+                  <p className="mt-2 text-muted-foreground">Includes realistic savings targets by income level and actionable steps to secure your financial future regardless of your current income.</p>
                 </CardContent>
                 <CardFooter>
-                  <Button disabled variant="outline" className="w-full justify-between">
-                    Coming Soon <ArrowRight className="h-4 w-4" />
+                  <Button asChild variant="outline" className="w-full justify-between">
+                    <Link to="/resources/save-for-retirement-low-income">
+                      Read Article <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>
