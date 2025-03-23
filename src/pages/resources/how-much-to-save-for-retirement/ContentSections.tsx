@@ -49,16 +49,16 @@ const ContentSections: React.FC = () => {
           <li><strong>By age 67:</strong> 10× your annual salary</li>
         </ul>
         
-        {/* Second visual - Age-based savings benchmarks */}
+        {/* Updated image for Age-based savings benchmarks */}
         <div className="my-6">
           <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
             <img 
-              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-              alt="Retirement benchmarks chart showing financial milestones by age - person reviewing retirement planning document on computer" 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+              alt="Financial planning spreadsheet on laptop showing age-based retirement milestone calculations with salary multipliers - organized retirement planning with digital tools" 
               className="object-cover w-full h-full" 
             />
           </AspectRatio>
-          <p className="text-sm text-gray-500 mt-2 text-center">Age-based retirement savings milestones - multiples of annual salary by age</p>
+          <p className="text-sm text-gray-500 mt-2 text-center">Age-based retirement savings milestones mapped to annual salary multipliers</p>
         </div>
         
         <p className="mt-4">
