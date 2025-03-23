@@ -6,13 +6,13 @@ const IntroSection: React.FC = () => {
   return (
     <div className="space-y-4">
       <p className="text-lg">
-        Modern science has revealed numerous ways to potentially extend both healthspan and lifespan through lifestyle interventions and emerging technologies. Today's longevity research combines insights from multiple scientific disciplines to create a comprehensive picture of what contributes to a longer, healthier life.
+        At age 46, I've dedicated my life and resources to one central mission: maximizing human longevity through a precise, data-driven protocol. The science is clear—we can engineer our bodies to extend healthspan and lifespan far beyond conventional expectations. This isn't speculation; it's biology.
       </p>
       <p className="text-lg">
-        This article explores evidence-based approaches for improving longevity based on current scientific understanding. These strategies range from nutrition and exercise to sleep optimization and stress management. Before implementing significant lifestyle changes, establishing your baseline with our <Link to="/life-expectancy-calculator" className="text-primary hover:underline">life expectancy calculator</Link> can help track your progress over time.
+        What follows is my evidence-based framework for adding measurable years to your life. Every intervention I recommend is quantified, tested, and integrated into my personal Blueprint protocol, which has demonstrably reduced my biological age. Before implementing these strategies, I recommend establishing your baseline with our <Link to="/life-expectancy-calculator" className="text-primary hover:underline">life expectancy calculator</Link> to track your progress over time.
       </p>
       <p className="text-lg">
-        Optimizing your potential lifespan requires a multifaceted approach that considers various health factors. Let's explore what current science suggests about extending healthy lifespan.
+        Optimizing your lifespan isn't about minor tweaks—it's a comprehensive system requiring precision, measurement, and unwavering consistency. Let's begin the process of engineering your longevity.
       </p>
     </div>
   );
