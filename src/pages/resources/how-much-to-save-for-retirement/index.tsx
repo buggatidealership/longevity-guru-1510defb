@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -21,7 +20,7 @@ const HowMuchToSaveForRetirement = () => {
 
   // Generate article schema - Fixed by providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
-    "How Much to Save for Retirement: Real-Life Examples & Guide",
+    "How Much to Save for Retirement: Expert Guide & Calculator 2023",
     "https://longevitycalculator.xyz/longevity-calculator-og.png",
     "2023-06-21T08:00:00+00:00",
     "2023-11-15T10:30:00+00:00",
@@ -33,7 +32,7 @@ const HowMuchToSaveForRetirement = () => {
   return (
     <>
       <SEOHead 
-        title="How Much to Save for Retirement: Real-Life Examples & Guide"
+        title="How Much to Save for Retirement: Complete Financial Guide [2023]"
         description="Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples."
         canonicalUrl="/resources/how-much-to-save-for-retirement"
         keywords="retirement savings, retirement planning, 401k planning, retirement calculator, retirement income, retirement age"
@@ -54,7 +53,6 @@ const HowMuchToSaveForRetirement = () => {
         </header>
         
         <main className="max-w-4xl mx-auto px-4 py-6">
-          {/* Breadcrumb navigation */}
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -76,8 +74,7 @@ const HowMuchToSaveForRetirement = () => {
           </Breadcrumb>
           
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            {/* Article Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Much to Save for Retirement</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Much to Save for Retirement: Complete Financial Guide [2023]</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
             <IntroSection />

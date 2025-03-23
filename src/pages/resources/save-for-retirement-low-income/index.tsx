@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -21,7 +20,7 @@ const SaveForRetirementLowIncome = () => {
 
   // Generate article schema - Fixed by providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
-    "Save for Retirement on a Low Income: Practical Strategies That Work",
+    "How to Save for Retirement on a Low Income: 15 Proven Strategies",
     "https://longevitycalculator.xyz/longevity-calculator-og.png",
     "2023-07-12T08:00:00+00:00",
     "2023-11-20T10:30:00+00:00",
@@ -33,7 +32,7 @@ const SaveForRetirementLowIncome = () => {
   return (
     <>
       <SEOHead 
-        title="Save for Retirement on a Low Income: Practical Strategies That Work"
+        title="How to Save for Retirement on a Low Income: 15 Proven Strategies"
         description="Learn how to build a retirement fund even on a tight budget. Discover government programs, tax credits, and saving techniques specifically designed for low-income earners."
         canonicalUrl="/resources/save-for-retirement-low-income"
         keywords="retirement low income, save with limited income, budget retirement planning, retirement savings low wage, retirement strategies low salary"
@@ -54,7 +53,6 @@ const SaveForRetirementLowIncome = () => {
         </header>
         
         <main className="max-w-4xl mx-auto px-4 py-6">
-          {/* Breadcrumb navigation */}
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -76,8 +74,7 @@ const SaveForRetirementLowIncome = () => {
           </Breadcrumb>
           
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            {/* Article Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Save for Retirement on a Low Income</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Save for Retirement on a Low Income: 15 Proven Strategies</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
             <IntroSection />

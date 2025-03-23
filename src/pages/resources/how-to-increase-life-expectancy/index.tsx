@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -21,7 +20,7 @@ const HowToIncreaseLifeExpectancy = () => {
 
   // Generate article schema - Fixed by providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
-    "How to Increase Life Expectancy: 10 Proven Ways to Live Longer",
+    "How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]",
     "https://longevitycalculator.xyz/longevity-calculator-og.png",
     "2023-05-15T08:00:00+00:00",
     "2023-11-10T10:30:00+00:00",
@@ -33,7 +32,7 @@ const HowToIncreaseLifeExpectancy = () => {
   return (
     <>
       <SEOHead 
-        title="How to Increase Life Expectancy: 10 Proven Ways to Live Longer"
+        title="How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]"
         description="Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity."
         canonicalUrl="/resources/how-to-increase-life-expectancy"
         keywords="increase lifespan, live longer, longevity strategies, extend life, health optimization, life expectancy improvement"
@@ -54,7 +53,6 @@ const HowToIncreaseLifeExpectancy = () => {
         </header>
         
         <main className="max-w-4xl mx-auto px-4 py-6">
-          {/* Breadcrumb navigation */}
           <Breadcrumb className="mb-6">
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -76,8 +74,7 @@ const HowToIncreaseLifeExpectancy = () => {
           </Breadcrumb>
           
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            {/* Article Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Increase Life Expectancy</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
             <IntroSection />
