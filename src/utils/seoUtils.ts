@@ -132,3 +132,51 @@ export const generateFullSitemap = (urls: string[]): string => {
 ${entries.join('\n')}
 ${footer}`;
 };
+
+/**
+ * Validates sitemap XML structure
+ * @param sitemapContent The sitemap XML content as string
+ * @returns Validation result with errors if any
+ */
+export const validateSitemap = (sitemapContent: string) => {
+  // Basic structural validation
+  const hasXmlDeclaration = sitemapContent.includes('<?xml version="1.0" encoding="UTF-8"?>');
+  const hasUrlsetOpen = sitemapContent.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+  const hasUrlsetClose = sitemapContent.includes('</urlset>');
+  const hasUrls = sitemapContent.includes('<url>') && sitemapContent.includes('</url>');
+  
+  const errors = [];
+  
+  if (!hasXmlDeclaration) errors.push('Missing XML declaration');
+  if (!hasUrlsetOpen) errors.push('Missing urlset opening tag');
+  if (!hasUrlsetClose) errors.push('Missing urlset closing tag');
+  if (!hasUrls) errors.push('No URL entries found');
+  
+  // Check for balanced tags
+  const urlOpenCount = (sitemapContent.match(/<url>/g) || []).length;
+  const urlCloseCount = (sitemapContent.match(/<\/url>/g) || []).length;
+  
+  if (urlOpenCount !== urlCloseCount) {
+    errors.push(`Unbalanced URL tags: ${urlOpenCount} opening tags vs ${urlCloseCount} closing tags`);
+  }
+  
+  // Check for proper nesting
+  const locCount = (sitemapContent.match(/<loc>/g) || []).length;
+  const locCloseCount = (sitemapContent.match(/<\/loc>/g) || []).length;
+  
+  if (locCount !== locCloseCount) {
+    errors.push(`Unbalanced loc tags: ${locCount} opening tags vs ${locCloseCount} closing tags`);
+  }
+  
+  if (locCount !== urlOpenCount) {
+    errors.push(`Every URL entry should have exactly one loc tag, found ${locCount} loc tags for ${urlOpenCount} URL entries`);
+  }
+  
+  return {
+    isValid: errors.length === 0,
+    errors,
+    message: errors.length === 0 
+      ? 'Sitemap structure appears valid' 
+      : `Sitemap validation failed with ${errors.length} errors`
+  };
+};
