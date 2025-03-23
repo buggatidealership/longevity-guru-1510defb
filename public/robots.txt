@@ -12,6 +12,7 @@ Allow: /metabolism-calculator
 Allow: /breast-implant-size-calculator
 Allow: /botox-dosage-calculator
 Allow: /alcohol-impact-calculator
+Allow: /baldness-risk-calculator
 Allow: /privacy
 Allow: /terms
 
@@ -25,6 +26,7 @@ Allow: /metabolism
 Allow: /breastimplant
 Allow: /botox
 Allow: /alcohol
+Allow: /baldness
 
 # Allow access to logo files
 Allow: /logo.png

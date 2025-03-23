@@ -15,6 +15,7 @@ import MetabolismCalculatorPage from "./pages/MetabolismCalculatorPage";
 import BreastImplantCalculatorPage from "./pages/BreastImplantCalculatorPage";
 import BotoxCalculatorPage from "./pages/BotoxCalculatorPage";
 import AlcoholCalculatorPage from "./pages/AlcoholCalculatorPage";
+import BaldnessRiskCalculatorPage from "./pages/BaldnessRiskCalculatorPage";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/breast-implant-size-calculator" element={<BreastImplantCalculatorPage />} />
           <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
           <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />
+          <Route path="/baldness-risk-calculator" element={<BaldnessRiskCalculatorPage />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           
@@ -64,6 +66,7 @@ const App = () => (
           <Route path="/breastimplant" element={<BreastImplantCalculatorPage />} />
           <Route path="/botox" element={<BotoxCalculatorPage />} />
           <Route path="/alcohol" element={<AlcoholCalculatorPage />} />
+          <Route path="/baldness" element={<BaldnessRiskCalculatorPage />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

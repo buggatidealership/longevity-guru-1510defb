@@ -1,13 +1,14 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer } from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon } from 'lucide-react';
 
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
-  const calculatorCount = 9; // Current count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol
+  const calculatorCount = 10; // Current count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol, baldness
 
   return (
     <>
@@ -15,7 +16,7 @@ const Index = () => {
         title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
         description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
         canonicalUrl="https://longevitycalculator.xyz/"
-        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator"
+        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
@@ -175,7 +176,21 @@ const Index = () => {
                 </div>
               </Link>
               
-              {[...Array(3)].map((_, index) => (
+              <Link to="/baldness-risk-calculator" className="group">
+                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-slate-300 hover:shadow-md transition-all duration-200">
+                  <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center mb-3">
+                    <ScissorsIcon className="h-5 w-5 text-slate-500" />
+                  </div>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Baldness Risk</h3>
+                  <p className="text-xs text-gray-500 mb-2 flex-grow">Predict hair loss timeline and risk factors.</p>
+                  <span className="text-xs text-slate-500 flex items-center group-hover:underline">
+                    Calculate
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+              
+              {[...Array(2)].map((_, index) => (
                 <div key={index} className="border border-dashed rounded-lg p-4 h-full flex flex-col opacity-40">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-3">
                     <span className="text-gray-400 font-medium text-xs">Soon</span>
@@ -226,6 +241,7 @@ const Index = () => {
                   <li><Link to="/breast-implant-size-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
                   <li><Link to="/botox-dosage-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                   <li><Link to="/alcohol-impact-calculator" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
+                  <li><Link to="/baldness-risk-calculator" className="text-sm text-gray-600 hover:text-primary">Baldness Risk Calculator</Link></li>
                 </ul>
               </div>
               
