@@ -18,10 +18,45 @@ export const checkCookiebotInitialization = (): boolean => {
       statistics: window.Cookiebot.consent.statistics,
       marketing: window.Cookiebot.consent.marketing
     });
+    
+    // Verify Google Analytics connection
+    verifyGoogleAnalytics();
+    
     return true;
   } else {
     console.warn('Cookiebot is not initialized. Make sure the script is loaded correctly.');
     return false;
+  }
+};
+
+/**
+ * Verify if Google Analytics is properly configured
+ */
+export const verifyGoogleAnalytics = (): void => {
+  if (typeof window === 'undefined') return;
+  
+  if (typeof window.gtag === 'function') {
+    console.info('Google Analytics tag function exists');
+    
+    // Use the helper function if it exists
+    if (typeof window.verifyGA4 === 'function') {
+      window.verifyGA4();
+    } else {
+      // Fallback verification
+      try {
+        window.gtag('get', 'G-7FHX7T4MP9', 'client_id', (clientId: string) => {
+          if (clientId) {
+            console.info('✅ GA4 Client ID:', clientId);
+          } else {
+            console.warn('❌ GA4 client_id not found, tag may not be working properly');
+          }
+        });
+      } catch (error) {
+        console.error('Error verifying GA4:', error);
+      }
+    }
+  } else {
+    console.warn('Google Analytics gtag function not found');
   }
 };
 
@@ -136,3 +171,11 @@ export const applyCookiebotStyling = (): void => {
   // Also try to apply styles on initialization
   setTimeout(applyStyles, 1000);
 };
+
+// Handle declaration for window.gtag and window.verifyGA4
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    verifyGA4?: () => void;
+  }
+}

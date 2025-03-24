@@ -24,23 +24,80 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- ✅ STEP 1: Add Google Consent Mode BEFORE gtag.js loads -->
+    <!-- Google Consent Mode v2 Setup - BEFORE Google Analytics loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
+      
+      // Initialize consent mode with all consent types denied by default
       gtag('consent', 'default', {
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied'
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted' // Always grant security storage
+      });
+
+      // Function to update Google consent when Cookiebot consent changes
+      window.addEventListener('CookiebotOnAccept', function () {
+        if (window.Cookiebot) {
+          gtag('consent', 'update', {
+            'ad_storage': window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+            'analytics_storage': window.Cookiebot.consent.statistics ? 'granted' : 'denied',
+            'ad_user_data': window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+            'ad_personalization': window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+            'functionality_storage': window.Cookiebot.consent.preferences ? 'granted' : 'denied',
+            'personalization_storage': window.Cookiebot.consent.preferences ? 'granted' : 'denied'
+          });
+          console.log('Google consent updated based on Cookiebot preferences');
+        }
+      });
+
+      // Also update on Cookiebot changes
+      window.addEventListener('CookiebotOnDecline', function () {
+        if (window.Cookiebot) {
+          gtag('consent', 'update', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'functionality_storage': 'denied',
+            'personalization_storage': 'denied'
+          });
+          console.log('Google consent updated - all denied based on Cookiebot decline');
+        }
       });
     </script>
 
-    <!-- ✅ STEP 2: Load Google Analytics 4 AFTER Consent Mode is set -->
+    <!-- Google Analytics 4 - Load AFTER Consent Mode setup but still in head -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FHX7T4MP9"></script>
     <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
-      gtag('config', 'G-7FHX7T4MP9');
+      gtag('config', 'G-7FHX7T4MP9', {
+        'cookie_flags': 'samesite=none;secure',
+        'send_page_view': true
+      });
+      
+      // Helper function to verify GA4 is working - can be called from console
+      window.verifyGA4 = function() {
+        gtag('get', 'G-7FHX7T4MP9', 'client_id', function(client_id) {
+          console.log('GA4 Client ID:', client_id);
+          if (client_id) {
+            console.log('✅ GA4 is correctly configured and working');
+          } else {
+            console.log('❌ GA4 might not be correctly configured');
+          }
+        });
+      };
+      
+      // Auto-verify after a short delay to allow GA to initialize
+      setTimeout(function() {
+        window.verifyGA4();
+      }, 2000);
     </script>
 
     <!-- Google AdSense -->
