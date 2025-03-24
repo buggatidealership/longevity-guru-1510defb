@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AdUnit } from '@/components/AdUnit';
 import ResourceCard from './ResourceCard';
@@ -16,7 +15,7 @@ const ResourcesContent: React.FC = () => {
     },
     {
       title: "How Tall Will I Be?",
-      description: "A Science-Backed Guide to Predicting Adult Height",
+      description: "Predict Your Adult Height with Science-Based Tools",
       content: [
         "Learn what determines your adult height, from genetics to growth factors, and discover science-backed methods to predict your final height.",
         "Understand growth spurts, development milestones, and get evidence-based answers about maximizing your natural height potential."
