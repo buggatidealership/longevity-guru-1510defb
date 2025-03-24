@@ -103,8 +103,8 @@ const ContentSections: React.FC = () => {
           For a more complete health picture, consider tracking these alongside your BMI:
         </p>
         <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li><strong>Waist circumference:</strong> Men >40 inches (102cm) and women >35 inches (88cm) indicate increased health risks</li>
-          <li><strong>Waist-to-hip ratio:</strong> Values >0.9 for men and >0.85 for women suggest excess abdominal fat</li>
+          <li><strong>Waist circumference:</strong> Men {'>'}40 inches (102cm) and women {'>'}35 inches (88cm) indicate increased health risks</li>
+          <li><strong>Waist-to-hip ratio:</strong> Values {'>'}0.9 for men and {'>'}0.85 for women suggest excess abdominal fat</li>
           <li><strong>Body fat percentage:</strong> Provides direct measurement of fat versus lean mass</li>
           <li><strong>Blood pressure, cholesterol, and blood sugar levels:</strong> Key indicators of metabolic health</li>
         </ul>
