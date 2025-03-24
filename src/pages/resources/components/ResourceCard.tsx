@@ -15,17 +15,29 @@ interface ResourceCardProps {
 }
 
 const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content, link, imageUrl, date }) => {
+  // Default fallback image if none is provided or if the provided one fails to load
+  const fallbackImage = "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=600&q=80";
+  
+  const [imgSrc, setImgSrc] = React.useState(imageUrl || fallbackImage);
+  
+  // Handle image load error by using the fallback
+  const handleImageError = () => {
+    setImgSrc(fallbackImage);
+  };
+
   return (
     <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
-      {imageUrl && (
-        <div className="relative w-full pt-[56.25%] overflow-hidden rounded-t-lg">
-          <img 
-            src={imageUrl} 
-            alt={title} 
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
-        </div>
-      )}
+      <div className="relative w-full pt-[56.25%] overflow-hidden rounded-t-lg">
+        <img 
+          src={imgSrc} 
+          alt={`Preview for ${title} article`} 
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          onError={handleImageError}
+          loading="lazy"
+          width={600}
+          height={338}
+        />
+      </div>
       <CardHeader>
         <CardTitle className="text-xl">{title}</CardTitle>
         <CardDescription>{description}</CardDescription>

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ResourceCard from './ResourceCard';
 
 const ResourcesContent: React.FC = () => {
