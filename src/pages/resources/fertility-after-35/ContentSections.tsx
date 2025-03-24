@@ -17,12 +17,12 @@ const ContentSections: React.FC = () => {
         
         <div className="my-8 relative rounded-xl overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1533622597524-a1215e26c0a2?auto=format&fit=crop&q=80&w=1000&h=600" 
-            alt="A woman preparing a healthy fruit bowl with fresh berries" 
+            src="https://images.unsplash.com/photo-1576089073624-b5261bdfc82d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&h=600&q=80" 
+            alt="Woman in her late 30s reviewing fertility planning options with a doctor" 
             className="w-full object-cover rounded-xl"
           />
           <p className="mt-2 text-sm text-gray-500 italic text-center">
-            Nutrient-rich foods, regular exercise, and other positive lifestyle habits can support fertility and improve your chances of conceiving after 35.
+            Fertility awareness becomes increasingly important after 35 — tracking and professional support can help you navigate your options.
           </p>
         </div>
         
