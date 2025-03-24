@@ -17,7 +17,7 @@ const ContentSections: React.FC = () => {
         
         <div className="my-8 relative rounded-xl overflow-hidden">
           <img 
-            src="/lovable-uploads/7def3334-fd0a-44ba-b913-d5f2f3a81863.png" 
+            src="https://images.unsplash.com/photo-1533622597524-a1215e26c0a2?auto=format&fit=crop&q=80&w=1000&h=600" 
             alt="A women's health doctor counseling a patient about fertility options" 
             className="w-full h-auto object-cover rounded-xl"
           />
