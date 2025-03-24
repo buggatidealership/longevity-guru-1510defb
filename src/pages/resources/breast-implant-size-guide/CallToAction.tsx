@@ -10,7 +10,7 @@ const CallToAction: React.FC = () => {
       <p className="mb-4 max-w-2xl mx-auto">
         Use our research-based calculator to get personalized implant size recommendations based on your unique measurements and goals. It's the perfect starting point before consulting with a surgeon.
       </p>
-      <Link to="/breast-implant-size-calculator">
+      <Link to="/breast-implant-calculator">
         <Button className="bg-primary hover:bg-primary/90">
           Try Our Free Breast Implant Calculator
         </Button>

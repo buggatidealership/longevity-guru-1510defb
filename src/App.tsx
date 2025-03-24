@@ -5,7 +5,7 @@ import './App.css';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from './components/ui/sonner';
 
-// Pages
+// Pages 
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import LongevityCalculatorPage from './pages/LongevityCalculatorPage';
@@ -66,9 +66,12 @@ function App() {
         <Route path="/growth-percentile-calculator" element={<GrowthPercentilePage />} />
         <Route path="/child-growth-percentile-calculator" element={<GrowthPercentilePage />} />
         <Route path="/breast-implant-calculator" element={<BreastImplantCalculatorPage />} />
+        <Route path="/breast-implant-size-calculator" element={<BreastImplantCalculatorPage />} />
         <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />
         <Route path="/alcohol-lifespan-calculator" element={<AlcoholCalculatorPage />} />
+        <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />
         <Route path="/botox-calculator" element={<BotoxCalculatorPage />} />
+        <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />

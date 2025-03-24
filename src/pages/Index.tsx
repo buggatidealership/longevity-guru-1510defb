@@ -156,7 +156,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/breast-implant-size-calculator" className="group">
+              <Link to="/breast-implant-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-pink-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-pink-50 rounded-full flex items-center justify-center mb-3">
                     <Scissors className="h-5 w-5 text-pink-500" />
@@ -246,7 +246,7 @@ const Index = () => {
                   <li><Link to="/growth-percentile-calculator" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
                   <li><Link to="/adult-height-predictor-calculator" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
                   <li><Link to="/metabolism-calculator" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
-                  <li><Link to="/breast-implant-size-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
+                  <li><Link to="/breast-implant-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
                   <li><Link to="/botox-dosage-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                   <li><Link to="/alcohol-impact-calculator" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
                   <li><Link to="/baldness-risk-calculator" className="text-sm text-gray-600 hover:text-primary">Baldness Risk Calculator</Link></li>
