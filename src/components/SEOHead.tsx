@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -66,20 +67,6 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     }
   };
 
-  // Default breadcrumb structured data
-  const defaultBreadcrumbStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://longevitycalculator.xyz/"
-      }
-    ]
-  };
-
   // Combine default schemas with custom schemas
   const allSchemas = [
     organizationStructuredData, 
@@ -124,8 +111,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Add a specific directive to disallow the incorrect domain */}
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
       
-      {/* Sitemap reference */}
+      {/* Sitemap reference - added explicitly in meta tags in addition to link element */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
       
       {/* Structured data */}
       {allSchemas.map((schema, index) => (

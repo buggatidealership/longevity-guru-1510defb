@@ -135,6 +135,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/resources/will-i-go-bald</loc>
+    <lastmod>2024-11-10T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/resources/botox-dosage-guide</loc>
+    <lastmod>2024-11-15T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/resources/alcohol-and-longevity</loc>
+    <lastmod>2024-11-20T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <url>
     <loc>https://longevitycalculator.xyz/privacy</loc>

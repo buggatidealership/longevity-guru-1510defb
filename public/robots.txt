@@ -21,20 +21,14 @@ Allow: /resources/save-for-retirement-low-income
 Allow: /resources/how-to-boost-your-metabolism
 Allow: /resources/fertility-after-35
 Allow: /resources/how-to-use-your-bmi
+Allow: /resources/will-i-go-bald
+Allow: /resources/adult-height-prediction-guide
+Allow: /resources/breast-implant-size-guide
+Allow: /resources/botox-dosage-guide
+Allow: /resources/alcohol-and-longevity
+Allow: /resources/how-to-predict-your-childs-adult-height
 Allow: /privacy
 Allow: /terms
-
-# Legacy URLs (maintained for backward compatibility)
-Allow: /lifespan
-Allow: /retirementsavings
-Allow: /fertility
-Allow: /growth
-Allow: /adultheight
-Allow: /metabolism
-Allow: /breastimplant
-Allow: /botox
-Allow: /alcohol
-Allow: /baldness
 
 # Allow access to logo files
 Allow: /logo.png
@@ -42,6 +36,7 @@ Allow: /favicon.ico
 Allow: /favicon-16x16.png
 Allow: /favicon-32x32.png
 Allow: /apple-touch-icon.png
+Allow: /sitemap.xml
 
 # Sitemaps
 Sitemap: https://longevitycalculator.xyz/sitemap.xml

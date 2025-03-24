@@ -26,6 +26,9 @@ export const cleanSitemapContent = (sitemapContent: string): string => {
     }
   }
   
+  // Remove any potential Byte Order Mark (BOM)
+  cleanedContent = cleanedContent.replace(/^\uFEFF/, '');
+  
   return cleanedContent;
 };
 
