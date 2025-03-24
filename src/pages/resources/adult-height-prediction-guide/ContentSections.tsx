@@ -43,18 +43,6 @@ const ContentSections: React.FC = () => {
         A child whose bone age is ahead of their chronological age may finish growing earlier, while those with delayed bone development might continue growing for longer. This crucial distinction helps doctors identify potential growth disorders and make more accurate height predictions.
       </p>
 
-      {/* Image with proper source and alt text */}
-      <div className="my-6">
-        <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
-          <img 
-            src="https://images.unsplash.com/photo-1618355776464-8740593ee6c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-            alt="Doctor measuring a child's height during a growth assessment, using a wall-mounted stadiometer for accurate measurement" 
-            className="object-cover w-full h-full" 
-          />
-        </AspectRatio>
-        <p className="text-sm text-gray-500 mt-2 text-center">Regular height measurements by healthcare providers help track growth patterns and identify potential concerns</p>
-      </div>
-
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="factors-that-influence-height">Factors That Influence Height</h2>
       <p className="mb-4">
         While genetics sets the range of your potential height, several key factors determine whether you'll reach the upper or lower end of that range.
@@ -122,18 +110,6 @@ const ContentSections: React.FC = () => {
         <li><strong>Middle Childhood (4-puberty):</strong> Steady growth of approximately 2-2.5 inches per year</li>
         <li><strong>Puberty:</strong> The second major growth spurt, with peak velocity typically adding 3-4 inches per year during peak growth</li>
       </ul>
-
-      {/* Centered image with caption under Growth Spurts section */}
-      <div className="my-6">
-        <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
-          <img 
-            src="https://images.unsplash.com/photo-1601268743287-ce0bf4e2ae5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-            alt="Family height comparison showing genetic inheritance patterns with parents and children of different heights standing side by side" 
-            className="object-cover w-full h-full" 
-          />
-        </AspectRatio>
-        <p className="text-sm text-gray-500 mt-2 text-center">Height differences in families reflect the complex interplay of multiple genetic and environmental factors</p>
-      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Boys vs. Girls: Different Timing</h3>
       <p className="mb-4">
