@@ -16,7 +16,7 @@ const FertilityChangesSection: React.FC = () => {
       
       <div className="my-8 relative rounded-xl overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1612551984821-84b94c57c1a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&h=600&q=80" 
+          src="https://images.unsplash.com/photo-1612551984821-84b94c57c1a3?auto=format&fit=crop&w=1200&q=80" 
           alt="Woman in her late 30s reviewing fertility planning options with a doctor" 
           className="w-full object-cover rounded-xl"
         />
