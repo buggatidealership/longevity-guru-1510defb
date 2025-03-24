@@ -43,7 +43,29 @@ const AdultHeightPredictionGuide = () => {
     }
   ]);
 
-  const schemas = [breadcrumbSchema, articleSchema, faqSchema];
+  // Add BlogPosting schema
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How Tall Will I Be? A Science-Backed Guide to Predicting Your Adult Height",
+    "description": "Wondering how tall you'll be as an adult? Learn how genetics, nutrition, and growth patterns shape your final height—and use our calculator to estimate it.",
+    "author": {
+      "@type": "Organization",
+      "name": "Longevity Guru"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Longevity Calculator",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://longevitycalculator.xyz/logo.png"
+      }
+    },
+    "url": "https://longevitycalculator.xyz/resources/adult-height-prediction",
+    "datePublished": "2025-03-24"
+  };
+
+  const schemas = [breadcrumbSchema, articleSchema, faqSchema, blogPostingSchema];
 
   return (
     <>
@@ -62,6 +84,17 @@ const AdultHeightPredictionGuide = () => {
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Tall Will I Be? A Science-Backed Guide to Predicting Your Adult Height</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
+            
+            <div className="my-6">
+              <img 
+                src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80" 
+                alt="Teen measuring height against a wall" 
+                className="w-full rounded-xl shadow-md"
+              />
+              <p className="text-sm text-gray-500 italic mt-2 text-center">
+                Growth patterns and genetics work together to determine your adult height.
+              </p>
+            </div>
             
             <IntroSection />
             
