@@ -1,7 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const FertilityChangesSection: React.FC = () => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">How Fertility Changes After 35</h2>
@@ -15,11 +17,19 @@ const FertilityChangesSection: React.FC = () => {
       </p>
       
       <div className="my-8 relative rounded-xl overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1612551984821-84b94c57c1a3?auto=format&fit=crop&w=1200&q=80" 
-          alt="Woman in her late 30s reviewing fertility planning options with a doctor" 
-          className="w-full object-cover rounded-xl"
-        />
+        {imageError ? (
+          <div className="bg-gray-100 p-6 rounded-xl text-center">
+            <p className="text-gray-500">Image unavailable</p>
+          </div>
+        ) : (
+          <img 
+            src="https://images.unsplash.com/photo-1612551984821-84b94c57c1a3?auto=format&fit=crop&w=1200&q=80" 
+            alt="Woman in her late 30s reviewing fertility planning options with a doctor" 
+            className="w-full object-cover rounded-xl"
+            onError={() => setImageError(true)}
+            loading="lazy"
+          />
+        )}
         <p className="mt-2 text-sm text-gray-500 italic text-center">
           Fertility awareness becomes increasingly important after 35 — tracking and professional support can help you navigate your options.
         </p>
