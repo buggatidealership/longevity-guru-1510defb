@@ -40,6 +40,14 @@ const AdultHeightPredictionGuide = () => {
     {
       question: "Why do some siblings have big height differences?",
       answer: "Siblings can have significant height differences because height is influenced by multiple genes, not just a single gene from each parent. Each sibling inherits a different combination of these genes. Additionally, non-genetic factors like nutrition, physical activity, sleep quality, and hormone levels during growth years can contribute to height differences between siblings raised in the same household."
+    },
+    {
+      question: "Can I still grow taller after 18?",
+      answer: "Most people stop growing around 18-21, but some late bloomers may see changes into their early 20s. For males, growth typically continues until 18-21, while females usually complete growth earlier, around 15-17. Growth plates in bones typically close by early adulthood, making further height increases unlikely."
+    },
+    {
+      question: "Do supplements help increase height?",
+      answer: "No proven supplement increases adult height once growth plates are closed. While proper nutrition is essential during childhood and adolescence, specialized 'height-increasing supplements' lack scientific evidence. Once growth plates close in late adolescence, no supplement can increase height."
     }
   ]);
 
@@ -89,7 +97,7 @@ const AdultHeightPredictionGuide = () => {
               <img 
                 src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1200&q=80" 
                 alt="Teen measuring height against a wall" 
-                className="w-full rounded-xl shadow-md"
+                className="w-full rounded-xl shadow-md object-cover"
               />
               <p className="text-sm text-gray-500 italic mt-2 text-center">
                 Growth patterns and genetics work together to determine your adult height.

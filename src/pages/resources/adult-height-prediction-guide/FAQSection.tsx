@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 const FAQSection: React.FC = () => {
   return (
@@ -30,6 +31,24 @@ const FAQSection: React.FC = () => {
             <h3 className="text-xl font-medium mb-2">Why do some siblings have big height differences?</h3>
             <p>
               Siblings can have significant height differences because height is influenced by hundreds of genes, not just a single gene from each parent. While siblings share approximately 50% of their genetic material, each child inherits a different combination of height-related genes. Additionally, epigenetic factors (which affect how genes are expressed) can differ between siblings. Environmental influences during growth years also contribute to height differences—factors like nutrition, physical activity, sleep quality, stress levels, and illness can affect how completely each child reaches their genetic height potential. Even identical twins, who share the same DNA, can have slight height differences (usually less than 1 inch) due to these environmental factors.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="pt-6">
+            <h3 className="text-xl font-medium mb-2">Can I still grow taller after 18?</h3>
+            <p>
+              Most people stop growing around 18-21, but some late bloomers may see changes into their early 20s. For males, growth typically continues until 18-21 years of age, while females usually complete their growth earlier, around 15-17 years. However, individual variations exist based on genetics, nutrition, and when puberty started. Growth plates (epiphyseal plates) in bones typically close by early adulthood, making further height increases unlikely. A medical professional can determine if your growth plates are still open through X-ray imaging.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="pt-6">
+            <h3 className="text-xl font-medium mb-2">Do supplements help increase height?</h3>
+            <p>
+              No proven supplement increases adult height once your growth plates are closed. While proper nutrition is essential during childhood and adolescence, with adequate protein, calcium, vitamin D, and other nutrients supporting optimal growth, specialized "height-increasing supplements" lack scientific evidence. For children still growing, addressing any nutritional deficiencies through a balanced diet or physician-recommended supplements may help them reach their full genetic height potential. However, once growth plates close in late adolescence, no supplement can increase height. Be wary of products claiming to increase adult height, as these claims are not supported by scientific research.
             </p>
           </CardContent>
         </Card>
