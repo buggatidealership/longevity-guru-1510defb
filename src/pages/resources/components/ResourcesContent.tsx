@@ -104,6 +104,15 @@ const ResourcesContent = () => {
           imageUrl="https://images.unsplash.com/photo-1621798986237-93d793afafc2?auto=format&fit=crop&w=600&q=80"
           date="November 15, 2023"
         />
+        
+        <ResourceCard 
+          title="Alcohol and Longevity"
+          description="Learn how alcohol consumption affects your lifespan and health outcomes."
+          link="/resources/alcohol-and-longevity"
+          content={["Learn how alcohol consumption affects your lifespan and health outcomes."]}
+          imageUrl="https://images.unsplash.com/photo-1605270012917-bf157c5a9541?auto=format&fit=crop&w=600&q=80"
+          date="January 10, 2024"
+        />
       </div>
       
       <div className="mb-10 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
@@ -141,6 +150,11 @@ const ResourcesContent = () => {
           <Link to="/botox-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
             <h3 className="font-medium text-gray-900 mb-1">Botox Dosage Calculator</h3>
             <p className="text-sm text-gray-600">Estimate how many units of botox you might need for various treatment areas.</p>
+          </Link>
+          
+          <Link to="/alcohol-lifespan-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
+            <h3 className="font-medium text-gray-900 mb-1">Alcohol Impact Calculator</h3>
+            <p className="text-sm text-gray-600">Calculate how alcohol consumption affects your life expectancy.</p>
           </Link>
         </div>
       </div>
