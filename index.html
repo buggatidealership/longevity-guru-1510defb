@@ -16,13 +16,22 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FHX7T4MP9"></script>
+    <!-- ✅ STEP 1: Add Google Consent Mode BEFORE gtag.js loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    </script>
 
+    <!-- ✅ STEP 2: Load Google Analytics 4 AFTER Consent Mode is set -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FHX7T4MP9"></script>
+    <script>
+      gtag('js', new Date());
       gtag('config', 'G-7FHX7T4MP9');
     </script>
 
