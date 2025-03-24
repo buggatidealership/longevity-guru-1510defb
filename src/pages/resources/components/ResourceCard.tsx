@@ -10,14 +10,26 @@ interface ResourceCardProps {
   description: string;
   content: string[];
   link: string;
+  imageUrl?: string;
+  date?: string;
 }
 
-const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content, link }) => {
+const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content, link, imageUrl, date }) => {
   return (
     <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
+      {imageUrl && (
+        <div className="relative w-full pt-[56.25%] overflow-hidden rounded-t-lg">
+          <img 
+            src={imageUrl} 
+            alt={title} 
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </div>
+      )}
       <CardHeader>
         <CardTitle className="text-xl">{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
+        {date && <p className="text-xs text-muted-foreground mt-1">{date}</p>}
       </CardHeader>
       <CardContent className="flex-grow">
         {content.map((paragraph, index) => (
