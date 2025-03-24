@@ -7,7 +7,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
+import { generateBreadcrumbSchema, generateArticleSchema, generateFAQSchema } from '@/utils/schema-utils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -19,24 +19,40 @@ const HowToUseYourBMI = () => {
     { name: 'How to Use Your BMI', path: '/resources/how-to-use-your-bmi' }
   ]);
 
-  // Generate article schema - providing separate arguments instead of an object
+  // Generate article schema
   const articleSchema = generateArticleSchema(
-    "How to Understand and Use Your BMI Score Effectively",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "How to Use Your BMI Score Effectively | Free BMI Calculator",
+    "Understand how to interpret your BMI, what your score means, and how it can help with your health goals.",
+    "/resources/how-to-use-your-bmi",
     "2024-05-15T08:00:00+00:00",
-    "2024-05-15T10:30:00+00:00",
-    "Learn what BMI really means, its limitations, and how to properly interpret your score. Discover when BMI is useful and when other measurements might be better."
+    "2024-05-15T10:30:00+00:00"
   );
+  
+  // Generate FAQ schema
+  const faqSchema = generateFAQSchema([
+    {
+      question: "What is a healthy BMI?",
+      answer: "According to standard guidelines, a BMI between 18.5 and 24.9 is considered normal or healthy for most adults. However, what's truly healthy can vary based on individual factors including ethnic background and muscle mass."
+    },
+    {
+      question: "Why doesn't BMI work for athletes or bodybuilders?",
+      answer: "BMI doesn't distinguish between muscle and fat. Muscle tissue is denser and heavier than fat tissue, so athletic or muscular individuals often have higher BMIs despite having healthy body fat percentages."
+    },
+    {
+      question: "Are there better alternatives to BMI?",
+      answer: "Several measurements can provide more comprehensive health insights than BMI alone, including waist circumference, waist-to-hip ratio, body fat percentage, DEXA scans, and bioelectrical impedance analysis."
+    }
+  ]);
 
-  const schemas = [breadcrumbSchema, articleSchema];
+  const schemas = [breadcrumbSchema, articleSchema, faqSchema];
 
   return (
     <>
       <SEOHead 
-        title="How to Understand and Use Your BMI Score Effectively | Complete Guide"
-        description="Learn what BMI really means, its limitations, and how to properly interpret your score. Discover when BMI is useful and when other measurements might be better."
+        title="How to Use Your BMI Score Effectively | Free BMI Calculator"
+        description="Understand how to interpret your BMI, what your score means, and how it can help with your health goals."
         canonicalUrl="/resources/how-to-use-your-bmi"
-        keywords="BMI, body mass index, BMI calculator, BMI limitations, healthy weight, BMI categories, BMI accuracy"
+        keywords="BMI, body mass index, BMI calculator, BMI limitations, healthy weight, BMI categories, BMI accuracy, interpret BMI"
         schemas={schemas}
       />
       
@@ -75,7 +91,7 @@ const HowToUseYourBMI = () => {
           </Breadcrumb>
           
           <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Understand and Use Your BMI Score Effectively</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Use Your BMI Score Effectively</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
             <IntroSection />
