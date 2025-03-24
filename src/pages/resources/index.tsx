@@ -89,6 +89,25 @@ const ResourcesIndex = () => {
                 </CardFooter>
               </Card>
             
+              {/* Resource Card: Adult Height Prediction Guide */}
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
+                <CardHeader>
+                  <CardTitle className="text-xl">How Tall Will I Be?</CardTitle>
+                  <CardDescription>A Science-Backed Guide to Predicting Adult Height</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">Learn what determines your adult height, from genetics to growth factors, and discover science-backed methods to predict your final height.</p>
+                  <p className="mt-2 text-muted-foreground">Understand growth spurts, development milestones, and get evidence-based answers about maximizing your natural height potential.</p>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full justify-between">
+                    <Link to="/resources/adult-height-prediction-guide">
+                      Read Article <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            
               {/* Resource Card: Fertility After 35 */}
               <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
                 <CardHeader>
@@ -107,7 +126,7 @@ const ResourcesIndex = () => {
                   </Button>
                 </CardFooter>
               </Card>
-            
+              
               {/* Resource Card: How to Increase Life Expectancy */}
               <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
                 <CardHeader>
