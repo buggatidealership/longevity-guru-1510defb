@@ -38,16 +38,16 @@ const ContentSections: React.FC = () => {
         <p>
           One practical approach is to establish retirement savings targets based on your age and income. Financial advisors typically recommend these savings milestones relative to your annual salary:
         </p>
-        <ul className="list-disc pl-6 mt-4 space-y-2">
-          <li><strong>By age 30:</strong> 1× your annual salary</li>
-          <li><strong>By age 35:</strong> 2× your annual salary</li>
-          <li><strong>By age 40:</strong> 3× your annual salary</li>
-          <li><strong>By age 45:</strong> 4× your annual salary</li>
-          <li><strong>By age 50:</strong> 6× your annual salary</li>
-          <li><strong>By age 55:</strong> 7× your annual salary</li>
-          <li><strong>By age 60:</strong> 8× your annual salary</li>
-          <li><strong>By age 67:</strong> 10× your annual salary</li>
-        </ul>
+        <div className="space-y-2 pl-6 mt-4">
+          <p><strong>By age 30:</strong> 1× your annual salary</p>
+          <p><strong>By age 35:</strong> 2× your annual salary</p>
+          <p><strong>By age 40:</strong> 3× your annual salary</p>
+          <p><strong>By age 45:</strong> 4× your annual salary</p>
+          <p><strong>By age 50:</strong> 6× your annual salary</p>
+          <p><strong>By age 55:</strong> 7× your annual salary</p>
+          <p><strong>By age 60:</strong> 8× your annual salary</p>
+          <p><strong>By age 67:</strong> 10× your annual salary</p>
+        </div>
         
         {/* Updated image for Age-based savings benchmarks */}
         <div className="my-6">
@@ -76,12 +76,12 @@ const ContentSections: React.FC = () => {
         </p>
         <div className="bg-muted/50 p-4 rounded-lg mt-4">
           <p className="font-medium">Note: Adjust your savings rate based on your starting age:</p>
-          <ul className="list-disc pl-6 mt-2 space-y-1">
-            <li>If starting at age 25: 15% of annual income</li>
-            <li>If starting at age 35: 18% of annual income</li>
-            <li>If starting at age 45: 23% of annual income</li>
-            <li>If starting at age 55: 30%+ of annual income</li>
-          </ul>
+          <div className="pl-6 mt-2 space-y-1">
+            <p>If starting at age 25: 15% of annual income</p>
+            <p>If starting at age 35: 18% of annual income</p>
+            <p>If starting at age 45: 23% of annual income</p>
+            <p>If starting at age 55: 30%+ of annual income</p>
+          </div>
         </div>
       </section>
 
@@ -102,41 +102,41 @@ const ContentSections: React.FC = () => {
         
         <div className="bg-primary/10 rounded-lg p-5 mb-6">
           <h3 className="text-xl font-medium mb-2">Example 1: Early Career Saver (Age 25)</h3>
-          <ul className="space-y-1">
-            <li><strong>Income:</strong> $50,000/year</li>
-            <li><strong>Recommended savings rate:</strong> 15% ($7,500/year)</li>
-            <li><strong>Employer match:</strong> 4% ($2,000/year)</li>
-            <li><strong>Personal contribution needed:</strong> 11% ($5,500/year)</li>
-            <li><strong>Projected retirement savings at age 67:</strong> ~$1.6 million (assuming 7% average annual returns)</li>
-            <li><strong>Monthly retirement income using 4% rule:</strong> ~$5,300</li>
-          </ul>
+          <div className="space-y-1">
+            <p><strong>Income:</strong> $50,000/year</p>
+            <p><strong>Recommended savings rate:</strong> 15% ($7,500/year)</p>
+            <p><strong>Employer match:</strong> 4% ($2,000/year)</p>
+            <p><strong>Personal contribution needed:</strong> 11% ($5,500/year)</p>
+            <p><strong>Projected retirement savings at age 67:</strong> ~$1.6 million (assuming 7% average annual returns)</p>
+            <p><strong>Monthly retirement income using 4% rule:</strong> ~$5,300</p>
+          </div>
         </div>
         
         <div className="bg-secondary/10 rounded-lg p-5 mb-6">
           <h3 className="text-xl font-medium mb-2">Example 2: Mid-Career Catch-Up (Age 40)</h3>
-          <ul className="space-y-1">
-            <li><strong>Income:</strong> $80,000/year</li>
-            <li><strong>Current savings:</strong> $120,000 (1.5× salary)</li>
-            <li><strong>Target by age 40:</strong> $240,000 (3× salary)</li>
-            <li><strong>Savings gap:</strong> $120,000</li>
-            <li><strong>Recommended savings rate:</strong> 20% ($16,000/year)</li>
-            <li><strong>Projected retirement savings at age 67:</strong> ~$1.4 million (assuming 7% average annual returns)</li>
-            <li><strong>Monthly retirement income using 4% rule:</strong> ~$4,700</li>
-          </ul>
+          <div className="space-y-1">
+            <p><strong>Income:</strong> $80,000/year</p>
+            <p><strong>Current savings:</strong> $120,000 (1.5× salary)</p>
+            <p><strong>Target by age 40:</strong> $240,000 (3× salary)</p>
+            <p><strong>Savings gap:</strong> $120,000</p>
+            <p><strong>Recommended savings rate:</strong> 20% ($16,000/year)</p>
+            <p><strong>Projected retirement savings at age 67:</strong> ~$1.4 million (assuming 7% average annual returns)</p>
+            <p><strong>Monthly retirement income using 4% rule:</strong> ~$4,700</p>
+          </div>
         </div>
         
         <div className="bg-muted/50 rounded-lg p-5">
           <h3 className="text-xl font-medium mb-2">Example 3: Pre-Retirement Planning (Age 55)</h3>
-          <ul className="space-y-1">
-            <li><strong>Income:</strong> $95,000/year</li>
-            <li><strong>Current savings:</strong> $420,000 (4.4× salary)</li>
-            <li><strong>Target by age 55:</strong> $665,000 (7× salary)</li>
-            <li><strong>Savings gap:</strong> $245,000</li>
-            <li><strong>Recommended savings rate:</strong> 30% ($28,500/year)</li>
-            <li><strong>Potential delayed retirement:</strong> Working until age 70 instead of 67</li>
-            <li><strong>Projected retirement savings at age 70:</strong> ~$1.05 million</li>
-            <li><strong>Monthly retirement income using 4% rule:</strong> ~$3,500</li>
-          </ul>
+          <div className="space-y-1">
+            <p><strong>Income:</strong> $95,000/year</p>
+            <p><strong>Current savings:</strong> $420,000 (4.4× salary)</p>
+            <p><strong>Target by age 55:</strong> $665,000 (7× salary)</p>
+            <p><strong>Savings gap:</strong> $245,000</p>
+            <p><strong>Recommended savings rate:</strong> 30% ($28,500/year)</p>
+            <p><strong>Potential delayed retirement:</strong> Working until age 70 instead of 67</p>
+            <p><strong>Projected retirement savings at age 70:</strong> ~$1.05 million</p>
+            <p><strong>Monthly retirement income using 4% rule:</strong> ~$3,500</p>
+          </div>
         </div>
       </section>
 
@@ -145,13 +145,13 @@ const ContentSections: React.FC = () => {
         <p>
           Certain life circumstances may require you to save more than the standard recommendations:
         </p>
-        <ul className="list-disc pl-6 mt-4 space-y-2">
-          <li><strong>Longevity expectations:</strong> If <Link to="/life-expectancy-calculator" className="text-primary hover:underline">your life expectancy</Link> is higher than average due to family history or healthy lifestyle, add 5-10% to your savings target for each additional decade.</li>
-          <li><strong>Healthcare needs:</strong> Chronic conditions or family health history may require additional retirement savings for medical expenses.</li>
-          <li><strong>Early retirement goals:</strong> Retiring before age 65 requires more savings to cover additional years and potential healthcare costs before Medicare eligibility.</li>
-          <li><strong>Supporting dependents:</strong> If you'll be supporting adult children or parents during retirement, your expenses will be higher.</li>
-          <li><strong>Desired lifestyle:</strong> Extensive travel plans or expensive hobbies require additional savings above basic needs.</li>
-        </ul>
+        <div className="space-y-2 pl-6 mt-4">
+          <p><strong>Longevity expectations:</strong> If <Link to="/life-expectancy-calculator" className="text-primary hover:underline">your life expectancy</Link> is higher than average due to family history or healthy lifestyle, add 5-10% to your savings target for each additional decade.</p>
+          <p><strong>Healthcare needs:</strong> Chronic conditions or family health history may require additional retirement savings for medical expenses.</p>
+          <p><strong>Early retirement goals:</strong> Retiring before age 65 requires more savings to cover additional years and potential healthcare costs before Medicare eligibility.</p>
+          <p><strong>Supporting dependents:</strong> If you'll be supporting adult children or parents during retirement, your expenses will be higher.</p>
+          <p><strong>Desired lifestyle:</strong> Extensive travel plans or expensive hobbies require additional savings above basic needs.</p>
+        </div>
       </section>
 
       <section id="strategic-accounts">
@@ -159,12 +159,12 @@ const ContentSections: React.FC = () => {
         <p>
           How you allocate your retirement savings across different account types can significantly impact your long-term growth and tax situation:
         </p>
-        <ol className="list-decimal pl-6 mt-4 space-y-2">
-          <li><strong>Employer-sponsored plans (401(k), 403(b)):</strong> Contribute at least enough to get the full employer match—this is essentially free money.</li>
-          <li><strong>Health Savings Account (HSA):</strong> If eligible, max out HSA contributions for triple tax advantages (tax-deductible contributions, tax-free growth, and tax-free withdrawals for medical expenses).</li>
-          <li><strong>Individual Retirement Accounts (IRAs):</strong> Consider traditional or Roth IRAs based on your current and expected future tax situations.</li>
-          <li><strong>Taxable accounts:</strong> After maximizing tax-advantaged accounts, invest additional retirement savings in taxable brokerage accounts.</li>
-        </ol>
+        <div className="space-y-2 pl-6 mt-4">
+          <p><strong>1. Employer-sponsored plans (401(k), 403(b)):</strong> Contribute at least enough to get the full employer match—this is essentially free money.</p>
+          <p><strong>2. Health Savings Account (HSA):</strong> If eligible, max out HSA contributions for triple tax advantages (tax-deductible contributions, tax-free growth, and tax-free withdrawals for medical expenses).</p>
+          <p><strong>3. Individual Retirement Accounts (IRAs):</strong> Consider traditional or Roth IRAs based on your current and expected future tax situations.</p>
+          <p><strong>4. Taxable accounts:</strong> After maximizing tax-advantaged accounts, invest additional retirement savings in taxable brokerage accounts.</p>
+        </div>
         <p className="mt-4">
           <strong>Example investment allocation strategy:</strong> For someone in their 40s with moderate risk tolerance, consider 70% stocks (with 30% international exposure) and 30% bonds, gradually shifting to 50% stocks and 50% bonds by retirement age.
         </p>
@@ -174,3 +174,4 @@ const ContentSections: React.FC = () => {
 };
 
 export default ContentSections;
+
