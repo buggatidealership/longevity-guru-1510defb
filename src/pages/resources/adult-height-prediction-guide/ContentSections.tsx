@@ -47,7 +47,7 @@ const ContentSections: React.FC = () => {
       <div className="my-6">
         <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
           <img 
-            src="https://images.unsplash.com/photo-1618355776464-8740593ee6c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+            src="https://images.unsplash.com/photo-1618355776464-8740593ee6c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
             alt="Doctor measuring a child's height during a growth assessment, using a wall-mounted stadiometer for accurate measurement" 
             className="object-cover w-full h-full" 
           />
@@ -127,7 +127,7 @@ const ContentSections: React.FC = () => {
       <div className="my-6">
         <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
           <img 
-            src="https://images.unsplash.com/photo-1601268743287-ce0bf4e2ae5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
+            src="https://images.unsplash.com/photo-1601268743287-ce0bf4e2ae5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
             alt="Family height comparison showing genetic inheritance patterns with parents and children of different heights standing side by side" 
             className="object-cover w-full h-full" 
           />
