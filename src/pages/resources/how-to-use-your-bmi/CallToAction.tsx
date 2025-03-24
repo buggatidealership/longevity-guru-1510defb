@@ -2,20 +2,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Calculator } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const CallToAction: React.FC = () => {
   return (
-    <div className="bg-primary/10 rounded-lg p-6 mt-10 text-center">
-      <h2 className="text-xl font-semibold mb-3">Ready to find out your BMI?</h2>
-      <p className="mb-4">Use our BMI Calculator to get your Body Mass Index score and see where you fall on the standard scale.</p>
-      <Button asChild size="lg" className="font-medium">
-        <Link to="/bmi-calculator" className="flex items-center gap-2">
-          <Calculator className="h-5 w-5" />
-          Calculate Your BMI Now
-        </Link>
-      </Button>
-    </div>
+    <section className="mt-12 bg-gray-50 p-6 rounded-xl border border-gray-100">
+      <h2 className="text-2xl font-bold mb-4">Take Control of Your Health Journey</h2>
+      <p className="mb-6">
+        Understanding your BMI is just one step toward comprehensive health awareness. Use our tools to gain deeper insights and track your progress over time.
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
+          <h3 className="font-semibold text-lg mb-2">Calculate Your BMI</h3>
+          <p className="text-muted-foreground mb-4">
+            Find out your current Body Mass Index and see where it falls on the health spectrum. Our calculator provides instant results and personalized insights.
+          </p>
+          <Button asChild className="w-full justify-between">
+            <Link to="/bmi-calculator">
+              Use BMI Calculator <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+        
+        <div className="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
+          <h3 className="font-semibold text-lg mb-2">Check Your Metabolism</h3>
+          <p className="text-muted-foreground mb-4">
+            Discover your Basal Metabolic Rate (BMR) and daily calorie needs. Understanding your metabolism is crucial for effective weight management.
+          </p>
+          <Button asChild variant="outline" className="w-full justify-between">
+            <Link to="/metabolism-calculator">
+              Use Metabolism Calculator <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+      
+      <div className="mt-8 text-center">
+        <p className="text-muted-foreground mb-3">
+          Remember that true health encompasses more than numbers on a scale. Focus on sustainable habits, overall wellbeing, and consulting with healthcare professionals for personalized guidance.
+        </p>
+        <Button asChild variant="ghost" size="sm">
+          <Link to="/">
+            Explore All Health Calculators <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
+    </section>
   );
 };
 

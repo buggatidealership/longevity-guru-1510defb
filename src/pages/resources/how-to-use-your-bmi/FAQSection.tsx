@@ -1,76 +1,99 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { generateFAQSchema } from '@/utils/schema-utils';
+import { Link } from 'react-router-dom';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const FAQSection: React.FC = () => {
-  // FAQ items for schema generation
-  const faqItems = [
-    {
-      question: "What is a healthy BMI?",
-      answer: "According to standard guidelines, a BMI between 18.5 and 24.9 is considered 'normal' or healthy for most adults. However, this range may not be appropriate for everyone, as BMI doesn't account for factors like muscle mass, bone density, or ethnic differences. It's best to discuss your specific BMI with a healthcare provider who can consider your overall health profile."
-    },
-    {
-      question: "Why doesn't BMI work for athletes or bodybuilders?",
-      answer: "BMI doesn't distinguish between fat and muscle tissue. Since muscle is denser and heavier than fat, athletes and bodybuilders with significant muscle mass often have higher BMIs that would classify them as 'overweight' or even 'obese' despite having low body fat percentages. For these individuals, alternative measurements like body fat percentage, waist circumference, or body composition analysis provide more accurate health assessments."
-    },
-    {
-      question: "Can I improve my BMI?",
-      answer: "Yes, BMI can change based on weight loss or gain. If your BMI is in the overweight or obese categories and your doctor recommends weight loss, focusing on a balanced diet and regular physical activity can help lower your BMI. If you're underweight, working with healthcare providers to address underlying causes and develop a healthy weight gain plan can increase your BMI. However, focus on overall health improvements rather than just changing the number."
-    },
-    {
-      question: "How often should I check my BMI?",
-      answer: "For most adults, checking BMI once or twice a year is sufficient unless you're actively working on weight management under medical supervision. More frequent measurements might be recommended if you're implementing significant lifestyle changes or have health conditions affected by weight. Remember that small day-to-day weight fluctuations are normal and don't meaningfully impact your BMI."
-    }
-  ];
-
   return (
-    <>
-      <h2 className="text-2xl font-semibold mt-10 mb-6">Frequently Asked Questions</h2>
+    <section className="mt-12">
+      <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions About BMI</h2>
       
-      {/* Hidden script for FAQ schema */}
-      <script type="application/ld+json">
-        {JSON.stringify(generateFAQSchema(faqItems))}
-      </script>
-      
-      <div className="space-y-6">
-        <Card>
-          <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">What is a healthy BMI?</h3>
-            <p>
-              According to standard guidelines, a BMI between 18.5 and 24.9 is considered "normal" or healthy for most adults. However, this range may not be appropriate for everyone, as BMI doesn't account for factors like muscle mass, bone density, or ethnic differences. It's best to discuss your specific BMI with a healthcare provider who can consider your overall health profile.
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem value="item-1">
+          <AccordionTrigger>What is a healthy BMI?</AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-2">
+              According to standard guidelines, a BMI between 18.5 and 24.9 is considered "normal" or healthy for most adults. 
+              However, what's truly "healthy" can vary based on individual factors.
             </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">Why doesn't BMI work for athletes or bodybuilders?</h3>
             <p>
-              BMI doesn't distinguish between fat and muscle tissue. Since muscle is denser and heavier than fat, athletes and bodybuilders with significant muscle mass often have higher BMIs that would classify them as "overweight" or even "obese" despite having low body fat percentages. For these individuals, alternative measurements like body fat percentage, waist circumference, or body composition analysis provide more accurate health assessments.
+              For some ethnic groups, especially those of Asian descent, health risks may begin at lower BMI values. 
+              For very muscular individuals, a higher BMI might still represent good health. Consult with a healthcare 
+              provider for personalized guidance on your healthy weight range.
             </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">Can I improve my BMI?</h3>
+          </AccordionContent>
+        </AccordionItem>
+        
+        <AccordionItem value="item-2">
+          <AccordionTrigger>Why doesn't BMI work for athletes or bodybuilders?</AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-2">
+              BMI doesn't distinguish between muscle and fat. Muscle tissue is denser and heavier than fat tissue, so athletic 
+              or muscular individuals often have higher BMIs despite having healthy (or low) body fat percentages.
+            </p>
             <p>
-              Yes, BMI can change based on weight loss or gain. If your BMI is in the overweight or obese categories and your doctor recommends weight loss, focusing on a balanced diet and regular physical activity can help lower your BMI. If you're underweight, working with healthcare providers to address underlying causes and develop a healthy weight gain plan can increase your BMI. However, focus on overall health improvements rather than just changing the number.
+              For example, many professional athletes and bodybuilders would be classified as "overweight" or even "obese" according 
+              to BMI standards, despite being in excellent physical condition. In these cases, alternative methods like body composition 
+              analysis provide more accurate health assessments.
             </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="pt-6">
-            <h3 className="text-xl font-medium mb-2">How often should I check my BMI?</h3>
+          </AccordionContent>
+        </AccordionItem>
+        
+        <AccordionItem value="item-3">
+          <AccordionTrigger>Can I improve my BMI?</AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-2">
+              Yes, BMI can change with alterations in body weight. For those looking to lower their BMI, sustainable lifestyle 
+              changes focused on nutrition and physical activity are most effective.
+            </p>
+            <p className="mb-2">
+              For those who are underweight and need to increase their BMI, working with nutrition professionals to safely gain 
+              weight through balanced nutrition and strength training may be beneficial.
+            </p>
             <p>
-              For most adults, checking BMI once or twice a year is sufficient unless you're actively working on weight management under medical supervision. More frequent measurements might be recommended if you're implementing significant lifestyle changes or have health conditions affected by weight. Remember that small day-to-day weight fluctuations are normal and don't meaningfully impact your BMI.
+              Remember that the goal should be overall health improvement, not just changing a number. Focus on sustainable habits 
+              rather than quick fixes or extreme measures.
             </p>
-          </CardContent>
-        </Card>
-      </div>
-    </>
+          </AccordionContent>
+        </AccordionItem>
+        
+        <AccordionItem value="item-4">
+          <AccordionTrigger>How often should I check my BMI?</AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-2">
+              For most adults, checking BMI a few times a year is sufficient. If you're actively working on weight management, 
+              monthly checks can help track progress, but more frequent measurements aren't necessary and might lead to 
+              fixation on small fluctuations.
+            </p>
+            <p>
+              Weight and BMI naturally fluctuate due to factors like hydration, time of day, recent meals, and menstrual cycles. 
+              Focus on long-term trends rather than day-to-day changes. If you're concerned about weight fluctuations, consult 
+              with a healthcare provider.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+        
+        <AccordionItem value="item-5">
+          <AccordionTrigger>Are there better alternatives to BMI?</AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-2">
+              Several measurements can provide more comprehensive health insights than BMI alone:
+            </p>
+            <ul className="list-disc pl-6 mb-2 space-y-1">
+              <li><strong>Waist circumference</strong> - Measures abdominal fat, which is linked to higher health risks</li>
+              <li><strong>Waist-to-hip ratio</strong> - Indicates fat distribution patterns</li>
+              <li><strong>Body fat percentage</strong> - Directly measures the proportion of fat in your body</li>
+              <li><strong>DEXA scans</strong> - Provide detailed body composition analysis</li>
+              <li><strong>Bioelectrical impedance analysis</strong> - Estimates body composition using electrical currents</li>
+            </ul>
+            <p>
+              The most effective approach is to use multiple health markers rather than relying on any single measurement. Talk to 
+              your healthcare provider about which measurements are most appropriate for your individual situation.
+            </p>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </section>
   );
 };
 
