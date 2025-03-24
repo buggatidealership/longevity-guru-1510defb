@@ -19,7 +19,7 @@ const CallToAction: React.FC = () => {
       </p>
       <div className="flex justify-center">
         <Button asChild size="lg" className="font-medium">
-          <Link to="/adult-height-predictor-calculator">
+          <Link to="/child-growth-percentile-calculator">
             Use Our Child Height Predictor Calculator
           </Link>
         </Button>
