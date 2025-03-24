@@ -21,6 +21,7 @@ const Index = () => {
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
+      
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <div className="flex justify-between items-center mb-2">
@@ -170,7 +171,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/botox-dosage-calculator" className="group">
+              <Link to="/botox-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-cyan-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-cyan-50 rounded-full flex items-center justify-center mb-3">
                     <Syringe className="h-5 w-5 text-cyan-500" />
@@ -247,7 +248,7 @@ const Index = () => {
                   <li><Link to="/adult-height-predictor-calculator" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
                   <li><Link to="/metabolism-calculator" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
                   <li><Link to="/breast-implant-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
-                  <li><Link to="/botox-dosage-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
+                  <li><Link to="/botox-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
                   <li><Link to="/alcohol-impact-calculator" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
                   <li><Link to="/baldness-risk-calculator" className="text-sm text-gray-600 hover:text-primary">Baldness Risk Calculator</Link></li>
                   <li><Link to="/resources" className="text-sm text-gray-600 hover:text-primary">Resources</Link></li>
