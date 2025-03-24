@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const IntroSection: React.FC = () => {
   return (
@@ -18,15 +19,6 @@ const IntroSection: React.FC = () => {
       
       <p className="text-gray-700 font-medium">Let's dive in.</p>
     </div>
-  );
-};
-
-// Workaround to make the Link component available
-const Link = ({ to, className, children }: { to: string; className: string; children: React.ReactNode }) => {
-  return (
-    <a href={to} className={className}>
-      {children}
-    </a>
   );
 };
 

@@ -17,9 +17,9 @@ const ContentSections: React.FC = () => {
         
         <div className="my-8 relative rounded-xl overflow-hidden">
           <img 
-            src="/lovable-uploads/1c0b8a39-cc7f-471b-923c-800b170b2ab4.png" 
+            src="/lovable-uploads/7def3334-fd0a-44ba-b913-d5f2f3a81863.png" 
             alt="A women's health doctor counseling a patient about fertility options" 
-            className="w-full object-cover rounded-xl"
+            className="w-full h-auto object-cover rounded-xl"
           />
           <p className="mt-2 text-sm text-gray-500 italic text-center">
             Fertility changes accelerate in your late 30s, but understanding the facts can help you make empowered decisions.
