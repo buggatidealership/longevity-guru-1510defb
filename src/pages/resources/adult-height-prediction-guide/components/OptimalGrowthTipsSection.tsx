@@ -30,29 +30,29 @@ const OptimalGrowthTipsSection: React.FC = () => {
       <h3 className="text-xl font-medium mt-6 mb-3">Physical Activity</h3>
       
       <p className="mt-3 mb-4">
-        Encourage at least 60 minutes of physical activity daily
+        Encourage at least 60 minutes of physical activity daily.
       </p>
       
       <p className="mb-4">
-        Include a variety of activities that promote bone development, cardiovascular health, and strength
+        Include a variety of activities that promote bone development, cardiovascular health, and strength.
       </p>
       
       <p className="mb-4">
-        Ensure activities are age-appropriate and enjoyable to encourage lifelong habits
+        Ensure activities are age-appropriate and enjoyable to encourage lifelong habits.
       </p>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Health Monitoring</h3>
       
       <p className="mt-3 mb-4">
-        Maintain regular pediatric checkups to track growth patterns
+        Maintain regular pediatric checkups to track growth patterns.
       </p>
       
       <p className="mb-4">
-        Discuss any concerns about growth rates or patterns with healthcare providers
+        Discuss any concerns about growth rates or patterns with healthcare providers.
       </p>
       
       <p className="mb-4">
-        Follow through with recommended screenings and vaccinations for overall health
+        Follow through with recommended screenings and vaccinations for overall health.
       </p>
     </section>
   );

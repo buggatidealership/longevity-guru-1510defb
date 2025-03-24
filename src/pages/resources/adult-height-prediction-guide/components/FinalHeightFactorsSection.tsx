@@ -15,15 +15,15 @@ const FinalHeightFactorsSection: React.FC = () => {
       </p>
       
       <p className="mt-3 mb-4">
-        Height is polygenic (influenced by many genes), not just from parents
+        Height is polygenic (influenced by many genes), not just from parents.
       </p>
       
       <p className="mb-4">
-        Family height patterns often continue across generations
+        Family height patterns often continue across generations.
       </p>
       
       <p className="mb-4">
-        Some genetic conditions can significantly impact growth patterns
+        Some genetic conditions can significantly impact growth patterns.
       </p>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Nutrition and Sleep (Approximately 20%)</h3>
@@ -32,19 +32,19 @@ const FinalHeightFactorsSection: React.FC = () => {
       </p>
       
       <p className="mt-3 mb-4">
-        <strong>Protein intake:</strong> Essential for tissue growth and development
+        <strong>Protein intake:</strong> Essential for tissue growth and development.
       </p>
       
       <p className="mb-4">
-        <strong>Calcium and Vitamin D:</strong> Critical for bone development and density
+        <strong>Calcium and Vitamin D:</strong> Critical for bone development and density.
       </p>
       
       <p className="mb-4">
-        <strong>Overall caloric adequacy:</strong> Sufficient energy to support growth processes
+        <strong>Overall caloric adequacy:</strong> Sufficient energy to support growth processes.
       </p>
       
       <p className="mb-4">
-        <strong>Sleep quality:</strong> Growth hormone is primarily released during deep sleep
+        <strong>Sleep quality:</strong> Growth hormone is primarily released during deep sleep.
       </p>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Physical Activity</h3>
@@ -53,15 +53,15 @@ const FinalHeightFactorsSection: React.FC = () => {
       </p>
       
       <p className="mt-3 mb-4">
-        Promoting bone density and strength
+        Promoting bone density and strength.
       </p>
       
       <p className="mb-4">
-        Stimulating growth hormone release
+        Stimulating growth hormone release.
       </p>
       
       <p className="mb-4">
-        Supporting overall metabolic health
+        Supporting overall metabolic health.
       </p>
       
       <p>
@@ -74,19 +74,19 @@ const FinalHeightFactorsSection: React.FC = () => {
       </p>
       
       <p className="mt-3 mb-4">
-        <strong>Growth hormone deficiency:</strong> Can significantly limit height potential without treatment
+        <strong>Growth hormone deficiency:</strong> Can significantly limit height potential without treatment.
       </p>
       
       <p className="mb-4">
-        <strong>Thyroid disorders:</strong> Can affect growth rate and development
+        <strong>Thyroid disorders:</strong> Can affect growth rate and development.
       </p>
       
       <p className="mb-4">
-        <strong>Chronic illnesses:</strong> Conditions affecting nutrient absorption or overall health can impact growth
+        <strong>Chronic illnesses:</strong> Conditions affecting nutrient absorption or overall health can impact growth.
       </p>
       
       <p className="mb-4">
-        <strong>Medications:</strong> Some medications, particularly long-term corticosteroids, may affect growth
+        <strong>Medications:</strong> Some medications, particularly long-term corticosteroids, may affect growth.
       </p>
     </section>
   );
