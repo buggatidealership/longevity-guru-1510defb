@@ -23,13 +23,13 @@ const ContentSections: React.FC = () => {
         <p className="mb-3">
           Our <Link to="/baldness-risk-calculator" className="text-primary hover:underline">Baldness Risk Calculator</Link> uses statistical modeling based on several key factors that research has linked to hair loss probability:
         </p>
-        <ul className="list-disc pl-6 space-y-2 mb-3">
-          <li><strong>Age:</strong> Pattern hair loss is progressive and age-dependent, with risk increasing over time.</li>
-          <li><strong>Biological sex:</strong> Men and women experience different patterns and probabilities of hair loss.</li>
-          <li><strong>Family history:</strong> The presence and severity of baldness in your immediate family, particularly parents and grandparents.</li>
-          <li><strong>Current hair status:</strong> Early signs of thinning, recession, or miniaturization are strong predictors of future progression.</li>
-          <li><strong>Hair loss pattern:</strong> The specific pattern of your hair loss provides clues about its likely trajectory.</li>
-        </ul>
+        <div className="space-y-2 mb-3">
+          <p><strong>Age:</strong> Pattern hair loss is progressive and age-dependent, with risk increasing over time.</p>
+          <p><strong>Biological sex:</strong> Men and women experience different patterns and probabilities of hair loss.</p>
+          <p><strong>Family history:</strong> The presence and severity of baldness in your immediate family, particularly parents and grandparents.</p>
+          <p><strong>Current hair status:</strong> Early signs of thinning, recession, or miniaturization are strong predictors of future progression.</p>
+          <p><strong>Hair loss pattern:</strong> The specific pattern of your hair loss provides clues about its likely trajectory.</p>
+        </div>
         <p className="mb-4">
           Unlike genetic testing, our calculator can't provide absolute certainty about your hair loss future. However, by analyzing these evidence-based risk factors together, it can give you a reasonable estimation of your personal risk level and potential timeline.
         </p>
@@ -47,22 +47,22 @@ const ContentSections: React.FC = () => {
         </p>
         
         <h3 className="text-xl font-medium mt-4 mb-2">Male Pattern Baldness (Norwood Scale)</h3>
-        <ul className="list-disc pl-6 space-y-1 mb-4">
-          <li><strong>Stage 1:</strong> Little to no visible recession; baseline mature hairline</li>
-          <li><strong>Stage 2:</strong> Slight recession at the temples, creating an "M" shape</li>
-          <li><strong>Stage 3:</strong> Deeper temple recession and/or thinning at the crown</li>
-          <li><strong>Stage 4:</strong> More severe recession and crown thinning, with solid hair between</li>
-          <li><strong>Stage 5:</strong> Larger balding areas with a narrower band of hair separating them</li>
-          <li><strong>Stage 6:</strong> Temple and crown balding areas connect, with significant hair loss</li>
-          <li><strong>Stage 7:</strong> Only a horseshoe pattern of hair remains around the sides and back</li>
-        </ul>
+        <div className="space-y-1 mb-4">
+          <p><strong>Stage 1:</strong> Little to no visible recession; baseline mature hairline</p>
+          <p><strong>Stage 2:</strong> Slight recession at the temples, creating an "M" shape</p>
+          <p><strong>Stage 3:</strong> Deeper temple recession and/or thinning at the crown</p>
+          <p><strong>Stage 4:</strong> More severe recession and crown thinning, with solid hair between</p>
+          <p><strong>Stage 5:</strong> Larger balding areas with a narrower band of hair separating them</p>
+          <p><strong>Stage 6:</strong> Temple and crown balding areas connect, with significant hair loss</p>
+          <p><strong>Stage 7:</strong> Only a horseshoe pattern of hair remains around the sides and back</p>
+        </div>
         
         <h3 className="text-xl font-medium mt-4 mb-2">Female Pattern Hair Loss (Ludwig Scale)</h3>
-        <ul className="list-disc pl-6 space-y-1 mb-4">
-          <li><strong>Grade 1:</strong> Minimal thinning at the part line, often only noticeable to the individual</li>
-          <li><strong>Grade 2:</strong> Increased thinning and widening of the part, with moderate reduction in hair volume</li>
-          <li><strong>Grade 3:</strong> Significant diffuse thinning across the crown, often with visible scalp</li>
-        </ul>
+        <div className="space-y-1 mb-4">
+          <p><strong>Grade 1:</strong> Minimal thinning at the part line, often only noticeable to the individual</p>
+          <p><strong>Grade 2:</strong> Increased thinning and widening of the part, with moderate reduction in hair volume</p>
+          <p><strong>Grade 3:</strong> Significant diffuse thinning across the crown, often with visible scalp</p>
+        </div>
         
         <p>
           Progression between stages is typically gradual, occurring over years or decades. The rate varies significantly between individuals and can be influenced by factors like genetics, hormonal changes, and age. Some people may progress through all stages, while others may stabilize at an intermediate point.
@@ -76,36 +76,36 @@ const ContentSections: React.FC = () => {
         </p>
         
         <h3 className="text-lg font-medium mt-4 mb-2">Primary Risk Factors</h3>
-        <ul className="list-disc pl-6 space-y-2 mb-4">
-          <li>
+        <div className="space-y-2 mb-4">
+          <p>
             <strong>Genetic predisposition:</strong> Having first-degree relatives (parents or siblings) with early-onset baldness substantially increases your risk. The strongest predictor is having multiple affected family members who lost hair at a young age.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Age:</strong> The probability of pattern hair loss increases with age. By age 50, approximately 50% of men and 25% of women show noticeable signs of pattern hair loss.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>DHT sensitivity:</strong> Some individuals have hair follicles that are genetically more sensitive to DHT, which means they'll experience more significant miniaturization and loss over time.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Hormonal factors:</strong> Conditions that affect hormone levels, such as polycystic ovary syndrome in women or testosterone therapy, can accelerate pattern hair loss in susceptible individuals.
-          </li>
-        </ul>
+          </p>
+        </div>
         
         <h3 className="text-lg font-medium mt-4 mb-2">Secondary Influences</h3>
-        <ul className="list-disc pl-6 space-y-2 mb-3">
-          <li>
+        <div className="space-y-2 mb-3">
+          <p>
             <strong>Chronic stress:</strong> While stress alone doesn't cause pattern baldness, it can accelerate hair loss in those with genetic predisposition and trigger temporary shedding (telogen effluvium).
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Poor nutrition:</strong> Severe nutritional deficiencies, particularly of protein, iron, zinc, and certain vitamins, can worsen hair thinning.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Certain medications:</strong> Some drugs, including certain antidepressants, beta-blockers, and anticoagulants, may accelerate hair thinning as a side effect.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Smoking:</strong> Research suggests smokers may experience earlier onset and more severe pattern baldness, possibly due to oxidative stress and reduced blood flow to the scalp.
-          </li>
-        </ul>
+          </p>
+        </div>
         
         <p>
           It's important to note that while these secondary factors can influence hair loss, they generally won't cause pattern baldness in someone without genetic susceptibility. However, they may accelerate the process or trigger earlier onset in those already predisposed.
@@ -119,43 +119,43 @@ const ContentSections: React.FC = () => {
         </p>
         
         <h3 className="text-lg font-medium mt-4 mb-2">FDA-Approved Treatments</h3>
-        <ul className="list-disc pl-6 space-y-2 mb-4">
-          <li>
+        <div className="space-y-2 mb-4">
+          <p>
             <strong>Minoxidil (Rogaine):</strong> Available over-the-counter as a liquid or foam, this medication helps maintain and sometimes regrow hair by improving blood flow to the follicles. It's approved for both men and women.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Finasteride (Propecia):</strong> A prescription pill that blocks DHT production, effectively slowing or stopping hair loss progression in most men. It's only approved for male pattern baldness and carries potential sexual side effects.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Low-level laser therapy:</strong> FDA-cleared devices like laser combs and helmets can stimulate hair growth, typically used alongside other treatments.
-          </li>
-        </ul>
+          </p>
+        </div>
         
         <h3 className="text-lg font-medium mt-4 mb-2">Advanced Interventions</h3>
-        <ul className="list-disc pl-6 space-y-2 mb-4">
-          <li>
+        <div className="space-y-2 mb-4">
+          <p>
             <strong>Hair transplantation:</strong> Surgical procedure that moves hair follicles from the back and sides of the scalp (which are resistant to DHT) to thinning areas. Modern techniques like FUE (Follicular Unit Extraction) can provide natural-looking results.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>PRP (Platelet-Rich Plasma):</strong> A treatment that uses your own blood cells to stimulate hair growth, potentially improving hair density when used regularly.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Prescription combinations:</strong> Dermatologists often recommend combination therapies, such as finasteride with minoxidil, for enhanced effectiveness.
-          </li>
-        </ul>
+          </p>
+        </div>
         
         <h3 className="text-lg font-medium mt-4 mb-2">Lifestyle Approaches</h3>
-        <ul className="list-disc pl-6 space-y-2 mb-4">
-          <li>
+        <div className="space-y-2 mb-4">
+          <p>
             <strong>Anti-DHT shampoos:</strong> Containing ingredients like ketoconazole, saw palmetto, or pumpkin seed extract, these may provide modest benefits by reducing scalp DHT levels.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Nutritional support:</strong> Ensuring adequate protein, iron, zinc, vitamin D, and B vitamins can optimize hair growth conditions.
-          </li>
-          <li>
+          </p>
+          <p>
             <strong>Stress management:</strong> Regular exercise, meditation, and adequate sleep may help reduce stress-related hair shedding.
-          </li>
-        </ul>
+          </p>
+        </div>
         
         <p className="mb-3">
           The key to effective hair loss prevention is early intervention. The sooner you begin treatment, the more hair you can potentially maintain. Most treatments are more effective at preserving existing hair than regrowing lost hair.
