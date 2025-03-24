@@ -28,6 +28,7 @@ import SaveForRetirementLowIncome from "./pages/resources/save-for-retirement-lo
 import HowToBoostYourMetabolism from "./pages/resources/how-to-boost-your-metabolism";
 import FertilityAfter35 from "./pages/resources/fertility-after-35";
 import HowToUseYourBMI from "./pages/resources/how-to-use-your-bmi";
+import AdultHeightPredictionGuide from "./pages/resources/adult-height-prediction-guide";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/resources/how-to-boost-your-metabolism" element={<HowToBoostYourMetabolism />} />
           <Route path="/resources/fertility-after-35" element={<FertilityAfter35 />} />
           <Route path="/resources/how-to-use-your-bmi" element={<HowToUseYourBMI />} />
+          <Route path="/resources/adult-height-prediction-guide" element={<AdultHeightPredictionGuide />} />
           
           {/* Legacy URL routes for backward compatibility */}
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
