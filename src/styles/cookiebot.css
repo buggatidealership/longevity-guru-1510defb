@@ -64,6 +64,24 @@
   max-width: 100% !important;
   width: 100% !important;
   transform: none !important;
+  z-index: 9999 !important; /* Ensure it's above other elements but doesn't affect layout */
+}
+
+/* Prevent Cookiebot from affecting page layout */
+body #CybotCookiebotDialog {
+  margin: 0 !important;
+}
+
+/* Ensure the dialog doesn't add any unwanted margin/padding to page */
+html body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Fix for potential left/right shifting */
+.max-w-6xl {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Optimize for mobile */
@@ -113,4 +131,31 @@
 /* Banner animation for smooth appearance */
 #CybotCookiebotDialog {
   transition: transform 0.4s ease-in-out !important;
+}
+
+/* Fix for header centering */
+header.max-w-6xl {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Ensure text centering works properly */
+.text-center {
+  text-align: center !important;
+}
+
+/* Fix for the heading area */
+main .text-center h1,
+main .text-center p {
+  text-align: center !important;
+}
+
+/* Ensure max width containers are properly centered */
+.max-w-2xl,
+.max-w-3xl,
+.max-w-4xl,
+.max-w-6xl {
+  margin-left: auto !important;
+  margin-right: auto !important;
 }

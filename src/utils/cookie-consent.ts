@@ -93,7 +93,27 @@ export const applyCookiebotStyling = (): void => {
         buttonContainer.style.alignItems = 'center';
       }
       
-      console.info('Applied additional styling to Cookiebot dialog');
+      // Fix header alignment issues that might be caused by the banner
+      const fixPageLayouts = () => {
+        // Ensure headers and content containers are centered
+        document.querySelectorAll('header.max-w-6xl, main .text-center, .max-w-2xl, .max-w-3xl, .max-w-4xl').forEach(element => {
+          if (element instanceof HTMLElement) {
+            element.style.marginLeft = 'auto';
+            element.style.marginRight = 'auto';
+            
+            // For text-center elements, ensure text alignment
+            if (element.classList.contains('text-center')) {
+              element.style.textAlign = 'center';
+            }
+          }
+        });
+      };
+      
+      // Apply layout fixes right away and after a short delay (for dynamic content)
+      fixPageLayouts();
+      setTimeout(fixPageLayouts, 500);
+      
+      console.info('Applied additional styling to Cookiebot dialog and fixed page layout');
     }
   };
   
