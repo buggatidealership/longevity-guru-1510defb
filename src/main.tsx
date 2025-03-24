@@ -8,7 +8,7 @@ const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
 
 // Add a link to the sitemap in the document head
-const addSitemapLink = () => {
+const addSitemapLink = async () => {
   // Remove any existing sitemap link to avoid duplicates
   const existingSitemapLink = document.querySelector('link[rel="sitemap"]');
   if (existingSitemapLink && existingSitemapLink.parentNode) {
@@ -22,15 +22,19 @@ const addSitemapLink = () => {
   sitemapLink.href = '/sitemap.xml';
   document.head.appendChild(sitemapLink);
   
-  // Check if the sitemap is accessible and properly formatted
-  const { checkSitemapAccessibility } = require('./utils/sitemap-utils');
-  checkSitemapAccessibility('/sitemap.xml').then(isAccessible => {
+  // Check if the sitemap is accessible and properly formatted using dynamic import
+  try {
+    const { checkSitemapAccessibility } = await import('./utils/sitemap-utils');
+    const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
+    
     if (!isAccessible) {
       console.warn('Sitemap might not be properly formatted or accessible.');
     } else {
       console.info('Sitemap is accessible and properly formatted.');
     }
-  });
+  } catch (error) {
+    console.error('Error checking sitemap accessibility:', error);
+  }
 };
 
 // Add sitemap link after DOM is loaded
