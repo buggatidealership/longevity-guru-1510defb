@@ -173,3 +173,4 @@ export const applyCookiebotStyling = (): void => {
 };
 
 // We're removing the duplicate Window interface declaration since it's already defined in global.d.ts
+

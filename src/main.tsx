@@ -38,12 +38,37 @@ const addSitemapLink = async () => {
   }
 };
 
+// Track page views on route changes
+const trackPageView = () => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    try {
+      const path = window.location.pathname + window.location.search;
+      window.gtag('event', 'page_view', {
+        page_path: path,
+        page_title: document.title,
+        page_location: window.location.href
+      });
+      console.info('Page view tracked:', path);
+    } catch (error) {
+      console.error('Error tracking page view:', error);
+    }
+  }
+};
+
+// Add event listener to track page views on history changes
+window.addEventListener('popstate', trackPageView);
+
 // Check if Cookiebot is initialized properly
 document.addEventListener('DOMContentLoaded', () => {
   // Wait a moment for Cookiebot to initialize
   setTimeout(() => {
     checkCookiebotInitialization();
     applyCookiebotStyling(); // Apply additional styling
+    
+    // Verify GA4 functioning
+    if (typeof window.verifyGA4 === 'function') {
+      window.verifyGA4();
+    }
   }, 2000);
 });
 
@@ -55,3 +80,4 @@ if (document.readyState === 'loading') {
 }
 
 createRoot(rootElement).render(<App />);
+

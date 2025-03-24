@@ -18,6 +18,14 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
   preloadAssets = [],
 }) => {
   useEffect(() => {
+    // Default Google services preconnect URLs to add
+    const defaultPreconnectUrls = [
+      'https://www.googletagmanager.com',
+      'https://www.google-analytics.com'
+    ];
+    
+    const allPreconnectUrls = [...defaultPreconnectUrls, ...preconnectUrls];
+    
     // Check if there's an incorrect canonical URL and remove it
     const incorrectCanonical = document.querySelector('link[rel="canonical"][href*="lifespan-calculator.com"]');
     if (incorrectCanonical && incorrectCanonical.parentNode) {
@@ -49,13 +57,20 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
     }
 
     // Add preconnect links dynamically
-    preconnectUrls.forEach(url => {
+    allPreconnectUrls.forEach(url => {
       if (!document.querySelector(`link[rel="preconnect"][href="${url}"]`)) {
         const link = document.createElement('link');
         link.rel = 'preconnect';
         link.href = url;
         link.setAttribute('data-dynamic', 'true');
         document.head.appendChild(link);
+        
+        // Also add dns-prefetch as fallback for browsers that don't support preconnect
+        const dnsPrefetch = document.createElement('link');
+        dnsPrefetch.rel = 'dns-prefetch';
+        dnsPrefetch.href = url;
+        dnsPrefetch.setAttribute('data-dynamic', 'true');
+        document.head.appendChild(dnsPrefetch);
       }
     });
 
@@ -74,6 +89,16 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
       }
     });
 
+    // Ensure Google Analytics is working correctly
+    const verifyGAInitialization = () => {
+      if (typeof window.gtag === 'function' && typeof window.verifyGA4 === 'function') {
+        window.verifyGA4();
+      }
+    };
+    
+    // Verify GA after a delay to ensure it's had time to initialize
+    setTimeout(verifyGAInitialization, 3000);
+
     // Cleanup
     return () => {
       // Only remove links that we added dynamically
@@ -90,3 +115,4 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
 };
 
 export default HeadCustomization;
+
