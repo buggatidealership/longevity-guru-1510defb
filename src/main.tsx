@@ -2,6 +2,7 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { checkCookiebotInitialization } from './utils/cookie-consent';
 
 // Create root element and render app
 const rootElement = document.getElementById("root");
@@ -36,6 +37,14 @@ const addSitemapLink = async () => {
     console.error('Error checking sitemap accessibility:', error);
   }
 };
+
+// Check if Cookiebot is initialized properly
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait a moment for Cookiebot to initialize
+  setTimeout(() => {
+    checkCookiebotInitialization();
+  }, 2000);
+});
 
 // Add sitemap link after DOM is loaded
 if (document.readyState === 'loading') {
