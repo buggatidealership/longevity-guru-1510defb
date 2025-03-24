@@ -12,19 +12,7 @@ const CallToAction: React.FC = () => {
         Understanding your BMI is just one step toward comprehensive health awareness. Use our tools to gain deeper insights and track your progress over time.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
-          <h3 className="font-semibold text-lg mb-2">Calculate Your BMI</h3>
-          <p className="text-muted-foreground mb-4">
-            Find out your current Body Mass Index and see where it falls on the health spectrum. Our calculator provides instant results and personalized insights.
-          </p>
-          <Button asChild className="w-full justify-between">
-            <Link to="/bmi-calculator">
-              Use BMI Calculator <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-        
+      <div className="mx-auto max-w-md">
         <div className="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
           <h3 className="font-semibold text-lg mb-2">Check Your Metabolism</h3>
           <p className="text-muted-foreground mb-4">
