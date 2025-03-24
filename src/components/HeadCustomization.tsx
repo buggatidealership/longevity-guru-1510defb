@@ -34,7 +34,7 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
       document.head.appendChild(canonicalLink);
     }
     
-    // Ensure sitemap link exists
+    // Ensure sitemap link exists with correct content type
     const sitemapLink = document.querySelector('link[rel="sitemap"]');
     if (!sitemapLink) {
       const newSitemapLink = document.createElement('link');
@@ -43,6 +43,9 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
       newSitemapLink.href = '/sitemap.xml';
       newSitemapLink.setAttribute('data-dynamic', 'true');
       document.head.appendChild(newSitemapLink);
+    } else if (!sitemapLink.hasAttribute('type')) {
+      // Ensure type attribute is set
+      sitemapLink.setAttribute('type', 'application/xml');
     }
 
     // Add preconnect links dynamically

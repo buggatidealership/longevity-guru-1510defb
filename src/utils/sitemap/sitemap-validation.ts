@@ -9,8 +9,11 @@
  * @returns Validation result with errors if any
  */
 export const validateSitemap = (sitemapContent: string) => {
+  // First normalize the content to remove BOM and trim whitespace
+  const normalizedContent = sitemapContent.replace(/^\uFEFF/, '').trim();
+  
   // Check for any whitespace before XML declaration (this is the most common cause of errors)
-  if (sitemapContent.trim() !== sitemapContent || sitemapContent.indexOf('<?xml') !== 0) {
+  if (normalizedContent.indexOf('<?xml') !== 0) {
     return {
       isValid: false,
       errors: ['Whitespace or characters detected before XML declaration'],
@@ -19,10 +22,10 @@ export const validateSitemap = (sitemapContent: string) => {
   }
   
   // Basic structural validation
-  const hasXmlDeclaration = sitemapContent.includes('<?xml version="1.0" encoding="UTF-8"?>');
-  const hasUrlsetOpen = sitemapContent.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-  const hasUrlsetClose = sitemapContent.includes('</urlset>');
-  const hasUrls = sitemapContent.includes('<url>') && sitemapContent.includes('</url>');
+  const hasXmlDeclaration = normalizedContent.includes('<?xml version="1.0" encoding="UTF-8"?>');
+  const hasUrlsetOpen = normalizedContent.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+  const hasUrlsetClose = normalizedContent.includes('</urlset>');
+  const hasUrls = normalizedContent.includes('<url>') && normalizedContent.includes('</url>');
   
   const errors = [];
   
@@ -32,16 +35,16 @@ export const validateSitemap = (sitemapContent: string) => {
   if (!hasUrls) errors.push('No URL entries found');
   
   // Check for balanced tags
-  const urlOpenCount = (sitemapContent.match(/<url>/g) || []).length;
-  const urlCloseCount = (sitemapContent.match(/<\/url>/g) || []).length;
+  const urlOpenCount = (normalizedContent.match(/<url>/g) || []).length;
+  const urlCloseCount = (normalizedContent.match(/<\/url>/g) || []).length;
   
   if (urlOpenCount !== urlCloseCount) {
     errors.push(`Unbalanced URL tags: ${urlOpenCount} opening tags vs ${urlCloseCount} closing tags`);
   }
   
   // Check for proper nesting
-  const locCount = (sitemapContent.match(/<loc>/g) || []).length;
-  const locCloseCount = (sitemapContent.match(/<\/loc>/g) || []).length;
+  const locCount = (normalizedContent.match(/<loc>/g) || []).length;
+  const locCloseCount = (normalizedContent.match(/<\/loc>/g) || []).length;
   
   if (locCount !== locCloseCount) {
     errors.push(`Unbalanced loc tags: ${locCount} opening tags vs ${locCloseCount} closing tags`);
@@ -51,15 +54,17 @@ export const validateSitemap = (sitemapContent: string) => {
     errors.push(`Every URL entry should have exactly one loc tag, found ${locCount} loc tags for ${urlOpenCount} URL entries`);
   }
   
-  // Check for XML declaration position
-  const firstLine = sitemapContent.split('\n')[0].trim();
-  if (firstLine !== '<?xml version="1.0" encoding="UTF-8"?>') {
-    errors.push('XML declaration must be the first line of the document');
-  }
-  
-  // Check for any whitespace before XML declaration
-  if (sitemapContent.indexOf('<?xml') > 0) {
-    errors.push('No whitespace or content allowed before XML declaration');
+  // Try parsing as XML to catch any other errors
+  try {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(normalizedContent, "application/xml");
+    const parserError = xmlDoc.querySelector('parsererror');
+    
+    if (parserError) {
+      errors.push(`XML parsing error: ${parserError.textContent}`);
+    }
+  } catch (error) {
+    errors.push(`XML parsing error: ${error instanceof Error ? error.message : String(error)}`);
   }
   
   return {
@@ -83,7 +88,13 @@ export const validateSitemapFile = async (sitemapFilePath: string): Promise<bool
     // In a Node.js environment, this would use fs.readFile
     const sitemapContent = await fetch(sitemapFilePath).then(response => response.text());
     
-    const result = validateSitemap(sitemapContent);
+    // Import normalize function
+    const { normalizeSitemapXml } = await import('./sitemap-format');
+    
+    // Normalize before validation
+    const normalizedContent = normalizeSitemapXml(sitemapContent);
+    
+    const result = validateSitemap(normalizedContent);
     
     if (!result.isValid) {
       console.error('Sitemap validation failed:', result.errors);

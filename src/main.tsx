@@ -21,6 +21,16 @@ const addSitemapLink = () => {
   sitemapLink.type = 'application/xml';
   sitemapLink.href = '/sitemap.xml';
   document.head.appendChild(sitemapLink);
+  
+  // Check if the sitemap is accessible and properly formatted
+  const { checkSitemapAccessibility } = require('./utils/sitemap-utils');
+  checkSitemapAccessibility('/sitemap.xml').then(isAccessible => {
+    if (!isAccessible) {
+      console.warn('Sitemap might not be properly formatted or accessible.');
+    } else {
+      console.info('Sitemap is accessible and properly formatted.');
+    }
+  });
 };
 
 // Add sitemap link after DOM is loaded

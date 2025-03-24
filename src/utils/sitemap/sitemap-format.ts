@@ -60,3 +60,42 @@ export const ensureCorrectSitemapStart = (content: string): string => {
   
   return cleanContent;
 };
+
+/**
+ * Normalizes a sitemap XML file to ensure it's valid and properly formatted
+ * @param sitemapContent The sitemap content to normalize
+ * @returns Properly normalized sitemap content
+ */
+export const normalizeSitemapXml = (sitemapContent: string): string => {
+  // First, clean any potential BOM or whitespace
+  let normalized = sitemapContent.replace(/^\uFEFF/, '').trim();
+  
+  // Ensure it starts with the correct XML declaration
+  const xmlDeclaration = '<?xml version="1.0" encoding="UTF-8"?>';
+  if (!normalized.startsWith(xmlDeclaration)) {
+    // Remove any existing XML declaration
+    const xmlDeclMatch = normalized.match(/<\?xml[^?]*\?>/);
+    if (xmlDeclMatch) {
+      normalized = normalized.replace(xmlDeclMatch[0], '');
+    }
+    normalized = `${xmlDeclaration}\n${normalized.trimStart()}`;
+  }
+  
+  // Ensure the urlset has the correct namespace
+  const correctUrlsetOpen = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+  const urlsetMatch = normalized.match(/<urlset[^>]*>/);
+  if (urlsetMatch && urlsetMatch[0] !== correctUrlsetOpen) {
+    normalized = normalized.replace(urlsetMatch[0], correctUrlsetOpen);
+  }
+  
+  // Ensure proper line breaks for readability
+  normalized = normalized
+    .replace(/><url>/g, '>\n  <url>')
+    .replace(/<\/url></g, '</url>\n  <')
+    .replace(/<\/urlset>/, '\n</urlset>')
+    .replace(/><loc>/g, '>\n    <loc>')
+    .replace(/<\/loc></g, '</loc>\n    <')
+    .replace(/<\/url>/g, '\n  </url>');
+  
+  return normalized;
+};
