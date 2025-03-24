@@ -20,8 +20,8 @@ const AdultHeightPredictionGuide = () => {
 
   // Generate article schema
   const articleSchema = generateArticleSchema(
-    "Adult Height Prediction Guide | How Tall Will I Be?",
-    "Wondering how tall you'll be? Learn how to predict adult height using science-backed methods and try our free Adult Height Calculator.",
+    "How Tall Will I Be? | Predicting Your Adult Height Based on Genetics and Science",
+    "Wondering how tall you'll be as an adult? Learn how genetics, nutrition, and growth patterns shape your final height—and use our calculator to estimate it.",
     "/resources/adult-height-prediction-guide",
     "2024-10-20T08:00:00+00:00",
     "2024-10-20T10:30:00+00:00"
@@ -48,8 +48,8 @@ const AdultHeightPredictionGuide = () => {
   return (
     <>
       <SEOHead 
-        title="Adult Height Prediction Guide | How Tall Will I Be?"
-        description="Wondering how tall you'll be? Learn how to predict adult height using science-backed methods and try our free Adult Height Calculator."
+        title="How Tall Will I Be? | Predicting Your Adult Height Based on Genetics and Science"
+        description="Wondering how tall you'll be as an adult? Learn how genetics, nutrition, and growth patterns shape your final height—and use our calculator to estimate it."
         canonicalUrl="/resources/adult-height-prediction-guide"
         keywords="height prediction, adult height, how tall will I be, predict height, mid-parental height, growth chart, height calculator"
         schemas={schemas}
