@@ -13,12 +13,14 @@ Allow: /breast-implant-size-calculator
 Allow: /botox-dosage-calculator
 Allow: /alcohol-impact-calculator
 Allow: /baldness-risk-calculator
+Allow: /bmi-calculator
 Allow: /resources
 Allow: /resources/how-to-increase-life-expectancy
 Allow: /resources/how-much-to-save-for-retirement
 Allow: /resources/save-for-retirement-low-income
 Allow: /resources/how-to-boost-your-metabolism
 Allow: /resources/fertility-after-35
+Allow: /resources/how-to-use-your-bmi
 Allow: /privacy
 Allow: /terms
 

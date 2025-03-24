@@ -70,6 +70,25 @@ const ResourcesIndex = () => {
 
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Resource Card: Understanding Your Body Mass Index (BMI) */}
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
+                <CardHeader>
+                  <CardTitle className="text-xl">Understanding Your Body Mass Index (BMI)</CardTitle>
+                  <CardDescription>Learn How to Use Your BMI Score Effectively</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">Discover what BMI really means, its limitations, and how to properly interpret your score for better health decisions.</p>
+                  <p className="mt-2 text-muted-foreground">Learn when BMI is a useful indicator and when other measurements might provide more accurate insights about your body composition and health.</p>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full justify-between">
+                    <Link to="/resources/how-to-use-your-bmi">
+                      Read Article <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            
               {/* Resource Card: Fertility After 35 */}
               <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
                 <CardHeader>
