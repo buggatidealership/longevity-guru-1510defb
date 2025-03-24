@@ -24,6 +24,15 @@ const ResourcesContent: React.FC = () => {
       link: "/resources/adult-height-prediction-guide"
     },
     {
+      title: "How to Predict Your Child's Adult Height",
+      description: "Science-Backed Methods for Parents",
+      content: [
+        "Learn the scientific methods behind predicting how tall your child will be as an adult, including the mid-parental height formula and growth percentiles.",
+        "Discover what factors influence your child's final height and when variations in growth patterns might warrant a conversation with your pediatrician."
+      ],
+      link: "/resources/how-to-predict-your-childs-adult-height"
+    },
+    {
       title: "Fertility After 35",
       description: "Facts, Fears, and Your Chances of Conceiving",
       content: [
