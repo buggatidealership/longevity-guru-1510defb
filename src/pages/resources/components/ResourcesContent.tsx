@@ -27,7 +27,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="How to Boost Your Metabolism"
           description="Learn evidence-based strategies to naturally increase your metabolic rate."
-          href="/resources/how-to-boost-your-metabolism"
+          link="/resources/how-to-boost-your-metabolism"
+          content={["Learn evidence-based strategies to naturally increase your metabolic rate."]}
           imageUrl="https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=600&q=80"
           date="October 10, 2023"
         />
@@ -35,7 +36,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="How to Increase Life Expectancy"
           description="Discover the 10 most effective habits to extend your lifespan according to longevity research."
-          href="/resources/how-to-increase-life-expectancy"
+          link="/resources/how-to-increase-life-expectancy"
+          content={["Discover the 10 most effective habits to extend your lifespan according to longevity research."]}
           imageUrl="https://images.unsplash.com/photo-1507120878965-54b2d3939100?auto=format&fit=crop&w=600&q=80"
           date="May 15, 2023"
         />
@@ -43,7 +45,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="Fertility After 35"
           description="Understanding your fertility options and chances after age 35."
-          href="/resources/fertility-after-35"
+          link="/resources/fertility-after-35"
+          content={["Understanding your fertility options and chances after age 35."]}
           imageUrl="https://images.unsplash.com/photo-1632165254498-1e89c9fd72e6?auto=format&fit=crop&w=600&q=80"
           date="July 20, 2023"
         />
@@ -51,7 +54,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="How Much to Save for Retirement"
           description="Calculate how much you need to save for a comfortable retirement based on your lifestyle."
-          href="/resources/how-much-to-save-for-retirement"
+          link="/resources/how-much-to-save-for-retirement"
+          content={["Calculate how much you need to save for a comfortable retirement based on your lifestyle."]}
           imageUrl="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=600&q=80"
           date="June 5, 2023"
         />
@@ -59,7 +63,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="Save for Retirement on Low Income"
           description="Strategies to build retirement savings when money is tight."
-          href="/resources/save-for-retirement-low-income"
+          link="/resources/save-for-retirement-low-income"
+          content={["Strategies to build retirement savings when money is tight."]}
           imageUrl="https://images.unsplash.com/photo-1580508174046-170816f65662?auto=format&fit=crop&w=600&q=80"
           date="November 12, 2023"
         />
@@ -67,7 +72,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="How to Choose Breast Implant Size"
           description="A guide to finding the right implant size for your body type and goals."
-          href="/resources/breast-implant-size-guide"
+          link="/resources/breast-implant-size-guide"
+          content={["A guide to finding the right implant size for your body type and goals."]}
           imageUrl="https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?auto=format&fit=crop&w=600&q=80"
           date="September 15, 2023"
         />
@@ -75,7 +81,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="How to Use Your BMI"
           description="Understanding what BMI does (and doesn't) tell you about your health."
-          href="/resources/how-to-use-your-bmi"
+          link="/resources/how-to-use-your-bmi"
+          content={["Understanding what BMI does (and doesn't) tell you about your health."]}
           imageUrl="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
           date="March 8, 2023"
         />
@@ -83,7 +90,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="Predict Your Child's Adult Height"
           description="Methods to estimate how tall your child might grow using genetic and scientific factors."
-          href="/resources/adult-height-prediction-guide"
+          link="/resources/adult-height-prediction-guide"
+          content={["Methods to estimate how tall your child might grow using genetic and scientific factors."]}
           imageUrl="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80"
           date="February 20, 2024"
         />
@@ -91,7 +99,8 @@ const ResourcesContent = () => {
         <ResourceCard 
           title="How Much Botox Do You Need"
           description="A guide to understanding botox dosages across different facial areas."
-          href="/resources/botox-dosage-guide"
+          link="/resources/botox-dosage-guide"
+          content={["A guide to understanding botox dosages across different facial areas."]}
           imageUrl="https://images.unsplash.com/photo-1621798986237-93d793afafc2?auto=format&fit=crop&w=600&q=80"
           date="November 15, 2023"
         />
