@@ -172,10 +172,4 @@ export const applyCookiebotStyling = (): void => {
   setTimeout(applyStyles, 1000);
 };
 
-// Handle declaration for window.gtag and window.verifyGA4
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-    verifyGA4?: () => void;
-  }
-}
+// We're removing the duplicate Window interface declaration since it's already defined in global.d.ts
