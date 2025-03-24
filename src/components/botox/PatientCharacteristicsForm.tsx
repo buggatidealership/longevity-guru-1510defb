@@ -60,21 +60,21 @@ const PatientCharacteristicsForm: React.FC<PatientCharacteristicsFormProps> = ({
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Gender selection */}
+          {/* Gender selection - Improved alignment */}
           <div className="space-y-2">
-            <Label>Gender</Label>
+            <Label className="block mb-2">Gender</Label>
             <RadioGroup 
               value={gender} 
               onValueChange={(value) => onCharacteristicsChange({ gender: value })} 
-              className="flex gap-4"
+              className="flex items-center space-x-6"
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="female" id="female" />
-                <Label htmlFor="female">Female</Label>
+                <Label htmlFor="female" className="cursor-pointer">Female</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="male" id="male" />
-                <Label htmlFor="male">Male</Label>
+                <Label htmlFor="male" className="cursor-pointer">Male</Label>
               </div>
             </RadioGroup>
           </div>
