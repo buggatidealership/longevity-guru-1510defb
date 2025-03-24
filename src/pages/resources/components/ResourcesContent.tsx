@@ -76,6 +76,15 @@ const ResourcesContent: React.FC = () => {
         "Includes realistic savings targets by income level and actionable steps to secure your financial future regardless of your current income."
       ],
       link: "/resources/save-for-retirement-low-income"
+    },
+    {
+      title: "How to Choose the Right Breast Implant Size",
+      description: "A Personalized, Data-Backed Guide",
+      content: [
+        "Understand implant measurements, cup size equivalents, and the factors that influence your final results after breast augmentation surgery.",
+        "Learn how to use our calculator to find your ideal implant volume range based on your body measurements and aesthetic goals."
+      ],
+      link: "/resources/breast-implant-size-guide"
     }
   ];
 
