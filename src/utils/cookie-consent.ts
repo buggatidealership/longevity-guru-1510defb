@@ -58,3 +58,61 @@ export const clearConsentCookies = (): void => {
   
   window.location.reload();
 };
+
+/**
+ * Force show the Cookiebot dialog
+ * Useful for testing the appearance of the banner
+ */
+export const showCookiebotDialog = (): void => {
+  if (typeof window === 'undefined' || !window.Cookiebot) return;
+  
+  try {
+    window.Cookiebot.show();
+    console.info('Cookiebot dialog shown');
+  } catch (error) {
+    console.error('Failed to show Cookiebot dialog:', error);
+  }
+};
+
+/**
+ * Apply additional styling to Cookiebot dialog
+ * This can be used to override styles that can't be handled by CSS alone
+ */
+export const applyCookiebotStyling = (): void => {
+  if (typeof window === 'undefined') return;
+  
+  // Function to be called when the dialog becomes visible
+  const applyStyles = () => {
+    const dialog = document.getElementById('CybotCookiebotDialog');
+    if (dialog) {
+      // Make sure buttons are properly aligned
+      const buttonContainer = document.getElementById('CybotCookiebotDialogBodyButtons');
+      if (buttonContainer) {
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'flex-end';
+        buttonContainer.style.alignItems = 'center';
+      }
+      
+      console.info('Applied additional styling to Cookiebot dialog');
+    }
+  };
+  
+  // Observer to detect when the dialog appears in the DOM
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes) {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1 && (node as Element).id === 'CybotCookiebotDialog') {
+            applyStyles();
+          }
+        });
+      }
+    });
+  });
+  
+  // Start observing the document body for changes
+  observer.observe(document.body, { childList: true, subtree: true });
+  
+  // Also try to apply styles on initialization
+  setTimeout(applyStyles, 1000);
+};

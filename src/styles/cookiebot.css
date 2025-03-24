@@ -1,0 +1,116 @@
+
+/* Custom Cookiebot Styling */
+#CybotCookiebotDialog {
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px 12px 0 0 !important;
+  border: 1px solid rgba(214, 188, 250, 0.3) !important;
+}
+
+#CybotCookiebotDialogBody {
+  max-width: 1200px !important;
+  padding: 10px 16px !important;
+}
+
+/* Main banner */
+.CybotCookiebotDialogBodyContent {
+  padding: 8px 0 !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* Buttons */
+#CybotCookiebotDialogBodyButtonAccept,
+#CybotCookiebotDialogBodyButtonDecline,
+#CybotCookiebotDialogBodyButtonDetails,
+.CybotCookiebotDialogBodyButton {
+  padding: 6px 16px !important;
+  border-radius: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+}
+
+/* Primary button */
+#CybotCookiebotDialogBodyButtonAccept {
+  background-color: #222B40 !important;
+  border: 1px solid #222B40 !important;
+  color: white !important;
+}
+
+#CybotCookiebotDialogBodyButtonAccept:hover {
+  background-color: #3a4458 !important;
+}
+
+/* Secondary buttons */
+#CybotCookiebotDialogBodyButtonDecline,
+#CybotCookiebotDialogBodyButtonDetails {
+  background-color: #F1F1F1 !important;
+  border: 1px solid #E0E0E0 !important;
+  color: #333 !important;
+}
+
+#CybotCookiebotDialogBodyButtonDecline:hover,
+#CybotCookiebotDialogBodyButtonDetails:hover {
+  background-color: #E0E0E0 !important;
+}
+
+/* Make dialog bottom positioned and compact */
+#CybotCookiebotDialog {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: auto !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  transform: none !important;
+}
+
+/* Optimize for mobile */
+@media (max-width: 768px) {
+  #CybotCookiebotDialogBodyContent {
+    font-size: 13px !important;
+  }
+  
+  #CybotCookiebotDialogBodyButtons {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    margin-top: 8px !important;
+  }
+  
+  .CybotCookiebotDialogBodyButton {
+    margin: 0 0 0 8px !important;
+    padding: 5px 12px !important;
+    font-size: 12px !important;
+  }
+  
+  #CybotCookiebotDialogBody {
+    padding: 8px 12px !important;
+  }
+}
+
+/* Preference dialog improvements */
+#CybotCookiebotDialogDetailBodyContent {
+  padding: 12px 8px !important;
+}
+
+.CybotCookiebotDialogDetailBodyContentCookieContainerTypes {
+  padding: 12px 0 !important;
+}
+
+/* Make toggle switches more aligned and spaced */
+.CybotCookiebotDialogDetailBodyContentCookieContainerTypesSelected {
+  padding: 2px 4px !important;
+}
+
+/* Better layout for settings view */
+.CybotCookiebotDialogBodyLevelButtonWrapper {
+  margin: 0 0 4px 0 !important;
+  padding: 0 !important;
+}
+
+/* Banner animation for smooth appearance */
+#CybotCookiebotDialog {
+  transition: transform 0.4s ease-in-out !important;
+}

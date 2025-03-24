@@ -2,7 +2,7 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import { checkCookiebotInitialization } from './utils/cookie-consent';
+import { checkCookiebotInitialization, applyCookiebotStyling } from './utils/cookie-consent';
 
 // Create root element and render app
 const rootElement = document.getElementById("root");
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Wait a moment for Cookiebot to initialize
   setTimeout(() => {
     checkCookiebotInitialization();
+    applyCookiebotStyling(); // Apply additional styling
   }, 2000);
 });
 
