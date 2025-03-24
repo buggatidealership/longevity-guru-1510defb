@@ -135,25 +135,6 @@ const ContentSections: React.FC = () => {
           </p>
         </div>
       </section>
-      
-      <section>
-        <h2 className="text-2xl font-bold mb-4">Try Our Free BMI Calculator</h2>
-        <p className="mb-4">
-          Ready to find out your BMI? Our calculator makes it quick and easy to determine your Body Mass Index and understand what it means for your health.
-        </p>
-        <div className="bg-primary/10 rounded-lg p-6 text-center">
-          <p className="font-medium mb-4">Get your BMI score in seconds with our free online calculator.</p>
-          <Link 
-            to="/bmi-calculator" 
-            className="inline-flex items-center justify-center px-6 py-3 font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
-          >
-            Calculate Your BMI Now
-          </Link>
-        </div>
-        <p className="mt-4 text-sm text-gray-600">
-          Remember that while BMI is a useful starting point, it's just one aspect of your overall health assessment. For the most accurate interpretation, discuss your results with a healthcare professional.
-        </p>
-      </section>
     </div>
   );
 };
