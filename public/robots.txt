@@ -18,6 +18,7 @@ Allow: /resources/how-to-increase-life-expectancy
 Allow: /resources/how-much-to-save-for-retirement
 Allow: /resources/save-for-retirement-low-income
 Allow: /resources/how-to-boost-your-metabolism
+Allow: /resources/fertility-after-35
 Allow: /privacy
 Allow: /terms
 

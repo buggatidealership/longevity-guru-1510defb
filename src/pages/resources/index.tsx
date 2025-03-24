@@ -70,6 +70,25 @@ const ResourcesIndex = () => {
 
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Resource Card: Fertility After 35 */}
+              <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
+                <CardHeader>
+                  <CardTitle className="text-xl">Fertility After 35</CardTitle>
+                  <CardDescription>Facts, Fears, and Your Chances of Conceiving</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">Explore the science-backed facts about fertility after age 35, including egg quality, ovarian reserve, and your real chances of conceiving.</p>
+                  <p className="mt-2 text-muted-foreground">Learn practical strategies to improve your odds, understand when to see a fertility specialist, and find answers to common questions about advanced maternal age.</p>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full justify-between">
+                    <Link to="/resources/fertility-after-35">
+                      Read Article <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            
               {/* Resource Card: How to Increase Life Expectancy */}
               <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
                 <CardHeader>
