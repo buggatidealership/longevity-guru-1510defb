@@ -30,6 +30,7 @@ import FertilityAfter35 from "./pages/resources/fertility-after-35";
 import HowToUseYourBMI from "./pages/resources/how-to-use-your-bmi";
 import AdultHeightPredictionGuide from "./pages/resources/adult-height-prediction-guide";
 import HowToPredictChildsAdultHeight from "./pages/resources/how-to-predict-your-childs-adult-height";
+import BreastImplantSizeGuide from "./pages/resources/breast-implant-size-guide";
 
 const queryClient = new QueryClient();
 
@@ -76,6 +77,7 @@ const App = () => (
           <Route path="/resources/how-to-use-your-bmi" element={<HowToUseYourBMI />} />
           <Route path="/resources/adult-height-prediction-guide" element={<AdultHeightPredictionGuide />} />
           <Route path="/resources/how-to-predict-your-childs-adult-height" element={<HowToPredictChildsAdultHeight />} />
+          <Route path="/resources/breast-implant-size-guide" element={<BreastImplantSizeGuide />} />
           
           {/* Legacy URL routes for backward compatibility */}
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
