@@ -64,6 +64,7 @@ function App() {
         <Route path="/baldness-risk-calculator" element={<BaldnessRiskCalculatorPage />} />
         <Route path="/adult-height-predictor-calculator" element={<AdultHeightPredictorPage />} />
         <Route path="/growth-percentile-calculator" element={<GrowthPercentilePage />} />
+        <Route path="/child-growth-percentile-calculator" element={<GrowthPercentilePage />} />
         <Route path="/breast-implant-calculator" element={<BreastImplantCalculatorPage />} />
         <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />
         <Route path="/alcohol-lifespan-calculator" element={<AlcoholCalculatorPage />} />

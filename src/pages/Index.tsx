@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -115,7 +114,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/child-growth-percentile-calculator" className="group">
+              <Link to="/growth-percentile-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-orange-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mb-3">
                     <Ruler className="h-5 w-5 text-orange-500" />
@@ -142,7 +141,7 @@ const Index = () => {
                   </span>
                 </div>
               </Link>
-
+              
               <Link to="/metabolism-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-red-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center mb-3">
@@ -244,7 +243,7 @@ const Index = () => {
                   <li><Link to="/life-expectancy-calculator" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
                   <li><Link to="/retirement-savings-calculator" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
                   <li><Link to="/female-fertility-calculator" className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
-                  <li><Link to="/child-growth-percentile-calculator" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
+                  <li><Link to="/growth-percentile-calculator" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
                   <li><Link to="/adult-height-predictor-calculator" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
                   <li><Link to="/metabolism-calculator" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
                   <li><Link to="/breast-implant-size-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
