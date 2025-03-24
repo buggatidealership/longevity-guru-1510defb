@@ -1,18 +1,22 @@
 
 import React from 'react';
-import HowHeightPredictionSection from './components/HowHeightPredictionSection';
-import FactorsInfluencingHeightSection from './components/FactorsInfluencingHeightSection';
-import GrowthSpurtsSection from './components/GrowthSpurtsSection';
-import IncreaseHeightSection from './components/IncreaseHeightSection';
+import WhyPredictingHeightMattersSection from './components/WhyPredictingHeightMattersSection';
+import HeightCalculatorWorksSection from './components/HeightCalculatorWorksSection';
+import PredictionAccuracySection from './components/PredictionAccuracySection';
+import FinalHeightFactorsSection from './components/FinalHeightFactorsSection';
+import OptimalGrowthTipsSection from './components/OptimalGrowthTipsSection';
+import TalkToDoctorSection from './components/TalkToDoctorSection';
 import CalculatorSection from './components/CalculatorSection';
 
 const ContentSections: React.FC = () => {
   return (
     <>
-      <HowHeightPredictionSection />
-      <FactorsInfluencingHeightSection />
-      <GrowthSpurtsSection />
-      <IncreaseHeightSection />
+      <WhyPredictingHeightMattersSection />
+      <HeightCalculatorWorksSection />
+      <PredictionAccuracySection />
+      <FinalHeightFactorsSection />
+      <OptimalGrowthTipsSection />
+      <TalkToDoctorSection />
       <CalculatorSection />
     </>
   );
