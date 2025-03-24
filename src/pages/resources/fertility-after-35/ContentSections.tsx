@@ -17,12 +17,12 @@ const ContentSections: React.FC = () => {
         
         <div className="my-8 relative rounded-xl overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" 
-            alt="Woman reviewing a fertility timeline chart showing age-related decline" 
-            className="w-full h-auto object-cover rounded-xl"
+            src="https://images.unsplash.com/photo-1533622597524-a1215e26c0a2?auto=format&fit=crop&q=80&w=1000&h=600" 
+            alt="A woman preparing a healthy fruit bowl with fresh berries" 
+            className="w-full object-cover rounded-xl"
           />
           <p className="mt-2 text-sm text-gray-500 italic text-center">
-            Fertility changes accelerate in your late 30s, but understanding the facts can help you make empowered decisions.
+            Nutrient-rich foods, regular exercise, and other positive lifestyle habits can support fertility and improve your chances of conceiving after 35.
           </p>
         </div>
         
