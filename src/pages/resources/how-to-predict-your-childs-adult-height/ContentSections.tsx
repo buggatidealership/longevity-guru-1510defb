@@ -11,12 +11,12 @@ const ContentSections: React.FC = () => {
         Understanding how tall your child might become serves several practical purposes beyond mere curiosity:
       </p>
       
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Sports and activities planning:</strong> Some sports favor certain body types and heights. Early indications of adult height can help guide children toward activities where they may have natural advantages.</li>
-        <li><strong>Nutritional planning:</strong> Children going through growth spurts have different nutritional needs. Anticipating these periods can help parents optimize nutrition.</li>
-        <li><strong>Setting realistic expectations:</strong> Understanding the genetic foundations of height helps both parents and children set realistic expectations about physical development.</li>
-        <li><strong>Health monitoring:</strong> Tracking a child's growth against predictions provides an additional data point for overall health monitoring. Significant deviations from expected growth patterns can sometimes indicate underlying health concerns.</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Sports and activities planning:</strong> Some sports favor certain body types and heights. Early indications of adult height can help guide children toward activities where they may have natural advantages.</p>
+        <p><strong>Nutritional planning:</strong> Children going through growth spurts have different nutritional needs. Anticipating these periods can help parents optimize nutrition.</p>
+        <p><strong>Setting realistic expectations:</strong> Understanding the genetic foundations of height helps both parents and children set realistic expectations about physical development.</p>
+        <p><strong>Health monitoring:</strong> Tracking a child's growth against predictions provides an additional data point for overall health monitoring. Significant deviations from expected growth patterns can sometimes indicate underlying health concerns.</p>
+      </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="how-adult-height-calculator-works">How the Adult Height Calculator Works</h2>
       <p>
@@ -27,10 +27,10 @@ const ContentSections: React.FC = () => {
       <p>
         The foundation of most height predictors is the mid-parental height formula, a time-tested method developed by pediatric endocrinologists. This approach calculates a child's genetic height potential based on their parents' heights:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>For boys:</strong> (Father's height + Mother's height + 5 inches) ÷ 2</li>
-        <li><strong>For girls:</strong> (Father's height + Mother's height − 5 inches) ÷ 2</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>For boys:</strong> (Father's height + Mother's height + 5 inches) ÷ 2</p>
+        <p><strong>For girls:</strong> (Father's height + Mother's height − 5 inches) ÷ 2</p>
+      </div>
       <p>
         This formula accounts for the typical height difference between males and females and provides a target height. Most children (about 95%) will reach an adult height within 4 inches (10 cm) of this calculated target.
       </p>
@@ -39,10 +39,10 @@ const ContentSections: React.FC = () => {
       <p>
         Modern calculators enhance the mid-parental method by incorporating:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Current height percentile:</strong> Children tend to follow their established growth curve. A child consistently in the 75th percentile is likely to remain near that percentile through adulthood.</li>
-        <li><strong>Age and gender:</strong> These factors help place measurements in proper context since growth patterns differ significantly between boys and girls.</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Current height percentile:</strong> Children tend to follow their established growth curve. A child consistently in the 75th percentile is likely to remain near that percentile through adulthood.</p>
+        <p><strong>Age and gender:</strong> These factors help place measurements in proper context since growth patterns differ significantly between boys and girls.</p>
+      </div>
 
       {/* Image with proper source and alt text */}
       <div className="my-6">
@@ -62,20 +62,20 @@ const ContentSections: React.FC = () => {
       </p>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Accuracy Limitations</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Genetic complexity:</strong> Height is influenced by multiple genes, not just those from parents. Siblings with the same parents can have significantly different adult heights due to genetic variation.</li>
-        <li><strong>Environmental factors:</strong> Nutrition, sleep quality, physical activity, and overall health all impact growth potential and can cause deviations from predictions.</li>
-        <li><strong>Timing of puberty:</strong> Early or late puberty can significantly alter growth patterns. Early-maturing children might initially appear taller than peers but may finish growing sooner.</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Genetic complexity:</strong> Height is influenced by multiple genes, not just those from parents. Siblings with the same parents can have significantly different adult heights due to genetic variation.</p>
+        <p><strong>Environmental factors:</strong> Nutrition, sleep quality, physical activity, and overall health all impact growth potential and can cause deviations from predictions.</p>
+        <p><strong>Timing of puberty:</strong> Early or late puberty can significantly alter growth patterns. Early-maturing children might initially appear taller than peers but may finish growing sooner.</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Gender Differences in Prediction Accuracy</h3>
       <p>
         Height predictions tend to be:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>More accurate for girls:</strong> Female growth patterns are generally more predictable because girls typically experience less variation in the timing and intensity of growth spurts.</li>
-        <li><strong>Less accurate for boys:</strong> Male growth patterns often show greater variability, particularly during puberty when growth spurts can be dramatic and occur across a wider age range.</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>More accurate for girls:</strong> Female growth patterns are generally more predictable because girls typically experience less variation in the timing and intensity of growth spurts.</p>
+        <p><strong>Less accurate for boys:</strong> Male growth patterns often show greater variability, particularly during puberty when growth spurts can be dramatic and occur across a wider age range.</p>
+      </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="what-influences-final-height">What Influences a Child's Final Height</h2>
       <p>
@@ -86,32 +86,32 @@ const ContentSections: React.FC = () => {
       <p>
         Genetics is the primary determinant of height, accounting for approximately 80% of the variation in adult height within a population. Research from twin studies confirms this strong hereditary component. However, it's important to note that:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Height is polygenic (influenced by many genes), not just from parents</li>
-        <li>Family height patterns often continue across generations</li>
-        <li>Some genetic conditions can significantly impact growth patterns</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p>Height is polygenic (influenced by many genes), not just from parents</p>
+        <p>Family height patterns often continue across generations</p>
+        <p>Some genetic conditions can significantly impact growth patterns</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Nutrition and Sleep (Approximately 20%)</h3>
       <p>
         Proper nutrition is essential for reaching full height potential. Key nutritional factors include:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Protein intake:</strong> Essential for tissue growth and development</li>
-        <li><strong>Calcium and Vitamin D:</strong> Critical for bone development and density</li>
-        <li><strong>Overall caloric adequacy:</strong> Sufficient energy to support growth processes</li>
-        <li><strong>Sleep quality:</strong> Growth hormone is primarily released during deep sleep</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Protein intake:</strong> Essential for tissue growth and development</p>
+        <p><strong>Calcium and Vitamin D:</strong> Critical for bone development and density</p>
+        <p><strong>Overall caloric adequacy:</strong> Sufficient energy to support growth processes</p>
+        <p><strong>Sleep quality:</strong> Growth hormone is primarily released during deep sleep</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Physical Activity</h3>
       <p>
         Regular physical activity supports healthy growth by:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Promoting bone density and strength</li>
-        <li>Stimulating growth hormone release</li>
-        <li>Supporting overall metabolic health</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p>Promoting bone density and strength</p>
+        <p>Stimulating growth hormone release</p>
+        <p>Supporting overall metabolic health</p>
+      </div>
       <p>
         However, excessive high-impact exercise during critical growth periods can potentially impact growth plate development, which is why monitoring is important for young athletes in certain sports.
       </p>
@@ -120,12 +120,12 @@ const ContentSections: React.FC = () => {
       <p>
         Several medical factors can influence height:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Growth hormone deficiency:</strong> Can significantly limit height potential without treatment</li>
-        <li><strong>Thyroid disorders:</strong> Can affect growth rate and development</li>
-        <li><strong>Chronic illnesses:</strong> Conditions affecting nutrient absorption or overall health can impact growth</li>
-        <li><strong>Medications:</strong> Some medications, particularly long-term corticosteroids, may affect growth</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Growth hormone deficiency:</strong> Can significantly limit height potential without treatment</p>
+        <p><strong>Thyroid disorders:</strong> Can affect growth rate and development</p>
+        <p><strong>Chronic illnesses:</strong> Conditions affecting nutrient absorption or overall health can impact growth</p>
+        <p><strong>Medications:</strong> Some medications, particularly long-term corticosteroids, may affect growth</p>
+      </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="tips-to-support-optimal-growth">Tips to Support Optimal Growth</h2>
       <p>
@@ -133,26 +133,26 @@ const ContentSections: React.FC = () => {
       </p>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Nutrition and Lifestyle</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Balanced nutrition:</strong> Ensure adequate protein, calcium, vitamins, and minerals through a varied diet rich in whole foods.</li>
-        <li><strong>Regular meals:</strong> Consistent eating patterns help maintain the steady nutrition needed for growth.</li>
-        <li><strong>Adequate sleep:</strong> 8-10 hours of quality sleep for school-aged children and teenagers supports optimal growth hormone production.</li>
-        <li><strong>Limit screen time:</strong> Excessive sedentary time can impact physical development and often displaces sleep and active play.</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Balanced nutrition:</strong> Ensure adequate protein, calcium, vitamins, and minerals through a varied diet rich in whole foods.</p>
+        <p><strong>Regular meals:</strong> Consistent eating patterns help maintain the steady nutrition needed for growth.</p>
+        <p><strong>Adequate sleep:</strong> 8-10 hours of quality sleep for school-aged children and teenagers supports optimal growth hormone production.</p>
+        <p><strong>Limit screen time:</strong> Excessive sedentary time can impact physical development and often displaces sleep and active play.</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Physical Activity</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Encourage at least 60 minutes of physical activity daily</li>
-        <li>Include a variety of activities that promote bone development, cardiovascular health, and strength</li>
-        <li>Ensure activities are age-appropriate and enjoyable to encourage lifelong habits</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p>Encourage at least 60 minutes of physical activity daily</p>
+        <p>Include a variety of activities that promote bone development, cardiovascular health, and strength</p>
+        <p>Ensure activities are age-appropriate and enjoyable to encourage lifelong habits</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Health Monitoring</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Maintain regular pediatric checkups to track growth patterns</li>
-        <li>Discuss any concerns about growth rates or patterns with healthcare providers</li>
-        <li>Follow through with recommended screenings and vaccinations for overall health</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p>Maintain regular pediatric checkups to track growth patterns</p>
+        <p>Discuss any concerns about growth rates or patterns with healthcare providers</p>
+        <p>Follow through with recommended screenings and vaccinations for overall health</p>
+      </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="when-to-talk-to-a-doctor">When to Talk to a Doctor</h2>
       <p>
@@ -160,26 +160,26 @@ const ContentSections: React.FC = () => {
       </p>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Growth Pattern Red Flags</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Percentile shifts:</strong> If your child drops or jumps across multiple major percentile lines on growth charts</li>
-        <li><strong>Extreme percentiles:</strong> Consistent measurements below the 3rd percentile or above the 97th percentile</li>
-        <li><strong>Growth velocity changes:</strong> Unusually slow or rapid growth for age, particularly outside of expected growth spurt periods</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Percentile shifts:</strong> If your child drops or jumps across multiple major percentile lines on growth charts</p>
+        <p><strong>Extreme percentiles:</strong> Consistent measurements below the 3rd percentile or above the 97th percentile</p>
+        <p><strong>Growth velocity changes:</strong> Unusually slow or rapid growth for age, particularly outside of expected growth spurt periods</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Puberty Timing Concerns</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Early puberty signs:</strong> For girls before age 8 or boys before age 9</li>
-        <li><strong>Delayed puberty:</strong> No signs of puberty in girls by age 13 or boys by age 14</li>
-        <li><strong>Significant height discrepancy:</strong> Child's height differs substantially from siblings or parents with no apparent explanation</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p><strong>Early puberty signs:</strong> For girls before age 8 or boys before age 9</p>
+        <p><strong>Delayed puberty:</strong> No signs of puberty in girls by age 13 or boys by age 14</p>
+        <p><strong>Significant height discrepancy:</strong> Child's height differs substantially from siblings or parents with no apparent explanation</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Other Concerning Signs</h3>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Growth plateau (no measurable height increase over 6-12 months during childhood)</li>
-        <li>Significant imbalance between height and weight percentiles</li>
-        <li>Disproportionate body parts or unusual physical features</li>
-        <li>Chronic fatigue, weakness, or other symptoms that might indicate underlying health issues</li>
-      </ul>
+      <div className="pl-6 mt-3 mb-4 space-y-2">
+        <p>Growth plateau (no measurable height increase over 6-12 months during childhood)</p>
+        <p>Significant imbalance between height and weight percentiles</p>
+        <p>Disproportionate body parts or unusual physical features</p>
+        <p>Chronic fatigue, weakness, or other symptoms that might indicate underlying health issues</p>
+      </div>
     </>
   );
 };
