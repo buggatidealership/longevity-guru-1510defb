@@ -104,21 +104,21 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         Human growth follows a predictable pattern, though timing varies between individuals:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Infancy (0-1 year):</strong> The fastest growth period, with length increasing by approximately.5-10 inches in the first year</li>
-        <li><strong>Early Childhood (1-4 years):</strong> Growth slows to about 2-3 inches per year</li>
-        <li><strong>Middle Childhood (4-puberty):</strong> Steady growth of approximately 2-2.5 inches per year</li>
-        <li><strong>Puberty:</strong> The second major growth spurt, with peak velocity typically adding 3-4 inches per year during peak growth</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p><strong>Infancy (0-1 year):</strong> The fastest growth period, with length increasing by approximately.5-10 inches in the first year</p>
+        <p><strong>Early Childhood (1-4 years):</strong> Growth slows to about 2-3 inches per year</p>
+        <p><strong>Middle Childhood (4-puberty):</strong> Steady growth of approximately 2-2.5 inches per year</p>
+        <p><strong>Puberty:</strong> The second major growth spurt, with peak velocity typically adding 3-4 inches per year during peak growth</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Boys vs. Girls: Different Timing</h3>
       <p className="mb-4">
         One of the most notable differences in growth patterns between boys and girls is the timing of their pubertal growth spurts:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Girls:</strong> Typically begin puberty between ages 8-13, with peak growth velocity around age 11-12</li>
-        <li><strong>Boys:</strong> Usually start puberty between ages 9-14, with peak growth velocity around age 13-14</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p><strong>Girls:</strong> Typically begin puberty between ages 8-13, with peak growth velocity around age 11-12</p>
+        <p><strong>Boys:</strong> Usually start puberty between ages 9-14, with peak growth velocity around age 13-14</p>
+      </div>
       <p className="mb-4">
         This difference in timing explains why many girls are temporarily taller than boys in early adolescence, before boys catch up and often surpass them in later teen years.
       </p>
@@ -130,10 +130,10 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         On average, growth plates close at these ages:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Girls:</strong> 13-15 years, with minimal growth after the first menstrual period</li>
-        <li><strong>Boys:</strong> 15-17 years, though some may continue growing until age 18-19</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p><strong>Girls:</strong> 13-15 years, with minimal growth after the first menstrual period</p>
+        <p><strong>Boys:</strong> 15-17 years, though some may continue growing until age 18-19</p>
+      </div>
       <p className="mb-4">
         Most people reach 98% of their adult height by age 16 (girls) or 18 (boys), though some "late bloomers" may continue growing into their early twenties.
       </p>
@@ -147,21 +147,21 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         Let's address some common height enhancement claims:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Stretching exercises:</strong> While stretching may temporarily improve posture, it doesn't actually increase skeletal height</li>
-        <li><strong>"Grow taller" supplements:</strong> Most have no scientific evidence supporting their claims and may contain unregulated ingredients</li>
-        <li><strong>Hanging exercises:</strong> These may decompress the spine temporarily but don't create permanent height gains</li>
-        <li><strong>Special diets:</strong> While good nutrition is important for growth, no specific food will make you taller beyond your genetic potential</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p><strong>Stretching exercises:</strong> While stretching may temporarily improve posture, it doesn't actually increase skeletal height</p>
+        <p><strong>"Grow taller" supplements:</strong> Most have no scientific evidence supporting their claims and may contain unregulated ingredients</p>
+        <p><strong>Hanging exercises:</strong> These may decompress the spine temporarily but don't create permanent height gains</p>
+        <p><strong>Special diets:</strong> While good nutrition is important for growth, no specific food will make you taller beyond your genetic potential</p>
+      </div>
 
       <h3 className="text-xl font-medium mt-6 mb-3">Medical Interventions</h3>
       <p className="mb-4">
         In specific medical situations, certain interventions may influence height:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Growth hormone therapy:</strong> Only effective for children with diagnosed growth hormone deficiency or certain specific medical conditions</li>
-        <li><strong>Limb lengthening surgery:</strong> A major surgical procedure with significant risks, typically only performed for severe height discrepancies or dwarfism conditions</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p><strong>Growth hormone therapy:</strong> Only effective for children with diagnosed growth hormone deficiency or certain specific medical conditions</p>
+        <p><strong>Limb lengthening surgery:</strong> A major surgical procedure with significant risks, typically only performed for severe height discrepancies or dwarfism conditions</p>
+      </div>
       <p className="mb-4">
         These medical interventions are not appropriate for children of normal height and should only be considered under the guidance of specialized physicians for medically necessary reasons.
       </p>
@@ -170,13 +170,13 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         Instead of seeking ways to exceed genetic height potential, focus on these evidence-based approaches to help reach your natural maximum height during growth years:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Maintain balanced nutrition with adequate protein, calcium, and vitamin D</li>
-        <li>Ensure consistent, quality sleep of 8-10 hours daily during childhood and adolescence</li>
-        <li>Stay physically active with age-appropriate exercise</li>
-        <li>Avoid smoking, alcohol, and drug use, which can negatively impact growth</li>
-        <li>Manage any chronic medical conditions with proper treatment</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p>Maintain balanced nutrition with adequate protein, calcium, and vitamin D</p>
+        <p>Ensure consistent, quality sleep of 8-10 hours daily during childhood and adolescence</p>
+        <p>Stay physically active with age-appropriate exercise</p>
+        <p>Avoid smoking, alcohol, and drug use, which can negatively impact growth</p>
+        <p>Manage any chronic medical conditions with proper treatment</p>
+      </div>
       <p className="mb-4">
         For adults whose growth plates have closed, height increase is not possible without major medical intervention. However, improving posture through core-strengthening exercises and posture training can help maximize your existing height by 1-2 cm.
       </p>
@@ -205,12 +205,12 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         When using any height prediction method, keep these limitations in mind:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>No prediction method is 100% accurate due to the complex nature of growth</li>
-        <li>Environmental factors during childhood and adolescence can influence final height</li>
-        <li>Medical conditions affecting growth may not be accounted for in general prediction models</li>
-        <li>Predictions work best for populations similar to those in the original research studies</li>
-      </ul>
+      <div className="mt-3 mb-4 space-y-2">
+        <p>No prediction method is 100% accurate due to the complex nature of growth</p>
+        <p>Environmental factors during childhood and adolescence can influence final height</p>
+        <p>Medical conditions affecting growth may not be accounted for in general prediction models</p>
+        <p>Predictions work best for populations similar to those in the original research studies</p>
+      </div>
       <p className="mb-4">
         For the most comprehensive height assessment, especially if there are concerns about growth, consult with a pediatrician or pediatric endocrinologist who can evaluate multiple factors and track growth over time.
       </p>
