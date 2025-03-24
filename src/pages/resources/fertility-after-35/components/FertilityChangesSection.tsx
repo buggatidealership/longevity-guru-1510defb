@@ -1,9 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
 const FertilityChangesSection: React.FC = () => {
-  const [imageError, setImageError] = useState(false);
-
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">How Fertility Changes After 35</h2>
@@ -15,25 +13,6 @@ const FertilityChangesSection: React.FC = () => {
       <p>
         After 35, this decline speeds up significantly – which is why doctors often use 35 as a benchmark for "advanced maternal age." One major reason fertility drops is the number and quality of eggs. Women are born with all the eggs they will ever have, and the supply dwindles over time.
       </p>
-      
-      <div className="my-8 relative rounded-xl overflow-hidden">
-        {imageError ? (
-          <div className="bg-gray-100 p-6 rounded-xl text-center">
-            <p className="text-gray-500">Image unavailable</p>
-          </div>
-        ) : (
-          <img 
-            src="https://images.unsplash.com/photo-1612551984821-84b94c57c1a3?auto=format&fit=crop&w=1200&q=80" 
-            alt="Woman in her late 30s reviewing fertility planning options with a doctor" 
-            className="w-full object-cover rounded-xl"
-            onError={() => setImageError(true)}
-            loading="lazy"
-          />
-        )}
-        <p className="mt-2 text-sm text-gray-500 italic text-center">
-          Fertility awareness becomes increasingly important after 35 — tracking and professional support can help you navigate your options.
-        </p>
-      </div>
       
       <p>
         At birth, a female has about 1–2 million oocytes (immature eggs); by puberty, roughly 300,000–400,000 remain. This egg pool continues to deplete each year. By age 37, the average woman's egg count has dropped to around 25,000, and by menopause (around age 51) only about 1,000 eggs are left.
