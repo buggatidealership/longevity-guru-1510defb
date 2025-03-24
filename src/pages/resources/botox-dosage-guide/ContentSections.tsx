@@ -129,25 +129,25 @@ const ContentSections: React.FC = () => {
           personalized estimates based on your specific characteristics and treatment goals. Simply input your:
         </p>
         
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>Age range</li>
-          <li>Gender</li>
-          <li>Areas you're interested in treating</li>
-          <li>Muscle strength (if known)</li>
-          <li>Treatment preferences (subtle vs. more dramatic results)</li>
-        </ul>
+        <div className="pl-6 mb-4 space-y-2">
+          <p>Age range</p>
+          <p>Gender</p>
+          <p>Areas you're interested in treating</p>
+          <p>Muscle strength (if known)</p>
+          <p>Treatment preferences (subtle vs. more dramatic results)</p>
+        </div>
         
         <p className="mb-4">
           The calculator will generate a customized estimate of how many units you might need for each area, 
           as well as a total recommended range. You can then use this information to:
         </p>
         
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>Budget more accurately for your treatment</li>
-          <li>Have a more informed conversation with your provider</li>
-          <li>Compare different treatment approaches</li>
-          <li>Track your needs over time</li>
-        </ul>
+        <div className="pl-6 mb-4 space-y-2">
+          <p>Budget more accurately for your treatment</p>
+          <p>Have a more informed conversation with your provider</p>
+          <p>Compare different treatment approaches</p>
+          <p>Track your needs over time</p>
+        </div>
         
         <p>
           Remember that while our calculator provides evidence-based estimates, your actual treatment plan 
@@ -161,14 +161,14 @@ const ContentSections: React.FC = () => {
           When you visit your provider, bring the results from our calculator and consider asking:
         </p>
         
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>"Is this dosage typical for someone with my facial anatomy?"</li>
-          <li>"How might we adjust the units to achieve my specific goals?"</li>
-          <li>"What areas do you think would benefit most from treatment?"</li>
-          <li>"Should we start conservatively and add more if needed?"</li>
-          <li>"How might my dosage needs change over time with regular treatments?"</li>
-          <li>"What's your approach to natural-looking results?"</li>
-        </ul>
+        <div className="pl-6 mb-4 space-y-2">
+          <p>"Is this dosage typical for someone with my facial anatomy?"</p>
+          <p>"How might we adjust the units to achieve my specific goals?"</p>
+          <p>"What areas do you think would benefit most from treatment?"</p>
+          <p>"Should we start conservatively and add more if needed?"</p>
+          <p>"How might my dosage needs change over time with regular treatments?"</p>
+          <p>"What's your approach to natural-looking results?"</p>
+        </div>
         
         <p>
           A good provider will take time to discuss these questions and tailor your treatment plan 

@@ -23,13 +23,13 @@ const IntroSection: React.FC = () => {
         Your ideal dosage is also influenced by several personal factors, including your:
       </p>
       
-      <ul className="list-disc pl-6 mb-4 space-y-1">
-        <li>Gender (men typically require more units than women)</li>
-        <li>Age and skin condition</li>
-        <li>Facial muscle strength</li>
-        <li>Treatment history</li>
-        <li>Aesthetic goals</li>
-      </ul>
+      <div className="space-y-1 mb-4 pl-6">
+        <p>Gender (men typically require more units than women)</p>
+        <p>Age and skin condition</p>
+        <p>Facial muscle strength</p>
+        <p>Treatment history</p>
+        <p>Aesthetic goals</p>
+      </div>
       
       <p className="mb-4">
         Our <Link to="/botox-calculator" className="text-primary hover:underline">Botox Dosage Calculator</Link> can 
