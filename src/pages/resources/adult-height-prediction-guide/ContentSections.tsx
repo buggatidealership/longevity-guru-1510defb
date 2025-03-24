@@ -16,10 +16,10 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         The most widely used approach outside clinical settings is the Mid-Parental Height Method, which estimates adult height based on the height of both biological parents. Here's how it works:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>For boys:</strong> Add mom's and dad's heights in inches, add 5 inches, then divide by 2</li>
-        <li><strong>For girls:</strong> Add mom's and dad's heights in inches, subtract 5 inches, then divide by 2</li>
-      </ul>
+      <div className="mb-4">
+        <p><strong>For boys:</strong> Add mom's and dad's heights in inches, add 5 inches, then divide by 2</p>
+        <p><strong>For girls:</strong> Add mom's and dad's heights in inches, subtract 5 inches, then divide by 2</p>
+      </div>
       <p className="mb-4">
         <strong>Real-world example:</strong> If mom is 5'4" (64") and dad is 5'10" (70"), a son would have a predicted height of (64 + 70 + 5) ÷ 2 = 69.5", or approximately 5'9.5". A daughter would have a predicted height of (64 + 70 - 5) ÷ 2 = 64.5", or approximately 5'4.5".
       </p>
@@ -60,13 +60,13 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         Proper nutrition during childhood and adolescence is crucial for maximizing height potential. Key nutrients that support optimal growth include:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Protein:</strong> The building block of tissues, essential for growth</li>
-        <li><strong>Calcium:</strong> Critical for bone development and density</li>
-        <li><strong>Vitamin D:</strong> Helps the body absorb calcium and promotes bone growth</li>
-        <li><strong>Zinc:</strong> Supports cell growth and immune function</li>
-        <li><strong>Vitamin A:</strong> Important for bone health and development</li>
-      </ul>
+      <div className="mb-4">
+        <p><strong>Protein:</strong> The building block of tissues, essential for growth</p>
+        <p><strong>Calcium:</strong> Critical for bone development and density</p>
+        <p><strong>Vitamin D:</strong> Helps the body absorb calcium and promotes bone growth</p>
+        <p><strong>Zinc:</strong> Supports cell growth and immune function</p>
+        <p><strong>Vitamin A:</strong> Important for bone health and development</p>
+      </div>
       <p className="mb-4">
         Malnutrition or severe caloric restriction during growth years can prevent a child from reaching their genetic height potential. This explains why average heights have increased in many populations as nutrition has improved over generations.
       </p>
@@ -86,11 +86,11 @@ const ContentSections: React.FC = () => {
       <p className="mb-4">
         Regular physical activity promotes healthy bone development and can contribute positively to growth. However, the relationship between exercise and height is nuanced:
       </p>
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li>Moderate exercise stimulates growth hormone production</li>
-        <li>Excessive high-impact exercise or extreme training before puberty might potentially limit growth in some cases</li>
-        <li>Activities like swimming, basketball, and stretching exercises don't actually make you taller but may help maintain good posture and maximize existing height</li>
-      </ul>
+      <div className="mb-4">
+        <p>Moderate exercise stimulates growth hormone production</p>
+        <p>Excessive high-impact exercise or extreme training before puberty might potentially limit growth in some cases</p>
+        <p>Activities like swimming, basketball, and stretching exercises don't actually make you taller but may help maintain good posture and maximize existing height</p>
+      </div>
       <p className="mb-4">
         The key is balanced physical activity that supports overall health without creating excessive physical stress during crucial growth periods.
       </p>
