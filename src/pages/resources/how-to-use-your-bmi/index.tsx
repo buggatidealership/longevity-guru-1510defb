@@ -16,16 +16,16 @@ const HowToUseYourBMI = () => {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', path: '/' },
     { name: 'Resources', path: '/resources' },
-    { name: 'How to Understand and Use Your BMI Score Effectively', path: '/resources/how-to-use-your-bmi' }
+    { name: 'How to Use Your BMI', path: '/resources/how-to-use-your-bmi' }
   ]);
 
-  // Generate article schema
+  // Generate article schema - providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
     "How to Understand and Use Your BMI Score Effectively",
     "https://longevitycalculator.xyz/longevity-calculator-og.png",
     "2024-05-15T08:00:00+00:00",
-    "2024-05-15T08:00:00+00:00",
-    "Learn how to interpret your BMI score correctly, understand its limitations, and use it as part of a comprehensive health assessment approach."
+    "2024-05-15T10:30:00+00:00",
+    "Learn what BMI really means, its limitations, and how to properly interpret your score. Discover when BMI is useful and when other measurements might be better."
   );
 
   const schemas = [breadcrumbSchema, articleSchema];
@@ -33,10 +33,10 @@ const HowToUseYourBMI = () => {
   return (
     <>
       <SEOHead 
-        title="How to Understand and Use Your BMI Score Effectively"
-        description="Learn how to interpret your BMI score correctly, understand its limitations, and use it as part of a comprehensive health assessment approach."
+        title="How to Understand and Use Your BMI Score Effectively | Complete Guide"
+        description="Learn what BMI really means, its limitations, and how to properly interpret your score. Discover when BMI is useful and when other measurements might be better."
         canonicalUrl="/resources/how-to-use-your-bmi"
-        keywords="BMI calculator, Body Mass Index, healthy BMI, BMI limitations, BMI categories, interpret BMI score, weight health measurement"
+        keywords="BMI, body mass index, BMI calculator, BMI limitations, healthy weight, BMI categories, BMI accuracy"
         schemas={schemas}
       />
       
@@ -69,7 +69,7 @@ const HowToUseYourBMI = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>How to Understand and Use Your BMI Score</BreadcrumbPage>
+                <BreadcrumbPage>How to Use Your BMI</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
