@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -45,14 +44,13 @@ const MetabolismCalculatorPage = () => {
         </header>
 
         <main className="max-w-4xl mx-auto px-4">
-          <div className="w-full flex justify-center">
-            <div className="w-full">
-              <MetabolismCalculator />
-            </div>
+          {/* Calculator section with consistent spacing */}
+          <div className="w-full mb-10">
+            <MetabolismCalculator />
           </div>
           
           {/* About This Calculator Section */}
-          <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
+          <div className="mb-8 p-6 bg-white rounded-xl shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Metabolism Calculator: Measure Your BMR & Daily Calorie Needs</h2>
             
             {/* Table of Contents */}
@@ -217,7 +215,7 @@ const MetabolismCalculatorPage = () => {
             </div>
           </div>
           
-          <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
             <AdUnit 
               className="w-full"
               slot="2222222222" 
@@ -226,7 +224,7 @@ const MetabolismCalculatorPage = () => {
             />
           </div>
           
-          <div className="mt-8 mb-6 p-4 bg-white rounded-xl shadow-sm">
+          <div className="mb-6 p-4 bg-white rounded-xl shadow-sm">
             <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">

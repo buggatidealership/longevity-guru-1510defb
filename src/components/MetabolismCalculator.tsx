@@ -342,16 +342,16 @@ const MetabolismCalculator = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="text-center">
+    <div className="space-y-4">
+      <div className="text-center mb-2">
         <h1 className="text-3xl font-bold tracking-tight">Advanced Metabolism Calculator</h1>
-        <p className="text-gray-500 mt-2 max-w-2xl mx-auto">
+        <p className="text-gray-500 mt-2 mx-auto">
           Calculate your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) based on the latest scientific research.
         </p>
         <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
-      <DisclaimerAlert className="mb-6" />
+      <DisclaimerAlert className="mb-4" />
       
       <Tabs defaultValue="calculator" className="w-full">
         <TabsList className="grid w-full grid-cols-2 mb-4">
