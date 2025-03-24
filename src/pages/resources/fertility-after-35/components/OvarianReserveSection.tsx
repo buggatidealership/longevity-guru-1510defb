@@ -1,17 +1,16 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const OvarianReserveSection: React.FC = () => {
   return (
     <section>
-      <h2 className="text-2xl font-semibold mb-4">Understanding Ovarian Reserve</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-left">Understanding Ovarian Reserve</h2>
       
-      <p>
+      <p className="text-left">
         Along with egg quality, ovarian reserve – the number of eggs remaining in your ovaries – is the other piece of the fertility equation. Women often hear terms like "low ovarian reserve" or learn about tests for ovarian reserve when assessing fertility at 35+. Let's break down what this means.
       </p>
       
-      <p>
+      <p className="text-left">
         Every woman is born with a finite number of eggs, and this supply declines over time through a natural process. Ovarian reserve is essentially your egg count at a given age. As mentioned earlier, the average woman has on the order of hundreds of thousands of eggs around puberty, around 25,000 by her late 30s, and only a few hundred by her 40s.
       </p>
       

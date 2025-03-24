@@ -38,12 +38,12 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content
           height={338}
         />
       </div>
-      <CardHeader>
+      <CardHeader className="text-left">
         <CardTitle className="text-xl line-clamp-2">{title}</CardTitle>
         <CardDescription className="line-clamp-2">{description}</CardDescription>
         {date && <p className="text-xs text-muted-foreground mt-1">{date}</p>}
       </CardHeader>
-      <CardContent className="flex-grow">
+      <CardContent className="flex-grow text-left">
         {content.map((paragraph, index) => (
           <p key={index} className={`text-muted-foreground ${index > 0 ? 'mt-2' : ''} line-clamp-3`}>
             {paragraph}

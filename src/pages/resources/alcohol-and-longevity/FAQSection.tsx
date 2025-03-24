@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Accordion,
@@ -10,14 +9,14 @@ import {
 const FAQSection = () => {
   return (
     <section className="mb-16">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6 text-left">Frequently Asked Questions</h2>
       
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger className="text-left">
             Is it true that red wine is good for heart health?
           </AccordionTrigger>
-          <AccordionContent className="text-gray-700">
+          <AccordionContent className="text-gray-700 text-left">
             <p>
               Red wine contains antioxidants called polyphenols (including resveratrol) that some studies suggest might offer heart health benefits. However, more recent research indicates that the cardiovascular benefits of moderate alcohol consumption have likely been overstated, and many health authorities now believe these benefits can be obtained through other means without the risks associated with alcohol, such as eating grapes or drinking grape juice, regular exercise, and maintaining a healthy diet.
             </p>

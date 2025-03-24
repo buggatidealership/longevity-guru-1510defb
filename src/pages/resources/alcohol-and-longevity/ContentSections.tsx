@@ -6,17 +6,17 @@ const ContentSections = () => {
   return (
     <div className="mb-16 space-y-12">
       <section id="alcohol-effects">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">How Alcohol Affects Your Body and Lifespan</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4 text-left">How Alcohol Affects Your Body and Lifespan</h2>
         <div className="prose max-w-none">
-          <p>
+          <p className="text-left">
             Alcohol is a toxin that affects nearly every system in your body. When consumed, it's broken down in the liver, which can only process about one standard drink per hour. The excess circulates through your bloodstream, affecting various organs.
           </p>
           
-          <p className="mt-4">
+          <p className="mt-4 text-left">
             When alcohol enters your system, it immediately begins impacting your brain, impairing cognitive function and potentially leading to long-term neurological damage with continued use. Your cardiovascular system is affected as well, with alcohol consumption increasing blood pressure and sometimes causing irregular heartbeats. The liver bears the brunt of alcohol processing, leading to inflammation, fatty liver disease, hepatitis, and eventually cirrhosis in heavy drinkers. Additionally, your pancreas can become inflamed from alcohol use, preventing proper digestion. Alcohol also weakens your immune system, making you more susceptible to various diseases, while significantly increasing your risk of several cancers, including those of the throat, liver, breast, and colon.
           </p>
           
-          <p className="mt-4">
+          <p className="mt-4 text-left">
             Research from the Global Burden of Disease study found that alcohol was the seventh leading risk factor for premature death and disability worldwide in 2016, accounting for 2.8 million deaths.
           </p>
         </div>

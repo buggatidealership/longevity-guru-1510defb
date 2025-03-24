@@ -1,16 +1,15 @@
-
 import React from 'react';
 
 const FertilityChangesSection: React.FC = () => {
   return (
     <section>
-      <h2 className="text-2xl font-semibold mb-4">How Fertility Changes After 35</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-left">How Fertility Changes After 35</h2>
       
-      <p>
+      <p className="text-left">
         By our mid-30s, fertility begins a notable decline – a biological reality often referred to as the "fertility cliff." In truth, there's no single cliff-edge moment, but rather a steady drop that accelerates in one's late 30s. Women are most fertile in their late teens and early 20s, with roughly a 25% chance of getting pregnant each month. Fertility gradually declines throughout a woman's 20s, and by age 30 the chance of conceiving each cycle is about 20%.
       </p>
       
-      <p>
+      <p className="text-left">
         After 35, this decline speeds up significantly – which is why doctors often use 35 as a benchmark for "advanced maternal age." One major reason fertility drops is the number and quality of eggs. Women are born with all the eggs they will ever have, and the supply dwindles over time.
       </p>
       

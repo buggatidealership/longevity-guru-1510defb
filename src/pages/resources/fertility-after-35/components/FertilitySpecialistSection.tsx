@@ -1,16 +1,15 @@
-
 import React from 'react';
 
 const FertilitySpecialistSection: React.FC = () => {
   return (
     <section>
-      <h2 className="text-2xl font-semibold mb-4">When to See a Fertility Specialist</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-left">When to See a Fertility Specialist</h2>
       
-      <p>
+      <p className="text-left">
         If you're over 35 and trying to conceive, timing is everything – not just timing intercourse (as discussed above), but timing when to get medical help if you need it. Fertility specialists (reproductive endocrinologists) are OB/GYNs with advanced training in helping people get pregnant. When might it be time to consult one?
       </p>
       
-      <p>
+      <p className="text-left">
         Guidelines say that women over 35 should seek a fertility evaluation if they haven't conceived after 6 months of regular, unprotected intercourse. (By comparison, women under 35 are often advised to try for a full year before seeking help.) And if you're over 40, it's recommended to see a specialist even sooner – some say after 3 months of trying, or even right away, since at that age any delay could further reduce success odds.
       </p>
       

@@ -6,14 +6,14 @@ const ContentSections: React.FC = () => {
   return (
     <div className="space-y-8">
       <section>
-        <h2 id="introduction" className="text-2xl font-semibold mb-4">Understanding Botox Dosage</h2>
-        <p className="mb-4">
+        <h2 id="introduction" className="text-2xl font-semibold mb-4 text-left">Understanding Botox Dosage</h2>
+        <p className="mb-4 text-left">
           Botox dosage is measured in "units," which represent a standardized amount of the botulinum toxin's activity. 
           These units are not volume measurements like milliliters but rather indicate the biological activity or 
           potency of the neurotoxin. Most cosmetic Botox treatments in the United States use Botox (onabotulinumtoxinA), 
           though similar products like Dysport, Xeomin, and Jeuveau work on the same principle with different unit equivalencies.
         </p>
-        <p>
+        <p className="text-left">
           FDA-approved dosages vary by treatment area, and the amounts discussed in this guide reflect average clinical practice. 
           It's important to understand that these are general guidelines—your provider will customize your treatment based 
           on your unique facial anatomy and goals.
@@ -21,7 +21,7 @@ const ContentSections: React.FC = () => {
       </section>
 
       <section>
-        <h2 id="typical-ranges" className="text-2xl font-semibold mb-4">Typical Botox Unit Ranges by Area</h2>
+        <h2 id="typical-ranges" className="text-2xl font-semibold mb-4 text-left">Typical Botox Unit Ranges by Area</h2>
         
         <div className="overflow-x-auto">
           <table className="w-full border-collapse mb-4">
@@ -72,7 +72,7 @@ const ContentSections: React.FC = () => {
           </table>
         </div>
         
-        <p className="text-sm text-gray-500 italic">
+        <p className="text-sm text-gray-500 italic text-left">
           Note: These ranges represent typical clinical practice but may vary based on provider preference, 
           technique, and individual patient factors.
         </p>

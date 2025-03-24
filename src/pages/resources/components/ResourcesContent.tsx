@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ResourceCard from './ResourceCard';
 
@@ -146,4 +145,3 @@ const ResourcesContent: React.FC = () => {
 };
 
 export default ResourcesContent;
-

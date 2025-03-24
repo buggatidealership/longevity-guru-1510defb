@@ -1,16 +1,15 @@
-
 import React from 'react';
 
 const EggQualitySection: React.FC = () => {
   return (
     <section>
-      <h2 className="text-2xl font-semibold mb-4">What Is Egg Quality and Why It Matters?</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-left">What Is Egg Quality and Why It Matters?</h2>
       
-      <p>
+      <p className="text-left">
         When discussing fertility in your 30s and 40s, you'll often hear about "egg quality." But what exactly does that mean? Egg quality refers to an egg's potential to lead to a healthy pregnancy. High-quality eggs have the correct number of chromosomes and enough energy (from mitochondria) to develop into a viable embryo.
       </p>
       
-      <p>
+      <p className="text-left">
         Poor-quality eggs may have chromosomal abnormalities or low energy reserves, making them less likely to fertilize, implant, or grow into a healthy baby. Age is the biggest factor affecting egg quality. As eggs sit in the ovaries over the decades, their DNA can accumulate damage.
       </p>
       
