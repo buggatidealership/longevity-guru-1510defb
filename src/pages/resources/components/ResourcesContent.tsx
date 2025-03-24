@@ -25,7 +25,7 @@ const ResourcesContent: React.FC = () => {
           title="How to Boost Your Metabolism"
           description="Science-backed methods to increase your metabolic rate"
           content={[
-            "Learn which habits and lifestyle changes are actually proven to increase metabolism, and which popular "metabolism boosters" are myths. Find out how your body burns calories daily."
+            "Learn which habits and lifestyle changes are actually proven to increase metabolism, and which popular \"metabolism boosters\" are myths. Find out how your body burns calories daily."
           ]}
           link="/resources/how-to-boost-your-metabolism"
           imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
