@@ -51,10 +51,10 @@ export const ensureCorrectSitemapStart = (content: string): string => {
     if (xmlDeclMatch) {
       // Remove it first, then prepend
       cleanContent = cleanContent.replace(xmlDeclMatch[0], '');
-      cleanContent = `${xmlDeclaration}\n${cleanContent.trimStart()}`;
+      cleanContent = `${xmlDeclaration}${cleanContent.trimStart()}`;
     } else {
       // No XML declaration found, add it
-      cleanContent = `${xmlDeclaration}\n${cleanContent}`;
+      cleanContent = `${xmlDeclaration}${cleanContent}`;
     }
   }
   
@@ -78,7 +78,7 @@ export const normalizeSitemapXml = (sitemapContent: string): string => {
     if (xmlDeclMatch) {
       normalized = normalized.replace(xmlDeclMatch[0], '');
     }
-    normalized = `${xmlDeclaration}\n${normalized.trimStart()}`;
+    normalized = `${xmlDeclaration}${normalized.trimStart()}`;
   }
   
   // Ensure the urlset has the correct namespace
