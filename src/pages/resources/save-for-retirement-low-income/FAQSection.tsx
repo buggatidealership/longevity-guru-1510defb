@@ -38,7 +38,7 @@ const FAQSection: React.FC = () => {
           <CardContent className="pt-6">
             <h3 className="text-xl font-medium mb-2">How can I boost retirement savings with minimal disposable income?</h3>
             <p>
-              To boost retirement savings with minimal disposable income: 1) Claim the Saver's Credit for a tax credit up to 50% of contributions, 2) Save tax refunds automatically into an IRA, 3) Use micro-saving apps to round up purchases and invest the difference, 4) Generate side income through gig work dedicating those earnings to retirement, and 5) Gradually increase savings by 1% of income annually so you barely notice the difference.
+              To boost retirement savings with minimal disposable income, you can claim the Saver's Credit for a tax credit up to 50% of contributions. Consider saving tax refunds automatically into an IRA and using micro-saving apps to round up purchases and invest the difference. Many find success generating side income through gig work and dedicating those earnings specifically to retirement. Another effective strategy is to gradually increase savings by 1% of income annually, which allows you to adapt to the change without noticing a significant difference in your monthly budget.
             </p>
           </CardContent>
         </Card>
