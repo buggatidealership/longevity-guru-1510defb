@@ -105,6 +105,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/resources/how-to-use-your-bmi</loc>
+    <lastmod>2024-05-15T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   
   <url>
     <loc>https://longevitycalculator.xyz/privacy</loc>

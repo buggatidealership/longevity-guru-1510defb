@@ -27,6 +27,7 @@ import HowMuchToSaveForRetirement from "./pages/resources/how-much-to-save-for-r
 import SaveForRetirementLowIncome from "./pages/resources/save-for-retirement-low-income";
 import HowToBoostYourMetabolism from "./pages/resources/how-to-boost-your-metabolism";
 import FertilityAfter35 from "./pages/resources/fertility-after-35";
+import HowToUseYourBMI from "./pages/resources/how-to-use-your-bmi";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,7 @@ const App = () => (
           <Route path="/resources/save-for-retirement-low-income" element={<SaveForRetirementLowIncome />} />
           <Route path="/resources/how-to-boost-your-metabolism" element={<HowToBoostYourMetabolism />} />
           <Route path="/resources/fertility-after-35" element={<FertilityAfter35 />} />
+          <Route path="/resources/how-to-use-your-bmi" element={<HowToUseYourBMI />} />
           
           {/* Legacy URL routes for backward compatibility */}
           <Route path="/lifespan" element={<LongevityCalculatorPage />} />
