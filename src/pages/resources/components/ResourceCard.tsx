@@ -26,12 +26,12 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content
   };
 
   return (
-    <Card className="h-full flex flex-col hover:shadow-md transition-all duration-200">
-      <div className="relative w-full pt-[56.25%] overflow-hidden rounded-t-lg">
+    <Card className="h-full flex flex-col hover:shadow-lg transition-all duration-300 border-gray-200">
+      <div className="relative w-full pt-[56.25%] overflow-hidden rounded-t-lg bg-gray-100">
         <img 
           src={imgSrc} 
-          alt={`Preview for ${title} article`} 
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          alt={`Preview image for "${title}" article`} 
+          className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={handleImageError}
           loading="lazy"
           width={600}
@@ -39,13 +39,13 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content
         />
       </div>
       <CardHeader>
-        <CardTitle className="text-xl">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle className="text-xl line-clamp-2">{title}</CardTitle>
+        <CardDescription className="line-clamp-2">{description}</CardDescription>
         {date && <p className="text-xs text-muted-foreground mt-1">{date}</p>}
       </CardHeader>
       <CardContent className="flex-grow">
         {content.map((paragraph, index) => (
-          <p key={index} className={`text-muted-foreground ${index > 0 ? 'mt-2' : ''}`}>
+          <p key={index} className={`text-muted-foreground ${index > 0 ? 'mt-2' : ''} line-clamp-3`}>
             {paragraph}
           </p>
         ))}
@@ -53,7 +53,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ title, description, content
       <CardFooter>
         <Button asChild variant="outline" className="w-full justify-between">
           <Link to={link}>
-            Read Article <ArrowRight className="h-4 w-4" />
+            Read Article <ArrowRight className="h-4 w-4 ml-2" />
           </Link>
         </Button>
       </CardFooter>
