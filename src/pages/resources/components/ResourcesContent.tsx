@@ -2,163 +2,147 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ResourceCard from './ResourceCard';
-import { AdUnit } from '@/components/AdUnit';
 
-const ResourcesContent = () => {
+const ResourcesContent: React.FC = () => {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-6 sm:py-12">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Health & Wellness Resources</h1>
-        <p className="text-gray-600">
-          Evidence-based guides to help you live longer, healthier, and make informed decisions.
-        </p>
-      </div>
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center mb-2">Longevity Resources</h1>
+      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Evidence-based articles and guides to help you make informed decisions about your health, wellness, and financial future.</p>
       
-      <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-        <AdUnit 
-          className="w-full"
-          slot="1111111111" 
-          format="horizontal"
-          responsive={true}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ResourceCard 
+          title="Will I Go Bald? Predict Hair Loss"
+          description="Learn about the science of hair loss prediction"
+          content={[
+            "Discover the key factors that determine your baldness risk, understand how genetics and hormones affect hair loss, and learn what preventative steps you can take if you're at high risk."
+          ]}
+          link="/resources/will-i-go-bald"
+          imageUrl="https://images.unsplash.com/photo-1579975096649-e773676c4276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="October 15, 2024"
         />
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        
         <ResourceCard 
           title="How to Boost Your Metabolism"
-          description="Learn evidence-based strategies to naturally increase your metabolic rate."
+          description="Science-backed methods to increase your metabolic rate"
+          content={[
+            "Learn which habits and lifestyle changes are actually proven to increase metabolism, and which popular "metabolism boosters" are myths. Find out how your body burns calories daily."
+          ]}
           link="/resources/how-to-boost-your-metabolism"
-          content={["Learn evidence-based strategies to naturally increase your metabolic rate."]}
-          imageUrl="https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=600&q=80"
-          date="October 10, 2023"
-        />
-        
-        <ResourceCard 
-          title="How to Increase Life Expectancy"
-          description="Discover the 10 most effective habits to extend your lifespan according to longevity research."
-          link="/resources/how-to-increase-life-expectancy"
-          content={["Discover the 10 most effective habits to extend your lifespan according to longevity research."]}
-          imageUrl="https://images.unsplash.com/photo-1507120878965-54b2d3939100?auto=format&fit=crop&w=600&q=80"
-          date="May 15, 2023"
-        />
-        
-        <ResourceCard 
-          title="Fertility After 35"
-          description="Understanding your fertility options and chances after age 35."
-          link="/resources/fertility-after-35"
-          content={["Understanding your fertility options and chances after age 35."]}
-          imageUrl="https://images.unsplash.com/photo-1632165254498-1e89c9fd72e6?auto=format&fit=crop&w=600&q=80"
-          date="July 20, 2023"
+          imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="October 10, 2024"
         />
         
         <ResourceCard 
           title="How Much to Save for Retirement"
-          description="Calculate how much you need to save for a comfortable retirement based on your lifestyle."
+          description="A comprehensive guide to retirement planning"
+          content={[
+            "Discover how much you should be saving at every age, which factors affect your personal retirement number, and strategies to catch up if you're behind on your savings goals."
+          ]}
           link="/resources/how-much-to-save-for-retirement"
-          content={["Calculate how much you need to save for a comfortable retirement based on your lifestyle."]}
-          imageUrl="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?auto=format&fit=crop&w=600&q=80"
-          date="June 5, 2023"
+          imageUrl="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="September 25, 2024"
         />
         
         <ResourceCard 
-          title="Save for Retirement on Low Income"
-          description="Strategies to build retirement savings when money is tight."
+          title="Save for Retirement on a Low Income"
+          description="Strategic planning for those with limited resources"
+          content={[
+            "Learn practical strategies for building retirement security even with limited income, including special tax benefits, government programs, and non-traditional approaches to financial security."
+          ]}
           link="/resources/save-for-retirement-low-income"
-          content={["Strategies to build retirement savings when money is tight."]}
-          imageUrl="https://images.unsplash.com/photo-1580508174046-170816f65662?auto=format&fit=crop&w=600&q=80"
-          date="November 12, 2023"
+          imageUrl="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="September 18, 2024"
         />
         
         <ResourceCard 
-          title="How to Choose Breast Implant Size"
-          description="A guide to finding the right implant size for your body type and goals."
-          link="/resources/breast-implant-size-guide"
-          content={["A guide to finding the right implant size for your body type and goals."]}
-          imageUrl="https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?auto=format&fit=crop&w=600&q=80"
-          date="September 15, 2023"
-        />
-
-        <ResourceCard 
-          title="How to Use Your BMI"
-          description="Understanding what BMI does (and doesn't) tell you about your health."
-          link="/resources/how-to-use-your-bmi"
-          content={["Understanding what BMI does (and doesn't) tell you about your health."]}
-          imageUrl="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
-          date="March 8, 2023"
-        />
-
-        <ResourceCard 
-          title="Predict Your Child's Adult Height"
-          description="Methods to estimate how tall your child might grow using genetic and scientific factors."
-          link="/resources/adult-height-prediction-guide"
-          content={["Methods to estimate how tall your child might grow using genetic and scientific factors."]}
-          imageUrl="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80"
-          date="February 20, 2024"
+          title="Fertility After 35"
+          description="Understanding conception chances with advanced maternal age"
+          content={[
+            "Learn how fertility changes after 35, specific challenges you might face, and the steps you can take to maximize your chances of conception, including when to seek medical help."
+          ]}
+          link="/resources/fertility-after-35"
+          imageUrl="https://images.unsplash.com/photo-1632064003211-20b57bbc4ca5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="September 12, 2024"
         />
         
         <ResourceCard 
-          title="How Much Botox Do You Need"
-          description="A guide to understanding botox dosages across different facial areas."
-          link="/resources/botox-dosage-guide"
-          content={["A guide to understanding botox dosages across different facial areas."]}
-          imageUrl="https://images.unsplash.com/photo-1621798986237-93d793afafc2?auto=format&fit=crop&w=600&q=80"
-          date="November 15, 2023"
+          title="How to Increase Life Expectancy"
+          description="Evidence-based strategies to live longer and healthier"
+          content={[
+            "Discover the 7 key lifestyle factors with the strongest scientific evidence for extending lifespan and improving healthspan, with specific actionable steps for each factor."
+          ]}
+          link="/resources/how-to-increase-life-expectancy"
+          imageUrl="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="August 28, 2024"
         />
         
         <ResourceCard 
           title="Alcohol and Longevity"
-          description="Learn how alcohol consumption affects your lifespan and health outcomes."
+          description="How drinking affects your lifespan"
+          content={[
+            "Learn about the relationship between alcohol consumption and life expectancy, including the latest research on safe drinking levels and how alcohol affects different aspects of health."
+          ]}
           link="/resources/alcohol-and-longevity"
-          content={["Learn how alcohol consumption affects your lifespan and health outcomes."]}
-          imageUrl="https://images.unsplash.com/photo-1605270012917-bf157c5a9541?auto=format&fit=crop&w=600&q=80"
-          date="January 10, 2024"
+          imageUrl="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="August 15, 2024"
+        />
+        
+        <ResourceCard 
+          title="How to Use Your BMI"
+          description="Understanding the strengths and limitations of BMI"
+          content={[
+            "Learn what BMI actually measures, when it's useful, when it's misleading, and how to interpret your BMI results in the context of your overall health assessment."
+          ]}
+          link="/resources/how-to-use-your-bmi"
+          imageUrl="https://images.unsplash.com/photo-1573588028698-f4759befb09a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="August 8, 2024"
+        />
+        
+        <ResourceCard 
+          title="Adult Height Prediction Guide"
+          description="How to estimate a child's future height"
+          content={[
+            "Understand the science behind height prediction, including genetic factors, bone age assessment, and how to use prediction methods to estimate a child's adult height."
+          ]}
+          link="/resources/adult-height-prediction-guide"
+          imageUrl="https://images.unsplash.com/photo-1576613109753-27804239cce8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="July 27, 2024"
+        />
+        
+        <ResourceCard 
+          title="How to Predict Your Child's Height"
+          description="Methods for estimating a child's adult height"
+          content={[
+            "Learn about different methods to predict your child's future height, including the mid-parental height method, growth chart percentiles, and how to interpret bone age studies."
+          ]}
+          link="/resources/how-to-predict-your-childs-adult-height"
+          imageUrl="https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="July 15, 2024"
+        />
+        
+        <ResourceCard 
+          title="Botox Dosage Guide"
+          description="Understanding Botox treatment areas and units"
+          content={[
+            "Explore how Botox dosing varies by treatment area, what factors affect your personal dosage needs, and how to ensure you're getting appropriate treatment for optimal results."
+          ]}
+          link="/resources/botox-dosage-guide"
+          imageUrl="https://images.unsplash.com/photo-1595839095859-eb3ce9a499b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="July 5, 2024"
+        />
+        
+        <ResourceCard 
+          title="Breast Implant Size Guide"
+          description="Choosing the right implant size for your body"
+          content={[
+            "Learn about different implant measurements, how to assess your frame and tissue characteristics, and how to visualize potential results to find your ideal implant size."
+          ]}
+          link="/resources/breast-implant-size-guide"
+          imageUrl="https://images.unsplash.com/photo-1580507090612-fce599709efd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+          date="June 22, 2024"
         />
       </div>
-      
-      <div className="mb-10 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-        <AdUnit 
-          className="w-full"
-          slot="2222222222" 
-          format="rectangle"
-          responsive={true}
-        />
-      </div>
-      
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Calculator Tools</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Link to="/life-expectancy-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
-            <h3 className="font-medium text-gray-900 mb-1">Life Expectancy Calculator</h3>
-            <p className="text-sm text-gray-600">Estimate your lifespan based on your lifestyle and health factors.</p>
-          </Link>
-          
-          <Link to="/retirement-savings-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
-            <h3 className="font-medium text-gray-900 mb-1">Retirement Savings Calculator</h3>
-            <p className="text-sm text-gray-600">See how much you need to save to reach your retirement goals.</p>
-          </Link>
-          
-          <Link to="/female-fertility-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
-            <h3 className="font-medium text-gray-900 mb-1">Female Fertility Calculator</h3>
-            <p className="text-sm text-gray-600">Estimate your chances of conception based on your age.</p>
-          </Link>
-          
-          <Link to="/adult-height-predictor-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
-            <h3 className="font-medium text-gray-900 mb-1">Adult Height Predictor</h3>
-            <p className="text-sm text-gray-600">Predict a child's adult height based on parental height and current growth.</p>
-          </Link>
-          
-          <Link to="/botox-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
-            <h3 className="font-medium text-gray-900 mb-1">Botox Dosage Calculator</h3>
-            <p className="text-sm text-gray-600">Estimate how many units of botox you might need for various treatment areas.</p>
-          </Link>
-          
-          <Link to="/alcohol-lifespan-calculator" className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-primary transition duration-300">
-            <h3 className="font-medium text-gray-900 mb-1">Alcohol Impact Calculator</h3>
-            <p className="text-sm text-gray-600">Calculate how alcohol consumption affects your life expectancy.</p>
-          </Link>
-        </div>
-      </div>
-    </main>
+    </div>
   );
 };
 
