@@ -60,23 +60,21 @@ const PatientCharacteristicsForm: React.FC<PatientCharacteristicsFormProps> = ({
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="grid gap-6 md:grid-cols-2">
-          {/* Gender selection - Improved alignment */}
+          {/* Gender selection - Now using dropdown */}
           <div className="space-y-2">
-            <Label className="block mb-2">Gender</Label>
-            <RadioGroup 
+            <Label htmlFor="gender">Gender</Label>
+            <Select 
               value={gender} 
-              onValueChange={(value) => onCharacteristicsChange({ gender: value })} 
-              className="flex items-center space-x-6"
+              onValueChange={(value) => onCharacteristicsChange({ gender: value })}
             >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="female" id="female" />
-                <Label htmlFor="female" className="cursor-pointer">Female</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="male" id="male" />
-                <Label htmlFor="male" className="cursor-pointer">Male</Label>
-              </div>
-            </RadioGroup>
+              <SelectTrigger id="gender">
+                <SelectValue placeholder="Select gender" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="female">Female</SelectItem>
+                <SelectItem value="male">Male</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           
           {/* Age Range */}
