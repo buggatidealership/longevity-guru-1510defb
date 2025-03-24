@@ -200,7 +200,6 @@ const GrowthPercentileCalculator = () => {
         <AdUnit slot="2222222222" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
-      {/* Medical disclaimer moved here to be consistent with other calculators */}
       <DisclaimerAlert 
         title="Medical Disclaimer" 
         content="This calculator provides estimates based on CDC growth charts. Results are for educational purposes only and should not replace professional medical advice. Growth percentiles may vary based on many factors." 
@@ -219,39 +218,29 @@ const GrowthPercentileCalculator = () => {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-2">
-            <Label className="block">Units</Label>
-            <RadioGroup 
-              value={units} 
-              onValueChange={setUnits}
-              className="flex space-x-4"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="metric" id="metric" />
-                <Label htmlFor="metric">Metric (cm, kg)</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="imperial" id="imperial" />
-                <Label htmlFor="imperial">Imperial (in, lb)</Label>
-              </div>
-            </RadioGroup>
+            <Label htmlFor="units">Units</Label>
+            <Select value={units} onValueChange={setUnits}>
+              <SelectTrigger id="units">
+                <SelectValue placeholder="Select units" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="metric">Metric (cm, kg)</SelectItem>
+                <SelectItem value="imperial">Imperial (in, lb)</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           
           <div className="space-y-2">
-            <Label className="block">Gender</Label>
-            <RadioGroup 
-              value={gender} 
-              onValueChange={setGender}
-              className="flex space-x-4"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="male" id="male" />
-                <Label htmlFor="male">Male</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="female" id="female" />
-                <Label htmlFor="female">Female</Label>
-              </div>
-            </RadioGroup>
+            <Label htmlFor="gender">Gender</Label>
+            <Select value={gender} onValueChange={setGender}>
+              <SelectTrigger id="gender">
+                <SelectValue placeholder="Select gender" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="male">Male</SelectItem>
+                <SelectItem value="female">Female</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
           
           <div className="space-y-2">
