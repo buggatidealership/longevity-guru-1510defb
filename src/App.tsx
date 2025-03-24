@@ -35,6 +35,7 @@ import HowToUseYourBMI from './pages/resources/how-to-use-your-bmi';
 import AdultHeightPredictionGuide from './pages/resources/adult-height-prediction-guide';
 import BotoxDosageGuide from './pages/resources/botox-dosage-guide';
 import AlcoholAndLongevity from './pages/resources/alcohol-and-longevity';
+import WillIGoBald from './pages/resources/will-i-go-bald';
 
 function App() {
   useEffect(() => {
@@ -83,6 +84,7 @@ function App() {
         <Route path="/resources/adult-height-prediction-guide" element={<AdultHeightPredictionGuide />} />
         <Route path="/resources/botox-dosage-guide" element={<BotoxDosageGuide />} />
         <Route path="/resources/alcohol-and-longevity" element={<AlcoholAndLongevity />} />
+        <Route path="/resources/will-i-go-bald" element={<WillIGoBald />} />
         
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />
