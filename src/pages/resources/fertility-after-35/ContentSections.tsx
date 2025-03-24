@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -18,7 +17,7 @@ const ContentSections: React.FC = () => {
         
         <div className="my-8 relative rounded-xl overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1619435545129-56afd8d10ce2?auto=format&fit=crop&q=80&w=1000&h=600" 
+            src="/lovable-uploads/1c0b8a39-cc7f-471b-923c-800b170b2ab4.png" 
             alt="A women's health doctor counseling a patient about fertility options" 
             className="w-full object-cover rounded-xl"
           />
