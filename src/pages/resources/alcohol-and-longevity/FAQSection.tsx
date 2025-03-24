@@ -30,15 +30,8 @@ const FAQSection = () => {
           </AccordionTrigger>
           <AccordionContent className="text-gray-700">
             <p>
-              The body begins recovering from alcohol quite quickly:
+              The body begins recovering from alcohol quite quickly. Within the first 24 hours after quitting, your blood sugar typically stabilizes. After about a week, sleep quality improves and hydration normalizes throughout your body. By the one-month mark, liver fat can decrease by up to 15%, showing significant healing. Around the three-month point, blood pressure may noticeably reduce. After a full year of abstinence, your risk of cardiovascular events decreases significantly compared to when you were drinking.
             </p>
-            <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li><strong>24 hours:</strong> Blood sugar stabilizes</li>
-              <li><strong>1 week:</strong> Sleep improves and hydration normalizes</li>
-              <li><strong>1 month:</strong> Liver fat can decrease by up to 15%</li>
-              <li><strong>3 months:</strong> Blood pressure may reduce</li>
-              <li><strong>1 year:</strong> Risk of cardiovascular events decreases significantly</li>
-            </ul>
             <p className="mt-2">
               The extent and speed of recovery depend on previous drinking habits and individual health factors. For heavy drinkers, some damage may be permanent, but significant health improvements are still possible with abstinence.
             </p>
@@ -62,18 +55,7 @@ const FAQSection = () => {
           </AccordionTrigger>
           <AccordionContent className="text-gray-700">
             <p>
-              At the cellular level, alcohol accelerates aging through several mechanisms:
-            </p>
-            <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li>Increases oxidative stress, damaging cells</li>
-              <li>Disrupts cellular mitochondrial function</li>
-              <li>Promotes inflammation throughout the body</li>
-              <li>May accelerate telomere shortening (a marker of cellular aging)</li>
-              <li>Interferes with DNA repair mechanisms</li>
-              <li>Disrupts hormone balance and metabolic processes</li>
-            </ul>
-            <p className="mt-2">
-              These cellular effects can contribute to accelerated aging and the development of age-related diseases, ultimately impacting longevity.
+              At the cellular level, alcohol accelerates aging through several complex mechanisms. It significantly increases oxidative stress throughout the body, causing direct damage to cells and their components. Alcohol consumption disrupts cellular mitochondrial function, hampering the cell's ability to produce energy efficiently. The substance promotes widespread inflammation throughout the body, a key driver of many age-related diseases. Research suggests alcohol may accelerate telomere shortening, a significant marker of cellular aging. Additionally, alcohol interferes with the body's DNA repair mechanisms, leading to accumulating genetic damage over time. Finally, it disrupts hormone balance and metabolic processes that maintain cellular health. These combined cellular effects contribute to accelerated aging and the development of age-related diseases, ultimately impacting longevity.
             </p>
           </AccordionContent>
         </AccordionItem>

@@ -48,14 +48,8 @@ const FAQSection: React.FC = () => {
               Often, low ovarian reserve (fewer eggs remaining than expected for one's age) doesn't produce obvious signs until you face difficulty conceiving. Most women with diminished ovarian reserve have normal menstrual cycles and feel no different physically.
             </p>
             <p className="mt-2">
-              However, there are a few potential indicators:
+              However, there are a few potential indicators. Some women notice their cycle length has gotten shorter by a few days as they've gotten older. A shortening cycle can be a sign that the ovaries are working harder to recruit follicles. You might experience irregular or skipped periods in your late 30s/40s when reserve is very low. Personal history can provide clues too - prior ovarian surgery, chemotherapy, radiation, or family history of early menopause could indicate potential reserve issues. The most definitive signs come from medical testing - elevated FSH, low AMH, or low antral follicle count on ultrasound clearly indicate diminished reserve, but these require specific fertility testing.
             </p>
-            <ul className="list-disc pl-6 my-2">
-              <li><strong>Shorter Menstrual Cycles:</strong> Some women notice their cycle length has gotten shorter by a few days as they've gotten older. A shortening cycle can be a sign that the ovaries are working harder to recruit follicles.</li>
-              <li><strong>Irregular or Skipped Periods:</strong> In your late 30s/40s, very low reserve might cause occasional irregularity.</li>
-              <li><strong>History of Risk Factors:</strong> Prior ovarian surgery, chemotherapy, radiation, or family history of early menopause.</li>
-              <li><strong>Lab Test Results:</strong> Elevated FSH, low AMH, or low antral follicle count on ultrasound are the definitive signs, but require testing.</li>
-            </ul>
             <p className="mt-2">
               The signs of low ovarian reserve are usually subtle or hidden. The clearest signals come from fertility tests or failing to conceive within expected time frames. If in doubt, check it out with your healthcare provider.
             </p>

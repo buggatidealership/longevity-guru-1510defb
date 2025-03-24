@@ -67,13 +67,8 @@ const ContentSections: React.FC = () => {
         
         <h3 className="text-xl font-semibold mb-2">3. Doesn't Account for Age, Sex, or Ethnicity</h3>
         <p className="mb-4">
-          BMI thresholds don't adjust for:
+          BMI thresholds don't adjust for important demographic factors. Older adults typically have more fat and less muscle at the same BMI as younger adults, making standard interpretations less accurate for seniors. Women generally have higher body fat percentages than men at the same BMI value, which isn't reflected in universal BMI categories. Additionally, people of Asian descent may develop health risks at lower BMI thresholds than those of European descent, highlighting ethnic variations that standard BMI ranges don't account for.
         </p>
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li><strong>Age:</strong> Older adults typically have more fat and less muscle at the same BMI as younger adults</li>
-          <li><strong>Sex:</strong> Women generally have higher body fat percentages than men at the same BMI</li>
-          <li><strong>Ethnicity:</strong> People of Asian descent may develop health risks at lower BMI thresholds than those of European descent</li>
-        </ul>
         
         <h3 className="text-xl font-semibold mb-2">4. Oversimplifies Complex Health Factors</h3>
         <p className="mb-4">
@@ -100,14 +95,8 @@ const ContentSections: React.FC = () => {
         
         <h3 className="text-xl font-semibold mb-2">Combine BMI with Other Measurements</h3>
         <p className="mb-4">
-          For a more complete health picture, consider tracking these alongside your BMI:
+          For a more complete health picture, consider tracking additional metrics alongside your BMI. Waist circumference provides valuable information about abdominal fat, with measurements exceeding 40 inches (102cm) for men and 35 inches (88cm) for women indicating increased health risks. Your waist-to-hip ratio can reveal important insights about fat distribution patterns, with values above 0.9 for men and 0.85 for women suggesting excess abdominal fat that may pose health concerns. Body fat percentage measurements offer direct assessment of fat versus lean mass, providing more nuanced information than BMI alone. Additionally, blood pressure, cholesterol, and blood sugar levels serve as key indicators of metabolic health that complement BMI readings for a more comprehensive health assessment.
         </p>
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li><strong>Waist circumference:</strong> Men {'>'}40 inches (102cm) and women {'>'}35 inches (88cm) indicate increased health risks</li>
-          <li><strong>Waist-to-hip ratio:</strong> Values {'>'}0.9 for men and {'>'}0.85 for women suggest excess abdominal fat</li>
-          <li><strong>Body fat percentage:</strong> Provides direct measurement of fat versus lean mass</li>
-          <li><strong>Blood pressure, cholesterol, and blood sugar levels:</strong> Key indicators of metabolic health</li>
-        </ul>
         
         <h3 className="text-xl font-semibold mb-2">Focus on Trends, Not Single Measurements</h3>
         <p className="mb-4">
@@ -116,14 +105,8 @@ const ContentSections: React.FC = () => {
         
         <h3 className="text-xl font-semibold mb-2">Consider Your Individual Context</h3>
         <p className="mb-4">
-          Interpret your BMI within the context of your:
+          Interpret your BMI within the context of your personal characteristics and circumstances. Your activity level and fitness regimen may significantly impact how your BMI relates to your actual health status. Your family health history provides important genetic context for understanding your personal risk factors. Cultural background and ethnicity influence how BMI correlates with health outcomes in your specific population. Age and life stage affect body composition and metabolic patterns, changing how BMI should be interpreted throughout your lifespan.
         </p>
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>Activity level and fitness</li>
-          <li>Family health history</li>
-          <li>Cultural background</li>
-          <li>Age and life stage</li>
-        </ul>
         
         <p className="mb-4">
           Your healthcare provider can help you understand how your BMI relates to your specific health profile and risk factors.

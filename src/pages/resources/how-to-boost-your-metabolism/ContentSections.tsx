@@ -11,12 +11,9 @@ const ContentSections: React.FC = () => {
         Metabolism isn't just a single process—it's the sum of all biochemical reactions that keep your body functioning. When people talk about "boosting metabolism," they're typically referring to increasing your Total Daily Energy Expenditure (TDEE), which has four main components:
       </p>
       
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Basal Metabolic Rate (BMR):</strong> The calories your body burns at complete rest, just to maintain basic functions like breathing and circulation. This accounts for 60-70% of your daily calorie burn.</li>
-        <li><strong>Non-Exercise Activity Thermogenesis (NEAT):</strong> The energy expended for everything that's not sleeping, eating, or sports-like exercise—from typing and fidgeting to walking to your car.</li>
-        <li><strong>Thermic Effect of Food (TEF):</strong> The calories burned digesting and processing food, which is typically 10-15% of your total intake.</li>
-        <li><strong>Exercise Activity Thermogenesis (EAT):</strong> Calories burned during intentional exercise.</li>
-      </ul>
+      <p className="mt-3 mb-4">
+        The largest component is your Basal Metabolic Rate (BMR), which accounts for 60-70% of your daily calorie burn and represents the calories your body burns at complete rest just to maintain basic functions like breathing and circulation. Non-Exercise Activity Thermogenesis (NEAT) encompasses the energy expended for everything that's not sleeping, eating, or sports-like exercise—from typing and fidgeting to walking to your car. The Thermic Effect of Food (TEF) refers to the calories burned digesting and processing food, which typically amounts to 10-15% of your total intake. Finally, Exercise Activity Thermogenesis (EAT) accounts for calories burned during intentional exercise sessions.
+      </p>
 
       {/* Image with proper source and alt text */}
       <div className="my-6">
@@ -86,16 +83,8 @@ const ContentSections: React.FC = () => {
 
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="what-doesnt-work">What Doesn't Work (And Why)</h2>
       <p>
-        Many popular "metabolism boosters" lack scientific support. Here's what research tells us about common metabolism myths:
+        Many popular "metabolism boosters" lack scientific support. Most over-the-counter supplements claiming to boost metabolism (like green tea extract or garcinia cambogia) show minimal effects in clinical studies—often just 4-5 calories per day more than placebo. The theory that eating frequent small meals "stokes your metabolic fire" has been debunked by research showing that meal frequency has very little impact on metabolic rate when total daily calories remain the same. While water itself is beneficial for metabolism, adding lemon doesn't significantly change its metabolic effects—your liver and kidneys handle detoxification naturally without special drinks. Spicy foods containing capsaicin (the compound in chili peppers) do increase metabolism slightly, but the effect is too small (about 10 calories per meal) to create meaningful changes in body composition. Juice cleanses often reduce metabolic rate due to their very low calorie and protein content, creating short-term water weight loss but potentially harming long-term metabolic health.
       </p>
-      
-      <ul className="list-disc pl-6 mt-3 mb-4 space-y-2">
-        <li><strong>Metabolism-boosting supplements:</strong> Most over-the-counter supplements claiming to boost metabolism (like green tea extract or garcinia cambogia) show minimal effects in clinical studies—often just 4-5 calories per day more than placebo.</li>
-        <li><strong>Eating every 2-3 hours:</strong> The "frequent small meals stoke your metabolic fire" theory has been debunked. Research shows that meal frequency has very little impact on metabolic rate when total daily calories remain the same.</li>
-        <li><strong>Lemon water detoxes:</strong> While water itself is beneficial, adding lemon doesn't significantly change its metabolic effects. Your liver and kidneys handle detoxification naturally—no special drinks required.</li>
-        <li><strong>Spicy foods:</strong> Capsaicin (the compound in chili peppers) does increase metabolism slightly, but the effect is too small (about 10 calories per meal) to create meaningful changes in body composition.</li>
-        <li><strong>Juice cleanses:</strong> These often reduce metabolic rate due to their very low calorie and protein content. They can create short-term water weight loss but can actually hurt long-term metabolic health.</li>
-      </ul>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4" id="calculate-metabolic-rate">How to Calculate Your Daily Metabolic Rate</h2>
       <p>

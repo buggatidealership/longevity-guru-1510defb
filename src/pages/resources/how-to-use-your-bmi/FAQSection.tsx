@@ -77,15 +77,8 @@ const FAQSection: React.FC = () => {
           <AccordionTrigger>Are there better alternatives to BMI?</AccordionTrigger>
           <AccordionContent>
             <p className="mb-2">
-              Several measurements can provide more comprehensive health insights than BMI alone:
+              Several measurements can provide more comprehensive health insights than BMI alone. Waist circumference measurements can effectively assess abdominal fat, which is closely linked to higher health risks regardless of overall weight. The waist-to-hip ratio offers valuable information about fat distribution patterns, which can indicate different health risk profiles. Body fat percentage provides a direct measurement of the proportion of fat in your body, offering more precise information than BMI. For detailed analysis, DEXA scans provide comprehensive body composition measurements including bone density. More accessible bioelectrical impedance analysis, available in many modern scales, estimates body composition using mild electrical currents.
             </p>
-            <ul className="list-disc pl-6 mb-2 space-y-1">
-              <li><strong>Waist circumference</strong> - Measures abdominal fat, which is linked to higher health risks</li>
-              <li><strong>Waist-to-hip ratio</strong> - Indicates fat distribution patterns</li>
-              <li><strong>Body fat percentage</strong> - Directly measures the proportion of fat in your body</li>
-              <li><strong>DEXA scans</strong> - Provide detailed body composition analysis</li>
-              <li><strong>Bioelectrical impedance analysis</strong> - Estimates body composition using electrical currents</li>
-            </ul>
             <p>
               The most effective approach is to use multiple health markers rather than relying on any single measurement. Talk to 
               your healthcare provider about which measurements are most appropriate for your individual situation.

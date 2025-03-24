@@ -36,14 +36,8 @@ const FAQSection: React.FC = () => {
               become weaker from regular treatment, some people can extend to 4-6 months between sessions.
             </p>
             <p className="mt-2">
-              Factors that may decrease the duration of your results include:
+              Several factors may decrease the duration of your results. Patients with high muscle activity from frequent expressions typically need more frequent treatments. Those who engage in regular intense exercise often metabolize Botox faster, reducing its longevity. People with naturally fast metabolisms may see shorter-lasting results. Additionally, if your initial dose was on the lower side, the effects may wear off more quickly than with a more robust treatment.
             </p>
-            <ul className="list-disc pl-6 mt-1 space-y-1">
-              <li>High muscle activity (frequent expressions)</li>
-              <li>Regular intense exercise</li>
-              <li>Fast metabolism</li>
-              <li>Lower initial dosing</li>
-            </ul>
           </AccordionContent>
         </AccordionItem>
         
@@ -57,14 +51,8 @@ const FAQSection: React.FC = () => {
               offer combination treatments targeting several areas for a balanced, natural result.
             </p>
             <p className="mt-2">
-              Popular combinations include:
+              Popular combinations include treating forehead lines together with glabellar (frown) lines for a more harmonious upper face appearance. Many patients also combine crow's feet treatment with forehead lines to address the most visible signs of aging. For comprehensive facial rejuvenation, some opt for treating the entire upper face (forehead, glabella, crow's feet) along with bunny lines on the nose. Those concerned with facial contouring might combine jawline slimming treatments with chin dimpling reduction for improved lower face definition.
             </p>
-            <ul className="list-disc pl-6 mt-1 space-y-1">
-              <li>Forehead lines + glabellar (frown) lines</li>
-              <li>Crow's feet + forehead lines</li>
-              <li>Upper face (forehead, glabella, crow's feet) + bunny lines</li>
-              <li>Jawline slimming + chin dimpling reduction</li>
-            </ul>
             <p className="mt-2">
               Your provider can help determine the optimal distribution of units based on your priorities and budget.
             </p>
