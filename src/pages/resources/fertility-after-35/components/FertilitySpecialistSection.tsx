@@ -18,20 +18,9 @@ const FertilitySpecialistSection: React.FC = () => {
         Here are some scenarios where seeing a fertility doctor is a good idea:
       </p>
       
-      <ul className="list-disc pl-6 mb-4">
-        <li className="mb-2">
-          You're 35-39 and 6 months of trying has not resulted in pregnancy.
-        </li>
-        <li className="mb-2">
-          You're 40+ and 3-6 months of trying has not resulted in pregnancy (or you want a preemptive fertility work-up even before trying long).
-        </li>
-        <li className="mb-2">
-          You have known fertility risk factors or symptoms: for example, a history of irregular periods (possible ovulation issues), endometriosis, uterine fibroids, pelvic inflammatory disease, or prior miscarriages. Even if you're just 35 or slightly younger, these factors warrant earlier consultation.
-        </li>
-        <li className="mb-2">
-          You simply want more information or to plan ahead. Some women 35+ who aren't ready for pregnancy yet might see a fertility specialist to check their ovarian reserve or discuss egg freezing. Others who are trying may want an initial evaluation (including partner's sperm analysis) to ensure all is well.
-        </li>
-      </ul>
+      <p className="mb-2">
+        Women aged 35-39 who have been trying for 6 months without success should consider seeing a specialist. For those 40 or older, waiting only 3-6 months before seeking help is advised, and some experts recommend a preemptive fertility work-up even before trying for an extended period. If you have known fertility risk factors or symptoms such as irregular periods (indicating possible ovulation issues), endometriosis, uterine fibroids, pelvic inflammatory disease, or prior miscarriages, earlier consultation is warranted, even if you're just 35 or slightly younger. Additionally, some women over 35 who aren't ready for pregnancy yet might benefit from seeing a fertility specialist to check their ovarian reserve or discuss egg freezing options, while others who are actively trying might want an initial evaluation (including their partner's sperm analysis) to ensure everything is functioning properly.
+      </p>
       
       <p>
         What does a fertility specialist do? The first step is usually diagnostic tests for both partners. For the woman, this includes ovarian reserve testing (AMH, FSH, etc. as discussed), ensuring the fallopian tubes are open (often via an HSG X-ray), and checking for ovulation and uterine health. For the male partner, a semen analysis checks sperm count and quality. About 30-40% of fertility issues are due to male factors, so it's crucial to assess both of you.
