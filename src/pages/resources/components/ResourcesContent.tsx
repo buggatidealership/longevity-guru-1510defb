@@ -1,13 +1,62 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { AdUnit } from '@/components/AdUnit';
 import ResourceCard from './ResourceCard';
 
-const ResourcesContent: React.FC = () => {
+const ResourcesContent = () => {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-2">Longevity Resources</h1>
-      <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Evidence-based articles and guides to help you make informed decisions about your health, wellness, and financial future.</p>
+    <main className="max-w-6xl mx-auto px-4 pb-12">
+      <h1 className="text-3xl md:text-4xl font-bold mb-6 text-left">Health & Wellness Resources</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="prose max-w-none mb-8 text-left">
+        <p className="text-lg text-gray-700">
+          Explore our collection of evidence-based articles, guides, and resources to help you make informed decisions about your health, finances, and lifestyle.
+        </p>
+      </div>
+      
+      <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
+        <AdUnit 
+          className="w-full"
+          slot="1111111111" 
+          format="horizontal"
+          responsive={true}
+        />
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ResourceCard 
+          title="How to Calculate Your TDEE & Adjust It for Your Goals" 
+          description="Learn how to accurately calculate your Total Daily Energy Expenditure (TDEE) and customize it for weight loss, muscle gain, or maintenance."
+          content={[
+            "Your Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns each day. It combines your Basal Metabolic Rate (BMR) with the calories you burn from physical activity, digestion, and daily movement.",
+            "Knowing your TDEE helps you accurately plan your nutrition for any goal: weight loss, muscle gain, or maintenance."
+          ]}
+          link="/resources/how-to-calculate-your-tdee"
+          date="March 25, 2025"
+        />
+        
+        <ResourceCard 
+          title="How to Boost Your Metabolism Naturally" 
+          description="Discover science-backed strategies to increase your metabolic rate and burn more calories throughout the day."
+          content={[
+            "Your metabolism determines how efficiently your body converts food into energy. A faster metabolism can help with weight management and energy levels.",
+            "This guide explores proven methods to boost your metabolism through diet, exercise, and lifestyle changes."
+          ]}
+          link="/resources/how-to-boost-your-metabolism"
+          date="October 10, 2024"
+        />
+        
+        <ResourceCard 
+          title="How to Increase Life Expectancy" 
+          description="Research-backed lifestyle changes that can add years to your life and improve longevity outcomes."
+          content={[
+            "Small daily habits can have a profound impact on your lifespan and healthspan. This article explores the scientifically-validated ways to live longer.",
+            "From nutrition to stress management, discover actionable strategies for increasing your life expectancy."
+          ]}
+          link="/resources/how-to-increase-life-expectancy"
+          date="August 24, 2024"
+        />
+        
         <ResourceCard 
           title="Will I Go Bald? Predict Hair Loss"
           description="Learn about the science of hair loss prediction"
@@ -61,17 +110,6 @@ const ResourcesContent: React.FC = () => {
           link="/resources/fertility-after-35"
           imageUrl="https://images.unsplash.com/photo-1633254603711-0de879974aeb?auto=format&fit=crop&w=600&q=80"
           date="September 12, 2024"
-        />
-        
-        <ResourceCard 
-          title="How to Increase Life Expectancy"
-          description="Evidence-based strategies to live longer and healthier"
-          content={[
-            "Discover the 7 key lifestyle factors with the strongest scientific evidence for extending lifespan and improving healthspan, with specific actionable steps for each factor."
-          ]}
-          link="/resources/how-to-increase-life-expectancy"
-          imageUrl="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80"
-          date="August 28, 2024"
         />
         
         <ResourceCard 
@@ -140,7 +178,16 @@ const ResourcesContent: React.FC = () => {
           date="June 22, 2024"
         />
       </div>
-    </div>
+      
+      <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+        <AdUnit 
+          className="w-full"
+          slot="2222222222" 
+          format="rectangle"
+          responsive={true}
+        />
+      </div>
+    </main>
   );
 };
 

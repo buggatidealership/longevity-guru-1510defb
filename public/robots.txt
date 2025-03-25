@@ -14,6 +14,7 @@ Allow: /botox-dosage-calculator
 Allow: /alcohol-impact-calculator
 Allow: /baldness-risk-calculator
 Allow: /bmi-calculator
+Allow: /tdee-calculator
 Allow: /resources
 Allow: /resources/how-to-increase-life-expectancy
 Allow: /resources/how-much-to-save-for-retirement
@@ -27,6 +28,7 @@ Allow: /resources/breast-implant-size-guide
 Allow: /resources/botox-dosage-guide
 Allow: /resources/alcohol-and-longevity
 Allow: /resources/how-to-predict-your-childs-adult-height
+Allow: /resources/how-to-calculate-your-tdee
 Allow: /privacy
 Allow: /terms
 
