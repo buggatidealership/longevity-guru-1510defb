@@ -51,13 +51,9 @@ export const generateFullSitemap = (urls: string[]): string => {
   const footer = `</urlset>`;
   
   const entries = urls.map(url => {
-    // Special handling for resource pages
+    // Special handling for TDEE resource page
     if (url === 'resources/how-to-calculate-your-tdee') {
       return generateSitemapEntry(url, 0.8, '2025-03-25T12:00:00+00:00', 'monthly');
-    }
-    // Special handling for macronutrient calculator
-    if (url === 'macronutrient-calculator') {
-      return generateSitemapEntry(url, 0.9, new Date().toISOString().split('T')[0] + 'T12:00:00+00:00', 'monthly');
     }
     return generateSitemapEntry(url);
   });
