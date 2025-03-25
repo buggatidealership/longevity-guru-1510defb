@@ -37,7 +37,7 @@ const GrowthPercentilePage = () => {
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
-          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+          <div className="mb-6 bg-gray-100 rounded-lg ad-container w-full p-1">
             <AdUnit 
               className="w-full"
               slot="1111111111" 
@@ -48,10 +48,8 @@ const GrowthPercentilePage = () => {
         </header>
 
         <main className="max-w-4xl mx-auto px-4">
-          <div className="w-full flex justify-center">
-            <div className="w-full">
-              <GrowthPercentileCalculator />
-            </div>
+          <div className="w-full">
+            <GrowthPercentileCalculator />
           </div>
           
           {/* About This Calculator Section */}
@@ -112,7 +110,7 @@ const GrowthPercentilePage = () => {
                 </p>
               </div>
               
-              <div className="my-4">
+              <div className="my-4 ad-container">
                 <AdUnit 
                   className="w-full"
                   slot="6666666666" 

@@ -34,12 +34,12 @@ const BreastImplantCalculatorPage = () => {
         <PageHeader />
         
         <main className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center mt-6 mb-2">Breast Implant Size Calculator</h1>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold section-title mt-6 mb-2">Breast Implant Size Calculator</h1>
+          <p className="text-gray-600 section-title max-w-2xl mx-auto mb-6">
             Calculate your ideal breast implant size in CC based on measurements and desired outcome.
           </p>
           
-          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+          <div className="mb-6 bg-gray-100 rounded-lg ad-container w-full p-1">
             <AdUnit 
               className="w-full"
               slot="3333333333" 
@@ -53,10 +53,8 @@ const BreastImplantCalculatorPage = () => {
             className="mb-6"
           />
           
-          <div className="w-full flex justify-center">
-            <div className="w-full">
-              <BreastImplantCalculator />
-            </div>
+          <div className="w-full">
+            <BreastImplantCalculator />
           </div>
           
           <AboutSection scrollToSection={(id) => {
@@ -66,7 +64,7 @@ const BreastImplantCalculatorPage = () => {
             }
           }} />
           
-          <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+          <div className="mt-8 mb-6 bg-gray-100 rounded-lg ad-container w-full p-1">
             <AdUnit 
               className="w-full"
               slot="2222222222" 

@@ -41,19 +41,31 @@
   color: #888;
 }
 
-/* Global text alignment adjustments */
-p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content {
-  text-align: left;
-}
-
-/* Calculator form elements should be left-aligned by default */
+/* Global text alignment for consistency across all calculator pages */
+p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content,
 .form-group, .form-control, .form-label, .form-input, .form-select,
-.input-group, label, select, input, .calculator-form, .calculator-section {
+.input-group, label, select, input, .calculator-form, .calculator-section,
+.card-header, .card-title, .card-description, .card-content,
+.accordion-trigger, .accordion-content, .result-section, .chart-container {
   text-align: left;
 }
 
-/* Keep specific elements centered */
-.btn-center, .center-item, .page-title {
+/* Only specific elements we want centered */
+.page-title, .section-title {
   text-align: center;
 }
 
+/* Fix calculator specific containers */
+.calculator-container .form-section,
+.calculator-container .result-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Keep ads and specific UI elements centered */
+.ad-container, .btn-center, .center-item {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

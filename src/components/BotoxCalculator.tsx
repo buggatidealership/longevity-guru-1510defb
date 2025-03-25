@@ -73,7 +73,7 @@ const BotoxCalculator = () => {
   
   return (
     <div className="space-y-6">
-      <div className="text-center mb-8">
+      <div className="ad-container mb-8">
         <AdUnit slot="5555555555" format="horizontal" className="max-w-3xl mx-auto my-4" />
       </div>
       
@@ -96,7 +96,7 @@ const BotoxCalculator = () => {
         <ResultsDisplay results={results} />
       )}
       
-      <div className="bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
+      <div className="bg-gray-50 rounded-lg w-full ad-container" style={{ minHeight: '250px' }}>
         <AdUnit
           className="w-full"
           slot="3333333333" 
