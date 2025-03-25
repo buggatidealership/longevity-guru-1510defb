@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import SEOHead from '@/components/SEOHead';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -6,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import MacronutrientCalculator from '@/components/MacronutrientCalculator';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { AdUnit } from '@/components/AdUnit';
-import { generateBreadcrumbSchema, generateFAQSchema, generateWebPageSchema } from '@/utils/seoUtils';
+import { generateBreadcrumbSchema, generateFAQSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { Link } from 'react-router-dom';
 
@@ -46,13 +45,8 @@ const MacronutrientCalculatorPage = () => {
     }
   ]);
   
-  const webPageSchema = generateWebPageSchema(
-    "Macronutrient Calculator – Personalized Protein, Carbs & Fat Ratios",
-    "Calculate your optimal daily protein, carbohydrate, and fat intake based on your age, weight, height, and fitness goals. Free online macronutrient calculator."
-  );
-  
   // Combine all schemas
-  const schemas = [breadcrumbSchema, faqSchema, webPageSchema];
+  const schemas = [breadcrumbSchema, faqSchema];
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
