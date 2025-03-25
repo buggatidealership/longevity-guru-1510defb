@@ -30,15 +30,15 @@ const TDEECalculationGuide = () => {
   const faqItems = [
     {
       question: 'How often should I recalculate my TDEE?',
-      answer: 'Every 4–6 weeks or after major body changes (e.g., 5+ kg gained/lost).'
+      answer: 'Every 4–6 weeks or after major body changes (e.g., 5+ kg gained/lost). Your metabolism adapts as your body composition changes, so regular recalculation ensures you're working with accurate numbers.'
     },
     {
       question: 'Can I use a calculator instead of doing the math manually?',
-      answer: 'Absolutely. Our TDEE Calculator does the work for you instantly.'
+      answer: 'Absolutely. Our TDEE Calculator does the work for you instantly. It uses the same formulas but saves you time and prevents calculation errors.'
     },
     {
       question: 'What happens if I eat below my TDEE for too long?',
-      answer: 'You may experience fatigue, hormonal imbalances, and slower metabolism.'
+      answer: 'You may experience fatigue, hormonal imbalances, and slower metabolism. Long-term severe caloric restriction can lead to nutrient deficiencies, muscle loss, and metabolic adaptation that makes further weight loss more difficult.'
     },
     {
       question: 'Is TDEE the same as BMR?',
