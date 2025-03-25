@@ -2,8 +2,12 @@
 import React from 'react';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 
-const ResourcePageFooter: React.FC = () => {
-  return <FooterWithCollapsibleLinks />;
+interface ResourcePageFooterProps {
+  handleLinkClick?: () => void;
+}
+
+const ResourcePageFooter: React.FC<ResourcePageFooterProps> = ({ handleLinkClick }) => {
+  return <FooterWithCollapsibleLinks handleLinkClick={handleLinkClick} />;
 };
 
 export default ResourcePageFooter;

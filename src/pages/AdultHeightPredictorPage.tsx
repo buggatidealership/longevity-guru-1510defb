@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -11,9 +10,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 
 const AdultHeightPredictorPage = () => {
-  // Handler to scroll to top when clicking internal links
   const handleLinkClick = () => {
     window.scrollTo({
       top: 0,
@@ -21,7 +20,6 @@ const AdultHeightPredictorPage = () => {
     });
   };
 
-  // For internal section navigation
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -57,11 +55,8 @@ const AdultHeightPredictorPage = () => {
             </div>
           </div>
           
-          {/* About This Calculator Section */}
           <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">About The Adult Height Predictor</h2>
-            
-            {/* Table of Contents */}
             <div className="mb-6 p-4 bg-gray-50 rounded-lg">
               <h3 className="text-lg font-medium mb-2">Table of Contents</h3>
               <ul className="space-y-1">
@@ -168,7 +163,6 @@ const AdultHeightPredictorPage = () => {
                 </p>
               </div>
               
-              {/* FAQ Section with Accordion */}
               <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
                 <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
                 
@@ -278,37 +272,7 @@ const AdultHeightPredictorPage = () => {
           </div>
         </main>
         
-        <footer className="max-w-6xl mx-auto px-4 py-6">
-          <div className="border-t pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/lifespan" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
-                  <li><Link to="/retirementsavings" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
-                  <li><Link to="/fertility" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
-                  <li><Link to="/growth" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/adultheight" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
-                  <li><Link to="/breastimplant" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
-                  <li><Link to="/botox" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/privacy" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Privacy Policy</Link></li>
-                  <li><Link to="/terms" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Terms of Service</Link></li>
-                </ul>
-              </div>
-            </div>
-            
-            <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
-            <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <a href="https://longevitycalculator.xyz/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
-            </div>
-          </div>
-        </footer>
+        <FooterWithCollapsibleLinks handleLinkClick={handleLinkClick} />
       </div>
     </>
   );
