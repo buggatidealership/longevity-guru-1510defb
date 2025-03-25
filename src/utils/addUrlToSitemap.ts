@@ -30,9 +30,6 @@ export const addUrlToSitemap = (path: string, priority: number = 0.8): void => {
           } else {
             console.warn('Failed to simulate adding URL to sitemap');
           }
-        })
-        .catch((error: Error) => {
-          console.error('Error in sitemap simulation:', error);
         });
     } catch (error) {
       console.error('Error in sitemap simulation:', error);
