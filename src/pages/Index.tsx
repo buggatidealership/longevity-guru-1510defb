@@ -1,8 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 import SEOHead from '@/components/SEOHead';
+import { generateWebPageSchema } from '@/utils/seoUtils';
 
 const calculators = [
   {
@@ -98,6 +100,11 @@ const sections = [
 ];
 
 const Index = () => {
+  const webPageSchema = generateWebPageSchema(
+    "Longevity & Health Calculators | BMR, TDEE, Retirement, Lifespan",
+    "Free calculators for longevity, retirement, fertility, growth tracking, metabolism, body composition, and more. Evidence-based tools to improve health and plan your future."
+  );
+
   return (
     <>
       <SEOHead 
@@ -105,7 +112,7 @@ const Index = () => {
         description="Free calculators for longevity, retirement, fertility, growth tracking, metabolism, body composition, and more. Evidence-based tools to improve health and plan your future."
         canonicalUrl="/"
         keywords="longevity calculator, retirement calculator, fertility calculator, growth chart calculator, health calculators, life expectancy estimate, free online calculators"
-        schemas={[]} // Removed webPageSchema from schemas array
+        schemas={[webPageSchema]}
       />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
