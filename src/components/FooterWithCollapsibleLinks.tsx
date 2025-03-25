@@ -2,15 +2,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Calculator } from 'lucide-react';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
 interface FooterProps {
   handleLinkClick?: () => void;
 }
 
 const FooterWithCollapsibleLinks: React.FC<FooterProps> = ({ handleLinkClick }) => {
-  const [isCalculatorsOpen, setIsCalculatorsOpen] = useState(false);
-
   // All calculator pages
   const calculatorLinks = [
     { path: "/life-expectancy-calculator", name: "Life Expectancy Calculator" },
@@ -41,30 +39,18 @@ const FooterWithCollapsibleLinks: React.FC<FooterProps> = ({ handleLinkClick }) 
               <li><Link to="/" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Home</Link></li>
               
               <li>
-                <Collapsible 
-                  open={isCalculatorsOpen} 
-                  onOpenChange={setIsCalculatorsOpen}
-                  className="space-y-1"
-                >
-                  <div className="flex items-center">
-                    <CollapsibleTrigger className="flex items-center text-sm text-gray-600 hover:text-primary">
-                      <span className="flex items-center">
-                        <Calculator className="h-3.5 w-3.5 mr-1 opacity-70" />
-                        {isCalculatorsOpen ? "Hide Calculators" : "Show All Calculators"}
-                      </span>
-                      {isCalculatorsOpen ? (
-                        <ChevronUp className="h-4 w-4 ml-1" />
-                      ) : (
-                        <ChevronDown className="h-4 w-4 ml-1" />
-                      )}
-                    </CollapsibleTrigger>
-                  </div>
-                  
-                  <CollapsibleContent className="pt-2">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
-                      {calculatorGroups.map((group, groupIndex) => (
-                        <div key={groupIndex}>
-                          {group.map((link) => (
+                <div className="md:hidden">
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="calculators" className="border-none">
+                      <AccordionTrigger className="py-1 px-0 text-sm text-gray-600 hover:text-primary">
+                        <span className="flex items-center">
+                          <Calculator className="h-3.5 w-3.5 mr-1 opacity-70" />
+                          Calculators
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="pt-1 pl-1 space-y-1">
+                          {calculatorLinks.map((link) => (
                             <Link 
                               key={link.path} 
                               to={link.path} 
@@ -75,10 +61,30 @@ const FooterWithCollapsibleLinks: React.FC<FooterProps> = ({ handleLinkClick }) 
                             </Link>
                           ))}
                         </div>
-                      ))}
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+                
+                {/* For SEO: Always visible on desktop and for screen readers, collapsible on mobile */}
+                <div className="hidden md:block">
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                    {calculatorGroups.map((group, groupIndex) => (
+                      <div key={groupIndex}>
+                        {group.map((link) => (
+                          <Link 
+                            key={link.path} 
+                            to={link.path} 
+                            onClick={handleLinkClick}
+                            className="block text-sm text-gray-600 hover:text-primary py-1"
+                          >
+                            {link.name}
+                          </Link>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </li>
               
               <li><Link to="/resources" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Resources</Link></li>
