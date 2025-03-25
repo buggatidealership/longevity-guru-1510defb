@@ -8,8 +8,6 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 
 const TDEECalculationGuide = () => {
   // Generate schema for breadcrumbs
@@ -41,6 +39,14 @@ const TDEECalculationGuide = () => {
     {
       question: 'What happens if I eat below my TDEE for too long?',
       answer: 'You may experience fatigue, hormonal imbalances, and slower metabolism.'
+    },
+    {
+      question: 'Is TDEE the same as BMR?',
+      answer: 'No, they\'re different. BMR is the calories your body needs at rest just to maintain basic functions. TDEE includes BMR plus all additional energy used for daily activities, exercise, and digestion.'
+    },
+    {
+      question: 'How accurate are TDEE calculations?',
+      answer: 'TDEE formulas are estimates with about ±10% accuracy. For most people, they provide a good starting point. Track your weight and calorie intake for 2-3 weeks, then adjust based on actual results.'
     }
   ];
   
