@@ -123,8 +123,8 @@ const IdealBodyWeightCalculatorPage: React.FC = () => {
         </header>
 
         <main className="flex-grow max-w-4xl mx-auto px-4 w-full pb-12">
-          <div className="mb-4">
-            <h1 className="text-4xl font-bold mb-1 text-gray-900">Ideal Body Weight Calculator</h1>
+          <div className="mb-6">
+            <h1 className="text-4xl font-bold mb-2 text-gray-900">Ideal Body Weight Calculator</h1>
             <p className="text-lg text-gray-700">
               Estimate your healthiest body weight using formulas like Devine, Robinson, and Hamwi.
             </p>
