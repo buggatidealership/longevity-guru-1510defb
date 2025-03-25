@@ -25,7 +25,7 @@ const DisclaimerAlert = ({
     <Alert className={cn("bg-amber-50 border border-amber-200", className)} variant="default">
       {icon || <AlertTriangle className="h-5 w-5 text-amber-400" />}
       <AlertTitle className="text-amber-800">{title}</AlertTitle>
-      <AlertDescription className="text-amber-700">
+      <AlertDescription className="text-amber-700 text-left">
         {content || children || defaultContent}
       </AlertDescription>
     </Alert>
