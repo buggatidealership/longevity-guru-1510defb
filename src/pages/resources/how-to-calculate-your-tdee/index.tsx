@@ -30,7 +30,7 @@ const TDEECalculationGuide = () => {
   const faqItems = [
     {
       question: 'How often should I recalculate my TDEE?',
-      answer: 'Every 4–6 weeks or after major body changes (e.g., 5+ kg gained/lost). Your metabolism adapts as your body composition changes, so regular recalculation ensures you're working with accurate numbers.'
+      answer: "Every 4–6 weeks or after major body changes (e.g., 5+ kg gained/lost). Your metabolism adapts as your body composition changes, so regular recalculation ensures you're working with accurate numbers."
     },
     {
       question: 'Can I use a calculator instead of doing the math manually?',
@@ -42,7 +42,7 @@ const TDEECalculationGuide = () => {
     },
     {
       question: 'Is TDEE the same as BMR?',
-      answer: 'No, they\'re different. BMR is the calories your body needs at rest just to maintain basic functions. TDEE includes BMR plus all additional energy used for daily activities, exercise, and digestion.'
+      answer: "No, they're different. BMR is the calories your body needs at rest just to maintain basic functions. TDEE includes BMR plus all additional energy used for daily activities, exercise, and digestion."
     },
     {
       question: 'How accurate are TDEE calculations?',
