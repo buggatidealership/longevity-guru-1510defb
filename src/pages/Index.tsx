@@ -6,6 +6,7 @@ import { AdUnit } from '@/components/AdUnit';
 import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon, FileText } from 'lucide-react';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
+import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
@@ -234,42 +235,7 @@ const Index = () => {
           </div>
         </main>
         
-        <footer className="max-w-6xl mx-auto px-4 py-6">
-          <div className="border-t pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/" className="text-sm text-gray-600 hover:text-primary">Home</Link></li>
-                  <li><Link to="/life-expectancy-calculator" className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
-                  <li><Link to="/retirement-savings-calculator" className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
-                  <li><Link to="/female-fertility-calculator" className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
-                  <li><Link to="/growth-percentile-calculator" className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
-                  <li><Link to="/adult-height-predictor-calculator" className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
-                  <li><Link to="/metabolism-calculator" className="text-sm text-gray-600 hover:text-primary">Metabolism Calculator</Link></li>
-                  <li><Link to="/breast-implant-calculator" className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
-                  <li><Link to="/botox-calculator" className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
-                  <li><Link to="/alcohol-impact-calculator" className="text-sm text-gray-600 hover:text-primary">Alcohol Impact Calculator</Link></li>
-                  <li><Link to="/baldness-risk-calculator" className="text-sm text-gray-600 hover:text-primary">Baldness Risk Calculator</Link></li>
-                  <li><Link to="/resources" className="text-sm text-gray-600 hover:text-primary">Resources</Link></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
-                <ul className="space-y-2">
-                  <li><Link to="/privacy" className="text-sm text-gray-600 hover:text-primary">Privacy Policy</Link></li>
-                  <li><Link to="/terms" className="text-sm text-gray-600 hover:text-primary">Terms of Service</Link></li>
-                </ul>
-              </div>
-            </div>
-            
-            <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
-            <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
-              <a href="https://longevitycalculator.xyz/sitemap.xml" className="hover:text-gray-700" target="_blank" rel="noopener noreferrer">Sitemap</a>
-            </div>
-          </div>
-        </footer>
+        <FooterWithCollapsibleLinks />
       </div>
     </>
   );
