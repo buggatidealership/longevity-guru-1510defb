@@ -34,8 +34,8 @@ const BreastImplantCalculatorPage = () => {
         <PageHeader />
         
         <main className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold section-title mt-6 mb-2">Breast Implant Size Calculator</h1>
-          <p className="text-gray-600 section-title max-w-2xl mx-auto mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Breast Implant Size Calculator</h1>
+          <p className="text-gray-600 max-w-2xl mb-6">
             Calculate your ideal breast implant size in CC based on measurements and desired outcome.
           </p>
           

@@ -50,8 +50,8 @@ p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content,
   text-align: left;
 }
 
-/* Only specific elements we want centered */
-.page-title, .section-title {
+/* Only specific elements we allow to be centered */
+.center-item, .btn-center {
   text-align: center;
 }
 
@@ -63,9 +63,17 @@ p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content,
   align-items: flex-start;
 }
 
-/* Keep ads and specific UI elements centered */
-.ad-container, .btn-center, .center-item {
+/* Keep ads centered */
+.ad-container {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+/* Ensure tabs are centered appropriately */
+.tabs-list {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
 }

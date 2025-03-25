@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -278,7 +279,7 @@ const BreastImplantCalculator = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl">
       <Card className="border-none shadow-md bg-white rounded-xl">
         <CardContent className="pt-6">
           <Form {...form}>
@@ -288,7 +289,7 @@ const BreastImplantCalculator = () => {
                 name="measurementSystem"
                 render={({ field }) => (
                   <FormItem>
-                    <div className="flex justify-center mb-4">
+                    <div className="mb-4">
                       <Tabs defaultValue={field.value} onValueChange={field.onChange}>
                         <TabsList>
                           <TabsTrigger value="metric">
