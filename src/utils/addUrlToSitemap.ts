@@ -1,51 +1,38 @@
 
-/**
- * Utility function to add URLs to the sitemap while preserving existing entries
- */
-import { addUrlsToSitemap } from './sitemap-utils';
+import { generateSitemapEntry } from './sitemap-utils';
 
 /**
- * Adds a new URL to the sitemap.xml file
- * @param url The URL to add to the sitemap (without domain)
- * @param priority Priority of the URL (0.0-1.0)
- * @returns Promise<boolean> true if successful, false otherwise
+ * Helper function to add a URL to the sitemap.xml file
+ * This is for development/demo purposes. In production, this would be a server-side operation.
+ * 
+ * @param path The URL path to add (without domain)
+ * @param priority The priority of the URL (0.0 to 1.0)
  */
-export const addUrlToSitemap = async (
-  url: string, 
-  priority: number = 0.8
-): Promise<boolean> => {
-  // Clean the URL (remove leading slash if present)
-  const cleanUrl = url.startsWith('/') ? url.substring(1) : url;
+export const addUrlToSitemap = (path: string, priority: number = 0.8): void => {
+  console.log(`[Development Only] Would add ${path} to sitemap.xml with priority ${priority}`);
   
-  // Add URL to sitemap
-  const success = await addUrlsToSitemap([cleanUrl]);
+  // In a real-world scenario, this would make a server-side API call 
+  // to update the sitemap.xml file
   
-  if (success) {
-    console.log(`Successfully added ${cleanUrl} to sitemap`);
-  } else {
-    console.error(`Failed to add ${cleanUrl} to sitemap`);
+  // For development demo purposes, we'll log what would be added
+  const entry = generateSitemapEntry(path, priority);
+  console.log('Generated sitemap entry:', entry);
+  
+  // In development, demonstrate how it works
+  if (process.env.NODE_ENV === 'development') {
+    try {
+      // Simulate adding to the sitemap by preserving existing entries
+      const { updateSitemapPreservingExisting } = require('./sitemap/sitemap-preservation');
+      updateSitemapPreservingExisting([path])
+        .then((success: boolean) => {
+          if (success) {
+            console.log('Successfully simulated adding URL to sitemap');
+          } else {
+            console.warn('Failed to simulate adding URL to sitemap');
+          }
+        });
+    } catch (error) {
+      console.error('Error in sitemap simulation:', error);
+    }
   }
-  
-  return success;
-};
-
-/**
- * Bulk add multiple URLs to the sitemap
- * @param urls Array of URLs to add (without domain)
- * @returns Promise<boolean> true if successful, false otherwise
- */
-export const addUrlsToSitemapBulk = async (urls: string[]): Promise<boolean> => {
-  // Clean all URLs
-  const cleanUrls = urls.map(url => url.startsWith('/') ? url.substring(1) : url);
-  
-  // Add URLs to sitemap
-  const success = await addUrlsToSitemap(cleanUrls);
-  
-  if (success) {
-    console.log(`Successfully added ${cleanUrls.length} URLs to sitemap`);
-  } else {
-    console.error(`Failed to add URLs to sitemap`);
-  }
-  
-  return success;
 };

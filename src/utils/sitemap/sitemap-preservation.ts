@@ -112,6 +112,10 @@ export const updateSitemapPreservingExisting = async (newUrls: string[]): Promis
     const { generateFullSitemap } = await import('./sitemap-generation');
     const newSitemapContent = generateFullSitemap(mergedUrls);
     
+    // Before saving, ensure it starts with the XML declaration (no whitespace)
+    const { ensureCorrectSitemapStart } = await import('./sitemap-format');
+    const cleanSitemapContent = ensureCorrectSitemapStart(newSitemapContent);
+    
     // TODO: In a real application, we would now write this content to the sitemap.xml file
     // This would typically be done server-side rather than in the browser
     console.log('Generated new sitemap with all URLs preserved');
@@ -120,4 +124,19 @@ export const updateSitemapPreservingExisting = async (newUrls: string[]): Promis
     console.error('Error updating sitemap:', error);
     return false;
   }
+};
+
+/**
+ * Validates that a sitemap starts with the XML declaration
+ * @param sitemapContent The sitemap content to validate
+ * @returns Boolean indicating if the sitemap starts with XML declaration
+ */
+export const validateSitemapStart = (sitemapContent: string): boolean => {
+  if (!sitemapContent) return false;
+  
+  // First clean any BOM
+  const cleanContent = sitemapContent.replace(/^\uFEFF/, '');
+  
+  // Check if it starts with XML declaration
+  return cleanContent.trimStart().startsWith('<?xml');
 };

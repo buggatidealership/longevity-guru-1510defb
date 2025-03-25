@@ -41,8 +41,9 @@ export const ensureCorrectSitemapStart = (content: string): string => {
   // Ensure content starts with XML declaration with no preceding whitespace
   const xmlDeclaration = '<?xml version="1.0" encoding="UTF-8"?>';
   
-  // Remove any BOM or whitespace
+  // Remove any BOM, whitespace, or comments before XML declaration
   let cleanContent = content.replace(/^\uFEFF/, '').trim();
+  cleanContent = cleanContent.replace(/^[\s\r\n]*<!--[\s\S]*?-->[\s\r\n]*/, '');
   
   // Ensure it starts with the XML declaration
   if (!cleanContent.startsWith(xmlDeclaration)) {
@@ -71,8 +72,9 @@ export const normalizeSitemapXml = (sitemapContent: string): string => {
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
   }
   
-  // First, clean any potential BOM or whitespace
+  // First, clean any potential BOM, whitespace, or comments
   let normalized = sitemapContent.replace(/^\uFEFF/, '').trim();
+  normalized = normalized.replace(/^[\s\r\n]*<!--[\s\S]*?-->[\s\r\n]*/, '');
   
   // Ensure it starts with the correct XML declaration
   const xmlDeclaration = '<?xml version="1.0" encoding="UTF-8"?>';
