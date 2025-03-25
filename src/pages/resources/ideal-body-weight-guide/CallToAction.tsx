@@ -22,8 +22,8 @@ const CallToAction = () => {
         </Button>
         
         <Button asChild variant="outline" size="lg">
-          <Link to="/bmi-calculator">
-            Compare With BMI Calculator
+          <Link to="/tdee-calculator">
+            Compare With TDEE Calculator
           </Link>
         </Button>
       </div>

@@ -20,6 +20,7 @@ import AlcoholCalculatorPage from './pages/AlcoholCalculatorPage';
 import BotoxCalculatorPage from './pages/BotoxCalculatorPage';
 import TDEECalculatorPage from './pages/TDEECalculatorPage';
 import MacronutrientCalculatorPage from './pages/MacronutrientCalculatorPage';
+import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -79,7 +80,7 @@ function App() {
         <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
         <Route path="/tdee-calculator" element={<TDEECalculatorPage />} />
         <Route path="/macronutrient-calculator" element={<MacronutrientCalculatorPage />} />
-        <Route path="/ideal-body-weight-calculator" element={<NotFound />} />
+        <Route path="/ideal-body-weight-calculator" element={<IdealBodyWeightCalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
