@@ -1,16 +1,14 @@
 
 /**
- * Utilities for generating schema.org structured data
+ * Schema-related utility functions
  */
 
 /**
- * Generate schema markup for breadcrumb navigation
+ * Generates a breadcrumb schema for structured data
  * @param items Array of breadcrumb items with name and path
- * @returns JSON-LD schema markup for breadcrumbs
+ * @returns Breadcrumb schema object
  */
-export const generateBreadcrumbSchema = (items: Array<{name: string, path: string}>) => {
-  const baseUrl = 'https://longevitycalculator.xyz';
-  
+export const generateBreadcrumbSchema = (items: { name: string; path: string }[]) => {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -18,17 +16,17 @@ export const generateBreadcrumbSchema = (items: Array<{name: string, path: strin
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `${baseUrl}${item.path.startsWith('/') ? '' : '/'}${item.path}`
+      "item": `https://longevitycalculator.xyz${item.path.startsWith('/') ? item.path : '/' + item.path}`
     }))
   };
 };
 
 /**
- * Generate FAQ schema markup from an array of questions and answers
+ * Generates an FAQ schema for structured data
  * @param items Array of FAQ items with question and answer
- * @returns JSON-LD schema markup for FAQs
+ * @returns FAQ schema object
  */
-export const generateFAQSchema = (items: Array<{question: string, answer: string}>) => {
+export const generateFAQSchema = (items: { question: string; answer: string }[]) => {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -44,36 +42,18 @@ export const generateFAQSchema = (items: Array<{question: string, answer: string
 };
 
 /**
- * Generate article schema markup for content pages
- * @param title Page title
- * @param description Page description
- * @param path Page path
- * @param datePublished Publication date (ISO format)
- * @param dateModified Last modification date (ISO format)
- * @returns JSON-LD schema markup for article
+ * Generates a WebPage schema for structured data
+ * @param title Title of the web page
+ * @param description Description of the web page
+ * @returns WebPage schema object
  */
-export const generateArticleSchema = (
-  title: string, 
-  description: string, 
-  path: string,
-  datePublished: string = new Date().toISOString(),
-  dateModified: string = new Date().toISOString(),
-  imageUrl: string = 'https://longevitycalculator.xyz/longevity-calculator-og.png'
-) => {
-  const baseUrl = 'https://longevitycalculator.xyz';
-  const cleanPath = path.startsWith('/') ? path.substring(1) : path;
-  
+export const generateWebPageSchema = (title: string, description: string) => {
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
+    "@type": "WebPage",
+    "name": title,
     "description": description,
-    "image": imageUrl,
-    "author": {
-      "@type": "Organization",
-      "name": "Longevity Calculator",
-      "url": baseUrl
-    },
+    "url": "https://longevitycalculator.xyz",
     "publisher": {
       "@type": "Organization",
       "name": "Longevity Calculator",
@@ -82,11 +62,7 @@ export const generateArticleSchema = (
         "url": "https://longevitycalculator.xyz/logo.png"
       }
     },
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `${baseUrl}/${cleanPath}`
-    }
+    "datePublished": new Date().toISOString().split('T')[0],
+    "dateModified": new Date().toISOString().split('T')[0]
   };
 };
