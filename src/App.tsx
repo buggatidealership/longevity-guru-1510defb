@@ -40,6 +40,7 @@ import AlcoholAndLongevity from './pages/resources/alcohol-and-longevity';
 import WillIGoBald from './pages/resources/will-i-go-bald';
 import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-adult-height';
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
+import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 
 function App() {
   useEffect(() => {
@@ -97,6 +98,7 @@ function App() {
         <Route path="/resources/will-i-go-bald" element={<WillIGoBald />} />
         <Route path="/resources/how-to-predict-your-childs-adult-height" element={<HowToPredictYourChildsHeight />} />
         <Route path="/resources/how-to-calculate-your-tdee" element={<HowToCalculateYourTDEE />} />
+        <Route path="/resources/macronutrient-calculator-guide" element={<MacronutrientCalculatorGuide />} />
         
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />
