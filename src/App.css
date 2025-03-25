@@ -46,7 +46,14 @@ p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content {
   text-align: left;
 }
 
+/* Calculator form elements should be left-aligned by default */
+.form-group, .form-control, .form-label, .form-input, .form-select,
+.input-group, label, select, input, .calculator-form, .calculator-section {
+  text-align: left;
+}
+
 /* Keep specific elements centered */
 .btn-center, .center-item, .page-title {
   text-align: center;
 }
+
