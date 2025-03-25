@@ -67,6 +67,10 @@ export const ensureCorrectSitemapStart = (content: string): string => {
  * @returns Properly normalized sitemap content
  */
 export const normalizeSitemapXml = (sitemapContent: string): string => {
+  if (!sitemapContent) {
+    return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>';
+  }
+  
   // First, clean any potential BOM or whitespace
   let normalized = sitemapContent.replace(/^\uFEFF/, '').trim();
   
@@ -86,6 +90,14 @@ export const normalizeSitemapXml = (sitemapContent: string): string => {
   const urlsetMatch = normalized.match(/<urlset[^>]*>/);
   if (urlsetMatch && urlsetMatch[0] !== correctUrlsetOpen) {
     normalized = normalized.replace(urlsetMatch[0], correctUrlsetOpen);
+  } else if (!urlsetMatch) {
+    // No urlset tag found, add one
+    if (normalized.indexOf('</urlset>') === -1) {
+      normalized = `${normalized}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>`;
+    } else {
+      // Closing tag exists but no opening tag
+      normalized = normalized.replace('</urlset>', `${correctUrlsetOpen}</urlset>`);
+    }
   }
   
   // Ensure proper line breaks for readability
@@ -98,4 +110,14 @@ export const normalizeSitemapXml = (sitemapContent: string): string => {
     .replace(/<\/url>/g, '\n  </url>');
   
   return normalized;
+};
+
+// For debugging - export a function to log sitemap content structure
+export const debugSitemapStructure = (sitemapContent: string): void => {
+  console.log('Sitemap content length:', sitemapContent.length);
+  console.log('First 50 chars:', sitemapContent.substring(0, 50));
+  console.log('Has XML declaration:', sitemapContent.includes('<?xml'));
+  console.log('Has urlset open tag:', sitemapContent.includes('<urlset'));
+  console.log('Has urlset close tag:', sitemapContent.includes('</urlset>'));
+  console.log('Number of URL entries:', (sitemapContent.match(/<url>/g) || []).length);
 };

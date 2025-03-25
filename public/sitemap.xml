@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -176,67 +177,5 @@
     <lastmod>2024-08-24T12:00:00+00:00</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-  </url>
-  
-  <!-- Legacy URLs with lower priority for canonical transition -->
-  <url>
-    <loc>https://longevitycalculator.xyz/lifespan</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/retirementsavings</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/fertility</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/growth</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/adultheight</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/metabolism</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/breastimplant</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/botox</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/alcohol</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://longevitycalculator.xyz/baldness</loc>
-    <lastmod>2024-08-24T12:00:00+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>

@@ -13,7 +13,7 @@ export const validateSitemap = (sitemapContent: string) => {
   const normalizedContent = sitemapContent.replace(/^\uFEFF/, '').trim();
   
   // Check for any whitespace before XML declaration (this is the most common cause of errors)
-  if (normalizedContent.indexOf('<?xml') !== 0) {
+  if (!normalizedContent.match(/^\s*<\?xml/)) {
     return {
       isValid: false,
       errors: ['Whitespace or characters detected before XML declaration'],
@@ -86,7 +86,12 @@ export const validateSitemapFile = async (sitemapFilePath: string): Promise<bool
     // This is a placeholder for a file reading operation
     // In a browser environment, this would use fetch or similar
     // In a Node.js environment, this would use fs.readFile
-    const sitemapContent = await fetch(sitemapFilePath).then(response => response.text());
+    const sitemapContent = await fetch(sitemapFilePath).then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch sitemap: ${response.status}`);
+      }
+      return response.text();
+    });
     
     // Import normalize function
     const { normalizeSitemapXml } = await import('./sitemap-format');
@@ -98,10 +103,10 @@ export const validateSitemapFile = async (sitemapFilePath: string): Promise<bool
     
     if (!result.isValid) {
       console.error('Sitemap validation failed:', result.errors);
-      // In a real application, this might throw an error or trigger a build failure
       return false;
     }
     
+    console.log('Sitemap validation passed');
     return true;
   } catch (error) {
     console.error('Error validating sitemap:', error);

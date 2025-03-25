@@ -8,33 +8,35 @@ import { checkCookiebotInitialization, applyCookiebotStyling } from './utils/coo
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
 
-// Add a link to the sitemap in the document head
-const addSitemapLink = async () => {
-  // Remove any existing sitemap link to avoid duplicates
-  const existingSitemapLink = document.querySelector('link[rel="sitemap"]');
-  if (existingSitemapLink && existingSitemapLink.parentNode) {
-    existingSitemapLink.parentNode.removeChild(existingSitemapLink);
-  }
-  
-  // Create and add the sitemap link
-  const sitemapLink = document.createElement('link');
-  sitemapLink.rel = 'sitemap';
-  sitemapLink.type = 'application/xml';
-  sitemapLink.href = '/sitemap.xml';
-  document.head.appendChild(sitemapLink);
-  
-  // Check if the sitemap is accessible and properly formatted using dynamic import
+// Check sitemap accessibility and add sitemap link to head
+const setupSitemap = async () => {
   try {
-    const { checkSitemapAccessibility } = await import('./utils/sitemap-utils');
+    // Create and add the sitemap link
+    const sitemapLink = document.createElement('link');
+    sitemapLink.rel = 'sitemap';
+    sitemapLink.type = 'application/xml';
+    sitemapLink.href = '/sitemap.xml';
+    document.head.appendChild(sitemapLink);
+    
+    // Check if the sitemap is accessible
+    const { checkSitemapAccessibility, fixSitemapXml } = await import('./utils/sitemap-utils');
     const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
     
     if (!isAccessible) {
-      console.warn('Sitemap might not be properly formatted or accessible.');
+      console.warn('Sitemap might not be properly formatted or accessible. Attempting to fix...');
+      
+      // Try to fix the sitemap
+      const fixed = await fixSitemapXml('/sitemap.xml');
+      if (fixed) {
+        console.info('Sitemap has been fixed and is now properly formatted.');
+      } else {
+        console.error('Unable to fix sitemap. Please check the sitemap.xml file manually.');
+      }
     } else {
       console.info('Sitemap is accessible and properly formatted.');
     }
   } catch (error) {
-    console.error('Error checking sitemap accessibility:', error);
+    console.error('Error setting up sitemap:', error);
   }
 };
 
@@ -58,12 +60,15 @@ const trackPageView = () => {
 // Add event listener to track page views on history changes
 window.addEventListener('popstate', trackPageView);
 
-// Check if Cookiebot is initialized properly
+// Initialize app and services
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize sitemap
+  setupSitemap();
+  
   // Wait a moment for Cookiebot to initialize
   setTimeout(() => {
     checkCookiebotInitialization();
-    applyCookiebotStyling(); // Apply additional styling
+    applyCookiebotStyling(); 
     
     // Verify GA4 functioning
     if (typeof window.verifyGA4 === 'function') {
@@ -72,12 +77,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 2000);
 });
 
-// Add sitemap link after DOM is loaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', addSitemapLink);
-} else {
-  addSitemapLink();
-}
-
 createRoot(rootElement).render(<App />);
-

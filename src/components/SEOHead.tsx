@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
 interface SchemaMarkup {
@@ -27,6 +27,28 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
   schemas = [],
 }) => {
+  // Check sitemap accessibility on component mount (only in development)
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      const checkSitemap = async () => {
+        try {
+          const { checkSitemapAccessibility, debugSitemapContent } = await import('../utils/sitemap-utils');
+          const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
+          
+          if (!isAccessible) {
+            console.warn('⚠️ Sitemap is not accessible or has format issues');
+            // Debug the content
+            debugSitemapContent();
+          }
+        } catch (error) {
+          console.error('Error checking sitemap:', error);
+        }
+      };
+      
+      checkSitemap();
+    }
+  }, []);
+  
   // Make sure the canonical URL is using the correct domain
   let correctedCanonicalUrl = canonicalUrl;
   
