@@ -21,6 +21,7 @@ const FooterWithCollapsibleLinks: React.FC<FooterProps> = ({ handleLinkClick }) 
     { path: "/botox-calculator", name: "Botox Dosage Calculator" },
     { path: "/alcohol-impact-calculator", name: "Alcohol Impact Calculator" },
     { path: "/baldness-risk-calculator", name: "Baldness Risk Calculator" },
+    { path: "/tdee-calculator", name: "TDEE Calculator" },
   ];
   
   // Group calculators into two columns for better readability
