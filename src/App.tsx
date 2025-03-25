@@ -41,6 +41,7 @@ import WillIGoBald from './pages/resources/will-i-go-bald';
 import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-adult-height';
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
+import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
 
 function App() {
   useEffect(() => {
@@ -78,6 +79,7 @@ function App() {
         <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
         <Route path="/tdee-calculator" element={<TDEECalculatorPage />} />
         <Route path="/macronutrient-calculator" element={<MacronutrientCalculatorPage />} />
+        <Route path="/ideal-body-weight-calculator" element={<NotFound />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
@@ -99,6 +101,7 @@ function App() {
         <Route path="/resources/how-to-predict-your-childs-adult-height" element={<HowToPredictYourChildsHeight />} />
         <Route path="/resources/how-to-calculate-your-tdee" element={<HowToCalculateYourTDEE />} />
         <Route path="/resources/macronutrient-calculator-guide" element={<MacronutrientCalculatorGuide />} />
+        <Route path="/resources/ideal-body-weight-guide" element={<IdealBodyWeightGuide />} />
         
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />

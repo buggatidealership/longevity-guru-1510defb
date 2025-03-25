@@ -26,6 +26,18 @@ const ResourcesContent = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ResourceCard 
+          title="The Truth About Ideal Body Weight Formulas & How to Use Them" 
+          description="Explore the science behind ideal body weight formulas and how to use our free calculator to find your healthiest weight based on height."
+          content={[
+            "Learn how ideal body weight calculators work, which formulas are most reliable, and when to trust (or ignore) these mathematical estimates of healthy weight.",
+            "This guide examines the real science behind ideal body weight formulas, their limitations, and how to interpret their results in the context of your overall health."
+          ]}
+          link="/resources/ideal-body-weight-guide"
+          imageUrl="https://images.unsplash.com/photo-1573588028698-f4759befb09a?auto=format&fit=crop&w=600&q=80"
+          date="May 20, 2024"
+        />
+        
+        <ResourceCard 
           title="How to Use the Macronutrient Calculator to Hit Your Health Goals" 
           description="Learn how to calculate your ideal daily intake of protein, carbs, and fat based on your fitness goals using our free macronutrient calculator."
           content={[

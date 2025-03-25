@@ -16,6 +16,7 @@ Allow: /baldness-risk-calculator
 Allow: /bmi-calculator
 Allow: /tdee-calculator
 Allow: /macronutrient-calculator
+Allow: /ideal-body-weight-calculator
 Allow: /resources
 Allow: /resources/how-to-increase-life-expectancy
 Allow: /resources/how-much-to-save-for-retirement
@@ -31,6 +32,7 @@ Allow: /resources/alcohol-and-longevity
 Allow: /resources/how-to-predict-your-childs-adult-height
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/macronutrient-calculator-guide
+Allow: /resources/ideal-body-weight-guide
 Allow: /privacy
 Allow: /terms
 
@@ -53,3 +55,4 @@ Host: longevitycalculator.xyz
 
 # Explicitly disallow the wrong domain
 Disallow: https://lifespan-calculator.com/
+
