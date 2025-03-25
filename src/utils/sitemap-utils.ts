@@ -8,6 +8,7 @@ export * from './sitemap/sitemap-generation';
 export * from './sitemap/sitemap-validation';
 export * from './sitemap/sitemap-format';
 export * from './sitemap/sitemap-docs';
+export * from './sitemap/sitemap-preservation';
 
 // Main function to validate sitemap from a URL
 export const validateSitemapUrl = async (url: string): Promise<boolean> => {
@@ -174,4 +175,10 @@ export const debugSitemapContent = async (url: string = '/sitemap.xml'): Promise
   } catch (error) {
     console.error('Error debugging sitemap:', error);
   }
+};
+
+// Update the sitemap.xml file with new entries while preserving existing ones
+export const addUrlsToSitemap = async (newUrls: string[]): Promise<boolean> => {
+  const { updateSitemapPreservingExisting } = await import('./sitemap/sitemap-preservation');
+  return updateSitemapPreservingExisting(newUrls);
 };

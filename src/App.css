@@ -46,7 +46,10 @@ p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content,
 .form-group, .form-control, .form-label, .form-input, .form-select,
 .input-group, label, select, input, .calculator-form, .calculator-section,
 .card-header, .card-title, .card-description, .card-content,
-.accordion-trigger, .accordion-content, .result-section, .chart-container {
+.accordion-trigger, .accordion-content, .result-section, .chart-container,
+.section-title, .card-container, .form-element, .input-field, .select-field,
+.checkbox-field, .radio-field, .toggle-field, .result-container, .card-body,
+.input-container {
   text-align: left;
 }
 
@@ -76,4 +79,36 @@ p, h1, h2, h3, h4, h5, h6, ul, ol, .text-content,
   margin-right: auto;
   display: flex;
   justify-content: center;
+}
+
+/* Specific alignment for breast-implant calculator */
+.breast-implant-calculator h1,
+.breast-implant-calculator h2,
+.breast-implant-calculator h3,
+.breast-implant-calculator p,
+.breast-implant-calculator label,
+.breast-implant-calculator .form-group,
+.breast-implant-calculator .card-content,
+.breast-implant-calculator .input-field,
+.breast-implant-calculator .select-container {
+  text-align: left;
+}
+
+/* Specific alignment for botox calculator */
+.botox-calculator .form-group,
+.botox-calculator label,
+.botox-calculator .input-field,
+.botox-calculator .select-field,
+.botox-calculator .card-content,
+.botox-calculator .results-section {
+  text-align: left;
+}
+
+/* Specific alignment for growth percentile calculator */
+.growth-percentile-calculator .form-group,
+.growth-percentile-calculator label,
+.growth-percentile-calculator .input-field,
+.growth-percentile-calculator .select-field,
+.growth-percentile-calculator .card-content {
+  text-align: left;
 }

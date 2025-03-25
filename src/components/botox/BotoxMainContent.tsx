@@ -17,10 +17,8 @@ const BotoxMainContent: React.FC<BotoxMainContentProps> = ({
 }) => {
   return (
     <main className="max-w-4xl mx-auto px-4">
-      <div className="w-full flex justify-center">
-        <div className="w-full">
-          <BotoxCalculator />
-        </div>
+      <div className="w-full">
+        <BotoxCalculator />
       </div>
       
       {/* About This Calculator Section */}
@@ -38,7 +36,7 @@ const BotoxMainContent: React.FC<BotoxMainContentProps> = ({
       {/* FAQ Section */}
       <BotoxFAQSection />
       
-      <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+      <div className="mt-8 mb-6 bg-gray-100 rounded-lg w-full p-1">
         <AdUnit 
           className="w-full"
           slot="9999999999" 

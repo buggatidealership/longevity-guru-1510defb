@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -194,8 +193,8 @@ const GrowthPercentileCalculator = () => {
   return (
     <div className="space-y-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight section-title">Children's Growth Percentile Calculator</h1>
-        <p className="text-muted-foreground mt-2 mb-4 section-title">
+        <h1 className="text-3xl font-bold tracking-tight">Children's Growth Percentile Calculator</h1>
+        <p className="text-muted-foreground mt-2 mb-4">
           Calculate your child's height and weight percentiles based on CDC pediatric growth charts
         </p>
         <div className="ad-container">
