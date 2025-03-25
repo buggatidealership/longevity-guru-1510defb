@@ -18,6 +18,7 @@ import BreastImplantCalculatorPage from './pages/BreastImplantCalculatorPage';
 import MetabolismCalculatorPage from './pages/MetabolismCalculatorPage';
 import AlcoholCalculatorPage from './pages/AlcoholCalculatorPage';
 import BotoxCalculatorPage from './pages/BotoxCalculatorPage';
+import TDEECalculatorPage from './pages/TDEECalculatorPage';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -72,6 +73,7 @@ function App() {
         <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />
         <Route path="/botox-calculator" element={<BotoxCalculatorPage />} />
         <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
+        <Route path="/tdee-calculator" element={<TDEECalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
