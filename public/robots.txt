@@ -30,6 +30,7 @@ Allow: /resources/botox-dosage-guide
 Allow: /resources/alcohol-and-longevity
 Allow: /resources/how-to-predict-your-childs-adult-height
 Allow: /resources/how-to-calculate-your-tdee
+Allow: /resources/macronutrient-calculator-guide
 Allow: /privacy
 Allow: /terms
 

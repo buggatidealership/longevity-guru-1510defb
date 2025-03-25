@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
@@ -24,6 +25,18 @@ const ResourcesContent = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ResourceCard 
+          title="How to Use the Macronutrient Calculator to Hit Your Health Goals" 
+          description="Learn how to calculate your ideal daily intake of protein, carbs, and fat based on your fitness goals using our free macronutrient calculator."
+          content={[
+            "Understanding your personal macronutrient needs is the key to achieving your fitness goals, whether you're looking to lose fat, build muscle, or maintain your current physique.",
+            "Our macronutrient calculator uses established formulas to determine your calorie needs, then breaks those calories into optimal proportions of protein, carbohydrates, and fats based on your specific goals."
+          ]}
+          link="/resources/macronutrient-calculator-guide"
+          imageUrl="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=80"
+          date="December 15, 2024"
+        />
+        
         <ResourceCard 
           title="How to Calculate Your TDEE & Adjust It for Your Goals" 
           description="Learn how to accurately calculate your Total Daily Energy Expenditure (TDEE) and customize it for weight loss, muscle gain, or maintenance."
