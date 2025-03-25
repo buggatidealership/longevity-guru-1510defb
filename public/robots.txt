@@ -15,6 +15,7 @@ Allow: /alcohol-impact-calculator
 Allow: /baldness-risk-calculator
 Allow: /bmi-calculator
 Allow: /tdee-calculator
+Allow: /macronutrient-calculator
 Allow: /resources
 Allow: /resources/how-to-increase-life-expectancy
 Allow: /resources/how-much-to-save-for-retirement

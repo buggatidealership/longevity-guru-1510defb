@@ -90,3 +90,41 @@ export const generateArticleSchema = (
     }
   };
 };
+
+/**
+ * Generate WebPage schema markup for standard pages
+ * @param title Page title
+ * @param description Page description
+ * @param path Page path
+ * @returns JSON-LD schema markup for WebPage
+ */
+export const generateWebPageSchema = (
+  title: string,
+  description: string,
+  path: string,
+  lastReviewed: string = new Date().toISOString()
+) => {
+  const baseUrl = 'https://longevitycalculator.xyz';
+  const cleanPath = path.startsWith('/') ? path.substring(1) : path;
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": `${baseUrl}/${cleanPath}`,
+    "lastReviewed": lastReviewed,
+    "mainContentOfPage": {
+      "@type": "WebPageElement",
+      "cssSelector": "main"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "contentUrl": "https://longevitycalculator.xyz/longevity-calculator-og.png"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", "p"]
+    }
+  };
+};
