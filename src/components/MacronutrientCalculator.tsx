@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -14,7 +13,6 @@ import { useForm } from 'react-hook-form';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { toast } from 'sonner';
 
-// Define form schema using Zod
 const calculatorSchema = z.object({
   age: z.coerce.number().min(15, "Must be at least 15 years old").max(100, "Must be 100 or younger"),
   sex: z.enum(["male", "female"]),
@@ -78,7 +76,6 @@ const MacronutrientCalculator: React.FC = () => {
   const [result, setResult] = useState<MacroResult | null>(null);
   const [showResults, setShowResults] = useState(false);
 
-  // Initialize form with default values
   const form = useForm<CalculatorFormValues>({
     resolver: zodResolver(calculatorSchema),
     defaultValues: {
@@ -98,7 +95,6 @@ const MacronutrientCalculator: React.FC = () => {
 
   const { watch, setValue } = form;
   
-  // Watch for changes in height/weight unit to update the other value accordingly
   const heightUnit = watch("heightUnit");
   const weightUnit = watch("weightUnit");
   const heightCm = watch("heightCm");
@@ -107,31 +103,25 @@ const MacronutrientCalculator: React.FC = () => {
   const weightKg = watch("weightKg");
   const weightLbs = watch("weightLbs");
 
-  // Update height when unit changes
   useEffect(() => {
     if (heightUnit === "cm" && heightCm) {
-      // Convert cm to feet and inches
       const totalInches = heightCm / 2.54;
       const feet = Math.floor(totalInches / 12);
       const inches = Math.round(totalInches % 12);
       setValue("heightFt", feet);
       setValue("heightIn", inches);
     } else if (heightUnit === "ft" && heightFt && heightIn !== undefined) {
-      // Convert feet and inches to cm
       const totalInches = (heightFt * 12) + (heightIn || 0);
       const cm = Math.round(totalInches * 2.54);
       setValue("heightCm", cm);
     }
   }, [heightUnit, heightCm, heightFt, heightIn, setValue]);
 
-  // Update weight when unit changes
   useEffect(() => {
     if (weightUnit === "kg" && weightKg) {
-      // Convert kg to lbs
       const lbs = Math.round(weightKg * 2.20462);
       setValue("weightLbs", lbs);
     } else if (weightUnit === "lbs" && weightLbs) {
-      // Convert lbs to kg
       const kg = Math.round(weightLbs / 2.20462);
       setValue("weightKg", kg);
     }
@@ -139,11 +129,9 @@ const MacronutrientCalculator: React.FC = () => {
 
   const onSubmit = (data: CalculatorFormValues) => {
     try {
-      // Calculate TDEE using Mifflin-St Jeor formula
       let weightInKg = data.weightUnit === "kg" ? data.weightKg! : data.weightLbs! / 2.20462;
       let heightInCm = data.heightUnit === "cm" ? data.heightCm! : ((data.heightFt! * 12) + (data.heightIn || 0)) * 2.54;
       
-      // BMR calculation
       let bmr;
       if (data.sex === "male") {
         bmr = (10 * weightInKg) + (6.25 * heightInCm) - (5 * data.age) + 5;
@@ -151,7 +139,6 @@ const MacronutrientCalculator: React.FC = () => {
         bmr = (10 * weightInKg) + (6.25 * heightInCm) - (5 * data.age) - 161;
       }
       
-      // Apply activity multiplier
       const activityMultipliers = {
         sedentary: 1.2,
         light: 1.375,
@@ -162,7 +149,6 @@ const MacronutrientCalculator: React.FC = () => {
       
       const tdee = bmr * activityMultipliers[data.activityLevel];
       
-      // Apply goal modifier
       const goalModifiers = {
         loseFat: 0.8,
         maintain: 1.0,
@@ -171,34 +157,30 @@ const MacronutrientCalculator: React.FC = () => {
       
       const adjustedCalories = Math.round(tdee * goalModifiers[data.goal]);
       
-      // Determine macro ratios based on goal
       let proteinPercentage, fatPercentage, carbPercentage;
       
       if (data.goal === "loseFat") {
-        proteinPercentage = 0.4;  // 40% protein
-        fatPercentage = 0.35;     // 35% fat
-        carbPercentage = 0.25;    // 25% carbs
+        proteinPercentage = 0.4;
+        fatPercentage = 0.35;
+        carbPercentage = 0.25;
       } else if (data.goal === "maintain") {
-        proteinPercentage = 0.3;  // 30% protein
-        fatPercentage = 0.3;      // 30% fat
-        carbPercentage = 0.4;     // 40% carbs
-      } else { // buildMuscle
-        proteinPercentage = 0.25; // 25% protein
-        fatPercentage = 0.25;     // 25% fat
-        carbPercentage = 0.5;     // 50% carbs
+        proteinPercentage = 0.3;
+        fatPercentage = 0.3;
+        carbPercentage = 0.4;
+      } else {
+        proteinPercentage = 0.25;
+        fatPercentage = 0.25;
+        carbPercentage = 0.5;
       }
       
-      // Calculate macros in calories
       const proteinCalories = adjustedCalories * proteinPercentage;
       const fatCalories = adjustedCalories * fatPercentage;
       const carbCalories = adjustedCalories * carbPercentage;
       
-      // Convert to grams (protein: 4cal/g, carbs: 4cal/g, fat: 9cal/g)
       const proteinGrams = Math.round(proteinCalories / 4);
       const fatGrams = Math.round(fatCalories / 9);
       const carbGrams = Math.round(carbCalories / 4);
       
-      // Set results
       setResult({
         calories: adjustedCalories,
         protein: {
@@ -226,7 +208,6 @@ const MacronutrientCalculator: React.FC = () => {
     }
   };
 
-  // For pie chart
   const COLORS = ['#8884d8', '#82ca9d', '#ffc658'];
 
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }: any) => {
@@ -255,18 +236,16 @@ const MacronutrientCalculator: React.FC = () => {
       <CardContent className="p-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Personal Information Section */}
-            <div className="space-y-4">
+            <div className="space-y-4 text-left">
               <h2 className="text-xl font-bold">Personal Information</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Age */}
                 <div>
                   <FormField
                     control={form.control}
                     name="age"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="text-left">
                         <FormLabel>Age</FormLabel>
                         <FormControl>
                           <Input
@@ -282,13 +261,12 @@ const MacronutrientCalculator: React.FC = () => {
                   />
                 </div>
                 
-                {/* Sex */}
                 <div>
                   <FormField
                     control={form.control}
                     name="sex"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="text-left">
                         <FormLabel>Sex</FormLabel>
                         <Select
                           value={field.value}
@@ -310,13 +288,12 @@ const MacronutrientCalculator: React.FC = () => {
                 </div>
               </div>
               
-              {/* Height */}
               <div>
                 <FormField
                   control={form.control}
                   name="heightUnit"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="text-left">
                       <FormLabel>Height</FormLabel>
                       <div className="flex items-center space-x-4">
                         <FormControl>
@@ -346,7 +323,7 @@ const MacronutrientCalculator: React.FC = () => {
                       control={form.control}
                       name="heightCm"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="text-left">
                           <FormControl>
                             <Input
                               type="number"
@@ -365,7 +342,7 @@ const MacronutrientCalculator: React.FC = () => {
                         control={form.control}
                         name="heightFt"
                         render={({ field }) => (
-                          <FormItem className="flex-1">
+                          <FormItem className="flex-1 text-left">
                             <FormControl>
                               <Input
                                 type="number"
@@ -382,7 +359,7 @@ const MacronutrientCalculator: React.FC = () => {
                         control={form.control}
                         name="heightIn"
                         render={({ field }) => (
-                          <FormItem className="flex-1">
+                          <FormItem className="flex-1 text-left">
                             <FormControl>
                               <Input
                                 type="number"
@@ -400,13 +377,12 @@ const MacronutrientCalculator: React.FC = () => {
                 </div>
               </div>
               
-              {/* Weight */}
               <div>
                 <FormField
                   control={form.control}
                   name="weightUnit"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="text-left">
                       <FormLabel>Weight</FormLabel>
                       <div className="flex items-center space-x-4">
                         <FormControl>
@@ -436,7 +412,7 @@ const MacronutrientCalculator: React.FC = () => {
                       control={form.control}
                       name="weightKg"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="text-left">
                           <FormControl>
                             <Input
                               type="number"
@@ -454,7 +430,7 @@ const MacronutrientCalculator: React.FC = () => {
                       control={form.control}
                       name="weightLbs"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="text-left">
                           <FormControl>
                             <Input
                               type="number"
@@ -471,13 +447,12 @@ const MacronutrientCalculator: React.FC = () => {
                 </div>
               </div>
               
-              {/* Activity Level */}
               <div>
                 <FormField
                   control={form.control}
                   name="activityLevel"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="text-left">
                       <FormLabel>Activity Level</FormLabel>
                       <Select
                         value={field.value}
@@ -501,13 +476,12 @@ const MacronutrientCalculator: React.FC = () => {
                 />
               </div>
               
-              {/* Goal */}
               <div>
                 <FormField
                   control={form.control}
                   name="goal"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="text-left">
                       <FormLabel>Goal</FormLabel>
                       <Select
                         value={field.value}
@@ -530,11 +504,11 @@ const MacronutrientCalculator: React.FC = () => {
               </div>
             </div>
             
-            <div className="flex justify-center">
+            <div>
               <Button
                 type="submit"
                 size="lg"
-                className="w-full md:w-auto"
+                className="w-full"
               >
                 Calculate My Macros
               </Button>
@@ -542,9 +516,8 @@ const MacronutrientCalculator: React.FC = () => {
           </form>
         </Form>
         
-        {/* Results Section */}
         {showResults && result && (
-          <div className="mt-8 border-t pt-6">
+          <div className="mt-8 border-t pt-6 text-left">
             <h2 className="text-xl font-bold mb-4">Your Daily Macronutrient Targets</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -600,7 +573,7 @@ const MacronutrientCalculator: React.FC = () => {
               </div>
               
               <div className="flex flex-col items-center justify-center">
-                <h3 className="text-lg font-semibold mb-4">Macronutrient Ratio</h3>
+                <h3 className="text-lg font-semibold mb-4 self-start">Macronutrient Ratio</h3>
                 <div className="w-full h-64">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
