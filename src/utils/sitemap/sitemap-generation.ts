@@ -53,7 +53,7 @@ export const generateFullSitemap = (urls: string[]): string => {
   const entries = urls.map(url => {
     // Special handling for TDEE resource page
     if (url === 'resources/how-to-calculate-your-tdee') {
-      return generateSitemapEntry(url, 0.8, new Date().toISOString().split('T')[0] + 'T12:00:00+00:00', 'monthly');
+      return generateSitemapEntry(url, 0.8, '2025-03-25T12:00:00+00:00', 'monthly');
     }
     return generateSitemapEntry(url);
   });

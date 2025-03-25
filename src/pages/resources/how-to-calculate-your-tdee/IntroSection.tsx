@@ -32,7 +32,7 @@ const IntroSection = () => {
           <li><a href="#what-is-tdee" className="text-blue-600 hover:underline">What Is TDEE?</a></li>
           <li><a href="#why-tdee-matters" className="text-blue-600 hover:underline">Why TDEE Matters</a></li>
           <li><a href="#how-to-calculate" className="text-blue-600 hover:underline">How to Calculate Your TDEE (Step-by-Step)</a></li>
-          <li><a href="#example" className="text-blue-600 hover:underline">Example Calculation</a></li>
+          <li><a href="#example-calculation" className="text-blue-600 hover:underline">Example Calculation</a></li>
           <li><a href="#faqs" className="text-blue-600 hover:underline">Frequently Asked Questions</a></li>
         </ul>
       </div>

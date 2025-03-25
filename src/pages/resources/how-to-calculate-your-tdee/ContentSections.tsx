@@ -84,8 +84,8 @@ const ContentSections = () => {
         </div>
       </section>
       
-      <section id="example">
-        <h2 className="text-2xl font-semibold">Example:</h2>
+      <section id="example-calculation">
+        <h2 className="text-2xl font-semibold">Example Calculation:</h2>
         <p>A 30-year-old woman, 165 cm tall, 60 kg, lightly active:</p>
         
         <div className="bg-gray-50 p-4 rounded-lg">

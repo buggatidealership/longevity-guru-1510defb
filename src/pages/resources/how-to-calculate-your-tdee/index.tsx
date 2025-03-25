@@ -73,6 +73,25 @@ const TDEECalculationGuide = () => {
           <ContentSections />
           <FAQSection />
           <CallToAction />
+          
+          {/* Additional JSON-LD FAQ schema for enhanced crawler visibility */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": faqItems.map(item => ({
+                  "@type": "Question",
+                  "name": item.question,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.answer
+                  }
+                }))
+              })
+            }}
+          />
         </main>
         
         <ResourcePageFooter />
