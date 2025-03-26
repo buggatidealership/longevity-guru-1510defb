@@ -10,26 +10,21 @@
 export const checkCookiebotInitialization = (): boolean => {
   if (typeof window === 'undefined') return false;
   
-  // Check if Cookiebot object exists and has the consent property
-  try {
-    if (window.Cookiebot && typeof window.Cookiebot.consent === 'object') {
-      console.info('Cookiebot is initialized with consent state:', {
-        necessary: window.Cookiebot.consent?.necessary ?? 'undefined',
-        preferences: window.Cookiebot.consent?.preferences ?? 'undefined',
-        statistics: window.Cookiebot.consent?.statistics ?? 'undefined',
-        marketing: window.Cookiebot.consent?.marketing ?? 'undefined'
-      });
-      
-      // Verify Google Analytics connection
-      verifyGoogleAnalytics();
-      
-      return true;
-    } else {
-      console.warn('Cookiebot is not initialized or missing consent property. Make sure the script is loaded correctly.');
-      return false;
-    }
-  } catch (error) {
-    console.warn('Error checking Cookiebot initialization:', error);
+  // Check if Cookiebot object exists
+  if (window.Cookiebot) {
+    console.info('Cookiebot is initialized with consent state:', {
+      necessary: window.Cookiebot.consent.necessary,
+      preferences: window.Cookiebot.consent.preferences,
+      statistics: window.Cookiebot.consent.statistics,
+      marketing: window.Cookiebot.consent.marketing
+    });
+    
+    // Verify Google Analytics connection
+    verifyGoogleAnalytics();
+    
+    return true;
+  } else {
+    console.warn('Cookiebot is not initialized. Make sure the script is loaded correctly.');
     return false;
   }
 };
@@ -40,36 +35,28 @@ export const checkCookiebotInitialization = (): boolean => {
 export const verifyGoogleAnalytics = (): void => {
   if (typeof window === 'undefined') return;
   
-  try {
-    if (typeof window.gtag === 'function') {
-      console.info('Google Analytics tag function exists');
-      
-      // Use the helper function if it exists
-      if (typeof window.verifyGA4 === 'function') {
-        try {
-          window.verifyGA4();
-        } catch (error) {
-          console.error('Error calling verifyGA4:', error);
-        }
-      } else {
-        // Fallback verification
-        try {
-          window.gtag('get', 'G-7FHX7T4MP9', 'client_id', (clientId: string) => {
-            if (clientId) {
-              console.info('✅ GA4 Client ID:', clientId);
-            } else {
-              console.warn('❌ GA4 client_id not found, tag may not be working properly');
-            }
-          });
-        } catch (error) {
-          console.error('Error verifying GA4:', error);
-        }
-      }
+  if (typeof window.gtag === 'function') {
+    console.info('Google Analytics tag function exists');
+    
+    // Use the helper function if it exists
+    if (typeof window.verifyGA4 === 'function') {
+      window.verifyGA4();
     } else {
-      console.warn('Google Analytics gtag function not found');
+      // Fallback verification
+      try {
+        window.gtag('get', 'G-7FHX7T4MP9', 'client_id', (clientId: string) => {
+          if (clientId) {
+            console.info('✅ GA4 Client ID:', clientId);
+          } else {
+            console.warn('❌ GA4 client_id not found, tag may not be working properly');
+          }
+        });
+      } catch (error) {
+        console.error('Error verifying GA4:', error);
+      }
     }
-  } catch (error) {
-    console.error('Error in verifyGoogleAnalytics:', error);
+  } else {
+    console.warn('Google Analytics gtag function not found');
   }
 };
 
@@ -80,14 +67,10 @@ export const verifyGoogleAnalytics = (): void => {
 export const enableConsentTest = (): void => {
   if (typeof window === 'undefined') return;
   
-  try {
-    const url = new URL(window.location.href);
-    url.searchParams.set('consenttest', 'true');
-    window.history.replaceState({}, document.title, url.toString());
-    window.location.reload();
-  } catch (error) {
-    console.error('Error enabling consent test:', error);
-  }
+  const url = new URL(window.location.href);
+  url.searchParams.set('consenttest', 'true');
+  window.history.replaceState({}, document.title, url.toString());
+  window.location.reload();
 };
 
 /**
@@ -97,22 +80,18 @@ export const enableConsentTest = (): void => {
 export const clearConsentCookies = (): void => {
   if (typeof window === 'undefined') return;
   
-  try {
-    const cookiesToDelete = [
-      'CookieConsent',
-      'CookieConsentBulkTicket',
-      'CookieConsentBulkAnalytics',
-      'CookieConsentBulkAdvertising'
-    ];
-    
-    cookiesToDelete.forEach(cookieName => {
-      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    });
-    
-    window.location.reload();
-  } catch (error) {
-    console.error('Error clearing consent cookies:', error);
-  }
+  const cookiesToDelete = [
+    'CookieConsent',
+    'CookieConsentBulkTicket',
+    'CookieConsentBulkAnalytics',
+    'CookieConsentBulkAdvertising'
+  ];
+  
+  cookiesToDelete.forEach(cookieName => {
+    document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  });
+  
+  window.location.reload();
 };
 
 /**
@@ -137,64 +116,61 @@ export const showCookiebotDialog = (): void => {
 export const applyCookiebotStyling = (): void => {
   if (typeof window === 'undefined') return;
   
-  try {
-    // Function to be called when the dialog becomes visible
-    const applyStyles = () => {
-      const dialog = document.getElementById('CybotCookiebotDialog');
-      if (dialog) {
-        // Make sure buttons are properly aligned
-        const buttonContainer = document.getElementById('CybotCookiebotDialogBodyButtons');
-        if (buttonContainer) {
-          buttonContainer.style.display = 'flex';
-          buttonContainer.style.justifyContent = 'flex-end';
-          buttonContainer.style.alignItems = 'center';
-        }
-        
-        // Fix header alignment issues that might be caused by the banner
-        const fixPageLayouts = () => {
-          // Ensure headers and content containers are centered
-          document.querySelectorAll('header.max-w-6xl, main .text-center, .max-w-2xl, .max-w-3xl, .max-w-4xl').forEach(element => {
-            if (element instanceof HTMLElement) {
-              element.style.marginLeft = 'auto';
-              element.style.marginRight = 'auto';
-              
-              // For text-center elements, ensure text alignment
-              if (element.classList.contains('text-center')) {
-                element.style.textAlign = 'center';
-              }
-            }
-          });
-        };
-        
-        // Apply layout fixes right away and after a short delay (for dynamic content)
-        fixPageLayouts();
-        setTimeout(fixPageLayouts, 500);
-        
-        console.info('Applied additional styling to Cookiebot dialog and fixed page layout');
+  // Function to be called when the dialog becomes visible
+  const applyStyles = () => {
+    const dialog = document.getElementById('CybotCookiebotDialog');
+    if (dialog) {
+      // Make sure buttons are properly aligned
+      const buttonContainer = document.getElementById('CybotCookiebotDialogBodyButtons');
+      if (buttonContainer) {
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'flex-end';
+        buttonContainer.style.alignItems = 'center';
       }
-    };
-    
-    // Observer to detect when the dialog appears in the DOM
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.addedNodes) {
-          mutation.addedNodes.forEach((node) => {
-            if (node.nodeType === 1 && (node as Element).id === 'CybotCookiebotDialog') {
-              applyStyles();
+      
+      // Fix header alignment issues that might be caused by the banner
+      const fixPageLayouts = () => {
+        // Ensure headers and content containers are centered
+        document.querySelectorAll('header.max-w-6xl, main .text-center, .max-w-2xl, .max-w-3xl, .max-w-4xl').forEach(element => {
+          if (element instanceof HTMLElement) {
+            element.style.marginLeft = 'auto';
+            element.style.marginRight = 'auto';
+            
+            // For text-center elements, ensure text alignment
+            if (element.classList.contains('text-center')) {
+              element.style.textAlign = 'center';
             }
-          });
-        }
-      });
+          }
+        });
+      };
+      
+      // Apply layout fixes right away and after a short delay (for dynamic content)
+      fixPageLayouts();
+      setTimeout(fixPageLayouts, 500);
+      
+      console.info('Applied additional styling to Cookiebot dialog and fixed page layout');
+    }
+  };
+  
+  // Observer to detect when the dialog appears in the DOM
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes) {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1 && (node as Element).id === 'CybotCookiebotDialog') {
+            applyStyles();
+          }
+        });
+      }
     });
-    
-    // Start observing the document body for changes
-    observer.observe(document.body, { childList: true, subtree: true });
-    
-    // Also try to apply styles on initialization
-    setTimeout(applyStyles, 1000);
-  } catch (error) {
-    console.error('Error applying Cookiebot styling:', error);
-  }
+  });
+  
+  // Start observing the document body for changes
+  observer.observe(document.body, { childList: true, subtree: true });
+  
+  // Also try to apply styles on initialization
+  setTimeout(applyStyles, 1000);
 };
 
 // We're removing the duplicate Window interface declaration since it's already defined in global.d.ts
+

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { ensureCanonicalUrl } from '../utils/canonical-utils';
 
@@ -28,120 +28,135 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
   schemas = [],
 }) => {
+  // Check sitemap accessibility on component mount (only in development)
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      const checkSitemap = async () => {
+        try {
+          const { checkSitemapAccessibility, debugSitemapContent } = await import('../utils/sitemap-utils');
+          const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
+          
+          if (!isAccessible) {
+            console.warn('⚠️ Sitemap is not accessible or has format issues');
+            // Debug the content
+            debugSitemapContent();
+          }
+        } catch (error) {
+          console.error('Error checking sitemap:', error);
+        }
+      };
+      
+      checkSitemap();
+    }
+  }, []);
+  
   // Make sure the canonical URL is using the correct domain and format
   const correctedCanonicalUrl = ensureCanonicalUrl(canonicalUrl);
   
-  // Check if we're on a search page
-  const isSearchPage = 
-    typeof window !== 'undefined' && 
-    window.location.search.includes('?s=');
-    
-  // Check if we're on the homepage
-  const isHomePage = 
-    typeof window !== 'undefined' && 
-    window.location.pathname === '/';
-    
-  // Special handling for the fertility calculator page - checking if we're on that path
+  // Debug canonical URL in development
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Original canonicalUrl:', canonicalUrl);
+    console.log('Corrected canonicalUrl:', correctedCanonicalUrl);
+  }
+  
+  // Structured data for organization with logo
+  const organizationStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Longevity Calculator",
+    "url": "https://longevitycalculator.xyz",
+    "logo": "https://longevitycalculator.xyz/logo.png",
+    "sameAs": [
+      "https://longevitycalculator.xyz"
+    ]
+  };
+
+  // Structured data for WebSite
+  const websiteStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Longevity Calculators",
+    "url": "https://longevitycalculator.xyz",
+    "description": description,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://longevitycalculator.xyz/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  // Combine default schemas with custom schemas
+  const allSchemas = [
+    organizationStructuredData, 
+    websiteStructuredData,
+    ...schemas
+  ];
+
+  // Special handling for the fertility calculator page - DIRECT HARDCODED APPROACH
   const isFertilityCalculatorPage = 
     typeof window !== 'undefined' && 
     (window.location.pathname === '/female-fertility-calculator' || 
      window.location.pathname.includes('female-fertility-calculator'));
-  
+
   return (
-    <>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        
-        {/* Only add canonical link if NOT on fertility calculator page (handled in index.html) 
-            and NOT on search pages */}
-        {!isFertilityCalculatorPage && !isSearchPage && (
-          <link rel="canonical" href={correctedCanonicalUrl} data-dynamic="true" />
-        )}
-        
-        {/* For search pages, explicitly set noindex */}
-        {isSearchPage && (
-          <meta name="robots" content="noindex, nofollow" />
-        )}
-        
-        {/* For homepage, explicitly set index and canonical */}
-        {isHomePage && (
-          <>
-            <meta name="robots" content="index, follow, max-image-preview:large" />
-            <meta name="googlebot" content="index, follow" />
-          </>
-        )}
-        
-        {keywords && <meta name="keywords" content={keywords} />}
-        
-        {/* Favicon links */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        
-        {/* Open Graph */}
-        <meta property="og:url" content={correctedCanonicalUrl} />
-        <meta property="og:type" content={ogType} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={ogImage} />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={ogImage} />
-        
-        {/* Additional tags for canonical reinforcement */}
-        <meta name="robots" content={isSearchPage ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
-        <meta name="googlebot" content={isSearchPage ? "noindex, nofollow" : "index, follow"} />
-        <meta property="og:site_name" content="Longevity Calculator" />
-        
-        {/* Explicitly declare the correct domain */}
-        <meta name="domain-verification" content="longevitycalculator.xyz" />
-        
-        {/* Ensure no noindex directive for the main domain */}
-        <meta name="robots" content="index, follow" data-domain="longevitycalculator.xyz" />
-        
-        {/* Add a specific directive to disallow the incorrect domain */}
-        <meta name="robots" content="noindex, nofollow" data-domain="www.longevitycalculator.xyz" />
-        <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
-        
-        {/* Sitemap reference - added explicitly in meta tags in addition to link element */}
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-        <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
-      </Helmet>
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
       
-      {/* Render schema markup scripts outside of Helmet component to avoid Symbol serialization issues */}
-      {schemas.map((schema, index) => {
-        try {
-          // Convert the schema object to a JSON string, handling any Symbol values
-          const schemaJSON = JSON.stringify(schema, (key, value) => {
-            // Handle Symbol values by converting them to strings
-            if (typeof value === 'symbol') {
-              return value.toString();
-            }
-            // Handle undefined values
-            if (value === undefined) {
-              return null;
-            }
-            return value;
-          });
-          
-          return (
-            <script 
-              key={`schema-${index}`} 
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: schemaJSON }}
-            />
-          );
-        } catch (error) {
-          console.error(`Error serializing schema at index ${index}:`, error);
-          return null;
-        }
-      })}
-    </>
+      {/* ALWAYS include the canonical link tag - NO CONDITIONS */}
+      <link rel="canonical" href={correctedCanonicalUrl} />
+      
+      {/* DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR */}
+      {isFertilityCalculatorPage && (
+        <link rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" />
+      )}
+      
+      {keywords && <meta name="keywords" content={keywords} />}
+      
+      {/* Favicon links */}
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      
+      {/* Open Graph */}
+      <meta property="og:url" content={correctedCanonicalUrl} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={ogImage} />
+      
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
+      
+      {/* Additional tags for canonical reinforcement */}
+      <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta name="googlebot" content="index, follow" />
+      <meta property="og:site_name" content="Longevity Calculator" />
+      
+      {/* Explicitly declare the correct domain */}
+      <meta name="domain-verification" content="longevitycalculator.xyz" />
+      
+      {/* Ensure no noindex directive for the main domain */}
+      <meta name="robots" content="index, follow" data-domain="longevitycalculator.xyz" />
+      
+      {/* Add a specific directive to disallow the incorrect domain */}
+      <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
+      
+      {/* Sitemap reference - added explicitly in meta tags in addition to link element */}
+      <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+      <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
+      
+      {/* Structured data */}
+      {allSchemas.map((schema, index) => (
+        <script key={`schema-${index}`} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      ))}
+    </Helmet>
   );
 };
 

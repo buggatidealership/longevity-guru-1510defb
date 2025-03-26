@@ -7,7 +7,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/schema-utils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 

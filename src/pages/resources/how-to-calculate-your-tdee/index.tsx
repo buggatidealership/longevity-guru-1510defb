@@ -1,7 +1,7 @@
 
 import React from 'react';
 import SEOHead from '@/components/SEOHead';
-import { generateBreadcrumbSchema, generateArticleSchema, generateFAQSchema } from '@/utils/schema-utils';
+import { generateBreadcrumbSchema, generateArticleSchema, generateFAQSchema } from '@/utils/seoUtils';
 import ResourcePageHeader from '../components/ResourcePageHeader';
 import ResourcePageFooter from '../components/ResourcePageFooter';
 import IntroSection from './IntroSection';

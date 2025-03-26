@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -7,7 +6,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/schema-utils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -19,14 +18,13 @@ const HowToIncreaseLifeExpectancy = () => {
     { name: 'How to Increase Life Expectancy', path: '/resources/how-to-increase-life-expectancy' }
   ]);
 
-  // Generate article schema with the correct parameter order
+  // Generate article schema - Fixed by providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
     "How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]",
-    "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity.",
-    "/resources/how-to-increase-life-expectancy",
+    "https://longevitycalculator.xyz/longevity-calculator-og.png",
     "2023-05-15T08:00:00+00:00",
     "2023-11-10T10:30:00+00:00",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png"
+    "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity."
   );
 
   const schemas = [breadcrumbSchema, articleSchema];

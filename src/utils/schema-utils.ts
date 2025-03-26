@@ -50,7 +50,6 @@ export const generateFAQSchema = (items: Array<{question: string, answer: string
  * @param path Page path
  * @param datePublished Publication date (ISO format)
  * @param dateModified Last modification date (ISO format)
- * @param imageUrl Image URL for the article
  * @returns JSON-LD schema markup for article
  */
 export const generateArticleSchema = (
@@ -97,7 +96,6 @@ export const generateArticleSchema = (
  * @param title Page title
  * @param description Page description
  * @param path Page path
- * @param lastReviewed Last reviewed date (ISO format)
  * @returns JSON-LD schema markup for WebPage
  */
 export const generateWebPageSchema = (

@@ -40,34 +40,6 @@ const setupSitemap = async () => {
   }
 };
 
-// Ensure correct canonical and meta tags for SEO
-const ensureCorrectCanonicals = () => {
-  try {
-    // Check if on search page
-    if (window.location.search.includes('?s=')) {
-      // Add noindex for search pages
-      const robotsMeta = document.createElement('meta');
-      robotsMeta.name = 'robots';
-      robotsMeta.content = 'noindex, nofollow';
-      document.head.appendChild(robotsMeta);
-      
-      // Hide all canonical tags on search pages
-      const canonicals = document.querySelectorAll('link[rel="canonical"]');
-      canonicals.forEach(tag => tag.setAttribute('hidden', ''));
-    }
-    
-    // Ensure canonical on homepage always points to non-www
-    if (window.location.pathname === '/' && !window.location.search) {
-      const homepageCanonical = document.querySelector('link[rel="canonical"]');
-      if (homepageCanonical) {
-        homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
-      }
-    }
-  } catch (error) {
-    console.error('Error ensuring correct canonicals:', error);
-  }
-};
-
 // Track page views on route changes
 const trackPageView = () => {
   if (typeof window !== 'undefined' && window.gtag) {
@@ -85,39 +57,6 @@ const trackPageView = () => {
   }
 };
 
-// Initialize Cookiebot and other services safely
-const initializeServices = () => {
-  try {
-    // Initialize Cookiebot and styling with error handling
-    if (typeof window !== 'undefined') {
-      // Safely check Cookiebot initialization
-      try {
-        checkCookiebotInitialization();
-      } catch (error) {
-        console.warn('Error during Cookiebot initialization check:', error);
-      }
-      
-      // Apply styling safely
-      try {
-        applyCookiebotStyling();
-      } catch (error) {
-        console.warn('Error applying Cookiebot styling:', error);
-      }
-    }
-  } catch (error) {
-    console.error('Error initializing Cookiebot:', error);
-  }
-  
-  // Verify GA4 functioning
-  try {
-    if (typeof window !== 'undefined' && typeof window.verifyGA4 === 'function') {
-      window.verifyGA4();
-    }
-  } catch (error) {
-    console.error('Error verifying GA4:', error);
-  }
-};
-
 // Add event listener to track page views on history changes
 window.addEventListener('popstate', trackPageView);
 
@@ -126,11 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize sitemap
   setupSitemap();
   
-  // Ensure correct canonical tags
-  ensureCorrectCanonicals();
-  
-  // Wait a moment for third-party services to initialize
-  setTimeout(initializeServices, 2000);
+  // Wait a moment for Cookiebot to initialize
+  setTimeout(() => {
+    checkCookiebotInitialization();
+    applyCookiebotStyling(); 
+    
+    // Verify GA4 functioning
+    if (typeof window.verifyGA4 === 'function') {
+      window.verifyGA4();
+    }
+  }, 2000);
 });
 
 createRoot(rootElement).render(<App />);

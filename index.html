@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,100 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Longevity Calculators | Health & Financial Planning Tools</title>
     <meta name="author" content="Longevity Guru" />
-    
-    <!-- CANONICAL - Explicitly set for homepage -->
     <link rel="canonical" href="https://longevitycalculator.xyz/" />
-    
-    <!-- ROBOTS - Explicitly set indexing directives -->
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
-    
-    <!-- DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR -->
-    <link id="fertility-canonical" rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" data-path="/female-fertility-calculator" hidden />
-    
-    <!-- Explicit block for search results pages -->
-    <script>
-      if (window.location.search.includes('?s=')) {
-        var metaRobots = document.createElement('meta');
-        metaRobots.name = 'robots';
-        metaRobots.content = 'noindex, nofollow';
-        document.head.appendChild(metaRobots);
-      }
-    </script>
-    
-    <!-- WWW REDIRECT SCRIPT - Forces www to non-www via JavaScript (as backup) -->
-    <script>
-      (function() {
-        // Only run in production
-        if (window.location.hostname === 'www.longevitycalculator.xyz') {
-          // Create non-www URL from current location
-          var nonWwwUrl = window.location.protocol + '//' + 
-                          'longevitycalculator.xyz' + 
-                          window.location.pathname + 
-                          window.location.search + 
-                          window.location.hash;
-          
-          // Redirect with 301 status when possible
-          window.location.replace(nonWwwUrl);
-          console.log('Redirecting from www to non-www domain');
-        }
-      })();
-    </script>
-    
-    <!-- HARDCODED CANONICAL TAG ENFORCEMENT SCRIPT -->
-    <script>
-      // This script runs before any React code and ensures the canonical tag is in the HTML source
-      (function() {
-        // Check if we're on the homepage
-        if (window.location.pathname === '/') {
-          // Ensure the canonical tag for homepage is correct and present
-          var homepageCanonical = document.querySelector('link[rel="canonical"]:not([id="fertility-canonical"])');
-          if (homepageCanonical) {
-            homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
-          } else {
-            // If no canonical tag exists yet, create one
-            var newCanonical = document.createElement('link');
-            newCanonical.setAttribute('rel', 'canonical');
-            newCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
-            document.head.appendChild(newCanonical);
-          }
-        }
-        
-        // Check if we're on the fertility calculator page
-        if (window.location.pathname.includes('female-fertility-calculator')) {
-          // Find the default canonical tag
-          var defaultCanonical = document.querySelector('link[rel="canonical"]:not([id="fertility-canonical"])');
-          // Find our hardcoded fertility canonical
-          var fertilityCanonical = document.getElementById('fertility-canonical');
-          
-          if (defaultCanonical && fertilityCanonical) {
-            // 1. Remove the hidden attribute from fertility canonical
-            fertilityCanonical.removeAttribute('hidden');
-            // 2. Either remove or hide the default canonical to avoid duplicates
-            defaultCanonical.setAttribute('hidden', '');
-            
-            console.log('Canonical tag correctly set for fertility calculator page');
-          }
-        }
-        
-        // Block search pages
-        if (window.location.search.includes('?s=')) {
-          // Remove canonical tags as these pages should not be indexed
-          var canonicalTags = document.querySelectorAll('link[rel="canonical"]');
-          canonicalTags.forEach(function(tag) {
-            tag.setAttribute('hidden', '');
-          });
-          
-          // Add noindex meta
-          var robotsTag = document.createElement('meta');
-          robotsTag.setAttribute('name', 'robots');
-          robotsTag.setAttribute('content', 'noindex, nofollow');
-          document.head.appendChild(robotsTag);
-          
-          console.log('Search page detected - added noindex directive');
-        }
-      })();
-    </script>
 
     <!-- Cookiebot Consent Management Script - MUST BE FIRST -->
     <script id="Cookiebot" 
@@ -201,7 +111,6 @@
 
   <body>
     <div id="root"></div>
-    
     <!-- Lovable Script -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
@@ -247,3 +156,4 @@
     </script>
   </body>
 </html>
+

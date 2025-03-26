@@ -6,10 +6,9 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/schema-utils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
-
 const HowMuchToSaveForRetirement = () => {
   // Generate schema for breadcrumbs
   const breadcrumbSchema = generateBreadcrumbSchema([{
@@ -23,27 +22,11 @@ const HowMuchToSaveForRetirement = () => {
     path: '/resources/how-much-to-save-for-retirement'
   }]);
 
-  // Generate article schema with the correct parameter order
-  const articleSchema = generateArticleSchema(
-    "How Much to Save for Retirement: Expert Guide & Calculator 2023", 
-    "Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples.",
-    "/resources/how-much-to-save-for-retirement",
-    "2023-06-21T08:00:00+00:00", 
-    "2023-11-15T10:30:00+00:00",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png"
-  );
-  
+  // Generate article schema - Fixed by providing separate arguments instead of an object
+  const articleSchema = generateArticleSchema("How Much to Save for Retirement: Expert Guide & Calculator 2023", "https://longevitycalculator.xyz/longevity-calculator-og.png", "2023-06-21T08:00:00+00:00", "2023-11-15T10:30:00+00:00", "Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples.");
   const schemas = [breadcrumbSchema, articleSchema];
-  
-  return (
-    <>
-      <SEOHead 
-        title="How Much to Save for Retirement: Complete Financial Guide [2023]" 
-        description="Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples." 
-        canonicalUrl="/resources/how-much-to-save-for-retirement" 
-        keywords="retirement savings, retirement planning, 401k planning, retirement calculator, retirement income, retirement age" 
-        schemas={schemas} 
-      />
+  return <>
+      <SEOHead title="How Much to Save for Retirement: Complete Financial Guide [2023]" description="Learn exactly how much you should save for retirement based on your age, income, and lifestyle goals. Includes practical advice and real-world examples." canonicalUrl="/resources/how-much-to-save-for-retirement" keywords="retirement savings, retirement planning, 401k planning, retirement calculator, retirement income, retirement age" schemas={schemas} />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -137,8 +120,6 @@ const HowMuchToSaveForRetirement = () => {
           </div>
         </footer>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default HowMuchToSaveForRetirement;

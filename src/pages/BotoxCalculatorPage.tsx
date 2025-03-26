@@ -2,6 +2,7 @@
 import React from 'react';
 import BotoxCalculator from '@/components/BotoxCalculator';
 import BotoxPageHeader from '@/components/botox/BotoxPageHeader';
+import AboutSection from '@/components/botox/AboutSection';
 import BotoxFAQSection from '@/components/botox/BotoxFAQSection';
 import CalculatorLinksSection from '@/components/botox/CalculatorLinksSection';
 import BotoxPageFooter from '@/components/botox/BotoxPageFooter';

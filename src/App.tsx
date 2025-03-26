@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from './components/ui/sonner';
-import SEORedirectHandler from './components/SEORedirectHandler';
 
 // Pages 
 import Index from './pages/Index';
@@ -61,7 +60,6 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <SEORedirectHandler />
       <Routes>
         <Route path="/" element={<Index />} />
         

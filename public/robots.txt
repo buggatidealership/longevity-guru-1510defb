@@ -44,10 +44,6 @@ Allow: /favicon-32x32.png
 Allow: /apple-touch-icon.png
 Allow: /sitemap.xml
 
-# Explicitly disallow search pages and parameters
-Disallow: /?s=
-Disallow: /*?s=*
-
 # Sitemaps
 Sitemap: https://longevitycalculator.xyz/sitemap.xml
 
@@ -57,7 +53,5 @@ Disallow: /assets/images/thumbnails/
 # Explicitly declare canonical domain
 Host: longevitycalculator.xyz
 
-# Explicitly disallow the wrong domains
+# Explicitly disallow the wrong domain
 Disallow: https://lifespan-calculator.com/
-Disallow: https://www.longevitycalculator.xyz/
-

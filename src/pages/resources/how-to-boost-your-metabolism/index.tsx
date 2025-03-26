@@ -7,7 +7,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/schema-utils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -19,14 +19,13 @@ const HowToBoostYourMetabolism = () => {
     { name: 'How to Boost Your Metabolism', path: '/resources/how-to-boost-your-metabolism' }
   ]);
 
-  // Generate article schema with the correct parameter order
+  // Generate article schema - providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
     "How to Boost Your Metabolism Naturally (Backed by Science)",
-    "Learn science-backed ways to naturally boost your metabolism. Discover which habits truly help and how much your body burns daily.",
-    "/resources/how-to-boost-your-metabolism",
+    "https://longevitycalculator.xyz/longevity-calculator-og.png",
     "2024-10-10T08:00:00+00:00",
     "2024-10-10T10:30:00+00:00",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png"
+    "Learn science-backed ways to naturally boost your metabolism. Discover which habits truly help and how much your body burns daily."
   );
 
   const schemas = [breadcrumbSchema, articleSchema];

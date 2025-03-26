@@ -21,10 +21,11 @@ import {
 import { 
   generateBreadcrumbSchema, 
   generateFAQSchema, 
-  generateArticleSchema
-} from '@/utils/schema-utils';
-
+  generateArticleSchema,
+  createCalculatorSEOProps 
+} from '@/utils/seoUtils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
+import { Helmet } from 'react-helmet';
 
 const FertilityCalculator = () => {
   const handleLinkClick = () => {
@@ -82,11 +83,16 @@ const FertilityCalculator = () => {
     new Date().toISOString()
   );
 
-  // EXPLICITLY set the canonical URL for this page - though the main one is hardcoded in index.html
+  // EXPLICITLY set the canonical URL for this page
   const CANONICAL_URL = "https://longevitycalculator.xyz/female-fertility-calculator";
 
   return (
     <>
+      {/* DIRECT HELMET INJECTION - bypassing all abstractions */}
+      <Helmet>
+        <link rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" />
+      </Helmet>
+
       <SEOHead 
         title="Female Fertility Calculator by Age | Free Egg Quality & Ovarian Reserve Estimator"
         description="Our free female fertility calculator estimates your chances of natural conception based on age and other factors. Get personalized fertility insights now."
