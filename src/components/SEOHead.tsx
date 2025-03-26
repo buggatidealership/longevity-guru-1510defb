@@ -140,6 +140,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Sitemap reference - added explicitly in meta tags in addition to link element */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
+      
+      {/* Render schema markups outside of Helmet's children */}
+      {schemaMarkups.length > 0 && schemaMarkups}
     </Helmet>
   );
 };
