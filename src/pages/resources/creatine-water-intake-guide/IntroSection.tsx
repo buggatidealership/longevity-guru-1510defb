@@ -29,7 +29,7 @@ const IntroSection = () => {
           height={675}
           onLoad={() => setImageLoaded(true)}
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
         />
       </div>
       
