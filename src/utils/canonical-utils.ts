@@ -71,12 +71,22 @@ export const ensureCanonicalUrl = (url: string): string => {
   
   // Remove domain if present (we'll add our own)
   if (cleanPath.includes('://')) {
-    cleanPath = cleanPath.split('/').slice(3).join('/');
+    try {
+      // Use URL parsing to get the path correctly
+      const parsedUrl = new URL(cleanPath);
+      cleanPath = parsedUrl.pathname.replace(/^\//, '');
+    } catch (e) {
+      // Fallback to string manipulation if URL parsing fails
+      cleanPath = cleanPath.split('/').slice(3).join('/');
+    }
+  } else {
+    // Remove leading slash if present for consistency
+    cleanPath = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
   }
   
-  // Remove leading slash if present
-  cleanPath = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
+  // Ensure no double slashes and trim trailing slash
+  cleanPath = cleanPath.replace(/\/\//g, '/').replace(/\/$/, '');
   
-  // Construct proper canonical URL
-  return `${baseDomain}/${cleanPath}`;
+  // Construct proper canonical URL, handling empty path case
+  return cleanPath ? `${baseDomain}/${cleanPath}` : baseDomain;
 };

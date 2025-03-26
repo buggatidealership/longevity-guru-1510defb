@@ -53,6 +53,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   // Make sure the canonical URL is using the correct domain and format
   const correctedCanonicalUrl = ensureCanonicalUrl(canonicalUrl);
   
+  // Debug canonical URL in development
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Original canonicalUrl:', canonicalUrl);
+    console.log('Corrected canonicalUrl:', correctedCanonicalUrl);
+  }
+  
   // Structured data for organization with logo
   const organizationStructuredData = {
     "@context": "https://schema.org",
@@ -90,7 +96,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      
+      {/* Explicitly add the canonical URL link element */}
       <link rel="canonical" href={correctedCanonicalUrl} />
+      
       {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Favicon links */}
