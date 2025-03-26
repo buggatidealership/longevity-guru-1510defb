@@ -73,12 +73,12 @@ const CreatineWaterIntakeGuide = () => {
     .hero-image.loaded {opacity: 1;}
   `;
 
-  // Resources to preload
+  // Resources to preload - fix the fetchPriority type
   const preloadAssets = [
     {
       href: "https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=1200&q=80",
       as: "image",
-      fetchPriority: "high"
+      fetchPriority: "high" as "high" // Type assertion to ensure it's the correct literal type
     }
   ];
 
