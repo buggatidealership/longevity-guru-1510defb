@@ -121,4 +121,12 @@ export const debugSitemapStructure = (sitemapContent: string): void => {
   console.log('Has urlset open tag:', sitemapContent.includes('<urlset'));
   console.log('Has urlset close tag:', sitemapContent.includes('</urlset>'));
   console.log('Number of URL entries:', (sitemapContent.match(/<url>/g) || []).length);
+  
+  // Additional check for characters before XML declaration
+  const trimmedContent = sitemapContent.trim();
+  if (!trimmedContent.startsWith('<?xml')) {
+    console.error('CRITICAL ERROR: Content does not start with XML declaration');
+    console.log('Characters before XML declaration:', 
+      trimmedContent.substring(0, trimmedContent.indexOf('<?xml') || 20));
+  }
 };

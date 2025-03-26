@@ -1,4 +1,3 @@
-
 /**
  * SEO Utilities for handling sitemap and robots.txt files
  * This file re-exports all sitemap-related functions from specialized files
@@ -9,6 +8,7 @@ export * from './sitemap/sitemap-validation';
 export * from './sitemap/sitemap-format';
 export * from './sitemap/sitemap-docs';
 export * from './sitemap/sitemap-preservation';
+export * from './sitemap/sitemap-checking';
 
 // Main function to validate sitemap from a URL
 export const validateSitemapUrl = async (url: string): Promise<boolean> => {
@@ -27,6 +27,12 @@ export const validateSitemapUrl = async (url: string): Promise<boolean> => {
     // Check if content is empty or too short to be valid
     if (!content || content.length < 50) {
       console.error('Sitemap content is too short or empty');
+      return false;
+    }
+    
+    // Check if XML declaration is at the start
+    if (!content.trimStart().startsWith('<?xml')) {
+      console.error('XML declaration is not at the start of the file');
       return false;
     }
     

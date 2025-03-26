@@ -1,4 +1,3 @@
-
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -18,23 +17,9 @@ const setupSitemap = async () => {
     sitemapLink.href = '/sitemap.xml';
     document.head.appendChild(sitemapLink);
     
-    // Check if the sitemap is accessible
-    const { checkSitemapAccessibility, fixSitemapXml } = await import('./utils/sitemap-utils');
-    const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
-    
-    if (!isAccessible) {
-      console.warn('Sitemap might not be properly formatted or accessible. Attempting to fix...');
-      
-      // Try to fix the sitemap
-      const fixed = await fixSitemapXml('/sitemap.xml');
-      if (fixed) {
-        console.info('Sitemap has been fixed and is now properly formatted.');
-      } else {
-        console.error('Unable to fix sitemap. Please check the sitemap.xml file manually.');
-      }
-    } else {
-      console.info('Sitemap is accessible and properly formatted.');
-    }
+    // Import and run the sitemap checker
+    const { checkSitemapOnStartup } = await import('./utils/sitemap/sitemap-checking');
+    await checkSitemapOnStartup();
   } catch (error) {
     console.error('Error setting up sitemap:', error);
   }
