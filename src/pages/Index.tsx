@@ -1,4 +1,3 @@
-
 import React, { lazy, Suspense, useEffect } from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -13,28 +12,22 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { cn } from '@/lib/utils';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
 
-// Lazy load the footer for better initial load time
 const FooterWithCollapsibleLinks = lazy(() => import('@/components/FooterWithCollapsibleLinks'));
 
-// Define a loading placeholder for lazy-loaded components
 const LoadingPlaceholder = () => (
   <div className="h-40 w-full bg-gray-100 animate-pulse rounded-lg"></div>
 );
 
 const Index = () => {
-  // Count the number of calculator pages
   const calculatorCount = 15;
 
-  // Add homepage to sitemap
   useEffect(() => {
-    addUrlToSitemap('', 1.0); // Homepage has highest priority
+    addUrlToSitemap('', 1.0);
   }, []);
 
-  // Preload important images and components when the page is idle
   useEffect(() => {
     if ('requestIdleCallback' in window) {
       window.requestIdleCallback(() => {
-        // Preload second-screen images
         const imagesToPreload = ['/logo.png'];
         imagesToPreload.forEach(src => {
           const img = new Image();
@@ -44,7 +37,6 @@ const Index = () => {
     }
   }, []);
 
-  // Create a simple calculator card component to avoid repetition
   const CalculatorCard = ({ 
     to, 
     icon: Icon, 
@@ -108,7 +100,6 @@ const Index = () => {
             </NavigationMenu>
           </div>
           
-          {/* Ad Unit with fixed dimensions to prevent layout shift */}
           <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ height: '90px', overflow: 'hidden' }}>
             <AdUnit 
               className="w-full"
@@ -120,9 +111,8 @@ const Index = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4">
-          {/* Hero section with more spacing */}
           <div className="text-center mb-6">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
               <span className="text-primary relative inline-block mr-3">
                 {calculatorCount}
               </span>
@@ -134,10 +124,8 @@ const Index = () => {
             </p>
           </div>
           
-          {/* Calculator grid with proper spacing from hero section */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 calculator-grid">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              {/* First row of calculators - high priority */}
               <Link to="/life-expectancy-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
@@ -350,7 +338,6 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Ad Unit with fixed dimensions to prevent layout shift */}
           <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ height: '250px', overflow: 'hidden' }}>
             <AdUnit 
               className="w-full"
@@ -360,7 +347,6 @@ const Index = () => {
             />
           </div>
           
-          {/* Ad Unit with fixed dimensions to prevent layout shift */}
           <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ height: '90px', overflow: 'hidden' }}>
             <AdUnit 
               className="w-full"
@@ -371,7 +357,6 @@ const Index = () => {
           </div>
         </main>
         
-        {/* Lazy load the footer component */}
         <Suspense fallback={<LoadingPlaceholder />}>
           <FooterWithCollapsibleLinks />
         </Suspense>
