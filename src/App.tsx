@@ -40,7 +40,7 @@ import AdultHeightPredictionGuide from './pages/resources/adult-height-predictio
 import BotoxDosageGuide from './pages/resources/botox-dosage-guide';
 import AlcoholAndLongevity from './pages/resources/alcohol-and-longevity';
 import WillIGoBald from './pages/resources/will-i-go-bald';
-import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-height';
+import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-adult-height';
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';

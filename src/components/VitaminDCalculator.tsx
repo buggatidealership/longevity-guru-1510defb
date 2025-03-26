@@ -11,10 +11,34 @@ import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Alert, AlertDescription } from "./ui/alert";
-import ResultCard from './ResultCard';
 import { Info } from 'lucide-react';
 import InfoTooltip from './InfoTooltip';
 import DisclaimerAlert from './DisclaimerAlert';
+
+// Create a custom result card component specifically for the Vitamin D calculator
+const VitaminDResultCard = ({ title, details, className }: { 
+  title: string, 
+  details: { label: string, value: string }[],
+  className?: string 
+}) => {
+  return (
+    <Card className={className}>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2">
+          {details.map((detail, index) => (
+            <div key={index} className="flex flex-col">
+              <span className="text-sm text-muted-foreground">{detail.label}</span>
+              <span className="font-medium">{detail.value}</span>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 const VitaminDCalculator = () => {
   // Form state
@@ -205,7 +229,7 @@ const VitaminDCalculator = () => {
       
       {resultData && (
         <>
-          <ResultCard 
+          <VitaminDResultCard 
             title={resultData.title}
             details={resultData.details}
             className={resultData.className}
