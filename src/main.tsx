@@ -85,15 +85,22 @@ const trackPageView = () => {
 const initializeServices = () => {
   try {
     // Initialize Cookiebot and styling with error handling
-    checkCookiebotInitialization();
-    applyCookiebotStyling();
+    if (typeof window !== 'undefined') {
+      // Check if Cookiebot exists before initializing
+      if (window.Cookiebot) {
+        checkCookiebotInitialization();
+      } else {
+        console.warn('Cookiebot is not available - skipping initialization');
+      }
+      applyCookiebotStyling();
+    }
   } catch (error) {
     console.error('Error initializing Cookiebot:', error);
   }
   
   // Verify GA4 functioning
   try {
-    if (typeof window.verifyGA4 === 'function') {
+    if (typeof window !== 'undefined' && typeof window.verifyGA4 === 'function') {
       window.verifyGA4();
     }
   } catch (error) {
