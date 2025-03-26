@@ -13,10 +13,27 @@ import { Scroll, Check, Award, Heart, Leaf, MoveUp } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 import Logo from '../components/Logo';
 import { AdUnit } from '../components/AdUnit';
+import DisclaimerAlert from '../components/DisclaimerAlert';
 
 const VitaminDCalculatorPage = () => {
+  // Handler to scroll to top when clicking internal links
+  const handleLinkClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // For internal section navigation
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <>
       <SEOHead 
         title="Vitamin D Intake Calculator | Free Online Tool"
         description="Estimate your daily vitamin D intake from food and sun exposure with our free calculator. Get personalized recommendations based on diet, sun exposure, and geographic location."
@@ -24,295 +41,252 @@ const VitaminDCalculatorPage = () => {
         keywords="vitamin D calculator, vitamin D intake, sun exposure, diet, nutrition calculator, vitamin D deficiency, free online tool"
       />
       
-      <header className="max-w-6xl mx-auto pt-4 px-4">
-        <Logo className="mb-2" />
-        
-        <Breadcrumb className="mb-4">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/">Home</Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Vitamin D Calculator</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
-        
-        <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-          <AdUnit className="w-full" slot="1111111111" format="horizontal" responsive={true} />
-        </div>
-      </header>
-      
-      <main className="max-w-6xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Vitamin D Intake Calculator</h1>
-            <p className="text-lg text-gray-700 mb-6">
-              Estimate your daily vitamin D intake from food and sun exposure. Get personalized recommendations
-              based on your diet, sun exposure habits, and geographic location.
-            </p>
-            
-            <Tabs defaultValue="calculator" className="mb-8">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="calculator">Calculator</TabsTrigger>
-                <TabsTrigger value="information">About Vitamin D</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="calculator" className="py-4">
-                <VitaminDCalculator />
-              </TabsContent>
-              
-              <TabsContent value="information" className="py-4">
-                <div className="prose max-w-none">
-                  <h2 className="text-2xl font-bold mb-4">About Vitamin D</h2>
-                  
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-2">What is Vitamin D?</h3>
-                    <p>
-                      Vitamin D is a fat-soluble vitamin that plays a crucial role in bone health by regulating calcium and phosphorus absorption. 
-                      It's unique because your body can produce it when your skin is exposed to sunlight. Vitamin D is also available in some foods 
-                      and supplements.
-                    </p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-2">Why is Vitamin D Important?</h3>
-                    <p>Vitamin D is essential for:</p>
-                    <ul className="list-disc pl-5 mb-4">
-                      <li>Bone health and prevention of osteoporosis</li>
-                      <li>Immune system function</li>
-                      <li>Muscle function and strength</li>
-                      <li>Mood regulation and mental health</li>
-                      <li>Reducing inflammation</li>
-                      <li>Heart health</li>
-                    </ul>
-                    <p>
-                      Deficiency in vitamin D is associated with increased risk of fractures, muscle weakness, cardiovascular disease, 
-                      certain cancers, and autoimmune conditions.
-                    </p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-2">How Much Vitamin D Do You Need?</h3>
-                    <p>
-                      The recommended daily allowance (RDA) varies by age and life stage:
-                    </p>
-                    <ul className="list-disc pl-5 mb-4">
-                      <li>Infants (0-12 months): 400 IU (10 mcg)</li>
-                      <li>Children and Adults (1-70 years): 600 IU (15 mcg)</li>
-                      <li>Adults over 70 years: 800 IU (20 mcg)</li>
-                      <li>Pregnant and breastfeeding women: 600 IU (15 mcg)</li>
-                    </ul>
-                    <p>
-                      However, many experts believe these amounts are too low and recommend higher intakes, especially for people with limited 
-                      sun exposure or other risk factors for deficiency. The Endocrine Society suggests 1,500-2,000 IU daily for adults.
-                    </p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-2">Sources of Vitamin D</h3>
-                    
-                    <h4 className="text-lg font-medium mb-2">Sunlight</h4>
-                    <p className="mb-2">
-                      Your skin produces vitamin D when exposed to UVB rays from sunlight. Factors affecting synthesis include:
-                    </p>
-                    <ul className="list-disc pl-5 mb-4">
-                      <li>Geographic location (latitude)</li>
-                      <li>Season and time of day</li>
-                      <li>Skin pigmentation</li>
-                      <li>Age (older adults produce less)</li>
-                      <li>Use of sunscreen (blocks UVB rays)</li>
-                    </ul>
-                    
-                    <h4 className="text-lg font-medium mb-2">Food Sources</h4>
-                    <p className="mb-2">
-                      Few foods naturally contain vitamin D. Good sources include:
-                    </p>
-                    <ul className="list-disc pl-5 mb-4">
-                      <li>Fatty fish (salmon, mackerel, sardines)</li>
-                      <li>Egg yolks</li>
-                      <li>Mushrooms exposed to UV light</li>
-                      <li>Fortified foods (milk, orange juice, cereals)</li>
-                      <li>Cod liver oil</li>
-                    </ul>
-                    
-                    <h4 className="text-lg font-medium mb-2">Supplements</h4>
-                    <p>
-                      Available in two forms: vitamin D2 (ergocalciferol) and vitamin D3 (cholecalciferol). D3 is generally 
-                      considered more effective at raising blood levels.
-                    </p>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold mb-2">Who Is at Risk for Deficiency?</h3>
-                    <ul className="list-disc pl-5 mb-4">
-                      <li>People with limited sun exposure</li>
-                      <li>Those with darker skin</li>
-                      <li>Older adults</li>
-                      <li>People with obesity</li>
-                      <li>Those with digestive disorders that affect fat absorption</li>
-                      <li>People who have had gastric bypass surgery</li>
-                      <li>Individuals in northern latitudes, especially in winter</li>
-                    </ul>
-                  </div>
-                </div>
-              </TabsContent>
-            </Tabs>
-            
-            <div className="mb-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-              <AdUnit className="w-full" slot="2222222222" format="rectangle" responsive={true} />
-            </div>
-            
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
-              
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value="item-1">
-                  <AccordionTrigger>How accurate is this vitamin D calculator?</AccordionTrigger>
-                  <AccordionContent>
-                    This calculator provides an estimation based on typical vitamin D content in foods and average 
-                    sun exposure effects. It's designed to give you a general idea of your vitamin D status, not an 
-                    exact measurement. For precise assessment, a blood test (25-hydroxyvitamin D test) is recommended.
-                  </AccordionContent>
-                </AccordionItem>
-                
-                <AccordionItem value="item-2">
-                  <AccordionTrigger>Can I get enough vitamin D from food alone?</AccordionTrigger>
-                  <AccordionContent>
-                    It's challenging to get adequate vitamin D from food sources alone. Few foods naturally contain 
-                    vitamin D in significant amounts. Regular consumption of fatty fish, fortified foods, and 
-                    egg yolks can help, but many people still need sun exposure or supplements to reach optimal levels.
-                  </AccordionContent>
-                </AccordionItem>
-                
-                <AccordionItem value="item-3">
-                  <AccordionTrigger>How much sun exposure do I need for vitamin D?</AccordionTrigger>
-                  <AccordionContent>
-                    The amount varies based on your skin tone, geographic location, season, and time of day. As a general 
-                    guideline, 10-30 minutes of midday sun exposure several times per week with face, arms, and legs uncovered 
-                    (without sunscreen) can produce adequate vitamin D for many people. However, this must be balanced with 
-                    skin cancer risk.
-                  </AccordionContent>
-                </AccordionItem>
-                
-                <AccordionItem value="item-4">
-                  <AccordionTrigger>Can I take too much vitamin D?</AccordionTrigger>
-                  <AccordionContent>
-                    Yes, vitamin D toxicity is possible, though rare. It usually occurs from excessive supplement use, not 
-                    from food or sun exposure (your body regulates production from sunlight). The upper limit for adults is 
-                    generally considered to be 4,000 IU daily, though some research suggests higher amounts may be safe. 
-                    Symptoms of toxicity include nausea, vomiting, weakness, and kidney problems.
-                  </AccordionContent>
-                </AccordionItem>
-                
-                <AccordionItem value="item-5">
-                  <AccordionTrigger>Does vitamin D deficiency cause depression?</AccordionTrigger>
-                  <AccordionContent>
-                    There is a correlation between low vitamin D levels and depression, especially seasonal affective 
-                    disorder (SAD). Some studies suggest vitamin D supplementation may help improve symptoms in people 
-                    with deficiency, but results are mixed. Vitamin D plays a role in brain function and mood regulation, 
-                    but it's likely one of many factors influencing mental health.
-                  </AccordionContent>
-                </AccordionItem>
-                
-                <AccordionItem value="item-6">
-                  <AccordionTrigger>How does latitude affect vitamin D production?</AccordionTrigger>
-                  <AccordionContent>
-                    The farther you are from the equator (higher latitude), the less UVB radiation reaches the earth's 
-                    surface, especially during winter months. In northern regions (like Canada, UK, Northern US), the sun's 
-                    angle during winter prevents sufficient UVB rays from reaching the skin, making it nearly impossible to 
-                    produce vitamin D from sunlight during these months regardless of time spent outdoors.
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        <header className="max-w-6xl mx-auto pt-4 px-4">
+          <Logo className="mb-2" />
+          
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Vitamin D Calculator</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+            <AdUnit className="w-full" slot="1111111111" format="horizontal" responsive={true} />
+          </div>
+        </header>
+
+        <main className="max-w-4xl mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-center mt-6 mb-2">Vitamin D Intake Calculator</h1>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-6">
+            Evaluate your daily vitamin D intake from food and sun exposure. Get personalized recommendations to optimize your levels.
+          </p>
+          
+          <div className="mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+            <AdUnit className="w-full" slot="6666666666" format="horizontal" responsive={true} />
+          </div>
+          
+          <DisclaimerAlert 
+            content="This calculator provides general estimates based on common vitamin D sources. For a definitive assessment of your vitamin D status, please consult with a healthcare professional."
+            className="mb-6"
+          />
+          
+          <div className="w-full flex justify-center">
+            <div className="w-full">
+              <VitaminDCalculator />
             </div>
           </div>
           
-          <div className="md:col-span-1">
-            <div className="sticky top-4">
-              <Card className="mb-6">
-                <CardHeader>
-                  <CardTitle>Table of Contents</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-1">
-                    <li>
-                      <a href="#" className="text-primary hover:underline flex items-center">
-                        <Scroll className="h-4 w-4 mr-2" />
-                        Calculator
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-gray-700 hover:text-primary flex items-center">
-                        <Check className="h-4 w-4 mr-2" />
-                        About Vitamin D
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-gray-700 hover:text-primary flex items-center">
-                        <Award className="h-4 w-4 mr-2" />
-                        Benefits
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-gray-700 hover:text-primary flex items-center">
-                        <Heart className="h-4 w-4 mr-2" />
-                        Food Sources
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="text-gray-700 hover:text-primary flex items-center">
-                        <Leaf className="h-4 w-4 mr-2" />
-                        FAQ
-                      </a>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+          {/* About This Calculator Section */}
+          <div className="mt-10 mb-8 p-6 bg-white rounded-xl shadow-sm">
+            <h2 className="text-2xl font-semibold mb-4">Vitamin D Calculator: Estimate Your Daily Intake & Sun Exposure</h2>
+            
+            {/* Table of Contents */}
+            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+              <h3 className="text-lg font-medium mb-2">Table of Contents</h3>
+              <ul className="space-y-1">
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('overview')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Overview
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('how-it-works')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    How The Calculator Works
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('benefits')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Benefits of Vitamin D
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('sources')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Vitamin D Sources
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => scrollToSection('faq')} 
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Frequently Asked Questions
+                  </button>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4 text-gray-700">
+              <div id="overview">
+                <p>
+                  Our <strong>Vitamin D Intake Calculator</strong> helps individuals assess their estimated daily vitamin D intake from both dietary sources and sun exposure. This tool provides insights into your current vitamin D status and offers personalized recommendations to optimize your levels for better overall health.
+                </p>
+              </div>
               
-              <Card className="mb-6">
-                <CardHeader>
-                  <CardTitle>Related Calculators</CardTitle>
-                  <CardDescription>Explore our other health calculators</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link to="/tdee-calculator" className="text-primary hover:underline">
-                        TDEE Calculator
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/macronutrient-calculator" className="text-primary hover:underline">
-                        Macronutrient Calculator
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/ideal-body-weight-calculator" className="text-primary hover:underline">
-                        Ideal Body Weight Calculator
-                      </Link>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
+              <div className="my-4">
+                <AdUnit 
+                  className="w-full"
+                  slot="8888888888" 
+                  format="rectangle"
+                  responsive={true}
+                />
+              </div>
               
-              <div className="sticky top-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '600px' }}>
-                <AdUnit className="w-full" slot="3333333333" format="rectangle" responsive={true} />
+              <div id="how-it-works">
+                <h3 className="text-xl font-medium mt-6">How The Vitamin D Calculator Works</h3>
+                <p>
+                  This calculator analyzes your intake of vitamin D-rich foods (fatty fish, fortified foods, eggs), sun exposure patterns, and geographic location to estimate your daily vitamin D intake in International Units (IU). By comparing your results to recommended daily allowances, it generates personalized suggestions to help you maintain optimal vitamin D levels.
+                </p>
+              </div>
+              
+              <div id="benefits">
+                <h3 className="text-xl font-medium mt-6">Key Benefits of Vitamin D</h3>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>
+                    <strong>Bone Health:</strong> Essential for calcium absorption and bone mineralization.
+                  </li>
+                  <li>
+                    <strong>Immune Function:</strong> Supports optimal immune system response and reduces infection risk.
+                  </li>
+                  <li>
+                    <strong>Mood Regulation:</strong> May help reduce the risk of depression and improve mood.
+                  </li>
+                  <li>
+                    <strong>Muscle Function:</strong> Important for muscle strength and reducing fall risk in older adults.
+                  </li>
+                  <li>
+                    <strong>Heart Health:</strong> Associated with improved cardiovascular health markers.
+                  </li>
+                </ul>
+              </div>
+              
+              <div id="sources">
+                <h3 className="text-xl font-medium mt-6">Understanding Vitamin D Sources</h3>
+                <p>
+                  Vitamin D can be obtained through three primary routes:
+                </p>
+                
+                <ul className="list-disc pl-5 space-y-2 mt-2">
+                  <li><strong>Sunlight:</strong> When UVB rays hit the skin, your body produces vitamin D naturally. Factors like latitude, season, time of day, skin pigmentation, and sunscreen use affect synthesis.</li>
+                  <li><strong>Diet:</strong> Few foods naturally contain significant vitamin D. Top sources include fatty fish (salmon, mackerel, sardines), egg yolks, mushrooms exposed to UV light, and fortified foods (milk, orange juice, cereals).</li>
+                  <li><strong>Supplements:</strong> Available as vitamin D2 (ergocalciferol) or vitamin D3 (cholecalciferol), with D3 generally considered more effective at raising blood levels.</li>
+                </ul>
+                
+                <p className="mt-2">
+                  For many people, especially those in northern latitudes or with limited sun exposure, a combination of these sources is necessary to maintain adequate vitamin D levels throughout the year.
+                </p>
+              </div>
+              
+              {/* FAQ Section */}
+              <div id="faq" className="mt-8 pt-4 border-t border-gray-200">
+                <h3 className="text-xl font-medium mb-4">Frequently Asked Questions</h3>
+                
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="item-1">
+                    <AccordionTrigger className="text-left">How accurate is this vitamin D calculator?</AccordionTrigger>
+                    <AccordionContent>
+                      <p>This calculator provides an estimation based on typical vitamin D content in foods and average sun exposure effects. It's designed to give you a general idea of your vitamin D status, not an exact measurement. For precise assessment, a blood test (25-hydroxyvitamin D test) is recommended.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-2">
+                    <AccordionTrigger className="text-left">Can I get enough vitamin D from food alone?</AccordionTrigger>
+                    <AccordionContent>
+                      <p>It's challenging to get adequate vitamin D from food sources alone. Few foods naturally contain vitamin D in significant amounts. Regular consumption of fatty fish, fortified foods, and egg yolks can help, but many people still need sun exposure or supplements to reach optimal levels.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-3">
+                    <AccordionTrigger className="text-left">How much sun exposure do I need for vitamin D?</AccordionTrigger>
+                    <AccordionContent>
+                      <p>The amount varies based on your skin tone, geographic location, season, and time of day. As a general guideline, 10-30 minutes of midday sun exposure several times per week with face, arms, and legs uncovered (without sunscreen) can produce adequate vitamin D for many people. However, this must be balanced with skin cancer risk.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-4">
+                    <AccordionTrigger className="text-left">Can I take too much vitamin D?</AccordionTrigger>
+                    <AccordionContent>
+                      <p>Yes, vitamin D toxicity is possible, though rare. It usually occurs from excessive supplement use, not from food or sun exposure (your body regulates production from sunlight). The upper limit for adults is generally considered to be 4,000 IU daily, though some research suggests higher amounts may be safe. Symptoms of toxicity include nausea, vomiting, weakness, and kidney problems.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-5">
+                    <AccordionTrigger className="text-left">Does vitamin D deficiency cause depression?</AccordionTrigger>
+                    <AccordionContent>
+                      <p>There is a correlation between low vitamin D levels and depression, especially seasonal affective disorder (SAD). Some studies suggest vitamin D supplementation may help improve symptoms in people with deficiency, but results are mixed. Vitamin D plays a role in brain function and mood regulation, but it's likely one of many factors influencing mental health.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                  
+                  <AccordionItem value="item-6">
+                    <AccordionTrigger className="text-left">How does latitude affect vitamin D production?</AccordionTrigger>
+                    <AccordionContent>
+                      <p>The farther you are from the equator (higher latitude), the less UVB radiation reaches the earth's surface, especially during winter months. In northern regions (like Canada, UK, Northern US), the sun's angle during winter prevents sufficient UVB rays from reaching the skin, making it nearly impossible to produce vitamin D from sunlight during these months regardless of time spent outdoors.</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
               </div>
             </div>
           </div>
-        </div>
+          
+          <div className="mt-8 mb-6 bg-gray-100 rounded-lg text-center w-full p-1">
+            <AdUnit 
+              className="w-full"
+              slot="9999999999" 
+              format="horizontal"
+              responsive={true}
+            />
+          </div>
+          
+          <div className="mt-8 mb-6 p-4 bg-white rounded-xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-3">Free Longevity Calculators</h2>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Retirement Savings</h3>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
+              
+              <Link to="/life-expectancy-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Life Expectancy</h3>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
+              
+              <Link to="/tdee-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">TDEE Calculator</h3>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
+              
+              <Link to="/macronutrient-calculator" onClick={handleLinkClick} className="border rounded-lg p-3 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-sm mb-1">Macronutrients</h3>
+                <span className="text-xs text-blue-500 hover:underline font-medium">Calculate →</span>
+              </Link>
+            </div>
+          </div>
+        </main>
         
-        <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-          <AdUnit className="w-full" slot="4444444444" format="horizontal" responsive={true} />
-        </div>
-      </main>
-      
-      <FooterWithCollapsibleLinks />
-    </div>
+        <FooterWithCollapsibleLinks handleLinkClick={handleLinkClick} />
+      </div>
+    </>
   );
 };
 
