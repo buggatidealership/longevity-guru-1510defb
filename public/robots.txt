@@ -17,6 +17,7 @@ Allow: /bmi-calculator
 Allow: /tdee-calculator
 Allow: /macronutrient-calculator
 Allow: /ideal-body-weight-calculator
+Allow: /vitamin-d-calculator
 Allow: /resources
 Allow: /resources/how-to-increase-life-expectancy
 Allow: /resources/how-much-to-save-for-retirement

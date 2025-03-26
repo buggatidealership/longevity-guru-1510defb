@@ -73,6 +73,17 @@ export const ensureCanonicalUrl = (url: string): string => {
     return 'https://longevitycalculator.xyz/female-fertility-calculator';
   }
   
+  // HARDCODED CANONICAL URL FOR VITAMIN D CALCULATOR PAGE
+  if (
+    url && 
+    (url.includes('vitamin-d-calculator') || 
+    url.endsWith('/vitamin-d-calculator') || 
+    url === 'vitamin-d-calculator' ||
+    url === '/vitamin-d-calculator')
+  ) {
+    return 'https://longevitycalculator.xyz/vitamin-d-calculator';
+  }
+  
   // Default base domain
   const baseDomain = 'https://longevitycalculator.xyz';
   

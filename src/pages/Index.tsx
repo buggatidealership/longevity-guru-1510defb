@@ -1,286 +1,259 @@
+
 import React from 'react';
-import Logo from '@/components/Logo';
-import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
-import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon, FileText, Flame, MenuSquare, Weight } from 'lucide-react';
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
-import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
-import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
+import SEOHead from '../components/SEOHead';
+import Logo from '../components/Logo';
+import FooterWithCollapsibleLinks from '../components/FooterWithCollapsibleLinks';
 
 const Index = () => {
-  // Count the number of calculator pages (excluding placeholder/coming soon calculators)
-  const calculatorCount = 13; // Updated count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol, baldness, TDEE, macronutrient, ideal body weight
+  // Array of calculator data
+  const calculators = [
+    {
+      title: "Life Expectancy Calculator",
+      description: "Discover factors influencing your longevity and get personalized recommendations to extend your healthy years.",
+      href: "/life-expectancy-calculator",
+      category: "Health"
+    },
+    {
+      title: "Retirement Savings Calculator",
+      description: "Plan for financial security by calculating how much you need to save for a comfortable retirement.",
+      href: "/retirement-savings-calculator",
+      category: "Finance"
+    },
+    {
+      title: "Female Fertility Calculator",
+      description: "Understand your fertility timeline and chances of conception based on your age and health factors.",
+      href: "/female-fertility-calculator",
+      category: "Family Planning"
+    },
+    {
+      title: "Child Growth Percentile Calculator",
+      description: "Track your child's height and weight percentiles compared to children of the same age and gender.",
+      href: "/child-growth-percentile-calculator",
+      category: "Pediatrics"
+    },
+    {
+      title: "Adult Height Predictor",
+      description: "Estimate a child's potential adult height based on parental heights and current measurements.",
+      href: "/adult-height-predictor-calculator",
+      category: "Growth"
+    },
+    {
+      title: "Metabolism Calculator",
+      description: "Calculate your basal metabolic rate (BMR) and understand your daily caloric needs.",
+      href: "/metabolism-calculator",
+      category: "Nutrition"
+    },
+    {
+      title: "Breast Implant Size Calculator",
+      description: "Find the ideal implant size for your body type and aesthetic goals.",
+      href: "/breast-implant-size-calculator",
+      category: "Aesthetics"
+    },
+    {
+      title: "Botox Dosage Calculator",
+      description: "Estimate appropriate Botox units for different facial areas based on individual factors.",
+      href: "/botox-dosage-calculator",
+      category: "Aesthetics"
+    },
+    {
+      title: "Alcohol Impact Calculator",
+      description: "Understand how alcohol consumption affects your health, longevity, and well-being.",
+      href: "/alcohol-impact-calculator",
+      category: "Lifestyle"
+    },
+    {
+      title: "Baldness Risk Calculator",
+      description: "Assess your risk of male pattern baldness based on genetics, age, and other factors.",
+      href: "/baldness-risk-calculator",
+      category: "Health"
+    },
+    {
+      title: "TDEE Calculator",
+      description: "Calculate your Total Daily Energy Expenditure to understand your maintenance calories.",
+      href: "/tdee-calculator",
+      category: "Nutrition"
+    },
+    {
+      title: "Macronutrient Calculator",
+      description: "Get personalized macronutrient ratios based on your body composition and fitness goals.",
+      href: "/macronutrient-calculator",
+      category: "Nutrition"
+    },
+    {
+      title: "Ideal Body Weight Calculator",
+      description: "Find your ideal weight range based on height, gender, and body frame size.",
+      href: "/ideal-body-weight-calculator",
+      category: "Health"
+    },
+    {
+      title: "Vitamin D Calculator",
+      description: "Estimate your vitamin D intake from food and sun exposure to determine if you're getting enough.",
+      href: "/vitamin-d-calculator",
+      category: "Nutrition"
+    }
+  ];
 
-  // Add homepage to sitemap
-  React.useEffect(() => {
-    addUrlToSitemap('', 1.0); // Homepage has highest priority
-  }, []);
+  // Group calculators by category
+  const calculatorsByCategory = calculators.reduce((acc, calculator) => {
+    if (!acc[calculator.category]) {
+      acc[calculator.category] = [];
+    }
+    acc[calculator.category].push(calculator);
+    return acc;
+  }, {} as Record<string, typeof calculators>);
+
+  // Sort categories alphabetically
+  const sortedCategories = Object.keys(calculatorsByCategory).sort();
 
   return (
     <>
-      <SEOHead 
-        title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
-        description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
-        canonicalUrl="https://longevitycalculator.xyz/"
-        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator"
-        ogType="website"
-        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
-      />
+      <SEOHead />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <header className="max-w-6xl mx-auto pt-4 px-4">
-          <div className="flex justify-between items-center mb-2">
-            <Logo className="" />
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to="/resources"
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        "text-gray-600 hover:text-primary"
-                      )}
-                    >
-                      <FileText className="h-4 w-4 mr-2" />
-                      Resources
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="1111111111" 
-              format="horizontal"
-              responsive={true}
-            />
+        <header className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 flex justify-between items-center">
+            <Logo />
+            <nav>
+              <ul className="flex space-x-8">
+                <li><Link to="/" className="text-primary font-medium">Home</Link></li>
+                <li><Link to="/resources" className="text-gray-600 hover:text-primary">Resources</Link></li>
+              </ul>
+            </nav>
           </div>
         </header>
         
-        <main className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <div className="relative mx-auto max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-3">
-                <span className="text-primary relative inline-block mr-3">
-                  {calculatorCount}
-                </span>
-                <span>Free Calculators</span>
+        <main>
+          {/* Hero Section */}
+          <section className="py-12 md:py-20 bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Free Calculators for Better Life Decisions
               </h1>
-              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-4"></div>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                ... for smarter lifestyle planning and informed decision-making
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Evidence-based tools to help you make informed decisions about health, finances, 
+                and personal development at every stage of life.
               </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/life-expectancy-calculator" 
+                      className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium">
+                  Try Life Expectancy Calculator
+                </Link>
+                <Link to="/resources"
+                      className="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-lg font-medium">
+                  Explore Resources
+                </Link>
+              </div>
             </div>
-          </div>
+          </section>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              <Link to="/life-expectancy-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
-                    <Clock className="h-5 w-5 text-blue-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2">Life Expectancy</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate your potential lifespan.</p>
-                  <span className="text-xs text-blue-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
+          {/* Calculators Section */}
+          <section className="py-16 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+                Find the Right Calculator for You
+              </h2>
               
-              <Link to="/retirement-savings-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-green-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mb-3">
-                    <Calculator className="h-5 w-5 text-green-500" />
+              {sortedCategories.map((category) => (
+                <div key={category} className="mb-16">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{category} Calculators</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {calculatorsByCategory[category].map((calculator) => (
+                      <Link 
+                        key={calculator.href}
+                        to={calculator.href}
+                        className="flex flex-col h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                      >
+                        <div className="p-6 flex flex-col flex-grow">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2">{calculator.title}</h3>
+                          <p className="text-gray-600 flex-grow">{calculator.description}</p>
+                          <div className="mt-4 text-primary font-medium">Try Calculator →</div>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Retirement Savings</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate your savings longevity.</p>
-                  <span className="text-xs text-green-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
                 </div>
-              </Link>
-              
-              <Link to="/female-fertility-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-purple-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mb-3">
-                    <Baby className="h-5 w-5 text-purple-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Female Fertility</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate your reproductive timeline.</p>
-                  <span className="text-xs text-purple-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/growth-percentile-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-orange-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mb-3">
-                    <Ruler className="h-5 w-5 text-orange-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Child Growth</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Track children's height and weight percentiles.</p>
-                  <span className="text-xs text-orange-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/adult-height-predictor-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-indigo-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center mb-3">
-                    <LineChart className="h-5 w-5 text-indigo-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Adult Height</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Predict adult height from birth size.</p>
-                  <span className="text-xs text-indigo-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/metabolism-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-red-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center mb-3">
-                    <Activity className="h-5 w-5 text-red-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Metabolism</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate your BMR and daily calorie needs.</p>
-                  <span className="text-xs text-red-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/breast-implant-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-pink-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-pink-50 rounded-full flex items-center justify-center mb-3">
-                    <Scissors className="h-5 w-5 text-pink-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Breast Implant</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate implant size and surgery costs.</p>
-                  <span className="text-xs text-pink-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/botox-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-cyan-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-cyan-50 rounded-full flex items-center justify-center mb-3">
-                    <Syringe className="h-5 w-5 text-cyan-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Botox Dosage</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate units and treatment costs.</p>
-                  <span className="text-xs text-cyan-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/alcohol-impact-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-amber-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center mb-3">
-                    <Beer className="h-5 w-5 text-amber-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Alcohol Impact</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate how drinking affects lifespan.</p>
-                  <span className="text-xs text-amber-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/baldness-risk-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-slate-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center mb-3">
-                    <ScissorsIcon className="h-5 w-5 text-slate-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Baldness Risk</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Predict hair loss timeline and risk factors.</p>
-                  <span className="text-xs text-slate-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-              
-              <Link to="/tdee-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-rose-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-rose-50 rounded-full flex items-center justify-center mb-3">
-                    <Flame className="h-5 w-5 text-rose-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">TDEE Calculator</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate your total daily energy expenditure.</p>
-                  <span className="text-xs text-rose-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-
-              <Link to="/macronutrient-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-purple-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mb-3">
-                    <MenuSquare className="h-5 w-5 text-purple-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Macronutrient</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Determine your ideal protein, carbs, and fat intake.</p>
-                  <span className="text-xs text-purple-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
-
-              <Link to="/ideal-body-weight-calculator" className="group">
-                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-teal-300 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center mb-3">
-                    <Weight className="h-5 w-5 text-teal-500" />
-                  </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Ideal Body Weight</h3>
-                  <p className="text-xs text-gray-500 mb-2 flex-grow">Estimate your healthiest body weight using Devine, Robinson, and Hamwi formulas.</p>
-                  <span className="text-xs text-teal-500 flex items-center group-hover:underline">
-                    Calculate
-                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </div>
-              </Link>
+              ))}
             </div>
-          </div>
+          </section>
           
-          <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="2222222222" 
-              format="rectangle"
-              responsive={true}
-            />
-          </div>
+          {/* About Section */}
+          <section className="py-16 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Why Use Our Calculators?
+                </h2>
+                <p className="text-lg text-gray-600 mb-12">
+                  Our tools are built on scientific research and expert knowledge, 
+                  providing reliable estimations to help you make informed decisions.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Evidence-Based</h3>
+                  <p className="text-gray-600">
+                    All calculators are developed using peer-reviewed research and validated methodologies.
+                  </p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Free & Accessible</h3>
+                  <p className="text-gray-600">
+                    Our tools are completely free, with no hidden fees or subscription requirements.
+                  </p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Privacy-Focused</h3>
+                  <p className="text-gray-600">
+                    We don't store your personal data, ensuring your information remains private.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
           
-          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="3333333333" 
-              format="horizontal"
-              responsive={true}
-            />
-          </div>
+          {/* Featured Resources Section */}
+          <section className="py-16 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Educational Resources
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Explore our collection of articles and guides to help you understand the factors affecting health, longevity, and financial planning.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Link to="/resources/how-to-increase-life-expectancy" className="flex flex-col h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                  <div className="p-6 flex flex-col h-full">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">How to Increase Life Expectancy</h3>
+                    <p className="text-gray-600 flex-grow">Evidence-based strategies to add healthy years to your life.</p>
+                    <div className="mt-4 text-primary font-medium">Read More →</div>
+                  </div>
+                </Link>
+                
+                <Link to="/resources/how-much-to-save-for-retirement" className="flex flex-col h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                  <div className="p-6 flex flex-col h-full">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">How Much to Save for Retirement</h3>
+                    <p className="text-gray-600 flex-grow">A complete guide to planning your retirement savings needs.</p>
+                    <div className="mt-4 text-primary font-medium">Read More →</div>
+                  </div>
+                </Link>
+                
+                <Link to="/resources" className="flex flex-col h-full bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+                  <div className="p-6 flex flex-col h-full">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">View All Resources</h3>
+                    <p className="text-gray-600 flex-grow">Browse our complete collection of guides, articles, and references.</p>
+                    <div className="mt-4 text-primary font-medium">Browse All →</div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </section>
         </main>
         
         <FooterWithCollapsibleLinks />
