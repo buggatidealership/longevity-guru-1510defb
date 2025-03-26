@@ -60,19 +60,6 @@ export const createCalculatorSEOProps = (
  * @returns The correct canonical URL
  */
 export const ensureCanonicalUrl = (url: string): string => {
-  // DEFAULT HARDCODED CANONICAL URL FOR FERTILITY CALCULATOR PAGE
-  // This is the top priority check - if any part of the URL contains female-fertility-calculator
-  // we ALWAYS return the hardcoded canonical URL
-  if (
-    url && 
-    (url.includes('female-fertility-calculator') || 
-    url.endsWith('/female-fertility-calculator') || 
-    url === 'female-fertility-calculator' ||
-    url === '/female-fertility-calculator')
-  ) {
-    return 'https://longevitycalculator.xyz/female-fertility-calculator';
-  }
-  
   // Default base domain
   const baseDomain = 'https://longevitycalculator.xyz';
   
@@ -84,22 +71,12 @@ export const ensureCanonicalUrl = (url: string): string => {
   
   // Remove domain if present (we'll add our own)
   if (cleanPath.includes('://')) {
-    try {
-      // Use URL parsing to get the path correctly
-      const parsedUrl = new URL(cleanPath);
-      cleanPath = parsedUrl.pathname.replace(/^\//, '');
-    } catch (e) {
-      // Fallback to string manipulation if URL parsing fails
-      cleanPath = cleanPath.split('/').slice(3).join('/');
-    }
-  } else {
-    // Remove leading slash if present for consistency
-    cleanPath = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
+    cleanPath = cleanPath.split('/').slice(3).join('/');
   }
   
-  // Ensure no double slashes and trim trailing slash
-  cleanPath = cleanPath.replace(/\/\//g, '/').replace(/\/$/, '');
+  // Remove leading slash if present
+  cleanPath = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
   
-  // Construct proper canonical URL, handling empty path case
-  return cleanPath ? `${baseDomain}/${cleanPath}` : baseDomain;
+  // Construct proper canonical URL
+  return `${baseDomain}/${cleanPath}`;
 };
