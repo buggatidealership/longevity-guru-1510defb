@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { ensureCanonicalUrl } from '../utils/canonical-utils';
 
 interface SchemaMarkup {
   '@context': string;
@@ -49,19 +50,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     }
   }, []);
   
-  // Make sure the canonical URL is using the correct domain
-  let correctedCanonicalUrl = canonicalUrl;
-  
-  // Don't allow lifespan-calculator.com domain to be used for canonical URLs
-  if (correctedCanonicalUrl.includes('lifespan-calculator.com')) {
-    // Replace any occurrences of lifespan-calculator.com with longevitycalculator.xyz
-    correctedCanonicalUrl = correctedCanonicalUrl.replace('lifespan-calculator.com', 'longevitycalculator.xyz');
-  }
-  
-  // Ensure the URL has https protocol
-  if (!correctedCanonicalUrl.startsWith('http')) {
-    correctedCanonicalUrl = `https://longevitycalculator.xyz${correctedCanonicalUrl.startsWith('/') ? '' : '/'}${correctedCanonicalUrl}`;
-  }
+  // Make sure the canonical URL is using the correct domain and format
+  const correctedCanonicalUrl = ensureCanonicalUrl(canonicalUrl);
   
   // Structured data for organization with logo
   const organizationStructuredData = {
@@ -129,6 +119,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       {/* Explicitly declare the correct domain */}
       <meta name="domain-verification" content="longevitycalculator.xyz" />
+      
+      {/* Ensure no noindex directive for the main domain */}
+      <meta name="robots" content="index, follow" data-domain="longevitycalculator.xyz" />
       
       {/* Add a specific directive to disallow the incorrect domain */}
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />

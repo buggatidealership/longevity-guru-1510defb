@@ -52,3 +52,31 @@ export const createCalculatorSEOProps = (
     ogImage: 'https://longevitycalculator.xyz/longevity-calculator-og.png'
   };
 };
+
+/**
+ * Ensures that each page has a proper canonical URL
+ * This is a utility function to verify and fix canonical issues
+ * @param url The current URL to check
+ * @returns The correct canonical URL
+ */
+export const ensureCanonicalUrl = (url: string): string => {
+  // Default base domain
+  const baseDomain = 'https://longevitycalculator.xyz';
+  
+  // If URL is empty or undefined, return the base domain
+  if (!url) return baseDomain;
+  
+  // Clean the URL path
+  let cleanPath = url;
+  
+  // Remove domain if present (we'll add our own)
+  if (cleanPath.includes('://')) {
+    cleanPath = cleanPath.split('/').slice(3).join('/');
+  }
+  
+  // Remove leading slash if present
+  cleanPath = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
+  
+  // Construct proper canonical URL
+  return `${baseDomain}/${cleanPath}`;
+};

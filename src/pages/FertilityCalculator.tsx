@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -21,7 +22,8 @@ import {
 import { 
   generateBreadcrumbSchema, 
   generateFAQSchema, 
-  generateArticleSchema 
+  generateArticleSchema,
+  createCalculatorSEOProps 
 } from '@/utils/seoUtils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 
@@ -81,16 +83,20 @@ const FertilityCalculator = () => {
     new Date().toISOString()
   );
 
-  const pageTitle = "Female Fertility Calculator by Age | Free Egg Quality & Ovarian Reserve Estimator";
-  const pageDescription = "Our free female fertility calculator estimates your chances of natural conception based on age and other factors. Get personalized fertility insights now.";
+  // Create SEO props with explicit canonical URL
+  const seoProps = createCalculatorSEOProps(
+    "Female Fertility Calculator by Age | Free Egg Quality & Ovarian Reserve Estimator",
+    "Our free female fertility calculator estimates your chances of natural conception based on age and other factors. Get personalized fertility insights now.",
+    "female-fertility-calculator"
+  );
 
   return (
     <>
       <SEOHead 
-        title={pageTitle}
-        description={pageDescription}
-        canonicalUrl="https://longevitycalculator.xyz/female-fertility-calculator"
-        keywords="female fertility calculator, fertility calculator by age, egg quality estimator, ovarian reserve calculator, woman fertility test, pregnancy probability calculator, fertility decline by age"
+        title={seoProps.title}
+        description={seoProps.description}
+        canonicalUrl={seoProps.canonicalUrl}
+        keywords={seoProps.keywords}
         schemas={[breadcrumbSchema, faqSchema, articleSchema]}
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
