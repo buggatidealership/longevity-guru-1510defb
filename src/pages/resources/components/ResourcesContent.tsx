@@ -25,6 +25,19 @@ const ResourcesContent = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* New Vitamin D article */}
+        <ResourceCard 
+          title="How to Calculate Your Ideal Vitamin D Intake" 
+          description="Learn how to calculate the optimal daily vitamin D dosage for your body using science-backed guidelines."
+          content={[
+            "Discover how much vitamin D you actually need based on your age, skin tone, location, and lifestyle factors.",
+            "Learn about vitamin D food sources, signs of deficiency, and how to use our calculator for personalized recommendations."
+          ]}
+          link="/resources/vitamin-d-intake-guide"
+          imageUrl="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80"
+          date="August 30, 2024"
+        />
+        
         <ResourceCard 
           title="The Truth About Ideal Body Weight Formulas & How to Use Them" 
           description="Explore the science behind ideal body weight formulas and how to use our free calculator to find your healthiest weight based on height."

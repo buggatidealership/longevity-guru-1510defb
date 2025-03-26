@@ -14,6 +14,7 @@ Allow: /creatine-water-calculator
 Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
+Allow: /resources/vitamin-d-intake-guide
 Allow: /privacy
 Allow: /terms
 
@@ -33,3 +34,4 @@ Host: longevitycalculator.xyz
 
 # Explicitly disallow the wrong domain
 Disallow: https://lifespan-calculator.com/
+
