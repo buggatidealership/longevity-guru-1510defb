@@ -10,6 +10,48 @@
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
 
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/logo.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/src/index.css" as="style" />
+    
+    <!-- Favicon Links -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Inline critical CSS -->
+    <style>
+      /* Critical above-the-fold styles */
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      .card {
+        transition: transform 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+      }
+      /* Prevent layout shifts for LCP elements */
+      .hero-section {
+        min-height: 300px;
+      }
+      .calculator-grid {
+        min-height: 400px;
+      }
+      /* Font display swap to prevent render blocking */
+      @font-face {
+        font-family: 'Main Font';
+        font-display: swap;
+      }
+      /* Placeholder for ads */
+      .ad-placeholder {
+        min-height: 90px;
+        background-color: #f3f4f6;
+      }
+    </style>
+
     <!-- Cookiebot Consent Management Script - MUST BE FIRST -->
     <script id="Cookiebot" 
       src="https://consent.cookiebot.com/uc.js" 
@@ -17,12 +59,6 @@
       type="text/javascript"
       async>
     </script>
-
-    <!-- Favicon Links -->
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Google Consent Mode v2 Setup - BEFORE Google Analytics loads -->
     <script>
@@ -71,8 +107,8 @@
       });
     </script>
 
-    <!-- Google Analytics 4 - Load AFTER Consent Mode setup but still in head -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7FHX7T4MP9"></script>
+    <!-- Google Analytics 4 - Load with defer to reduce blocking -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-7FHX7T4MP9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
@@ -94,15 +130,10 @@
           }
         });
       };
-      
-      // Auto-verify after a short delay to allow GA to initialize
-      setTimeout(function() {
-        window.verifyGA4();
-      }, 2000);
     </script>
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697"
+    <!-- Google AdSense - defer loading -->
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697"
      crossorigin="anonymous"></script>
      
     <!-- Custom Cookiebot Styling -->
@@ -114,6 +145,20 @@
     <!-- Lovable Script -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Optimize initialization of non-critical scripts -->
+    <script>
+      // Defer non-critical script loading
+      document.addEventListener('DOMContentLoaded', function() {
+        // Load non-critical scripts after initial render
+        setTimeout(function() {
+          // Verify GA4 after page is interactive
+          if (typeof window.verifyGA4 === 'function') {
+            window.verifyGA4();
+          }
+        }, 3000);
+      });
+    </script>
     
     <!-- Structured Data for Organization with Logo -->
     <script type="application/ld+json">
@@ -156,4 +201,3 @@
     </script>
   </body>
 </html>
-
