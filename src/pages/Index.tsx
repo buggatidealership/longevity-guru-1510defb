@@ -1,3 +1,4 @@
+
 import React, { lazy, Suspense, useEffect } from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -119,21 +120,21 @@ const Index = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4">
-          {/* Hero section with minimal spacing */}
-          <div className="text-center mb-0">
+          {/* Hero section with more spacing */}
+          <div className="text-center mb-6">
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
               <span className="text-primary relative inline-block mr-3">
                 {calculatorCount}
               </span>
               <span>Free Calculators</span>
             </h1>
-            <div className="h-0.5 w-32 bg-gray-200 mx-auto mb-1"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-1">
+            <div className="h-0.5 w-32 bg-gray-200 mx-auto mb-2"></div>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
               ... for smarter lifestyle planning and informed decision-making
             </p>
           </div>
           
-          {/* Calculator grid immediate after hero section */}
+          {/* Calculator grid with proper spacing from hero section */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 calculator-grid">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {/* First row of calculators - high priority */}
