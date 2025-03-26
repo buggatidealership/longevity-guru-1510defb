@@ -40,6 +40,30 @@ const setupSitemap = async () => {
   }
 };
 
+// Ensure correct canonical and meta tags for SEO
+const ensureCorrectCanonicals = () => {
+  // Check if on search page
+  if (window.location.search.includes('?s=')) {
+    // Add noindex for search pages
+    const robotsMeta = document.createElement('meta');
+    robotsMeta.name = 'robots';
+    robotsMeta.content = 'noindex, nofollow';
+    document.head.appendChild(robotsMeta);
+    
+    // Hide all canonical tags on search pages
+    const canonicals = document.querySelectorAll('link[rel="canonical"]');
+    canonicals.forEach(tag => tag.setAttribute('hidden', ''));
+  }
+  
+  // Ensure canonical on homepage always points to non-www
+  if (window.location.pathname === '/' && !window.location.search) {
+    const homepageCanonical = document.querySelector('link[rel="canonical"]');
+    if (homepageCanonical) {
+      homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
+    }
+  }
+};
+
 // Track page views on route changes
 const trackPageView = () => {
   if (typeof window !== 'undefined' && window.gtag) {
@@ -64,6 +88,9 @@ window.addEventListener('popstate', trackPageView);
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize sitemap
   setupSitemap();
+  
+  // Ensure correct canonical tags
+  ensureCorrectCanonicals();
   
   // Wait a moment for Cookiebot to initialize
   setTimeout(() => {

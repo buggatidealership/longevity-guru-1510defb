@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { ensureCanonicalUrl } from '../utils/canonical-utils';
@@ -96,15 +97,25 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     typeof window !== 'undefined' && 
     (window.location.pathname === '/female-fertility-calculator' || 
      window.location.pathname.includes('female-fertility-calculator'));
+     
+  // Check if we're on a search page
+  const isSearchPage = 
+    typeof window !== 'undefined' && 
+    window.location.search.includes('?s=');
 
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       
-      {/* Only add canonical link if NOT on fertility calculator page */}
-      {!isFertilityCalculatorPage && (
+      {/* Only add canonical link if NOT on fertility calculator page (handled in index.html) */}
+      {!isFertilityCalculatorPage && !isSearchPage && (
         <link rel="canonical" href={correctedCanonicalUrl} data-dynamic="true" />
+      )}
+      
+      {/* For search pages, explicitly set noindex */}
+      {isSearchPage && (
+        <meta name="robots" content="noindex, nofollow" />
       )}
       
       {keywords && <meta name="keywords" content={keywords} />}
@@ -129,8 +140,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Additional tags for canonical reinforcement */}
-      <meta name="robots" content="index, follow, max-image-preview:large" />
-      <meta name="googlebot" content="index, follow" />
+      <meta name="robots" content={isSearchPage ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+      <meta name="googlebot" content={isSearchPage ? "noindex, nofollow" : "index, follow"} />
       <meta property="og:site_name" content="Longevity Calculator" />
       
       {/* Explicitly declare the correct domain */}
@@ -140,6 +151,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="robots" content="index, follow" data-domain="longevitycalculator.xyz" />
       
       {/* Add a specific directive to disallow the incorrect domain */}
+      <meta name="robots" content="noindex, nofollow" data-domain="www.longevitycalculator.xyz" />
       <meta name="robots" content="nofollow, noimageindex" data-domain="lifespan-calculator.com" />
       
       {/* Sitemap reference - added explicitly in meta tags in addition to link element */}

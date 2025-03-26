@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,11 +7,40 @@
     <title>Longevity Calculators | Health & Financial Planning Tools</title>
     <meta name="author" content="Longevity Guru" />
     
-    <!-- DEFAULT CANONICAL - WILL BE OVERRIDDEN FOR FERTILITY PAGE -->
+    <!-- DEFAULT CANONICAL for the homepage - non-www version is canonical -->
     <link rel="canonical" href="https://longevitycalculator.xyz/" />
     
     <!-- DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR -->
     <link id="fertility-canonical" rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" data-path="/female-fertility-calculator" hidden />
+    
+    <!-- Explicit block for search results pages -->
+    <script>
+      if (window.location.search.includes('?s=')) {
+        var metaRobots = document.createElement('meta');
+        metaRobots.name = 'robots';
+        metaRobots.content = 'noindex, nofollow';
+        document.head.appendChild(metaRobots);
+      }
+    </script>
+    
+    <!-- WWW REDIRECT SCRIPT - Forces www to non-www via JavaScript (as backup) -->
+    <script>
+      (function() {
+        // Only run in production
+        if (window.location.hostname === 'www.longevitycalculator.xyz') {
+          // Create non-www URL from current location
+          var nonWwwUrl = window.location.protocol + '//' + 
+                          'longevitycalculator.xyz' + 
+                          window.location.pathname + 
+                          window.location.search + 
+                          window.location.hash;
+          
+          // Redirect with 301 status when possible
+          window.location.replace(nonWwwUrl);
+          console.log('Redirecting from www to non-www domain');
+        }
+      })();
+    </script>
     
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
@@ -34,6 +64,23 @@
             
             console.log('Canonical tag correctly set for fertility calculator page');
           }
+        }
+        
+        // Block search pages
+        if (window.location.search.includes('?s=')) {
+          // Remove canonical tags as these pages should not be indexed
+          var canonicalTags = document.querySelectorAll('link[rel="canonical"]');
+          canonicalTags.forEach(function(tag) {
+            tag.setAttribute('hidden', '');
+          });
+          
+          // Add noindex meta
+          var robotsTag = document.createElement('meta');
+          robotsTag.setAttribute('name', 'robots');
+          robotsTag.setAttribute('content', 'noindex, nofollow');
+          document.head.appendChild(robotsTag);
+          
+          console.log('Search page detected - added noindex directive');
         }
       })();
     </script>

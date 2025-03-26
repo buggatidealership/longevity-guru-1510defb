@@ -1,105 +1,89 @@
 
 /**
- * Utilities for handling canonical URLs and domain verification
+ * Canonical URL utilities
  */
 
 /**
- * Checks if a URL is properly canonicalized
- * @param url The URL to check
- * @returns Object containing the check result
- */
-export const checkCanonicalUrl = (url: string) => {
-  const baseUrl = 'https://longevitycalculator.xyz';
-  const cleanUrl = url.startsWith('/') ? url.substring(1) : url;
-  const fullUrl = `${baseUrl}/${cleanUrl}`;
-  
-  const hasIncorrectDomain = url.includes('lifespan-calculator.com');
-  
-  return {
-    isCanonical: (url.startsWith(baseUrl) || url.startsWith('/')) && !hasIncorrectDomain,
-    suggestedCanonical: fullUrl,
-    message: hasIncorrectDomain 
-      ? `URL contains incorrect domain. Should be ${fullUrl}`
-      : (url.startsWith(baseUrl) || url.startsWith('/'))
-        ? 'URL is properly formatted for canonicalization'
-        : `URL should start with ${baseUrl} for proper canonicalization`
-  };
-};
-
-/**
- * Creates SEO metadata for a calculator page
- * @param title The page title
- * @param description The page description
- * @param path The page path (without domain)
- * @returns SEO props object for the SEOHead component
- */
-export const createCalculatorSEOProps = (
-  title: string, 
-  description: string, 
-  path: string
-) => {
-  // Remove leading slash if present
-  const cleanPath = path.startsWith('/') ? path.substring(1) : path;
-  // Force our domain instead of any potential incorrect domain
-  const canonicalUrl = `https://longevitycalculator.xyz/${cleanPath}`;
-  
-  return {
-    title: `${title} | Free Online Calculator`,
-    description,
-    canonicalUrl,
-    keywords: `${title.toLowerCase()}, calculator, health tool, free calculator, online tool, ${cleanPath}`,
-    ogType: 'website',
-    ogImage: 'https://longevitycalculator.xyz/longevity-calculator-og.png'
-  };
-};
-
-/**
- * Ensures that each page has a proper canonical URL
- * This is a utility function to verify and fix canonical issues
- * @param url The current URL to check
- * @returns The correct canonical URL
+ * Ensures the canonical URL is properly formatted with the correct domain
+ * and without any unnecessary parameters
+ * 
+ * @param {string} url - The URL to format as canonical
+ * @returns {string} - The properly formatted canonical URL
  */
 export const ensureCanonicalUrl = (url: string): string => {
-  // DEFAULT HARDCODED CANONICAL URL FOR FERTILITY CALCULATOR PAGE
-  // This is the top priority check - if any part of the URL contains female-fertility-calculator
-  // we ALWAYS return the hardcoded canonical URL
-  if (
-    url && 
-    (url.includes('female-fertility-calculator') || 
-    url.endsWith('/female-fertility-calculator') || 
-    url === 'female-fertility-calculator' ||
-    url === '/female-fertility-calculator')
-  ) {
+  // Handle special case for fertility calculator which has a hardcoded canonical in index.html
+  if (typeof window !== 'undefined' && 
+      window.location.pathname.includes('female-fertility-calculator')) {
     return 'https://longevitycalculator.xyz/female-fertility-calculator';
   }
   
-  // Default base domain
-  const baseDomain = 'https://longevitycalculator.xyz';
-  
-  // If URL is empty or undefined, return the base domain
-  if (!url) return baseDomain;
-  
-  // Clean the URL path
-  let cleanPath = url;
-  
-  // Remove domain if present (we'll add our own)
-  if (cleanPath.includes('://')) {
-    try {
-      // Use URL parsing to get the path correctly
-      const parsedUrl = new URL(cleanPath);
-      cleanPath = parsedUrl.pathname.replace(/^\//, '');
-    } catch (e) {
-      // Fallback to string manipulation if URL parsing fails
-      cleanPath = cleanPath.split('/').slice(3).join('/');
-    }
-  } else {
-    // Remove leading slash if present for consistency
-    cleanPath = cleanPath.startsWith('/') ? cleanPath.substring(1) : cleanPath;
+  // Don't provide a canonical for search pages
+  if (typeof window !== 'undefined' && window.location.search.includes('?s=')) {
+    return '';  // Return empty to skip canonical
   }
   
-  // Ensure no double slashes and trim trailing slash
-  cleanPath = cleanPath.replace(/\/\//g, '/').replace(/\/$/, '');
+  try {
+    // Parse the URL to ensure it's valid
+    const parsedUrl = new URL(url);
+    
+    // Always use https
+    parsedUrl.protocol = 'https:';
+    
+    // Use the correct domain (no www)
+    if (parsedUrl.hostname.startsWith('www.')) {
+      parsedUrl.hostname = parsedUrl.hostname.replace('www.', '');
+    }
+    
+    // Ensure the domain is correct
+    if (parsedUrl.hostname !== 'longevitycalculator.xyz') {
+      parsedUrl.hostname = 'longevitycalculator.xyz';
+    }
+    
+    // Remove any search/query parameters for canonical URLs
+    parsedUrl.search = '';
+    
+    // Clean up any double slashes in the path
+    const path = parsedUrl.pathname.replace(/\/+/g, '/');
+    parsedUrl.pathname = path;
+    
+    // Remove hash fragments for canonical URLs
+    parsedUrl.hash = '';
+    
+    // Return the cleaned URL as a string
+    return parsedUrl.toString();
+  } catch (error) {
+    // If parsing fails, ensure we at least have the correct base domain
+    console.error('Error parsing canonical URL:', error);
+    
+    // Fallback to the main domain
+    return 'https://longevitycalculator.xyz/';
+  }
+};
+
+/**
+ * Gets the canonical URL for the current page
+ * @returns {string} The canonical URL
+ */
+export const getCurrentCanonicalUrl = (): string => {
+  if (typeof window === 'undefined') {
+    return 'https://longevitycalculator.xyz/';
+  }
   
-  // Construct proper canonical URL, handling empty path case
-  return cleanPath ? `${baseDomain}/${cleanPath}` : baseDomain;
+  // Handle special case for fertility calculator
+  if (window.location.pathname.includes('female-fertility-calculator')) {
+    return 'https://longevitycalculator.xyz/female-fertility-calculator';
+  }
+  
+  // Don't provide canonical for search pages
+  if (window.location.search.includes('?s=')) {
+    return '';
+  }
+  
+  // For homepage, always use root
+  if (window.location.pathname === '/') {
+    return 'https://longevitycalculator.xyz/';
+  }
+  
+  // For other pages, construct from current path
+  return `https://longevitycalculator.xyz${window.location.pathname}`;
 };
