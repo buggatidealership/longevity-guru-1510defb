@@ -29,6 +29,7 @@ export const addUrlToSitemap = (path: string, priority: number = 0.9) => {
   // 3. Check if the URL already exists
   // 4. If not, add the new URL entry
   // 5. Serialize back to XML and write to the file
+  // 6. Ensure the XML declaration is at the very start with no whitespace
   
   return true;
 };
