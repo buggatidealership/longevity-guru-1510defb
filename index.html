@@ -5,29 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Longevity Calculators | Health & Financial Planning Tools</title>
     <meta name="author" content="Longevity Guru" />
+    
+    <!-- DEFAULT CANONICAL - WILL BE OVERRIDDEN FOR FERTILITY PAGE -->
     <link rel="canonical" href="https://longevitycalculator.xyz/" />
+    
+    <!-- DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR -->
+    <link id="fertility-canonical" rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" data-path="/female-fertility-calculator" hidden />
+    
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
 
-    <!-- HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR -->
+    <!-- HARDCODED CANONICAL TAG ENFORCEMENT SCRIPT -->
     <script>
       // This script runs before any React code and ensures the canonical tag is in the HTML source
       (function() {
         // Check if we're on the fertility calculator page
         if (window.location.pathname.includes('female-fertility-calculator')) {
-          // Get existing canonical tag
-          var existingCanonical = document.querySelector('link[rel="canonical"]');
+          // Find the default canonical tag
+          var defaultCanonical = document.querySelector('link[rel="canonical"]:not([id="fertility-canonical"])');
+          // Find our hardcoded fertility canonical
+          var fertilityCanonical = document.getElementById('fertility-canonical');
           
-          // If it exists, update its href attribute
-          if (existingCanonical) {
-            existingCanonical.href = 'https://longevitycalculator.xyz/female-fertility-calculator';
-          } 
-          // Otherwise, create and append a new canonical tag
-          else {
-            var newCanonical = document.createElement('link');
-            newCanonical.rel = 'canonical';
-            newCanonical.href = 'https://longevitycalculator.xyz/female-fertility-calculator';
-            document.head.appendChild(newCanonical);
+          if (defaultCanonical && fertilityCanonical) {
+            // 1. Remove the hidden attribute from fertility canonical
+            fertilityCanonical.removeAttribute('hidden');
+            // 2. Either remove or hide the default canonical to avoid duplicates
+            defaultCanonical.setAttribute('hidden', '');
+            
+            console.log('Canonical tag correctly set for fertility calculator page');
           }
         }
       })();
@@ -134,21 +139,6 @@
 
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: Pre-render canonical tag for Googlebot -->
-    <script>
-      // Second enforcement of canonical tag
-      document.addEventListener('DOMContentLoaded', function() {
-        if (window.location.pathname.includes('female-fertility-calculator')) {
-          // Create a new meta tag for additional SEO signals
-          var metaCanonical = document.createElement('meta');
-          metaCanonical.name = 'canonical';
-          metaCanonical.content = 'https://longevitycalculator.xyz/female-fertility-calculator';
-          document.head.appendChild(metaCanonical);
-          
-          console.log('Canonical tag enforced for fertility calculator');
-        }
-      });
-    </script>
     
     <!-- Lovable Script -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>

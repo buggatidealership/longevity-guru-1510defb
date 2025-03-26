@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { ensureCanonicalUrl } from '../utils/canonical-utils';
@@ -92,7 +91,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ...schemas
   ];
 
-  // Special handling for the fertility calculator page - DIRECT HARDCODED APPROACH
+  // Special handling for the fertility calculator page - checking if we're on that path
   const isFertilityCalculatorPage = 
     typeof window !== 'undefined' && 
     (window.location.pathname === '/female-fertility-calculator' || 
@@ -103,12 +102,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       
-      {/* ALWAYS include the canonical link tag - NO CONDITIONS */}
-      <link rel="canonical" href={correctedCanonicalUrl} />
-      
-      {/* DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR */}
-      {isFertilityCalculatorPage && (
-        <link rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" />
+      {/* Only add canonical link if NOT on fertility calculator page */}
+      {!isFertilityCalculatorPage && (
+        <link rel="canonical" href={correctedCanonicalUrl} data-dynamic="true" />
       )}
       
       {keywords && <meta name="keywords" content={keywords} />}
