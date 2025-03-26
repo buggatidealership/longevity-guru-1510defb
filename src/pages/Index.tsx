@@ -120,23 +120,26 @@ const Index = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-2 hero-section">
+          {/* Reduced bottom margin from mb-2 to mb-0 and padding from py-2 to py-1 */}
+          <div className="text-center mb-0 hero-section">
             <div className="relative mx-auto max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-2">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-1">
                 <span className="text-primary relative inline-block mr-3">
                   {calculatorCount}
                 </span>
                 <span>Free Calculators</span>
               </h1>
-              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-1"></div>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto pb-1">
+              {/* Reduced margin from my-1 to my-0 */}
+              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-0"></div>
+              {/* Reduced bottom padding from pb-1 to pb-0 */}
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto pb-0">
                 ... for smarter lifestyle planning and informed decision-making
               </p>
             </div>
           </div>
           
-          {/* Reduced mb-8 to mb-4 to decrease spacing */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-4 calculator-grid">
+          {/* Removed top padding to bring grid up closer to title */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 pt-4 mb-4 calculator-grid">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {/* First row of calculators - high priority */}
               <Link to="/life-expectancy-calculator" className="group">
