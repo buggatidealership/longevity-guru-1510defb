@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sun, Droplets, FileText, Calculator, Info } from 'lucide-react';
 
@@ -85,7 +84,7 @@ const ContentSections = () => {
                 <td className="border p-2">4,000 IU</td>
               </tr>
               <tr className="bg-gray-50">
-                <td className="border p-2">Adults (>70 years)</td>
+                <td className="border p-2">Adults ({'>'}70 years)</td>
                 <td className="border p-2">800 IU</td>
                 <td className="border p-2">20 mcg</td>
                 <td className="border p-2">4,000 IU</td>
@@ -149,7 +148,7 @@ const ContentSections = () => {
           <div className="bg-gray-50 p-4 rounded-lg">
             <h3 className="font-medium mb-2">Body Weight</h3>
             <p className="text-sm">
-              Vitamin D is fat-soluble and can be sequestered in fat tissue. People with obesity (BMI > 30) may need 2-3 times more vitamin D to maintain adequate blood levels.
+              Vitamin D is fat-soluble and can be sequestered in fat tissue. People with obesity (BMI {'>'}30) may need 2-3 times more vitamin D to maintain adequate blood levels.
             </p>
           </div>
           
