@@ -65,6 +65,13 @@ export const ensureCanonicalUrl = (url: string): string => {
   
   // If URL is empty or undefined, return the base domain
   if (!url) return baseDomain;
+
+  // For the fertility calculator page, return the hardcoded canonical URL
+  if (url.includes('female-fertility-calculator') || 
+      url.endsWith('/female-fertility-calculator') || 
+      url === 'female-fertility-calculator') {
+    return 'https://longevitycalculator.xyz/female-fertility-calculator';
+  }
   
   // Clean the URL path
   let cleanPath = url;

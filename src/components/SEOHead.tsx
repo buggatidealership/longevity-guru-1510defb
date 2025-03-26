@@ -51,6 +51,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   }, []);
   
   // Make sure the canonical URL is using the correct domain and format
+  // and log it for debugging purposes
   const correctedCanonicalUrl = ensureCanonicalUrl(canonicalUrl);
   
   // Debug canonical URL in development
@@ -97,7 +98,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       
-      {/* Explicitly add the canonical URL link element */}
+      {/* Explicitly render canonical link tag - MUST ALWAYS BE INCLUDED */}
       <link rel="canonical" href={correctedCanonicalUrl} />
       
       {keywords && <meta name="keywords" content={keywords} />}
