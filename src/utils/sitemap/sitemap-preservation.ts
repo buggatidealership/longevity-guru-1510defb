@@ -59,38 +59,8 @@ export const mergeSitemapEntries = (existingUrls: string[], newUrls: string[]): 
   // Remove duplicates by converting to Set and back
   const uniqueUrls = [...new Set(allUrls)];
   
-  // Sort URLs into logical groups
-  const homeUrl = uniqueUrls.filter(url => url === '' || url === '/');
-  const calculatorUrls = uniqueUrls.filter(url => 
-    url.includes('calculator') && 
-    !url.includes('resources/') && 
-    url !== '' && 
-    url !== '/'
-  );
-  const resourceUrls = uniqueUrls.filter(url => 
-    url.includes('resources/') && 
-    url !== '' && 
-    url !== '/'
-  );
-  const otherUrls = uniqueUrls.filter(url => 
-    !url.includes('calculator') && 
-    !url.includes('resources/') && 
-    url !== '' && 
-    url !== '/'
-  );
-  
-  // Sort each group alphabetically
-  calculatorUrls.sort();
-  resourceUrls.sort();
-  otherUrls.sort();
-  
-  // Recombine in logical order
-  return [
-    ...homeUrl, 
-    ...calculatorUrls, 
-    ...resourceUrls, 
-    ...otherUrls
-  ];
+  // For simplified sitemap, we'll only return unique entries, no sorting/grouping
+  return uniqueUrls;
 };
 
 /**
@@ -99,31 +69,11 @@ export const mergeSitemapEntries = (existingUrls: string[], newUrls: string[]): 
  * @returns Promise<boolean> - Success status 
  */
 export const updateSitemapPreservingExisting = async (newUrls: string[]): Promise<boolean> => {
-  try {
-    // Load existing sitemap
-    const existingUrls = await loadExistingSitemap();
-    console.log(`Loaded ${existingUrls.length} existing URLs from sitemap`);
-    
-    // Merge with new URLs, removing duplicates
-    const mergedUrls = mergeSitemapEntries(existingUrls, newUrls);
-    console.log(`Total URLs after merging: ${mergedUrls.length}`);
-    
-    // Generate new sitemap entries using existing utility
-    const { generateFullSitemap } = await import('./sitemap-generation');
-    const newSitemapContent = generateFullSitemap(mergedUrls);
-    
-    // Before saving, ensure it starts with the XML declaration (no whitespace)
-    const { ensureCorrectSitemapStart } = await import('./sitemap-format');
-    const cleanSitemapContent = ensureCorrectSitemapStart(newSitemapContent);
-    
-    // TODO: In a real application, we would now write this content to the sitemap.xml file
-    // This would typically be done server-side rather than in the browser
-    console.log('Generated new sitemap with all URLs preserved');
-    return true;
-  } catch (error) {
-    console.error('Error updating sitemap:', error);
-    return false;
-  }
+  // For the simplified sitemap approach, we'll just log the URLs
+  // In a real application, we would merge with the existing sitemap
+  console.log(`Would add these URLs to sitemap: ${newUrls.join(', ')}`);
+  console.log('Note: Sitemap has been simplified to a fixed set of URLs');
+  return true;
 };
 
 /**
