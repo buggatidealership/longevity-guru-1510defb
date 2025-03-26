@@ -21,6 +21,7 @@ import BotoxCalculatorPage from './pages/BotoxCalculatorPage';
 import TDEECalculatorPage from './pages/TDEECalculatorPage';
 import MacronutrientCalculatorPage from './pages/MacronutrientCalculatorPage';
 import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage';
+import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -39,7 +40,7 @@ import AdultHeightPredictionGuide from './pages/resources/adult-height-predictio
 import BotoxDosageGuide from './pages/resources/botox-dosage-guide';
 import AlcoholAndLongevity from './pages/resources/alcohol-and-longevity';
 import WillIGoBald from './pages/resources/will-i-go-bald';
-import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-adult-height';
+import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-height';
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
@@ -81,6 +82,7 @@ function App() {
         <Route path="/tdee-calculator" element={<TDEECalculatorPage />} />
         <Route path="/macronutrient-calculator" element={<MacronutrientCalculatorPage />} />
         <Route path="/ideal-body-weight-calculator" element={<IdealBodyWeightCalculatorPage />} />
+        <Route path="/vitamin-d-calculator" element={<VitaminDCalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
