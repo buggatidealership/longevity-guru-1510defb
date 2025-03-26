@@ -1,10 +1,9 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon, FileText, Flame, MenuSquare, Weight, Sun } from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon, FileText, Flame, MenuSquare, Weight, Sun, Droplets } from 'lucide-react';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
@@ -12,7 +11,7 @@ import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
 
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
-  const calculatorCount = 14; // Updated count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol, baldness, TDEE, macronutrient, ideal body weight, vitamin D
+  const calculatorCount = 15; // Updated count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol, baldness, TDEE, macronutrient, ideal body weight, vitamin D, creatine water
 
   // Add homepage to sitemap
   React.useEffect(() => {
@@ -25,7 +24,7 @@ const Index = () => {
         title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
         description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
         canonicalUrl="https://longevitycalculator.xyz/"
-        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator"
+        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator, creatine water calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
@@ -271,6 +270,20 @@ const Index = () => {
                   <h3 className="font-semibold text-sm mb-2 line-clamp-1">Vitamin D Intake</h3>
                   <p className="text-xs text-gray-500 mb-2 flex-grow">Assess your vitamin D levels from diet and sun exposure.</p>
                   <span className="text-xs text-yellow-500 flex items-center group-hover:underline">
+                    Calculate
+                    <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </div>
+              </Link>
+              
+              <Link to="/creatine-water-calculator" className="group">
+                <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
+                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
+                    <Droplets className="h-5 w-5 text-blue-500" />
+                  </div>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Creatine Water</h3>
+                  <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate water needs when taking creatine supplements.</p>
+                  <span className="text-xs text-blue-500 flex items-center group-hover:underline">
                     Calculate
                     <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
                   </span>
