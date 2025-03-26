@@ -25,6 +25,7 @@ import {
   createCalculatorSEOProps 
 } from '@/utils/seoUtils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
+import { Helmet } from 'react-helmet';
 
 const FertilityCalculator = () => {
   const handleLinkClick = () => {
@@ -87,6 +88,11 @@ const FertilityCalculator = () => {
 
   return (
     <>
+      {/* DIRECT HELMET INJECTION - bypassing all abstractions */}
+      <Helmet>
+        <link rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" />
+      </Helmet>
+
       <SEOHead 
         title="Female Fertility Calculator by Age | Free Egg Quality & Ovarian Reserve Estimator"
         description="Our free female fertility calculator estimates your chances of natural conception based on age and other factors. Get personalized fertility insights now."
@@ -94,6 +100,7 @@ const FertilityCalculator = () => {
         keywords="female fertility calculator, fertility by age, egg quality, ovarian reserve, fertility estimator, conception chances, reproductive timeline, fertility test"
         schemas={[breadcrumbSchema, faqSchema, articleSchema]}
       />
+      
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />

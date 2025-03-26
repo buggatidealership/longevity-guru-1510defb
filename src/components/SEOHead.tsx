@@ -51,7 +51,6 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   }, []);
   
   // Make sure the canonical URL is using the correct domain and format
-  // and log it for debugging purposes
   const correctedCanonicalUrl = ensureCanonicalUrl(canonicalUrl);
   
   // Debug canonical URL in development
@@ -93,13 +92,24 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ...schemas
   ];
 
+  // Special handling for the fertility calculator page - DIRECT HARDCODED APPROACH
+  const isFertilityCalculatorPage = 
+    typeof window !== 'undefined' && 
+    (window.location.pathname === '/female-fertility-calculator' || 
+     window.location.pathname.includes('female-fertility-calculator'));
+
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       
-      {/* Explicitly render canonical link tag - MUST ALWAYS BE INCLUDED */}
+      {/* ALWAYS include the canonical link tag - NO CONDITIONS */}
       <link rel="canonical" href={correctedCanonicalUrl} />
+      
+      {/* DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR */}
+      {isFertilityCalculatorPage && (
+        <link rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" />
+      )}
       
       {keywords && <meta name="keywords" content={keywords} />}
       

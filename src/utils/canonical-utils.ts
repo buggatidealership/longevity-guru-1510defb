@@ -60,18 +60,24 @@ export const createCalculatorSEOProps = (
  * @returns The correct canonical URL
  */
 export const ensureCanonicalUrl = (url: string): string => {
+  // DEFAULT HARDCODED CANONICAL URL FOR FERTILITY CALCULATOR PAGE
+  // This is the top priority check - if any part of the URL contains female-fertility-calculator
+  // we ALWAYS return the hardcoded canonical URL
+  if (
+    url && 
+    (url.includes('female-fertility-calculator') || 
+    url.endsWith('/female-fertility-calculator') || 
+    url === 'female-fertility-calculator' ||
+    url === '/female-fertility-calculator')
+  ) {
+    return 'https://longevitycalculator.xyz/female-fertility-calculator';
+  }
+  
   // Default base domain
   const baseDomain = 'https://longevitycalculator.xyz';
   
   // If URL is empty or undefined, return the base domain
   if (!url) return baseDomain;
-
-  // For the fertility calculator page, return the hardcoded canonical URL
-  if (url.includes('female-fertility-calculator') || 
-      url.endsWith('/female-fertility-calculator') || 
-      url === 'female-fertility-calculator') {
-    return 'https://longevitycalculator.xyz/female-fertility-calculator';
-  }
   
   // Clean the URL path
   let cleanPath = url;
