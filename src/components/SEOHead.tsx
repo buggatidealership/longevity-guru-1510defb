@@ -47,6 +47,13 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     (window.location.pathname === '/female-fertility-calculator' || 
      window.location.pathname.includes('female-fertility-calculator'));
   
+  // Prepare schema markup array as strings to avoid Symbol conversion issues
+  const schemaMarkups = schemas.map((schema, index) => (
+    <script key={`schema-${index}`} type="application/ld+json">
+      {JSON.stringify(schema)}
+    </script>
+  ));
+  
   return (
     <Helmet>
       <title>{title}</title>
@@ -111,12 +118,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
       
-      {/* Structured data */}
-      {schemas.map((schema, index) => (
-        <script key={`schema-${index}`} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      ))}
+      {/* Structured data - render each schema as a separate script element */}
+      {schemaMarkups}
     </Helmet>
   );
 };

@@ -11,12 +11,12 @@ export const checkCookiebotInitialization = (): boolean => {
   if (typeof window === 'undefined') return false;
   
   // Check if Cookiebot object exists and has the consent property
-  if (window.Cookiebot && window.Cookiebot.consent) {
+  if (window.Cookiebot && typeof window.Cookiebot.consent === 'object') {
     console.info('Cookiebot is initialized with consent state:', {
-      necessary: window.Cookiebot.consent.necessary,
-      preferences: window.Cookiebot.consent.preferences,
-      statistics: window.Cookiebot.consent.statistics,
-      marketing: window.Cookiebot.consent.marketing
+      necessary: window.Cookiebot.consent?.necessary,
+      preferences: window.Cookiebot.consent?.preferences,
+      statistics: window.Cookiebot.consent?.statistics,
+      marketing: window.Cookiebot.consent?.marketing
     });
     
     // Verify Google Analytics connection
@@ -40,7 +40,11 @@ export const verifyGoogleAnalytics = (): void => {
     
     // Use the helper function if it exists
     if (typeof window.verifyGA4 === 'function') {
-      window.verifyGA4();
+      try {
+        window.verifyGA4();
+      } catch (error) {
+        console.error('Error calling verifyGA4:', error);
+      }
     } else {
       // Fallback verification
       try {
