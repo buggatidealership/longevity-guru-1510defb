@@ -25,7 +25,20 @@ const ResourcesContent = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* New Vitamin D article */}
+        {/* New Creatine Water article */}
+        <ResourceCard 
+          title="How Much Water Should You Drink While Taking Creatine?" 
+          description="Learn how to calculate the ideal daily water intake to support safe and effective creatine use."
+          content={[
+            "Discover the science-backed water requirements when taking creatine supplements based on your body weight, activity level, and climate factors.",
+            "Learn how to prevent dehydration while maximizing the muscle-building benefits of creatine supplementation."
+          ]}
+          link="/resources/creatine-water-intake-guide"
+          imageUrl="https://images.unsplash.com/photo-1504893524553-b855bce32c67?auto=format&fit=crop&w=600&q=80"
+          date="February 15, 2025"
+        />
+      
+        {/* Vitamin D article */}
         <ResourceCard 
           title="How to Calculate Your Ideal Vitamin D Intake" 
           description="Learn how to calculate the optimal daily vitamin D dosage for your body using science-backed guidelines."

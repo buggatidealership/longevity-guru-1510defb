@@ -15,6 +15,7 @@ Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
 Allow: /resources/vitamin-d-intake-guide
+Allow: /resources/creatine-water-intake-guide
 Allow: /privacy
 Allow: /terms
 
