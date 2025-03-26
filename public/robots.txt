@@ -11,6 +11,7 @@ Allow: /tdee-calculator
 Allow: /macronutrient-calculator
 Allow: /vitamin-d-calculator
 Allow: /creatine-water-calculator
+Allow: /ozempic-weight-loss-calculator
 Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
