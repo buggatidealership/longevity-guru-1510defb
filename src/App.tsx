@@ -22,6 +22,7 @@ import TDEECalculatorPage from './pages/TDEECalculatorPage';
 import MacronutrientCalculatorPage from './pages/MacronutrientCalculatorPage';
 import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage';
 import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
+import CreatineWaterCalculatorPage from './pages/CreatineWaterCalculatorPage';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -83,6 +84,7 @@ function App() {
         <Route path="/macronutrient-calculator" element={<MacronutrientCalculatorPage />} />
         <Route path="/ideal-body-weight-calculator" element={<IdealBodyWeightCalculatorPage />} />
         <Route path="/vitamin-d-calculator" element={<VitaminDCalculatorPage />} />
+        <Route path="/creatine-water-calculator" element={<CreatineWaterCalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
