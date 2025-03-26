@@ -30,8 +30,50 @@
     </url>
     
     <url>
-        <loc>https://longevitycalculator.xyz/child-growth-percentile-calculator</loc>
+        <loc>https://longevitycalculator.xyz/growth-percentile-calculator</loc>
         <lastmod>2024-08-24T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://longevitycalculator.xyz/adult-height-predictor-calculator</loc>
+        <lastmod>2024-09-15T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/metabolism-calculator</loc>
+        <lastmod>2024-09-20T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/breast-implant-calculator</loc>
+        <lastmod>2024-10-05T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/botox-calculator</loc>
+        <lastmod>2024-10-15T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/alcohol-impact-calculator</loc>
+        <lastmod>2024-10-25T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/baldness-risk-calculator</loc>
+        <lastmod>2024-11-10T12:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -46,6 +88,13 @@
     <url>
         <loc>https://longevitycalculator.xyz/macronutrient-calculator</loc>
         <lastmod>2024-11-25T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/ideal-body-weight-calculator</loc>
+        <lastmod>2024-12-05T12:00:00+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -96,6 +145,83 @@
     <url>
         <loc>https://longevitycalculator.xyz/resources/breast-implant-size-guide</loc>
         <lastmod>2024-11-05T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/fertility-after-35</loc>
+        <lastmod>2024-09-10T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/how-to-boost-your-metabolism</loc>
+        <lastmod>2024-09-25T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/how-to-increase-life-expectancy</loc>
+        <lastmod>2024-08-28T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/adult-height-prediction-guide</loc>
+        <lastmod>2024-09-18T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/botox-dosage-guide</loc>
+        <lastmod>2024-10-20T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/alcohol-and-longevity</loc>
+        <lastmod>2024-11-01T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/will-i-go-bald</loc>
+        <lastmod>2024-11-15T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/macronutrient-calculator-guide</loc>
+        <lastmod>2024-12-01T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/ideal-body-weight-guide</loc>
+        <lastmod>2024-12-10T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/how-much-to-save-for-retirement</loc>
+        <lastmod>2024-08-27T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://longevitycalculator.xyz/resources/save-for-retirement-low-income</loc>
+        <lastmod>2024-09-05T12:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
