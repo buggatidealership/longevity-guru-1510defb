@@ -112,7 +112,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
       
       {/* Structured data */}
-      {allSchemas.map((schema, index) => (
+      {schemas.map((schema, index) => (
         <script key={`schema-${index}`} type="application/ld+json">
           {JSON.stringify(schema)}
         </script>

@@ -10,8 +10,8 @@
 export const checkCookiebotInitialization = (): boolean => {
   if (typeof window === 'undefined') return false;
   
-  // Check if Cookiebot object exists
-  if (window.Cookiebot) {
+  // Check if Cookiebot object exists and has the consent property
+  if (window.Cookiebot && window.Cookiebot.consent) {
     console.info('Cookiebot is initialized with consent state:', {
       necessary: window.Cookiebot.consent.necessary,
       preferences: window.Cookiebot.consent.preferences,
@@ -24,7 +24,7 @@ export const checkCookiebotInitialization = (): boolean => {
     
     return true;
   } else {
-    console.warn('Cookiebot is not initialized. Make sure the script is loaded correctly.');
+    console.warn('Cookiebot is not initialized or missing consent property. Make sure the script is loaded correctly.');
     return false;
   }
 };
@@ -173,4 +173,3 @@ export const applyCookiebotStyling = (): void => {
 };
 
 // We're removing the duplicate Window interface declaration since it's already defined in global.d.ts
-

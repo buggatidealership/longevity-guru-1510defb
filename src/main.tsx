@@ -81,6 +81,26 @@ const trackPageView = () => {
   }
 };
 
+// Initialize Cookiebot and other services safely
+const initializeServices = () => {
+  try {
+    // Initialize Cookiebot and styling with error handling
+    checkCookiebotInitialization();
+    applyCookiebotStyling();
+  } catch (error) {
+    console.error('Error initializing Cookiebot:', error);
+  }
+  
+  // Verify GA4 functioning
+  try {
+    if (typeof window.verifyGA4 === 'function') {
+      window.verifyGA4();
+    }
+  } catch (error) {
+    console.error('Error verifying GA4:', error);
+  }
+};
+
 // Add event listener to track page views on history changes
 window.addEventListener('popstate', trackPageView);
 
@@ -92,16 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ensure correct canonical tags
   ensureCorrectCanonicals();
   
-  // Wait a moment for Cookiebot to initialize
-  setTimeout(() => {
-    checkCookiebotInitialization();
-    applyCookiebotStyling(); 
-    
-    // Verify GA4 functioning
-    if (typeof window.verifyGA4 === 'function') {
-      window.verifyGA4();
-    }
-  }, 2000);
+  // Wait a moment for third-party services to initialize
+  setTimeout(initializeServices, 2000);
 });
 
 createRoot(rootElement).render(<App />);
