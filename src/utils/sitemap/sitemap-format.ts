@@ -1,4 +1,3 @@
-
 /**
  * Functions for cleaning and formatting sitemap content
  */
