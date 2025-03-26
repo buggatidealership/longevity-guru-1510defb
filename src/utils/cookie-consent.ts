@@ -14,10 +14,10 @@ export const checkCookiebotInitialization = (): boolean => {
   try {
     if (window.Cookiebot && typeof window.Cookiebot.consent === 'object') {
       console.info('Cookiebot is initialized with consent state:', {
-        necessary: window.Cookiebot.consent?.necessary,
-        preferences: window.Cookiebot.consent?.preferences,
-        statistics: window.Cookiebot.consent?.statistics,
-        marketing: window.Cookiebot.consent?.marketing
+        necessary: window.Cookiebot.consent?.necessary ?? 'undefined',
+        preferences: window.Cookiebot.consent?.preferences ?? 'undefined',
+        statistics: window.Cookiebot.consent?.statistics ?? 'undefined',
+        marketing: window.Cookiebot.consent?.marketing ?? 'undefined'
       });
       
       // Verify Google Analytics connection

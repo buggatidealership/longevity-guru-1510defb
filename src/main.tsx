@@ -91,14 +91,10 @@ const initializeServices = () => {
     // Initialize Cookiebot and styling with error handling
     if (typeof window !== 'undefined') {
       // Safely check Cookiebot initialization
-      if (typeof window.Cookiebot !== 'undefined') {
-        try {
-          checkCookiebotInitialization();
-        } catch (error) {
-          console.warn('Error during Cookiebot initialization check:', error);
-        }
-      } else {
-        console.warn('Cookiebot is not available - skipping initialization');
+      try {
+        checkCookiebotInitialization();
+      } catch (error) {
+        console.warn('Error during Cookiebot initialization check:', error);
       }
       
       // Apply styling safely

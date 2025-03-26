@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { ensureCanonicalUrl } from '../utils/canonical-utils';
 
@@ -47,27 +47,35 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     (window.location.pathname === '/female-fertility-calculator' || 
      window.location.pathname.includes('female-fertility-calculator'));
   
-  // Create schema markup HTML strings - convert objects to stringified JSON
-  const createSchemaMarkup = () => {
-    if (!schemas || schemas.length === 0) return null;
-    
-    return schemas.map((schema, index) => {
-      // Ensure the schema is properly serialized
-      const safeSchema = JSON.stringify(schema, (key, value) => {
-        // Handle any non-serializable values here
+  // Function to safely serialize schema objects
+  const safelySerializeSchema = (schema: SchemaMarkup): string => {
+    try {
+      return JSON.stringify(schema, (key, value) => {
+        // Handle non-serializable values like Symbols
         if (typeof value === 'symbol') {
           return value.toString();
         }
+        // Handle undefined values
+        if (value === undefined) {
+          return null;
+        }
         return value;
       });
-      
-      return (
-        <script key={`schema-${index}`} type="application/ld+json">
-          {safeSchema}
-        </script>
-      );
-    });
+    } catch (error) {
+      console.error('Error serializing schema:', error);
+      // Return empty object as fallback
+      return '{}';
+    }
   };
+  
+  // Prepare schema markup for rendering
+  const schemaMarkups = schemas.map((schema, index) => (
+    <script 
+      key={`schema-${index}`} 
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: safelySerializeSchema(schema) }}
+    />
+  ));
   
   return (
     <Helmet>
@@ -132,9 +140,6 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Sitemap reference - added explicitly in meta tags in addition to link element */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
-      
-      {/* Structured data - render each schema as a separate script element */}
-      {createSchemaMarkup()}
     </Helmet>
   );
 };
