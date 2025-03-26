@@ -1,3 +1,4 @@
+
 import React, { lazy, Suspense, useEffect } from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -119,16 +120,16 @@ const Index = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-4 hero-section">
+          <div className="text-center mb-2 hero-section">
             <div className="relative mx-auto max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-3">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-2">
                 <span className="text-primary relative inline-block mr-3">
                   {calculatorCount}
                 </span>
                 <span>Free Calculators</span>
               </h1>
-              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-2"></div>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-1"></div>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto pb-1">
                 ... for smarter lifestyle planning and informed decision-making
               </p>
             </div>
@@ -381,3 +382,4 @@ const Index = () => {
 };
 
 export default Index;
+
