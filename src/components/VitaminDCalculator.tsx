@@ -112,8 +112,6 @@ const VitaminDCalculator = () => {
   
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <DisclaimerAlert className="mb-6" />
-      
       <Card className="mb-6">
         <CardHeader>
           <CardTitle className="text-xl text-center">Vitamin D Intake Calculator</CardTitle>
