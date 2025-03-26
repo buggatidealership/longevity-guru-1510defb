@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,8 +6,12 @@
     <title>Longevity Calculators | Health & Financial Planning Tools</title>
     <meta name="author" content="Longevity Guru" />
     
-    <!-- DEFAULT CANONICAL for the homepage - non-www version is canonical -->
+    <!-- CANONICAL - Explicitly set for homepage -->
     <link rel="canonical" href="https://longevitycalculator.xyz/" />
+    
+    <!-- ROBOTS - Explicitly set indexing directives -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
     
     <!-- DIRECT HARDCODED CANONICAL TAG FOR FERTILITY CALCULATOR -->
     <link id="fertility-canonical" rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" data-path="/female-fertility-calculator" hidden />
@@ -42,13 +45,25 @@
       })();
     </script>
     
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-
     <!-- HARDCODED CANONICAL TAG ENFORCEMENT SCRIPT -->
     <script>
       // This script runs before any React code and ensures the canonical tag is in the HTML source
       (function() {
+        // Check if we're on the homepage
+        if (window.location.pathname === '/') {
+          // Ensure the canonical tag for homepage is correct and present
+          var homepageCanonical = document.querySelector('link[rel="canonical"]:not([id="fertility-canonical"])');
+          if (homepageCanonical) {
+            homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
+          } else {
+            // If no canonical tag exists yet, create one
+            var newCanonical = document.createElement('link');
+            newCanonical.setAttribute('rel', 'canonical');
+            newCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
+            document.head.appendChild(newCanonical);
+          }
+        }
+        
         // Check if we're on the fertility calculator page
         if (window.location.pathname.includes('female-fertility-calculator')) {
           // Find the default canonical tag

@@ -41,6 +41,21 @@ const SEORedirectHandler: React.FC = () => {
       const canonicalTags = document.querySelectorAll('link[rel="canonical"]');
       canonicalTags.forEach(tag => tag.setAttribute('hidden', ''));
     }
+    
+    // Handle homepage
+    if (location.pathname === '/') {
+      // Ensure canonical tag for homepage
+      const homepageCanonical = document.querySelector('link[rel="canonical"]:not([id="fertility-canonical"])');
+      if (homepageCanonical) {
+        homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
+      }
+      
+      // Ensure robots meta for homepage
+      const robotsMeta = document.querySelector('meta[name="robots"]');
+      if (robotsMeta) {
+        robotsMeta.setAttribute('content', 'index, follow, max-image-preview:large');
+      }
+    }
   }, [location]);
   
   // This component doesn't render anything

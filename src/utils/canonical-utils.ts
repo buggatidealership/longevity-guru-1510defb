@@ -22,6 +22,11 @@ export const ensureCanonicalUrl = (url: string): string => {
     return '';  // Return empty to skip canonical
   }
   
+  // Handle homepage explicitly
+  if (typeof window !== 'undefined' && window.location.pathname === '/') {
+    return 'https://longevitycalculator.xyz/';
+  }
+  
   try {
     // Parse the URL to ensure it's valid
     const parsedUrl = new URL(url);
