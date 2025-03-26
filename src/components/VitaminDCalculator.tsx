@@ -120,7 +120,7 @@ const VitaminDCalculator = () => {
           <div className="space-y-2">
             <div className="flex items-center">
               <Label htmlFor="fish" className="font-medium">
-                1. How often do you eat fatty fish (salmon, mackerel, sardines)?
+                How often do you eat fatty fish (salmon, mackerel, sardines)?
               </Label>
               <InfoTooltip content="Fish like salmon and mackerel are excellent natural sources of vitamin D" />
             </div>
@@ -139,7 +139,7 @@ const VitaminDCalculator = () => {
           <div className="space-y-2">
             <div className="flex items-center">
               <Label htmlFor="fortified" className="font-medium">
-                2. Do you consume fortified foods (milk, cereal, orange juice)?
+                Do you consume fortified foods (milk, cereal, orange juice)?
               </Label>
               <InfoTooltip content="Many foods are fortified with vitamin D to help people meet their daily requirements" />
             </div>
@@ -158,7 +158,7 @@ const VitaminDCalculator = () => {
           <div className="space-y-2">
             <div className="flex items-center">
               <Label htmlFor="otherFoods" className="font-medium">
-                3. Egg yolks or mushrooms in your diet?
+                Egg yolks or mushrooms in your diet?
               </Label>
               <InfoTooltip content="Egg yolks and some mushrooms contain moderate amounts of vitamin D" />
             </div>
@@ -177,7 +177,7 @@ const VitaminDCalculator = () => {
           <div className="space-y-2">
             <div className="flex items-center">
               <Label htmlFor="sun" className="font-medium">
-                4. Sun exposure (bare arms/face without sunscreen):
+                Sun exposure (bare arms/face without sunscreen):
               </Label>
               <InfoTooltip content="Sun exposure is the most natural way to get vitamin D, but balance it with skin cancer risk" />
             </div>
@@ -196,7 +196,7 @@ const VitaminDCalculator = () => {
           <div className="space-y-2">
             <div className="flex items-center">
               <Label htmlFor="country" className="font-medium">
-                5. Select your region:
+                Select your region:
               </Label>
               <InfoTooltip content="Your geographic location affects how much vitamin D your skin can produce from sunlight" />
             </div>
