@@ -8,7 +8,6 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { cn } from '@/lib/utils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
-
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
   const calculatorCount = 15; // Updated count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol, baldness, TDEE, macronutrient, ideal body weight, vitamin D, creatine water
@@ -17,17 +16,8 @@ const Index = () => {
   React.useEffect(() => {
     addUrlToSitemap('', 1.0); // Homepage has highest priority
   }, []);
-
-  return (
-    <>
-      <SEOHead 
-        title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
-        description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
-        canonicalUrl="https://longevitycalculator.xyz/"
-        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator, creatine water calculator"
-        ogType="website"
-        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
-      />
+  return <>
+      <SEOHead title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`} description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions." canonicalUrl="https://longevitycalculator.xyz/" keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator, creatine water calculator" ogType="website" ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png" />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
@@ -37,13 +27,7 @@ const Index = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
-                    <Link
-                      to="/resources"
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        "text-gray-600 hover:text-primary"
-                      )}
-                    >
+                    <Link to="/resources" className={cn(navigationMenuTriggerStyle(), "text-gray-600 hover:text-primary")}>
                       <FileText className="h-4 w-4 mr-2" />
                       Resources
                     </Link>
@@ -52,13 +36,10 @@ const Index = () => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="1111111111" 
-              format="horizontal"
-              responsive={true}
-            />
+          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '90px'
+        }}>
+            <AdUnit className="w-full" slot="1111111111" format="horizontal" responsive={true} />
           </div>
         </header>
         
@@ -281,7 +262,7 @@ const Index = () => {
                   <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mb-3">
                     <Droplets className="h-5 w-5 text-blue-500" />
                   </div>
-                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Creatine Water</h3>
+                  <h3 className="font-semibold text-sm mb-2 line-clamp-1">Creatine Water Intake</h3>
                   <p className="text-xs text-gray-500 mb-2 flex-grow">Calculate water needs when taking creatine supplements.</p>
                   <span className="text-xs text-blue-500 flex items-center group-hover:underline">
                     Calculate
@@ -292,29 +273,21 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="2222222222" 
-              format="rectangle"
-              responsive={true}
-            />
+          <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '250px'
+        }}>
+            <AdUnit className="w-full" slot="2222222222" format="rectangle" responsive={true} />
           </div>
           
-          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="3333333333" 
-              format="horizontal"
-              responsive={true}
-            />
+          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '90px'
+        }}>
+            <AdUnit className="w-full" slot="3333333333" format="horizontal" responsive={true} />
           </div>
         </main>
         
         <FooterWithCollapsibleLinks />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default Index;
