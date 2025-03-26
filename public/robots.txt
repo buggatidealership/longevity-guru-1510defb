@@ -7,11 +7,32 @@ Allow: /life-expectancy-calculator
 Allow: /retirement-savings-calculator
 Allow: /female-fertility-calculator
 Allow: /child-growth-percentile-calculator
+Allow: /adult-height-predictor-calculator
+Allow: /metabolism-calculator
+Allow: /breast-implant-size-calculator
+Allow: /botox-dosage-calculator
+Allow: /alcohol-impact-calculator
+Allow: /baldness-risk-calculator
+Allow: /bmi-calculator
 Allow: /tdee-calculator
 Allow: /macronutrient-calculator
+Allow: /ideal-body-weight-calculator
 Allow: /resources
-Allow: /resources/how-to-calculate-your-tdee
+Allow: /resources/how-to-increase-life-expectancy
+Allow: /resources/how-much-to-save-for-retirement
+Allow: /resources/save-for-retirement-low-income
+Allow: /resources/how-to-boost-your-metabolism
+Allow: /resources/fertility-after-35
+Allow: /resources/how-to-use-your-bmi
+Allow: /resources/will-i-go-bald
+Allow: /resources/adult-height-prediction-guide
 Allow: /resources/breast-implant-size-guide
+Allow: /resources/botox-dosage-guide
+Allow: /resources/alcohol-and-longevity
+Allow: /resources/how-to-predict-your-childs-adult-height
+Allow: /resources/how-to-calculate-your-tdee
+Allow: /resources/macronutrient-calculator-guide
+Allow: /resources/ideal-body-weight-guide
 Allow: /privacy
 Allow: /terms
 
@@ -25,6 +46,9 @@ Allow: /sitemap.xml
 
 # Sitemaps
 Sitemap: https://longevitycalculator.xyz/sitemap.xml
+
+# Prevent crawling of duplicate content
+Disallow: /assets/images/thumbnails/
 
 # Explicitly declare canonical domain
 Host: longevitycalculator.xyz

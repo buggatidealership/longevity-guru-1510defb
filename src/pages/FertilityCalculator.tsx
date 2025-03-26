@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -26,6 +25,7 @@ import {
   createCalculatorSEOProps 
 } from '@/utils/seoUtils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
+import { Helmet } from 'react-helmet';
 
 const FertilityCalculator = () => {
   const handleLinkClick = () => {
@@ -83,22 +83,24 @@ const FertilityCalculator = () => {
     new Date().toISOString()
   );
 
-  // Create SEO props with explicit canonical URL
-  const seoProps = createCalculatorSEOProps(
-    "Female Fertility Calculator by Age | Free Egg Quality & Ovarian Reserve Estimator",
-    "Our free female fertility calculator estimates your chances of natural conception based on age and other factors. Get personalized fertility insights now.",
-    "female-fertility-calculator"
-  );
+  // EXPLICITLY set the canonical URL for this page
+  const CANONICAL_URL = "https://longevitycalculator.xyz/female-fertility-calculator";
 
   return (
     <>
+      {/* DIRECT HELMET INJECTION - bypassing all abstractions */}
+      <Helmet>
+        <link rel="canonical" href="https://longevitycalculator.xyz/female-fertility-calculator" />
+      </Helmet>
+
       <SEOHead 
-        title={seoProps.title}
-        description={seoProps.description}
-        canonicalUrl={seoProps.canonicalUrl}
-        keywords={seoProps.keywords}
+        title="Female Fertility Calculator by Age | Free Egg Quality & Ovarian Reserve Estimator"
+        description="Our free female fertility calculator estimates your chances of natural conception based on age and other factors. Get personalized fertility insights now."
+        canonicalUrl={CANONICAL_URL}
+        keywords="female fertility calculator, fertility by age, egg quality, ovarian reserve, fertility estimator, conception chances, reproductive timeline, fertility test"
         schemas={[breadcrumbSchema, faqSchema, articleSchema]}
       />
+      
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
