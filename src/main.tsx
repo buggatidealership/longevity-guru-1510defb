@@ -42,25 +42,29 @@ const setupSitemap = async () => {
 
 // Ensure correct canonical and meta tags for SEO
 const ensureCorrectCanonicals = () => {
-  // Check if on search page
-  if (window.location.search.includes('?s=')) {
-    // Add noindex for search pages
-    const robotsMeta = document.createElement('meta');
-    robotsMeta.name = 'robots';
-    robotsMeta.content = 'noindex, nofollow';
-    document.head.appendChild(robotsMeta);
-    
-    // Hide all canonical tags on search pages
-    const canonicals = document.querySelectorAll('link[rel="canonical"]');
-    canonicals.forEach(tag => tag.setAttribute('hidden', ''));
-  }
-  
-  // Ensure canonical on homepage always points to non-www
-  if (window.location.pathname === '/' && !window.location.search) {
-    const homepageCanonical = document.querySelector('link[rel="canonical"]');
-    if (homepageCanonical) {
-      homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
+  try {
+    // Check if on search page
+    if (window.location.search.includes('?s=')) {
+      // Add noindex for search pages
+      const robotsMeta = document.createElement('meta');
+      robotsMeta.name = 'robots';
+      robotsMeta.content = 'noindex, nofollow';
+      document.head.appendChild(robotsMeta);
+      
+      // Hide all canonical tags on search pages
+      const canonicals = document.querySelectorAll('link[rel="canonical"]');
+      canonicals.forEach(tag => tag.setAttribute('hidden', ''));
     }
+    
+    // Ensure canonical on homepage always points to non-www
+    if (window.location.pathname === '/' && !window.location.search) {
+      const homepageCanonical = document.querySelector('link[rel="canonical"]');
+      if (homepageCanonical) {
+        homepageCanonical.setAttribute('href', 'https://longevitycalculator.xyz/');
+      }
+    }
+  } catch (error) {
+    console.error('Error ensuring correct canonicals:', error);
   }
 };
 
@@ -86,13 +90,23 @@ const initializeServices = () => {
   try {
     // Initialize Cookiebot and styling with error handling
     if (typeof window !== 'undefined') {
-      // Check if Cookiebot exists before initializing
-      if (window.Cookiebot) {
-        checkCookiebotInitialization();
+      // Safely check Cookiebot initialization
+      if (typeof window.Cookiebot !== 'undefined') {
+        try {
+          checkCookiebotInitialization();
+        } catch (error) {
+          console.warn('Error during Cookiebot initialization check:', error);
+        }
       } else {
         console.warn('Cookiebot is not available - skipping initialization');
       }
-      applyCookiebotStyling();
+      
+      // Apply styling safely
+      try {
+        applyCookiebotStyling();
+      } catch (error) {
+        console.warn('Error applying Cookiebot styling:', error);
+      }
     }
   } catch (error) {
     console.error('Error initializing Cookiebot:', error);

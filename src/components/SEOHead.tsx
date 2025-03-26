@@ -47,12 +47,27 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     (window.location.pathname === '/female-fertility-calculator' || 
      window.location.pathname.includes('female-fertility-calculator'));
   
-  // Prepare schema markup array as strings to avoid Symbol conversion issues
-  const schemaMarkups = schemas.map((schema, index) => (
-    <script key={`schema-${index}`} type="application/ld+json">
-      {JSON.stringify(schema)}
-    </script>
-  ));
+  // Create schema markup HTML strings - convert objects to stringified JSON
+  const createSchemaMarkup = () => {
+    if (!schemas || schemas.length === 0) return null;
+    
+    return schemas.map((schema, index) => {
+      // Ensure the schema is properly serialized
+      const safeSchema = JSON.stringify(schema, (key, value) => {
+        // Handle any non-serializable values here
+        if (typeof value === 'symbol') {
+          return value.toString();
+        }
+        return value;
+      });
+      
+      return (
+        <script key={`schema-${index}`} type="application/ld+json">
+          {safeSchema}
+        </script>
+      );
+    });
+  };
   
   return (
     <Helmet>
@@ -119,7 +134,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
       
       {/* Structured data - render each schema as a separate script element */}
-      {schemaMarkups}
+      {createSchemaMarkup()}
     </Helmet>
   );
 };
