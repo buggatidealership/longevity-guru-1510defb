@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
   <url>
     <loc>https://longevitycalculator.xyz/</loc>
     <lastmod>2025-03-26T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Calculators -->
   <url>
     <loc>https://longevitycalculator.xyz/life-expectancy-calculator</loc>
     <lastmod>2025-03-26T12:00:00+00:00</lastmod>
@@ -100,8 +96,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Resource Pages -->
   <url>
     <loc>https://longevitycalculator.xyz/resources</loc>
     <lastmod>2025-03-26T12:00:00+00:00</lastmod>
@@ -198,8 +192,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- Legal Pages -->
   <url>
     <loc>https://longevitycalculator.xyz/privacy</loc>
     <lastmod>2025-03-26T12:00:00+00:00</lastmod>
