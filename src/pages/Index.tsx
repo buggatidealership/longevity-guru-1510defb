@@ -119,24 +119,22 @@ const Index = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4">
-          {/* Completely removed all vertical margins and significantly reduced padding */}
-          <div className="text-center hero-section">
-            <div className="relative mx-auto max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-0">
-                <span className="text-primary relative inline-block mr-3">
-                  {calculatorCount}
-                </span>
-                <span>Free Calculators</span>
-              </h1>
-              <div className="h-0.5 w-32 bg-gray-200 mx-auto"></div>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                ... for smarter lifestyle planning and informed decision-making
-              </p>
-            </div>
+          {/* Hero section with minimal spacing */}
+          <div className="text-center mb-0">
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+              <span className="text-primary relative inline-block mr-3">
+                {calculatorCount}
+              </span>
+              <span>Free Calculators</span>
+            </h1>
+            <div className="h-0.5 w-32 bg-gray-200 mx-auto mb-1"></div>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-1">
+              ... for smarter lifestyle planning and informed decision-making
+            </p>
           </div>
           
-          {/* Applied negative margin to pull the calculator grid up toward the title */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mt-2 calculator-grid">
+          {/* Calculator grid immediate after hero section */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 calculator-grid">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {/* First row of calculators - high priority */}
               <Link to="/life-expectancy-calculator" className="group">
@@ -209,7 +207,6 @@ const Index = () => {
                 </div>
               </Link>
               
-              {/* Rest of the calculator cards - can be loaded lazily */}
               <Link to="/metabolism-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-red-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center mb-3">
