@@ -4,17 +4,31 @@ import { AdUnit } from '@/components/AdUnit';
 import Logo from '@/components/Logo';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import SEOHead from '@/components/SEOHead';
+import { generateWebPageSchema } from '@/utils/schema-utils';
 
 const BotoxPageHeader: React.FC = () => {
+  const pageTitle = "Botox Dosage Calculator | Units and Cost Estimator Tool";
+  const pageDescription = "Calculate Botox units needed for different facial areas and estimate treatment costs. Our free Botox calculator provides personalized dosage recommendations for forehead, crow's feet, and more.";
+  const canonicalUrl = "https://longevitycalculator.xyz/botox";
+  
+  // Create schema
+  const webPageSchema = generateWebPageSchema(
+    pageTitle,
+    pageDescription,
+    "/botox",
+    new Date().toISOString()
+  );
+  
   return (
     <>
       <SEOHead 
-        title="Botox Dosage Calculator | Units and Cost Estimator Tool"
-        description="Calculate Botox units needed for different facial areas and estimate treatment costs. Our free Botox calculator provides personalized dosage recommendations for forehead, crow's feet, and more."
-        canonicalUrl="https://longevitycalculator.xyz/botox"
+        title={pageTitle}
+        description={pageDescription}
+        canonicalUrl={canonicalUrl}
         keywords="botox calculator, botox dosage, botox units, botox cost calculator, botox price estimator, forehead botox, crow's feet units, glabellar lines, cosmetic injection planner"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
+        schemas={[webPageSchema]}
       />
       <header className="max-w-6xl mx-auto pt-4 px-4">
         <Logo className="mb-2" />

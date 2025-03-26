@@ -10,6 +10,7 @@ import RelatedCalculators from './breast-implant/RelatedCalculators';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { AdUnit } from '@/components/AdUnit';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
+import { generateWebPageSchema } from '@/utils/schema-utils';
 
 const BreastImplantCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -20,15 +21,28 @@ const BreastImplantCalculatorPage = () => {
     });
   };
 
+  const pageTitle = "Breast Implant Size Calculator | CC Volume and Cost Estimator Tool";
+  const pageDescription = "Calculate your ideal breast implant size in CC based on measurements and desired outcome. Our free calculator estimates implant volumes, costs, and helps you prepare for your breast augmentation consultation.";
+  const canonicalUrl = "https://longevitycalculator.xyz/breastimplant";
+  
+  // Generate webpage schema
+  const webPageSchema = generateWebPageSchema(
+    pageTitle,
+    pageDescription,
+    "/breastimplant",
+    new Date().toISOString()
+  );
+  
   return (
     <>
       <SEOHead 
-        title="Breast Implant Size Calculator | CC Volume and Cost Estimator Tool"
-        description="Calculate your ideal breast implant size in CC based on measurements and desired outcome. Our free calculator estimates implant volumes, costs, and helps you prepare for your breast augmentation consultation."
-        canonicalUrl="https://longevitycalculator.xyz/breastimplant"
+        title={pageTitle}
+        description={pageDescription}
+        canonicalUrl={canonicalUrl}
         keywords="breast implant calculator, implant size calculator, breast augmentation calculator, CC volume estimator, breast implant cost, implant dimensions, implant profile selector, cup size calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
+        schemas={[webPageSchema]}
       />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <PageHeader />
