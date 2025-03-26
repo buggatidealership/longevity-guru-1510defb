@@ -129,14 +129,14 @@ const CreatineWaterCalculatorPage: React.FC = () => {
             </p>
           </div>
 
+          <DisclaimerAlert 
+            title="Medical Disclaimer"
+            content="This calculator provides estimates based on general guidelines and is not a substitute for medical advice. Individual hydration needs vary based on many factors. Consult with a healthcare provider before starting any supplementation program."
+          />
+
           <section className="mb-8">
             <CreatineWaterCalculator />
           </section>
-
-          <DisclaimerAlert 
-            title="Supplementation & Hydration Disclaimer"
-            content="This calculator provides estimates based on general guidelines and is not a substitute for medical advice. Individual hydration needs vary based on many factors. Consult with a healthcare provider before starting any supplementation program."
-          />
 
           <section className="my-8">
             <h2 className="text-2xl font-bold mb-4" id="how-it-works">How This Calculator Works</h2>
