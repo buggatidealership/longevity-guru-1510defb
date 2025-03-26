@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
 import Logo from '@/components/Logo';
@@ -12,7 +11,6 @@ import { cn } from '@/lib/utils';
 import { FileText } from 'lucide-react';
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/seoUtils';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
-
 const CreatineWaterCalculatorPage: React.FC = () => {
   // Add this URL to sitemap when component mounts
   useEffect(() => {
@@ -20,75 +18,57 @@ const CreatineWaterCalculatorPage: React.FC = () => {
   }, []);
 
   // FAQ data for schema markup
-  const faqItems = [
-    {
-      question: "How much water should I drink with creatine?",
-      answer: "The general recommendation is to drink about 3-4 liters of water daily when taking creatine. However, your specific needs depend on your body weight, activity level, climate, and whether you're in the loading or maintenance phase of creatine supplementation."
-    },
-    {
-      question: "Do I need to drink more water during creatine loading phase?",
-      answer: "Yes, you should increase your water intake during the creatine loading phase (typically 20g/day for 5-7 days). Since creatine draws water into your muscles, you need additional water to prevent dehydration and support the increased cellular hydration."
-    },
-    {
-      question: "Can I get dehydrated while taking creatine?",
-      answer: "Yes, creatine can increase your risk of dehydration if you don't increase your water intake accordingly. Creatine causes muscles to draw in more water, which means less water is available for other bodily functions if you don't compensate by drinking more."
-    },
-    {
-      question: "How can I tell if I'm drinking enough water with creatine?",
-      answer: "Signs of adequate hydration include clear or light yellow urine, absence of thirst, and normal energy levels. If your urine is dark yellow, you feel thirsty, or experience headaches, you may need to increase your water intake."
-    },
-    {
-      question: "Should I drink more water when exercising on creatine?",
-      answer: "Absolutely. Exercise increases fluid loss through sweat, and creatine supplementation can amplify your hydration needs. For intense workouts, you may need an additional 0.5-1 liter of water before, during, and after exercise."
-    }
-  ];
+  const faqItems = [{
+    question: "How much water should I drink with creatine?",
+    answer: "The general recommendation is to drink about 3-4 liters of water daily when taking creatine. However, your specific needs depend on your body weight, activity level, climate, and whether you're in the loading or maintenance phase of creatine supplementation."
+  }, {
+    question: "Do I need to drink more water during creatine loading phase?",
+    answer: "Yes, you should increase your water intake during the creatine loading phase (typically 20g/day for 5-7 days). Since creatine draws water into your muscles, you need additional water to prevent dehydration and support the increased cellular hydration."
+  }, {
+    question: "Can I get dehydrated while taking creatine?",
+    answer: "Yes, creatine can increase your risk of dehydration if you don't increase your water intake accordingly. Creatine causes muscles to draw in more water, which means less water is available for other bodily functions if you don't compensate by drinking more."
+  }, {
+    question: "How can I tell if I'm drinking enough water with creatine?",
+    answer: "Signs of adequate hydration include clear or light yellow urine, absence of thirst, and normal energy levels. If your urine is dark yellow, you feel thirsty, or experience headaches, you may need to increase your water intake."
+  }, {
+    question: "Should I drink more water when exercising on creatine?",
+    answer: "Absolutely. Exercise increases fluid loss through sweat, and creatine supplementation can amplify your hydration needs. For intense workouts, you may need an additional 0.5-1 liter of water before, during, and after exercise."
+  }];
 
   // Breadcrumb data for schema markup
-  const breadcrumbItems = [
-    { name: "Home", path: "/" },
-    { name: "Creatine Water Calculator", path: "/creatine-water-calculator" }
-  ];
+  const breadcrumbItems = [{
+    name: "Home",
+    path: "/"
+  }, {
+    name: "Creatine Water Calculator",
+    path: "/creatine-water-calculator"
+  }];
 
   // Generate schema markup
-  const schemas = [
-    generateFAQSchema(faqItems),
-    generateBreadcrumbSchema(breadcrumbItems),
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Creatine Water Intake Calculator",
-      "description": "Calculate how much water you need when taking creatine based on body weight, activity level, and climate factors.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Longevity Calculator",
-        "url": "https://longevitycalculator.xyz"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Creatine Water Intake Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+  const schemas = [generateFAQSchema(faqItems), generateBreadcrumbSchema(breadcrumbItems), {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Creatine Water Intake Calculator",
+    "description": "Calculate how much water you need when taking creatine based on body weight, activity level, and climate factors.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Longevity Calculator",
+      "url": "https://longevitycalculator.xyz"
     }
-  ];
-
-  return (
-    <>
-      <SEOHead
-        title="Creatine Water Intake Calculator – How Much Water Do You Need?"
-        description="Calculate the optimal water intake when taking creatine supplements based on your weight, activity level, and creatine dosage."
-        canonicalUrl="https://longevitycalculator.xyz/creatine-water-calculator"
-        keywords="creatine water calculator, water intake calculator, creatine hydration, how much water with creatine, creatine loading water, fitness hydration, creatine supplementation"
-        ogType="website"
-        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
-        schemas={schemas}
-      />
+  }, {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Creatine Water Intake Calculator",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }];
+  return <>
+      <SEOHead title="Creatine Water Intake Calculator – How Much Water Do You Need?" description="Calculate the optimal water intake when taking creatine supplements based on your weight, activity level, and creatine dosage." canonicalUrl="https://longevitycalculator.xyz/creatine-water-calculator" keywords="creatine water calculator, water intake calculator, creatine hydration, how much water with creatine, creatine loading water, fitness hydration, creatine supplementation" ogType="website" ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png" schemas={schemas} />
 
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
         <header className="max-w-6xl mx-auto pt-4 px-4 w-full">
@@ -97,13 +77,7 @@ const CreatineWaterCalculatorPage: React.FC = () => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuLink asChild>
-                  <Link
-                    to="/resources"
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "text-gray-600 hover:text-primary"
-                    )}
-                  >
+                  <Link to="/resources" className={cn(navigationMenuTriggerStyle(), "text-gray-600 hover:text-primary")}>
                     <FileText className="h-4 w-4 mr-2" />
                     Resources
                   </Link>
@@ -111,29 +85,22 @@ const CreatineWaterCalculatorPage: React.FC = () => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit
-              className="w-full"
-              slot="1111111111"
-              format="horizontal"
-              responsive={true}
-            />
+          <div className="mb-6 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '90px'
+        }}>
+            <AdUnit className="w-full" slot="1111111111" format="horizontal" responsive={true} />
           </div>
         </header>
 
         <main className="flex-grow max-w-4xl mx-auto px-4 w-full pb-12">
           <div className="mb-4 max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold mb-1 text-gray-900">Creatine Water Intake Calculator</h1>
-            <p className="text-lg text-gray-700 mb-4">
+            <h1 className="text-4xl font-bold mb-1 text-gray-900 text-center">Creatine Water Intake Calculator</h1>
+            <p className="text-lg text-gray-700 mb-4 text-center">
               Calculate how much water you need when taking creatine supplements based on your body weight, activity level, and creatine protocol.
             </p>
           </div>
 
-          <DisclaimerAlert 
-            title="Medical Disclaimer"
-            content="This calculator provides estimates based on general guidelines and is not a substitute for medical advice. Individual hydration needs vary based on many factors. Consult with a healthcare provider before starting any supplementation program."
-            className="mb-6"
-          />
+          <DisclaimerAlert title="Medical Disclaimer" content="This calculator provides estimates based on general guidelines and is not a substitute for medical advice. Individual hydration needs vary based on many factors. Consult with a healthcare provider before starting any supplementation program." className="mb-6" />
 
           <section className="mb-8">
             <CreatineWaterCalculator />
@@ -176,12 +143,10 @@ const CreatineWaterCalculatorPage: React.FC = () => {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4" id="faq">Frequently Asked Questions</h2>
             <div className="space-y-4">
-              {faqItems.map((item, index) => (
-                <div key={index} className="border-b pb-4">
+              {faqItems.map((item, index) => <div key={index} className="border-b pb-4">
                   <h3 className="text-xl font-semibold mb-2">{item.question}</h3>
                   <p>{item.answer}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </section>
 
@@ -207,20 +172,15 @@ const CreatineWaterCalculatorPage: React.FC = () => {
             </div>
           </section>
 
-          <div className="mt-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-            <AdUnit
-              className="w-full"
-              slot="2222222222"
-              format="rectangle"
-              responsive={true}
-            />
+          <div className="mt-8 bg-gray-50 rounded-lg text-center w-full" style={{
+          minHeight: '250px'
+        }}>
+            <AdUnit className="w-full" slot="2222222222" format="rectangle" responsive={true} />
           </div>
         </main>
 
         <FooterWithCollapsibleLinks />
       </div>
-    </>
-  );
+    </>;
 };
-
 export default CreatineWaterCalculatorPage;
