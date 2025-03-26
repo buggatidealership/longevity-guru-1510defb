@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -6,7 +7,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/schema-utils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -18,13 +19,14 @@ const SaveForRetirementLowIncome = () => {
     { name: 'Save for Retirement on a Low Income', path: '/resources/save-for-retirement-low-income' }
   ]);
 
-  // Generate article schema - Fixed by providing separate arguments instead of an object
+  // Generate article schema with the correct parameter order
   const articleSchema = generateArticleSchema(
     "How to Save for Retirement on a Low Income: 15 Proven Strategies",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "Learn how to build a retirement fund even on a tight budget. Discover government programs, tax credits, and saving techniques specifically designed for low-income earners.",
+    "/resources/save-for-retirement-low-income",
     "2023-07-12T08:00:00+00:00",
     "2023-11-20T10:30:00+00:00",
-    "Learn how to build a retirement fund even on a tight budget. Discover government programs, tax credits, and saving techniques specifically designed for low-income earners."
+    "https://longevitycalculator.xyz/longevity-calculator-og.png"
   );
 
   const schemas = [breadcrumbSchema, articleSchema];

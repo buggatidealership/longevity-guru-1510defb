@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SEOHead from '@/components/SEOHead';
 import Logo from '@/components/Logo';
@@ -10,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { NavigationMenu, NavigationMenuLink, NavigationMenuList, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import { FileText } from 'lucide-react';
-import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/seoUtils';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/schema-utils';
 
 const MacronutrientCalculatorPage: React.FC = () => {
   // FAQ data for schema markup

@@ -7,7 +7,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema, generateFAQSchema } from '@/utils/seoUtils';
+import { generateBreadcrumbSchema, generateArticleSchema, generateFAQSchema } from '@/utils/schema-utils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -43,13 +43,14 @@ const WillIGoBald = () => {
     { name: 'Will I Go Bald?', path: '/resources/will-i-go-bald' }
   ]);
 
-  // Generate article schema
+  // Generate article schema with the correct parameter order
   const articleSchema = generateArticleSchema(
     "Will I Go Bald? How to Predict Hair Loss with Our Baldness Risk Calculator",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "Learn the science behind hair loss prediction, discover what causes baldness, and use our calculator to estimate your personal risk of going bald.",
+    "/resources/will-i-go-bald",
     "2024-10-15T08:00:00+00:00",
     "2024-10-15T08:00:00+00:00",
-    "Learn the science behind hair loss prediction, discover what causes baldness, and use our calculator to estimate your personal risk of going bald."
+    "https://longevitycalculator.xyz/longevity-calculator-og.png"
   );
 
   // Generate FAQ schema

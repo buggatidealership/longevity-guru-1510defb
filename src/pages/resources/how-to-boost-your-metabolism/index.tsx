@@ -19,7 +19,7 @@ const HowToBoostYourMetabolism = () => {
     { name: 'How to Boost Your Metabolism', path: '/resources/how-to-boost-your-metabolism' }
   ]);
 
-  // Generate article schema - Fixed the argument order
+  // Generate article schema with the correct parameter order
   const articleSchema = generateArticleSchema(
     "How to Boost Your Metabolism Naturally (Backed by Science)",
     "Learn science-backed ways to naturally boost your metabolism. Discover which habits truly help and how much your body burns daily.",

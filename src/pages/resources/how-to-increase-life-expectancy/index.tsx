@@ -19,7 +19,7 @@ const HowToIncreaseLifeExpectancy = () => {
     { name: 'How to Increase Life Expectancy', path: '/resources/how-to-increase-life-expectancy' }
   ]);
 
-  // Generate article schema - Fixed by providing separate arguments instead of an object
+  // Generate article schema with the correct parameter order
   const articleSchema = generateArticleSchema(
     "How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]",
     "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity.",
