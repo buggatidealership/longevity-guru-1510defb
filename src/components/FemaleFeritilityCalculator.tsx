@@ -313,6 +313,14 @@ const FemaleFeritilityCalculator = () => {
 
   return (
     <div className="space-y-6">
+      <div className="text-center mb-6">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Female Fertility Calculator</h1>
+        <div className="h-0.5 w-32 bg-gray-200 mx-auto my-4"></div>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Estimate your fertility potential based on your age and other important factors
+        </p>
+      </div>
+
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
