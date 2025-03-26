@@ -22,7 +22,7 @@ import {
   generateBreadcrumbSchema, 
   generateFAQSchema, 
   generateArticleSchema
-} from '@/utils/seoUtils';
+} from '@/utils/schema-utils';
 
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 

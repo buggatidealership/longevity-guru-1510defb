@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -6,7 +7,7 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
+import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/schema-utils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
 
@@ -21,10 +22,11 @@ const HowToIncreaseLifeExpectancy = () => {
   // Generate article schema - Fixed by providing separate arguments instead of an object
   const articleSchema = generateArticleSchema(
     "How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]",
-    "https://longevitycalculator.xyz/longevity-calculator-og.png",
+    "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity.",
+    "/resources/how-to-increase-life-expectancy",
     "2023-05-15T08:00:00+00:00",
     "2023-11-10T10:30:00+00:00",
-    "Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity."
+    "https://longevitycalculator.xyz/longevity-calculator-og.png"
   );
 
   const schemas = [breadcrumbSchema, articleSchema];

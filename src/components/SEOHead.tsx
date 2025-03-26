@@ -113,7 +113,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
         <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
       </Helmet>
       
-      {/* Render schema markup scripts outside of Helmet component */}
+      {/* Render schema markup scripts outside of Helmet component to avoid Symbol serialization issues */}
       {schemas.map((schema, index) => {
         try {
           // Convert the schema object to a JSON string, handling any Symbol values
