@@ -135,7 +135,8 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8 calculator-grid">
+          {/* Reduced mb-8 to mb-4 to decrease spacing */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-4 calculator-grid">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {/* First row of calculators - high priority */}
               <Link to="/life-expectancy-calculator" className="group">
@@ -382,4 +383,3 @@ const Index = () => {
 };
 
 export default Index;
-
