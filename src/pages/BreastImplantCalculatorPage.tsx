@@ -39,7 +39,8 @@ const BreastImplantCalculatorPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const canonicalUrl = "https://longevitycalculator.xyz/breastimplant";
+  // Use the exact URL that matches the page's actual URL
+  const canonicalUrl = "https://longevitycalculator.xyz/breast-implant-calculator";
 
   return <>
       <SEOHead 

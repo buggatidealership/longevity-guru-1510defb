@@ -20,17 +20,20 @@ const Index = () => {
     addUrlToSitemap('', 1.0); // Homepage has highest priority
   }, []);
 
+  // Ensure this exactly matches the actual URL
+  const canonicalUrl = "https://longevitycalculator.xyz";
+
   return (
     <>
       <SEOHead 
         title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
         description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
-        canonicalUrl="https://longevitycalculator.xyz/"
+        canonicalUrl={canonicalUrl}
         keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator, creatine water calculator, ozempic weight loss calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
-      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/" />
+      <CanonicalFixer expectedCanonicalUrl={canonicalUrl} />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
