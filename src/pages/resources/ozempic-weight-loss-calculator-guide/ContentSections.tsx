@@ -13,24 +13,13 @@ const ContentSections = () => {
         </p>
         
         <div className="md:flex md:gap-6 my-6 items-center">
-          <div className="md:w-1/2">
+          <div className="md:w-full">
             <ul className="list-disc pl-5 mb-4 space-y-2">
               <li><strong>Appetite regulation</strong>: Semaglutide targets receptors in your brain that control hunger and satiety, reducing appetite and food cravings.</li>
               <li><strong>Slowed gastric emptying</strong>: The medication delays how quickly food leaves your stomach, helping you feel fuller longer after meals.</li>
               <li><strong>Improved insulin sensitivity</strong>: Ozempic helps your body process glucose more effectively, which can reduce fat storage.</li>
               <li><strong>Reduced hedonic eating</strong>: Studies show it may decrease the pleasure response to high-calorie foods, reducing "emotional eating."</li>
             </ul>
-          </div>
-          
-          <div className="md:w-1/2">
-            <img 
-              src="https://images.unsplash.com/photo-1595561263683-2e11a3e6981c?auto=format&fit=crop&w=600&q=80" 
-              alt="Weight scale and measuring tape representing weight loss tracking" 
-              className="rounded-lg shadow-md" 
-              width="600" 
-              height="400"
-              loading="lazy"
-            />
           </div>
         </div>
         
@@ -145,17 +134,6 @@ const ContentSections = () => {
             </ul>
           </li>
         </ol>
-        
-        <div className="my-6">
-          <img 
-            src="https://images.unsplash.com/photo-1574269905366-e1c8d602d259?auto=format&fit=crop&w=600&q=80" 
-            alt="Person measuring waistline with measuring tape to track weight loss progress" 
-            className="rounded-lg shadow-md mx-auto" 
-            width="600" 
-            height="400"
-            loading="lazy"
-          />
-        </div>
         
         <p>
           For the most accurate results, be honest about your current measurements and lifestyle. The calculator is designed to provide realistic projections, not overly optimistic ones that might be discouraging if not achieved.
