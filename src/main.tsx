@@ -8,7 +8,7 @@ import { checkCookiebotInitialization, applyCookiebotStyling } from './utils/coo
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
 
-// Simplified sitemap verification
+// Very simplified sitemap verification that focuses only on the XML declaration position
 const verifySitemapFormat = async () => {
   try {
     // Make sure the link element for sitemap is present in the document head
@@ -29,31 +29,33 @@ const verifySitemapFormat = async () => {
       return;
     }
     
+    // Get the raw content for detailed analysis
     const content = await response.text();
     
-    // Simple validation - make sure it's not empty and has basic structure
-    if (!content || content.length < 50) {
+    // Critical check - focusing on the XML declaration position
+    if (!content || content.length < 10) {
       console.warn('⚠️ Sitemap content is too short or empty');
       return;
     }
     
+    // CRITICAL: Check for characters before XML declaration
     if (!content.startsWith('<?xml')) {
-      console.warn('⚠️ Sitemap does not start with XML declaration');
-      console.log('First 100 characters:', content.substring(0, 100).replace(/\n/g, '\\n'));
+      console.error('❌ CRITICAL ERROR: XML declaration is not at the start');
+      // Log the first few characters to see what's wrong
+      console.error('First 20 characters:', JSON.stringify(content.substring(0, 20)));
+      console.error('Character codes:', Array.from(content.substring(0, 10)).map(c => c.charCodeAt(0)));
       return;
     }
     
+    console.info('✅ Sitemap XML declaration is correctly positioned at the start');
+    
+    // Basic structure checks
     if (!content.includes('<urlset') || !content.includes('</urlset>')) {
       console.warn('⚠️ Sitemap is missing urlset tags');
       return;
     }
     
     const urlCount = (content.match(/<url>/g) || []).length;
-    if (urlCount < 1) {
-      console.warn('⚠️ No URL entries found in sitemap');
-      return;
-    }
-    
     console.info(`✅ Sitemap verification passed. Found ${urlCount} URLs.`);
   } catch (error) {
     console.error('Error verifying sitemap:', error);
