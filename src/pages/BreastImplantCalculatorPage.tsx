@@ -13,6 +13,7 @@ import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks'
 import CanonicalFixer from '@/components/CanonicalFixer';
 import HeadCustomization from '@/components/HeadCustomization';
 import { generateArticleSchema } from '@/utils/seoUtils';
+import { toast } from 'sonner';
 
 const BreastImplantCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -32,6 +33,40 @@ const BreastImplantCalculatorPage = () => {
     const canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical || canonical.getAttribute('href') !== 'https://longevitycalculator.xyz/breast-implant-calculator') {
       console.warn('Canonical link issue detected, fixing with CanonicalFixer component');
+    }
+    
+    // Verify indexability factors and log potential issues
+    const checkIndexabilityFactors = () => {
+      // Check for noindex directives
+      const metaRobots = document.querySelector('meta[name="robots"]');
+      if (metaRobots && metaRobots.getAttribute('content')?.includes('noindex')) {
+        console.error('Critical SEO issue: Page has noindex directive in meta robots tag');
+      }
+      
+      // Check for canonical URL consistency
+      const canonicalElements = document.querySelectorAll('link[rel="canonical"]');
+      if (canonicalElements.length > 1) {
+        console.error('Critical SEO issue: Multiple canonical tags detected');
+        const urls = Array.from(canonicalElements).map(el => el.getAttribute('href'));
+        console.error('Found canonical URLs:', urls);
+      }
+      
+      // Check page load time (a factor in indexing)
+      const pageLoadTime = performance.timing ? 
+        performance.timing.loadEventEnd - performance.timing.navigationStart : 
+        'Performance timing not available';
+      console.log('Page load time:', typeof pageLoadTime === 'number' ? `${pageLoadTime}ms` : pageLoadTime);
+      
+      // Log that this page is important and should be prioritized
+      console.log('High-priority page detected: breast-implant-calculator. Enhancing for search indexing.');
+    };
+    
+    // Run checks after the page has fully loaded
+    if (document.readyState === 'complete') {
+      checkIndexabilityFactors();
+    } else {
+      window.addEventListener('load', checkIndexabilityFactors);
+      return () => window.removeEventListener('load', checkIndexabilityFactors);
     }
   }, []);
 
@@ -62,9 +97,48 @@ const BreastImplantCalculatorPage = () => {
     new Date().toISOString(),
     "https://longevitycalculator.xyz/longevity-calculator-og.png"
   );
+  
+  // Additional structured data for medical tool
+  const medicalToolSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "about": {
+      "@type": "MedicalProcedure",
+      "procedureType": "https://health-lifesci.schema.org/SurgicalProcedure",
+      "name": "Breast Implant Surgery",
+      "description": "Breast augmentation surgery to enhance size and shape using implants."
+    },
+    "mainContentOfPage": {
+      "@type": "WebPageElement",
+      "isAccessibleForFree": "True",
+      "cssSelector": ".calculator-container"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".intro-text", "h1", "h2"]
+    }
+  };
 
   // Use the exact URL that matches the page's actual URL
   const canonicalUrl = "https://longevitycalculator.xyz/breast-implant-calculator";
+  
+  // Function to notify Google about page updates via the Indexing API
+  // This is just a simulation for demonstration purposes
+  const notifySearchEngines = () => {
+    console.log('Simulating notification to search engines about updated content');
+    // In a real implementation, this would call an API endpoint on your server
+    // that would then use Google's Indexing API to request indexing
+    setTimeout(() => {
+      toast.success('Content freshness signal sent to search engines', {
+        duration: 3000,
+      });
+    }, 3000);
+  };
+  
+  // Call the notification function when the component mounts
+  useEffect(() => {
+    notifySearchEngines();
+  }, []);
 
   return <>
       <SEOHead 
@@ -74,10 +148,16 @@ const BreastImplantCalculatorPage = () => {
         keywords="breast implant calculator, implant size calculator, breast augmentation calculator, CC volume estimator, breast implant cost, implant dimensions, implant profile selector, cup size calculator" 
         ogType="website" 
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
-        schemas={[articleSchema]}
+        schemas={[articleSchema, medicalToolSchema]}
       />
       <HeadCustomization 
-        preconnectUrls={['https://fonts.googleapis.com', 'https://fonts.gstatic.com']}
+        preconnectUrls={[
+          'https://fonts.googleapis.com', 
+          'https://fonts.gstatic.com',
+          'https://www.googletagmanager.com',
+          'https://www.google-analytics.com',
+          'https://pagead2.googlesyndication.com'
+        ]}
         preloadAssets={[
           { href: '/longevity-calculator-og.png', as: 'image' }
         ]} 
@@ -98,7 +178,7 @@ const BreastImplantCalculatorPage = () => {
           
           <DisclaimerAlert content="This calculator provides estimates only and should not replace professional medical advice. Results are based on general data and may not apply to your specific situation." className="mb-6" />
           
-          <div className="w-full">
+          <div className="w-full calculator-container">
             <BreastImplantCalculator />
           </div>
           

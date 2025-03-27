@@ -42,7 +42,7 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
       document.head.appendChild(canonicalLink);
     }
     
-    // Add Referrer-Policy meta tag
+    // Add Referrer-Policy meta tag if missing
     if (!document.querySelector('meta[name="referrer"]')) {
       const referrerPolicy = document.createElement('meta');
       referrerPolicy.name = 'referrer';
@@ -63,6 +63,15 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
     } else if (!sitemapLink.hasAttribute('type')) {
       // Ensure type attribute is set
       sitemapLink.setAttribute('type', 'application/xml');
+    }
+    
+    // Add X-Robots-Tag meta equivalent if not present
+    if (!document.querySelector('meta[name="robots"]')) {
+      const robotsMeta = document.createElement('meta');
+      robotsMeta.name = 'robots';
+      robotsMeta.content = 'index, follow, max-image-preview:large';
+      robotsMeta.setAttribute('data-dynamic', 'true');
+      document.head.appendChild(robotsMeta);
     }
 
     // Add preconnect links dynamically
@@ -107,6 +116,11 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
     
     // Verify GA after a delay to ensure it's had time to initialize
     setTimeout(verifyGAInitialization, 3000);
+    
+    // Add indexability debugging info to console
+    console.info('HeadCustomization: Optimizing page for search engine indexing');
+    console.info('Current page URL:', window.location.href);
+    console.info('Canonical URL:', document.querySelector('link[rel="canonical"]')?.getAttribute('href'));
 
     // Cleanup
     return () => {

@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-# Important pages with descriptive URLs
+# Important pages with descriptive URLs - Prioritized for search engines
 Allow: /life-expectancy-calculator
 Allow: /retirement-savings-calculator
 Allow: /female-fertility-calculator
@@ -17,6 +17,9 @@ Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
 Allow: /privacy
 Allow: /terms
+
+# Prioritize this page for indexing (hint to Google)
+Allow: /breast-implant-calculator$
 
 # Allow access to logo files
 Allow: /logo.png
