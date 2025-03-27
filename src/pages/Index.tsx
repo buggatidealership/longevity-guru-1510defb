@@ -8,26 +8,26 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { cn } from '@/lib/utils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
-import CanonicalFixer from '@/components/CanonicalFixer';
 
 const Index = () => {
-  const calculatorCount = 16;
+  // Count the number of calculator pages (excluding placeholder/coming soon calculators)
+  const calculatorCount = 16; // Updated count: added ozempic calculator
 
+  // Add homepage to sitemap
   React.useEffect(() => {
-    addUrlToSitemap('', 1.0);
+    addUrlToSitemap('', 1.0); // Homepage has highest priority
   }, []);
 
   return (
     <>
       <SEOHead 
-        title="Longevity Calculators | Free Health & Financial Planning Tools" 
-        description="Free online calculators for longevity, health assessment, financial planning and personal development. Evidence-based tools to help you make better decisions."
+        title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
+        description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
         canonicalUrl="https://longevitycalculator.xyz/"
-        keywords="longevity calculator, health calculator, retirement calculator, fertility calculator, life expectancy calculator, financial planning tools"
+        keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator, creatine water calculator, ozempic weight loss calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
-      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/" />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

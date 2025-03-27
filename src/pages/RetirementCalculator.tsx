@@ -1,11 +1,10 @@
+
 import React from 'react';
-import RetirementSavingsCalculator from '@/components/RetirementSavingsCalculator';
-import SEOHead from '@/components/SEOHead';
 import Logo from '@/components/Logo';
+import SEOHead from '@/components/SEOHead';
+import RetirementSavingsCalculator from '@/components/RetirementSavingsCalculator';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
-import CanonicalFixer from '@/components/CanonicalFixer';
 import { 
   Accordion,
   AccordionContent,
@@ -26,7 +25,7 @@ import {
   generateArticleSchema 
 } from '@/utils/seoUtils';
 
-const RetirementCalculator: React.FC = () => {
+const RetirementCalculator = () => {
   // Handler to scroll to top when clicking internal links
   const handleLinkClick = () => {
     window.scrollTo({
@@ -95,7 +94,6 @@ const RetirementCalculator: React.FC = () => {
         keywords="retirement calculator, retirement savings calculator, retirement spending, retirement planning, retirement income calculator, retirement withdrawal calculator, daily spending retirement, monthly retirement income"
         schemas={[breadcrumbSchema, faqSchema, articleSchema]}
       />
-      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/retirement-savings-calculator" />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
@@ -299,7 +297,34 @@ const RetirementCalculator: React.FC = () => {
           </div>
         </main>
         
-        <FooterWithCollapsibleLinks />
+        <footer className="max-w-6xl mx-auto px-4 py-6">
+          <div className="border-t pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <h3 className="font-medium text-gray-900 mb-3">Our Calculators</h3>
+                <ul className="space-y-2">
+                  <li><Link to="/life-expectancy-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Life Expectancy Calculator</Link></li>
+                  <li><Link to="/retirement-savings-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Retirement Savings Calculator</Link></li>
+                  <li><Link to="/female-fertility-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Female Fertility Calculator</Link></li>
+                  <li><Link to="/child-growth-percentile-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Child Growth Percentile Calculator</Link></li>
+                  <li><Link to="/adult-height-predictor-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Adult Height Predictor</Link></li>
+                  <li><Link to="/breast-implant-size-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Breast Implant Size Calculator</Link></li>
+                  <li><Link to="/botox-dosage-calculator" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Botox Dosage Calculator</Link></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="font-medium text-gray-900 mb-3">Legal</h3>
+                <ul className="space-y-2">
+                  <li><Link to="/privacy" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Privacy Policy</Link></li>
+                  <li><Link to="/terms" onClick={handleLinkClick} className="text-sm text-gray-600 hover:text-primary">Terms of Service</Link></li>
+                </ul>
+              </div>
+            </div>
+            
+            <p className="text-center text-xs text-gray-500">© {new Date().getFullYear()} Longevity Calculator. For educational purposes only.</p>
+          </div>
+        </footer>
       </div>
     </>
   );

@@ -1,13 +1,16 @@
-import React from 'react';
-import OzempicWeightLossCalculator from '@/components/OzempicWeightLossCalculator';
-import SEOHead from '@/components/SEOHead';
-import { AdUnit } from '@/components/AdUnit';
-import Logo from '@/components/Logo';
-import { Link } from 'react-router-dom';
-import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
-import CanonicalFixer from '@/components/CanonicalFixer';
 
-const OzempicWeightLossCalculatorPage: React.FC = () => {
+import React from 'react';
+import SEOHead from '../components/SEOHead';
+import OzempicWeightLossCalculator from '../components/OzempicWeightLossCalculator';
+import { Link } from 'react-router-dom';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../components/ui/breadcrumb';
+import FooterWithCollapsibleLinks from '../components/FooterWithCollapsibleLinks';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
+import Logo from '../components/Logo';
+import { AdUnit } from '../components/AdUnit';
+import DisclaimerAlert from '../components/DisclaimerAlert';
+
+const OzempicWeightLossCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
   const handleLinkClick = () => {
     window.scrollTo({
@@ -16,17 +19,22 @@ const OzempicWeightLossCalculatorPage: React.FC = () => {
     });
   };
 
+  // For internal section navigation
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <SEOHead 
-        title="Ozempic Weight Loss Calculator | Estimate Your Results"
-        description="Estimate potential weight loss with Ozempic (semaglutide) using our free calculator. Get personalized projections based on your starting weight and treatment duration."
+        title="Ozempic Weight Loss Calculator | Free GLP-1 Weight Tool"
+        description="Estimate your potential weight loss with Ozempic (semaglutide) using our free calculator. Get personalized projections based on clinical trial data, your BMI, and lifestyle factors."
         canonicalUrl="https://longevitycalculator.xyz/ozempic-weight-loss-calculator"
-        keywords="ozempic calculator, ozempic weight loss calculator, semaglutide calculator, GLP-1 calculator, weight loss medication calculator"
-        ogType="website"
-        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
+        keywords="ozempic calculator, semaglutide weight loss, GLP-1 weight calculator, weight loss prediction, ozempic results, projected weight loss, free online tool"
       />
-      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/ozempic-weight-loss-calculator" />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

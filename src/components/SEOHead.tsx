@@ -94,14 +94,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ...schemas
   ];
 
-  // To prevent duplicate canonicals, set an ID for the canonical link
-  const canonicalId = "primary-canonical-link";
-
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link id={canonicalId} rel="canonical" href={correctedCanonicalUrl} data-source="seo-head" />
+      <link rel="canonical" href={correctedCanonicalUrl} />
       {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Favicon links */}
