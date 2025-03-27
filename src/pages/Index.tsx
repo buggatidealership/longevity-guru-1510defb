@@ -184,7 +184,7 @@ const Index = () => {
                 </div>
               </Link>
               
-              <Link to="/botox-calculator" className="group">
+              <Link to="/botox-dosage-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-cyan-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-cyan-50 rounded-full flex items-center justify-center mb-3">
                     <Syringe className="h-5 w-5 text-cyan-500" />
