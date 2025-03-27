@@ -9,8 +9,9 @@
  * @returns Properly formatted sitemap content
  */
 export const cleanSitemapContent = (sitemapContent: string): string => {
-  // Remove any BOM and whitespace
+  // Remove any BOM, whitespace, or comments before XML declaration
   let cleanedContent = sitemapContent.replace(/^\uFEFF/, '').trim();
+  cleanedContent = cleanedContent.replace(/^[\s\r\n]*<!--[\s\S]*?-->[\s\r\n]*/, '');
   
   // Ensure XML declaration is at the start
   if (!cleanedContent.startsWith('<?xml')) {
@@ -120,4 +121,11 @@ export const debugSitemapStructure = (sitemapContent: string): void => {
   console.log('Has urlset open tag:', sitemapContent.includes('<urlset'));
   console.log('Has urlset close tag:', sitemapContent.includes('</urlset>'));
   console.log('Number of URL entries:', (sitemapContent.match(/<url>/g) || []).length);
+  
+  // Check if there are any characters before the XML declaration
+  if (!sitemapContent.trimStart().startsWith('<?xml')) {
+    console.error('CRITICAL ERROR: Characters detected before XML declaration');
+    console.log('Characters before XML declaration:', 
+      sitemapContent.substring(0, sitemapContent.indexOf('<?xml')));
+  }
 };

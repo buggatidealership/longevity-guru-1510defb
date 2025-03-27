@@ -18,32 +18,20 @@ const setupSitemap = async () => {
     sitemapLink.href = '/sitemap.xml';
     document.head.appendChild(sitemapLink);
     
-    // Check if the sitemap is accessible and properly formatted
-    const { checkSitemapAccessibility, fixSitemapXml, debugSitemapStructure } = await import('./utils/sitemap-utils');
+    // Load utilities for sitemap validation
+    const { checkSitemapAccessibility, debugSitemapStructure } = await import('./utils/sitemap-utils');
     
-    // First try to debug the sitemap content
-    console.log('Debugging sitemap content...');
+    // Debug sitemap structure first to identify issues
+    console.log('Debugging sitemap structure...');
     await debugSitemapStructure('/sitemap.xml');
     
-    // Then check if it's accessible
+    // Check if sitemap is accessible and properly formatted
     const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
     
-    if (!isAccessible) {
-      console.warn('Sitemap might not be properly formatted or accessible. Attempting to fix...');
-      
-      // Try to fix the sitemap
-      const fixed = await fixSitemapXml('/sitemap.xml');
-      
-      if (fixed) {
-        console.info('Sitemap has been fixed and is now properly formatted.');
-        // Verify the fix worked
-        const verifyFix = await checkSitemapAccessibility('/sitemap.xml');
-        console.info('Sitemap accessibility after fix:', verifyFix ? 'OK' : 'Still has issues');
-      } else {
-        console.error('Unable to fix sitemap. Please check the sitemap.xml file manually.');
-      }
+    if (isAccessible) {
+      console.info('✅ Sitemap is accessible and properly formatted.');
     } else {
-      console.info('Sitemap is accessible and properly formatted.');
+      console.warn('⚠️ Sitemap might have issues. Please check the console logs for details.');
     }
   } catch (error) {
     console.error('Error setting up sitemap:', error);
