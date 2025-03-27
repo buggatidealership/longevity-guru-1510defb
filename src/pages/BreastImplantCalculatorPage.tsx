@@ -21,6 +21,24 @@ const BreastImplantCalculatorPage = () => {
     });
   };
 
+  // Script to ensure all external links have proper rel attributes
+  React.useEffect(() => {
+    const fixExternalLinks = () => {
+      const externalLinks = document.querySelectorAll('a[target="_blank"]');
+      externalLinks.forEach(link => {
+        if (!link.getAttribute('rel') || !link.getAttribute('rel').includes('noopener')) {
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    };
+
+    // Run on mount and after a small delay to catch dynamic content
+    fixExternalLinks();
+    const timer = setTimeout(fixExternalLinks, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return <>
       <SEOHead 
         title="Breast Implant Size Calculator | CC Volume & Cost Tool" 
@@ -36,7 +54,7 @@ const BreastImplantCalculatorPage = () => {
         
         <main className="max-w-4xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">Breast Implant Size Calculator</h1>
-          <p className="text-gray-600 max-w-2xl mb-6 text-center">
+          <p className="text-gray-600 max-w-2xl mb-6 text-center mx-auto">
             Calculate your ideal breast implant size in CC based on measurements and desired outcome.
           </p>
           

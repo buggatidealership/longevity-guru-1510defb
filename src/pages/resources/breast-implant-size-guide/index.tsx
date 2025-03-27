@@ -10,6 +10,7 @@ import CallToAction from './CallToAction';
 import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
+import CanonicalFixer from '@/components/CanonicalFixer';
 
 const BreastImplantSizeGuide = () => {
   // Generate schema for breadcrumbs
@@ -35,16 +36,33 @@ const BreastImplantSizeGuide = () => {
   );
   
   const schemas = [breadcrumbSchema, articleSchema];
+  
+  // Effect to fix external links
+  React.useEffect(() => {
+    const fixExternalLinks = () => {
+      const externalLinks = document.querySelectorAll('a[target="_blank"]');
+      externalLinks.forEach(link => {
+        if (!link.getAttribute('rel') || !link.getAttribute('rel').includes('noopener')) {
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    };
+    
+    fixExternalLinks();
+    const timer = setTimeout(fixExternalLinks, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
       <SEOHead 
         title="How to Choose the Right Breast Implant Size: A Personalized, Data-Backed Guide" 
         description="Struggling to decide on breast implant size? Use our calculator and expert-backed guide to understand cc measurements, cup size equivalents, and what affects your final result." 
-        canonicalUrl="/resources/breast-implant-size-guide" 
+        canonicalUrl="https://longevitycalculator.xyz/resources/breast-implant-size-guide" 
         keywords="breast implant size, breast augmentation size guide, implant cc, cup size equivalent, breast implant calculator, breast implant sizing, how to choose implant size, breast implant profile" 
         schemas={schemas} 
       />
+      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/resources/breast-implant-size-guide" />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

@@ -94,6 +94,19 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ...schemas
   ];
 
+  // Add the script to fix external links that don't have rel attributes
+  const fixExternalLinksScript = `
+    document.addEventListener('DOMContentLoaded', function() {
+      var links = document.querySelectorAll('a[target="_blank"]');
+      for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        if (!link.hasAttribute('rel') || !link.getAttribute('rel').includes('noopener')) {
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    });
+  `;
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -137,6 +150,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Sitemap reference - added explicitly in meta tags in addition to link element */}
       <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       <meta name="sitemap" content="https://longevitycalculator.xyz/sitemap.xml" />
+      
+      {/* Script to fix external links */}
+      <script>{fixExternalLinksScript}</script>
       
       {/* Structured data */}
       {allSchemas.map((schema, index) => (

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
 import Logo from '@/components/Logo';
@@ -11,10 +12,26 @@ import { cn } from '@/lib/utils';
 import { FileText } from 'lucide-react';
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/utils/seoUtils';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
+import CanonicalFixer from '@/components/CanonicalFixer';
+
 const CreatineWaterCalculatorPage: React.FC = () => {
   // Add this URL to sitemap when component mounts
   useEffect(() => {
     addUrlToSitemap('creatine-water-calculator', 0.9);
+    
+    // Fix external links
+    const fixExternalLinks = () => {
+      const externalLinks = document.querySelectorAll('a[target="_blank"]');
+      externalLinks.forEach(link => {
+        if (!link.getAttribute('rel') || !link.getAttribute('rel').includes('noopener')) {
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    };
+    
+    fixExternalLinks();
+    const timer = setTimeout(fixExternalLinks, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   // FAQ data for schema markup
@@ -67,8 +84,10 @@ const CreatineWaterCalculatorPage: React.FC = () => {
       "priceCurrency": "USD"
     }
   }];
+  
   return <>
       <SEOHead title="Creatine Water Intake Calculator – How Much Water Do You Need?" description="Calculate the optimal water intake when taking creatine supplements based on your weight, activity level, and creatine dosage." canonicalUrl="https://longevitycalculator.xyz/creatine-water-calculator" keywords="creatine water calculator, water intake calculator, creatine hydration, how much water with creatine, creatine loading water, fitness hydration, creatine supplementation" ogType="website" ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png" schemas={schemas} />
+      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/creatine-water-calculator" />
 
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
         <header className="max-w-6xl mx-auto pt-4 px-4 w-full">

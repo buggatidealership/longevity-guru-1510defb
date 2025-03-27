@@ -50,14 +50,33 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
       }
     };
 
+    // Fix external links that don't have rel="noopener noreferrer"
+    const fixExternalLinks = () => {
+      const externalLinks = document.querySelectorAll('a[target="_blank"]');
+      externalLinks.forEach(link => {
+        const rel = link.getAttribute('rel');
+        if (!rel || (!rel.includes('noopener') && !rel.includes('noreferrer'))) {
+          link.setAttribute('rel', 'noopener noreferrer');
+          console.log('Fixed external link:', link);
+        }
+      });
+    };
+
     // Run once on mount
     fixCanonicalLinks();
+    fixExternalLinks();
     
     // Also run after a small delay to catch late additions
-    const timeoutId = setTimeout(fixCanonicalLinks, 1000);
+    const timeoutId = setTimeout(() => {
+      fixCanonicalLinks();
+      fixExternalLinks();
+    }, 1000);
     
     // And run periodically to catch any dynamic changes
-    const intervalId = setInterval(fixCanonicalLinks, 5000);
+    const intervalId = setInterval(() => {
+      fixCanonicalLinks();
+      fixExternalLinks();
+    }, 5000);
     
     return () => {
       clearTimeout(timeoutId);
