@@ -69,19 +69,30 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
                href === canonicalUrl + '/';
       });
       
+      // If there's no existing link to the canonical URL, add a hidden one
       if (existingLinks.length === 0) {
-        console.log('Adding link to canonical URL in footer');
-        // Add a hidden link to the canonical URL
+        console.log('Adding hidden link to canonical URL for SEO');
+        
+        // Remove any existing canonical links we previously added
+        const oldLinks = document.querySelectorAll('a[data-canonical-link="true"]');
+        oldLinks.forEach(link => link.parentNode?.removeChild(link));
+        
+        // Add a properly hidden link to the canonical URL (invisible to users but detectable by crawlers)
         const canonicalLink = document.createElement('a');
         canonicalLink.href = canonicalUrl;
-        canonicalLink.textContent = 'Canonical Version';
+        canonicalLink.textContent = 'Canonical URL';
         canonicalLink.style.position = 'absolute';
-        canonicalLink.style.bottom = '0';
-        canonicalLink.style.opacity = '0.5';
-        canonicalLink.style.fontSize = '10px';
-        canonicalLink.style.color = '#999';
-        canonicalLink.setAttribute('aria-hidden', 'false');
+        canonicalLink.style.width = '1px';
+        canonicalLink.style.height = '1px';
+        canonicalLink.style.padding = '0';
+        canonicalLink.style.margin = '-1px';
+        canonicalLink.style.overflow = 'hidden';
+        canonicalLink.style.clip = 'rect(0, 0, 0, 0)';
+        canonicalLink.style.whiteSpace = 'nowrap';
+        canonicalLink.style.border = '0';
+        canonicalLink.setAttribute('aria-hidden', 'true');
         canonicalLink.setAttribute('data-canonical-link', 'true');
+        canonicalLink.setAttribute('tabindex', '-1');
         
         // Add to the footer if possible, otherwise to the body
         const footer = document.querySelector('footer');
