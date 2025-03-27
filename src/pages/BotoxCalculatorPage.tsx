@@ -32,12 +32,12 @@ const BotoxCalculatorPage = () => {
       <SEOHead 
         title="Botox Dosage Calculator | Units by Treatment Area"
         description="Calculate the estimated botox units needed for your treatment with our free botox dosage calculator. Get personalized recommendations by treatment area."
-        canonicalUrl="https://longevitycalculator.xyz/botox"
+        canonicalUrl="https://longevitycalculator.xyz/botox-dosage-calculator"
         keywords="botox calculator, botox dosage calculator, botox units calculator, botox cost calculator, botox treatment area calculator"
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
-      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/botox" />
+      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/botox-dosage-calculator" />
       
       <BotoxPageHeader />
       <BotoxMainContent 

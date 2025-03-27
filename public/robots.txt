@@ -13,6 +13,7 @@ Allow: /macronutrient-calculator
 Allow: /vitamin-d-calculator
 Allow: /creatine-water-calculator
 Allow: /breast-implant-calculator
+Allow: /botox-dosage-calculator
 Allow: /ozempic-weight-loss-calculator
 Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
@@ -23,6 +24,7 @@ Allow: /terms
 
 # Prioritize these pages for indexing (hint to Google)
 Allow: /breast-implant-calculator$
+Allow: /botox-dosage-calculator$
 Allow: /ozempic-weight-loss-calculator$
 Allow: /resources/ozempic-weight-loss-calculator-guide$
 
