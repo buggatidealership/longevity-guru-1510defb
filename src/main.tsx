@@ -2,75 +2,79 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
+import { checkCookiebotInitialization, applyCookiebotStyling } from './utils/cookie-consent';
 
-// Get the root element early to avoid layout shifts
+// Create root element and render app
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
 
-// Create root and render app with priority
-const root = createRoot(rootElement);
-root.render(<App />);
-
-// Defer non-critical initialization tasks
-const deferredTasks = async () => {
+// Check sitemap accessibility and add sitemap link to head
+const setupSitemap = async () => {
   try {
-    // Import utilities after the main content has rendered
-    const { checkCookiebotInitialization, applyCookiebotStyling } = await import('./utils/cookie-consent');
-    const { checkSitemapOnStartup } = await import('./utils/sitemap/sitemap-checking');
-    
-    // Add sitemap link to head
+    // Create and add the sitemap link
     const sitemapLink = document.createElement('link');
     sitemapLink.rel = 'sitemap';
     sitemapLink.type = 'application/xml';
     sitemapLink.href = '/sitemap.xml';
     document.head.appendChild(sitemapLink);
     
-    // Run sitemap checker
-    checkSitemapOnStartup();
+    // Check if the sitemap is accessible
+    const { checkSitemapAccessibility, fixSitemapXml } = await import('./utils/sitemap-utils');
+    const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
     
-    // Setup tracking for page views
-    if (typeof window !== 'undefined' && window.gtag) {
-      const trackPageView = () => {
-        try {
-          const path = window.location.pathname + window.location.search;
-          window.gtag('event', 'page_view', {
-            page_path: path,
-            page_title: document.title,
-            page_location: window.location.href
-          });
-        } catch (error) {
-          console.error('Error tracking page view:', error);
-        }
-      };
+    if (!isAccessible) {
+      console.warn('Sitemap might not be properly formatted or accessible. Attempting to fix...');
       
-      // Add event listener for history changes
-      window.addEventListener('popstate', trackPageView);
-      
-      // Track initial page view
-      trackPageView();
-    }
-    
-    // Initialize cookie-related functionality
-    setTimeout(() => {
-      checkCookiebotInitialization();
-      applyCookiebotStyling();
-      
-      // Verify GA4 functioning after delay
-      if (typeof window.verifyGA4 === 'function') {
-        window.verifyGA4();
+      // Try to fix the sitemap
+      const fixed = await fixSitemapXml('/sitemap.xml');
+      if (fixed) {
+        console.info('Sitemap has been fixed and is now properly formatted.');
+      } else {
+        console.error('Unable to fix sitemap. Please check the sitemap.xml file manually.');
       }
-    }, 2000);
-    
+    } else {
+      console.info('Sitemap is accessible and properly formatted.');
+    }
   } catch (error) {
-    console.error('Error in deferred tasks:', error);
+    console.error('Error setting up sitemap:', error);
   }
 };
 
-// Execute deferred tasks after main content render
-if (typeof window !== 'undefined') {
-  if (document.readyState === 'complete') {
-    deferredTasks();
-  } else {
-    window.addEventListener('load', deferredTasks);
+// Track page views on route changes
+const trackPageView = () => {
+  if (typeof window !== 'undefined' && window.gtag) {
+    try {
+      const path = window.location.pathname + window.location.search;
+      window.gtag('event', 'page_view', {
+        page_path: path,
+        page_title: document.title,
+        page_location: window.location.href
+      });
+      console.info('Page view tracked:', path);
+    } catch (error) {
+      console.error('Error tracking page view:', error);
+    }
   }
-}
+};
+
+// Add event listener to track page views on history changes
+window.addEventListener('popstate', trackPageView);
+
+// Initialize app and services
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize sitemap
+  setupSitemap();
+  
+  // Wait a moment for Cookiebot to initialize
+  setTimeout(() => {
+    checkCookiebotInitialization();
+    applyCookiebotStyling(); 
+    
+    // Verify GA4 functioning
+    if (typeof window.verifyGA4 === 'function') {
+      window.verifyGA4();
+    }
+  }, 2000);
+});
+
+createRoot(rootElement).render(<App />);

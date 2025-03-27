@@ -102,6 +102,18 @@ const BotoxDosageGuide = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How Much Botox Do You Really Need? A Calculator-Based Guide by Treatment Area</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
+            <div className="my-6">
+              <img 
+                src="https://images.unsplash.com/photo-1621798986237-93d793afafc2?auto=format&fit=crop&w=1200&q=80" 
+                alt="Botox treatment being administered by medical professional" 
+                className="w-full rounded-xl shadow-md object-cover"
+                loading="lazy"
+              />
+              <p className="text-sm text-gray-500 italic mt-2 text-center">
+                Precise dosing is crucial for natural-looking Botox results.
+              </p>
+            </div>
+            
             <IntroSection />
             
             <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>

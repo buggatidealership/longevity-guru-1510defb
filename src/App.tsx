@@ -23,7 +23,6 @@ import MacronutrientCalculatorPage from './pages/MacronutrientCalculatorPage';
 import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage';
 import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
 import CreatineWaterCalculatorPage from './pages/CreatineWaterCalculatorPage';
-import OzempicWeightLossCalculatorPage from './pages/OzempicWeightLossCalculatorPage';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -46,8 +45,6 @@ import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
-import VitaminDIntakeGuide from './pages/resources/vitamin-d-intake-guide';
-import CreatineWaterIntakeGuide from './pages/resources/creatine-water-intake-guide';
 
 function App() {
   useEffect(() => {
@@ -88,7 +85,6 @@ function App() {
         <Route path="/ideal-body-weight-calculator" element={<IdealBodyWeightCalculatorPage />} />
         <Route path="/vitamin-d-calculator" element={<VitaminDCalculatorPage />} />
         <Route path="/creatine-water-calculator" element={<CreatineWaterCalculatorPage />} />
-        <Route path="/ozempic-weight-loss-calculator" element={<OzempicWeightLossCalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
@@ -111,8 +107,6 @@ function App() {
         <Route path="/resources/how-to-calculate-your-tdee" element={<HowToCalculateYourTDEE />} />
         <Route path="/resources/macronutrient-calculator-guide" element={<MacronutrientCalculatorGuide />} />
         <Route path="/resources/ideal-body-weight-guide" element={<IdealBodyWeightGuide />} />
-        <Route path="/resources/vitamin-d-intake-guide" element={<VitaminDIntakeGuide />} />
-        <Route path="/resources/creatine-water-intake-guide" element={<CreatineWaterIntakeGuide />} />
         
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />

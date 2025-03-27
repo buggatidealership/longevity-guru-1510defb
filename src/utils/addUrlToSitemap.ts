@@ -27,10 +27,8 @@ export const addUrlToSitemap = (path: string, priority: number = 0.9) => {
   // 1. Read the existing sitemap.xml
   // 2. Parse it to a DOM
   // 3. Check if the URL already exists
-  // 4. If not, add the new URL entry BEFORE the closing </urlset> tag
+  // 4. If not, add the new URL entry
   // 5. Serialize back to XML and write to the file
-  // 6. CRITICAL: Ensure the XML declaration is at the very start with no whitespace
-  //    <?xml version="1.0" encoding="UTF-8"?>
   
   return true;
 };

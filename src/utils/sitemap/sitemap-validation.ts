@@ -1,3 +1,4 @@
+
 /**
  * Functions for validating sitemap content and structure
  */
@@ -11,13 +12,12 @@ export const validateSitemap = (sitemapContent: string) => {
   // First normalize the content to remove BOM and trim whitespace
   const normalizedContent = sitemapContent.replace(/^\uFEFF/, '').trim();
   
-  // The most critical test: Check for any characters at all before XML declaration
-  const startsWithXml = normalizedContent.startsWith('<?xml');
-  if (!startsWithXml) {
+  // Check for any whitespace before XML declaration (this is the most common cause of errors)
+  if (!normalizedContent.match(/^\s*<\?xml/)) {
     return {
       isValid: false,
-      errors: ['Critical error: XML declaration is not at the start of the file'],
-      message: 'XML declaration must be the very first characters in the file with no whitespace or other characters before it'
+      errors: ['Whitespace or characters detected before XML declaration'],
+      message: 'Critical error: XML declaration must be at the very beginning of the file with no whitespace before it'
     };
   }
   
@@ -86,38 +86,18 @@ export const validateSitemapFile = async (sitemapFilePath: string): Promise<bool
     // This is a placeholder for a file reading operation
     // In a browser environment, this would use fetch or similar
     // In a Node.js environment, this would use fs.readFile
-    const response = await fetch(sitemapFilePath);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch sitemap: ${response.status}`);
-    }
-    
-    // Get raw response as ArrayBuffer to check for BOM and other invisible characters
-    const buffer = await response.arrayBuffer();
-    const bytes = new Uint8Array(buffer);
-    
-    // Check for BOM (Byte Order Mark)
-    let hasBOM = false;
-    if (bytes.length >= 3 && bytes[0] === 0xEF && bytes[1] === 0xBB && bytes[2] === 0xBF) {
-      console.warn('Sitemap has UTF-8 BOM marker which should be removed');
-      hasBOM = true;
-    }
-    
-    // Check for whitespace before XML declaration
-    let content = await response.text();
-    if (hasBOM) {
-      content = content.replace(/^\uFEFF/, '');
-    }
-    
-    if (!content.trimStart().startsWith('<?xml')) {
-      console.error('Critical error: XML declaration is not at the start of the file (after trimming whitespace)');
-      return false;
-    }
+    const sitemapContent = await fetch(sitemapFilePath).then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch sitemap: ${response.status}`);
+      }
+      return response.text();
+    });
     
     // Import normalize function
     const { normalizeSitemapXml } = await import('./sitemap-format');
     
     // Normalize before validation
-    const normalizedContent = normalizeSitemapXml(content);
+    const normalizedContent = normalizeSitemapXml(sitemapContent);
     
     const result = validateSitemap(normalizedContent);
     

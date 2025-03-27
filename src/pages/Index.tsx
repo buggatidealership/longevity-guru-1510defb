@@ -1,69 +1,22 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import { AdUnit } from '@/components/AdUnit';
-import { 
-  Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, 
-  Activity, Scissors, Syringe, Beer, FileText, Flame, 
-  MenuSquare, Weight, Sun, Droplets 
-} from 'lucide-react';
+import { Clock, Calculator, ArrowRight, Baby, Ruler, LineChart, Activity, Scissors, Syringe, Beer, Scissors as ScissorsIcon, FileText, Flame, MenuSquare, Weight, Sun, Droplets } from 'lucide-react';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
+import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
 
-const FooterWithCollapsibleLinks = lazy(() => import('@/components/FooterWithCollapsibleLinks'));
-
-const LoadingPlaceholder = () => (
-  <div className="h-40 w-full bg-gray-100 animate-pulse rounded-lg"></div>
-);
-
 const Index = () => {
-  const calculatorCount = 15;
+  // Count the number of calculator pages (excluding placeholder/coming soon calculators)
+  const calculatorCount = 15; // Updated count: lifespan, retirement, fertility, growth, adult height, metabolism, breast implant, botox, alcohol, baldness, TDEE, macronutrient, ideal body weight, vitamin D, creatine water
 
-  useEffect(() => {
-    addUrlToSitemap('', 1.0);
+  // Add homepage to sitemap
+  React.useEffect(() => {
+    addUrlToSitemap('', 1.0); // Homepage has highest priority
   }, []);
-
-  useEffect(() => {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(() => {
-        const imagesToPreload = ['/logo.png'];
-        imagesToPreload.forEach(src => {
-          const img = new Image();
-          img.src = src;
-        });
-      });
-    }
-  }, []);
-
-  const CalculatorCard = ({ 
-    to, 
-    icon: Icon, 
-    color, 
-    title, 
-    description 
-  }: { 
-    to: string;
-    icon: React.ElementType;
-    color: string;
-    title: string;
-    description: string;
-  }) => (
-    <Link to={to} className="group">
-      <div className={`border rounded-lg p-4 h-full flex flex-col hover:border-${color}-300 hover:shadow-md transition-all duration-200`}>
-        <div className={`w-10 h-10 bg-${color}-50 rounded-full flex items-center justify-center mb-3`}>
-          <Icon className={`h-5 w-5 text-${color}-500`} />
-        </div>
-        <h3 className="font-semibold text-sm mb-2 line-clamp-1">{title}</h3>
-        <p className="text-xs text-gray-500 mb-2 flex-grow">{description}</p>
-        <span className={`text-xs text-${color}-500 flex items-center group-hover:underline`}>
-          Calculate
-          <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-        </span>
-      </div>
-    </Link>
-  );
 
   return (
     <>
@@ -99,8 +52,7 @@ const Index = () => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          
-          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ height: '90px', overflow: 'hidden' }}>
+          <div className="mb-2 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="1111111111" 
@@ -111,20 +63,22 @@ const Index = () => {
         </header>
         
         <main className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-6">
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-4">
-              <span className="text-primary relative inline-block mr-3">
-                {calculatorCount}
-              </span>
-              <span>Free Calculators</span>
-            </h1>
-            <div className="h-0.5 w-32 bg-gray-200 mx-auto mb-2"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
-              ... for smarter lifestyle planning and informed decision-making
-            </p>
+          <div className="text-center mb-10">
+            <div className="relative mx-auto max-w-3xl">
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight py-3">
+                <span className="text-primary relative inline-block mr-3">
+                  {calculatorCount}
+                </span>
+                <span>Free Calculators</span>
+              </h1>
+              <div className="h-0.5 w-32 bg-gray-200 mx-auto my-4"></div>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                ... for smarter lifestyle planning and informed decision-making
+              </p>
+            </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 calculator-grid">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               <Link to="/life-expectancy-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-blue-300 hover:shadow-md transition-all duration-200">
@@ -255,7 +209,7 @@ const Index = () => {
               <Link to="/baldness-risk-calculator" className="group">
                 <div className="border rounded-lg p-4 h-full flex flex-col hover:border-slate-300 hover:shadow-md transition-all duration-200">
                   <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center mb-3">
-                    <Scissors className="h-5 w-5 text-slate-500" />
+                    <ScissorsIcon className="h-5 w-5 text-slate-500" />
                   </div>
                   <h3 className="font-semibold text-sm mb-2 line-clamp-1">Baldness Risk</h3>
                   <p className="text-xs text-gray-500 mb-2 flex-grow">Predict hair loss timeline and risk factors.</p>
@@ -338,7 +292,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ height: '250px', overflow: 'hidden' }}>
+          <div className="my-6 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
             <AdUnit 
               className="w-full"
               slot="2222222222" 
@@ -347,7 +301,7 @@ const Index = () => {
             />
           </div>
           
-          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ height: '90px', overflow: 'hidden' }}>
+          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
             <AdUnit 
               className="w-full"
               slot="3333333333" 
@@ -357,9 +311,7 @@ const Index = () => {
           </div>
         </main>
         
-        <Suspense fallback={<LoadingPlaceholder />}>
-          <FooterWithCollapsibleLinks />
-        </Suspense>
+        <FooterWithCollapsibleLinks />
       </div>
     </>
   );
