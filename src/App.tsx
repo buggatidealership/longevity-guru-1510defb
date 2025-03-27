@@ -42,7 +42,7 @@ import AdultHeightPredictionGuide from './pages/resources/adult-height-predictio
 import BotoxDosageGuide from './pages/resources/botox-dosage-guide';
 import AlcoholAndLongevity from './pages/resources/alcohol-and-longevity';
 import WillIGoBald from './pages/resources/will-i-go-bald';
-import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-height';
+import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-adult-height';
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
@@ -72,20 +72,33 @@ function App() {
         <Route path="/female-fertility-calculator" element={<FertilityCalculator />} />
         <Route path="/baldness-risk-calculator" element={<BaldnessRiskCalculatorPage />} />
         <Route path="/adult-height-predictor-calculator" element={<AdultHeightPredictorPage />} />
-        <Route path="/growth-percentile-calculator" element={<GrowthPercentilePage />} />
-        <Route path="/child-growth-percentile-calculator" element={<GrowthPercentilePage />} />
         
-        {/* Breast Implant Calculator Routes - Make /breastimplant the primary route */}
+        {/* Growth Percentile Calculator Routes - Make /growth the primary route */}
+        <Route path="/growth" element={<GrowthPercentilePage />} />
+        {/* Redirect alternate URLs to the canonical /growth path */}
+        <Route path="/growth-percentile-calculator" element={<Navigate to="/growth" replace />} />
+        <Route path="/child-growth-percentile-calculator" element={<Navigate to="/growth" replace />} />
+        
+        {/* Breast Implant Calculator Routes */}
         <Route path="/breastimplant" element={<BreastImplantCalculatorPage />} />
-        {/* Redirect alternate URLs to the canonical /breastimplant path */}
         <Route path="/breast-implant-calculator" element={<Navigate to="/breastimplant" replace />} />
         <Route path="/breast-implant-size-calculator" element={<Navigate to="/breastimplant" replace />} />
         
+        {/* Metabolism Calculator */}
         <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />
-        <Route path="/alcohol-lifespan-calculator" element={<AlcoholCalculatorPage />} />
-        <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />
-        <Route path="/botox-calculator" element={<BotoxCalculatorPage />} />
-        <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
+        
+        {/* Alcohol Calculator Routes - Make /alcohol the primary route */}
+        <Route path="/alcohol" element={<AlcoholCalculatorPage />} />
+        {/* Redirect alternate alcohol calculator URLs to canonical path */}
+        <Route path="/alcohol-lifespan-calculator" element={<Navigate to="/alcohol" replace />} />
+        <Route path="/alcohol-impact-calculator" element={<Navigate to="/alcohol" replace />} />
+        
+        {/* Botox Calculator Routes - Make /botox the primary route */}
+        <Route path="/botox" element={<BotoxCalculatorPage />} />
+        {/* Redirect alternate botox calculator URLs to canonical path */}
+        <Route path="/botox-calculator" element={<Navigate to="/botox" replace />} />
+        <Route path="/botox-dosage-calculator" element={<Navigate to="/botox" replace />} />
+        
         <Route path="/tdee-calculator" element={<TDEECalculatorPage />} />
         <Route path="/macronutrient-calculator" element={<MacronutrientCalculatorPage />} />
         <Route path="/ideal-body-weight-calculator" element={<IdealBodyWeightCalculatorPage />} />

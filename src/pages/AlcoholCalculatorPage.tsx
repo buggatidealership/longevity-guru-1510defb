@@ -12,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import CanonicalFixer from '@/components/CanonicalFixer';
 
 const AlcoholCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -35,9 +36,11 @@ const AlcoholCalculatorPage = () => {
       <SEOHead 
         title="Alcohol Impact on Lifespan Calculator | Drinking Health Effects"
         description="Calculate how alcohol consumption affects your life expectancy. Our free alcohol lifespan impact calculator shows potential health effects based on drinking habits, age, and gender."
-        canonicalUrl="https://longevitycalculator.xyz/alcohol-impact-calculator"
+        canonicalUrl="https://longevitycalculator.xyz/alcohol"
         keywords="alcohol lifespan calculator, drinking health impact, alcohol life expectancy, alcohol mortality risk, drinking habits health effects"
       />
+      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/alcohol" />
+      
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">
           <Logo className="mb-2" />
