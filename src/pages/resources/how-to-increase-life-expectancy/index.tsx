@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
@@ -9,6 +10,7 @@ import CallToAction from './CallToAction';
 import { generateBreadcrumbSchema, generateArticleSchema } from '@/utils/seoUtils';
 import Logo from '@/components/Logo';
 import { AdUnit } from '@/components/AdUnit';
+import CanonicalFixer from '@/components/CanonicalFixer';
 
 const HowToIncreaseLifeExpectancy = () => {
   // Generate schema for breadcrumbs
@@ -28,16 +30,18 @@ const HowToIncreaseLifeExpectancy = () => {
   );
 
   const schemas = [breadcrumbSchema, articleSchema];
+  const canonicalUrl = "https://longevitycalculator.xyz/resources/how-to-increase-life-expectancy";
 
   return (
     <>
       <SEOHead 
         title="How to Increase Life Expectancy: 10 Science-Backed Strategies [Updated]"
         description="Discover science-backed strategies to extend your lifespan and improve your quality of life. Learn about nutrition, exercise, sleep, and other evidence-based approaches to longevity."
-        canonicalUrl="/resources/how-to-increase-life-expectancy"
+        canonicalUrl={canonicalUrl}
         keywords="increase lifespan, live longer, longevity strategies, extend life, health optimization, life expectancy improvement"
         schemas={schemas}
       />
+      <CanonicalFixer expectedCanonicalUrl={canonicalUrl} />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

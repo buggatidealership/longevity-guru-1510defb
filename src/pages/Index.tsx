@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from '@/components/Logo';
 import SEOHead from '@/components/SEOHead';
@@ -8,6 +9,7 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { cn } from '@/lib/utils';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 import { addUrlToSitemap } from '@/utils/addUrlToSitemap';
+import CanonicalFixer from '@/components/CanonicalFixer';
 
 const Index = () => {
   // Count the number of calculator pages (excluding placeholder/coming soon calculators)
@@ -28,6 +30,7 @@ const Index = () => {
         ogType="website"
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
       />
+      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/" />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <header className="max-w-6xl mx-auto pt-4 px-4">

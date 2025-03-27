@@ -42,10 +42,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
           
           const content = await response.text();
           
-          // Absolute simplest check possible
+          // Verify the sitemap starts with an XML declaration
           if (content && !content.startsWith('<?xml')) {
             console.error('CRITICAL ERROR: XML declaration is not at start of sitemap');
             console.error('First few characters:', JSON.stringify(content.substring(0, 20)));
+            // Also show character codes to debug whitespace issues
+            console.error('Character codes:', [...content.substring(0, 10)].map(c => c.charCodeAt(0)));
           } else {
             console.info('Sitemap XML declaration is correctly positioned');
           }
@@ -56,6 +58,31 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       checkSitemap();
     }
+  }, []);
+  
+  // Fix external links function
+  useEffect(() => {
+    const fixExternalLinks = () => {
+      const externalLinks = document.querySelectorAll('a[target="_blank"], a[href^="http"]');
+      externalLinks.forEach(link => {
+        const rel = link.getAttribute('rel');
+        if (!rel || (!rel.includes('noopener') || !rel.includes('noreferrer'))) {
+          link.setAttribute('rel', 'noopener noreferrer');
+          console.log('SEOHead fixed external link:', link.getAttribute('href'));
+        }
+      });
+    };
+    
+    // Run on mount and periodically
+    fixExternalLinks();
+    
+    const timeoutId = setTimeout(fixExternalLinks, 1000);
+    const intervalId = setInterval(fixExternalLinks, 5000);
+    
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
   }, []);
   
   // Make sure the canonical URL is using the correct domain and format
@@ -94,17 +121,46 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     ...schemas
   ];
 
-  // Add the script to fix external links that don't have rel attributes
+  // Enhanced script to fix external links
   const fixExternalLinksScript = `
-    document.addEventListener('DOMContentLoaded', function() {
-      var links = document.querySelectorAll('a[target="_blank"]');
-      for (var i = 0; i < links.length; i++) {
-        var link = links[i];
-        if (!link.hasAttribute('rel') || !link.getAttribute('rel').includes('noopener')) {
-          link.setAttribute('rel', 'noopener noreferrer');
+    (function() {
+      function fixLinks() {
+        var links = document.querySelectorAll('a[target="_blank"], a[href^="http://"], a[href^="https://"]');
+        for (var i = 0; i < links.length; i++) {
+          var link = links[i];
+          var rel = link.getAttribute('rel');
+          if (!rel || !rel.includes('noopener') || !rel.includes('noreferrer')) {
+            link.setAttribute('rel', 'noopener noreferrer');
+          }
         }
       }
-    });
+      
+      // Run immediately
+      fixLinks();
+      
+      // Run after a delay to catch dynamically added links
+      setTimeout(fixLinks, 1000);
+      
+      // Set up a mutation observer to catch future changes
+      if (MutationObserver) {
+        var observer = new MutationObserver(function(mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            if (mutations[i].addedNodes.length) {
+              fixLinks();
+              break;
+            }
+          }
+        });
+        
+        observer.observe(document.body, { 
+          childList: true, 
+          subtree: true 
+        });
+      } else {
+        // Fallback for older browsers
+        setInterval(fixLinks, 3000);
+      }
+    })();
   `;
 
   return (

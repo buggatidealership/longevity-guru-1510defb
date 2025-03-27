@@ -8,6 +8,7 @@ interface CanonicalFixerProps {
 /**
  * Component that checks and fixes duplicate canonical links
  * It will ensure only the correct canonical URL is present
+ * Also fixes external links without proper rel attributes
  */
 const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl }) => {
   useEffect(() => {
@@ -52,12 +53,21 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
 
     // Fix external links that don't have rel="noopener noreferrer"
     const fixExternalLinks = () => {
-      const externalLinks = document.querySelectorAll('a[target="_blank"]');
-      externalLinks.forEach(link => {
+      // Query all links on the page
+      const allLinks = document.querySelectorAll('a');
+      
+      allLinks.forEach(link => {
+        const target = link.getAttribute('target');
+        const href = link.getAttribute('href');
         const rel = link.getAttribute('rel');
-        if (!rel || (!rel.includes('noopener') && !rel.includes('noreferrer'))) {
-          link.setAttribute('rel', 'noopener noreferrer');
-          console.log('Fixed external link:', link);
+        
+        // Only fix external links (with target="_blank" or href starting with http)
+        if (target === '_blank' || (href && (href.startsWith('http://') || href.startsWith('https://')))) {
+          // If no rel attribute or missing noopener/noreferrer
+          if (!rel || (!rel.includes('noopener') || !rel.includes('noreferrer'))) {
+            link.setAttribute('rel', 'noopener noreferrer');
+            console.log('Fixed external link:', href);
+          }
         }
       });
     };
