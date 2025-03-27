@@ -10,6 +10,7 @@ import RelatedCalculators from './breast-implant/RelatedCalculators';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { AdUnit } from '@/components/AdUnit';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
+import CanonicalFixer from '@/components/CanonicalFixer';
 
 const BreastImplantCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -29,6 +30,7 @@ const BreastImplantCalculatorPage = () => {
         ogType="website" 
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png" 
       />
+      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/breastimplant" />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <PageHeader />
         
