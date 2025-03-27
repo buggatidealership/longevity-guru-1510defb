@@ -80,7 +80,7 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
         // Add a properly hidden link to the canonical URL (invisible to users but detectable by crawlers)
         const canonicalLink = document.createElement('a');
         canonicalLink.href = canonicalUrl;
-        canonicalLink.textContent = 'Canonical URL';
+        canonicalLink.textContent = ''; // Empty text content to avoid displaying "Canonical URL"
         canonicalLink.style.position = 'absolute';
         canonicalLink.style.width = '1px';
         canonicalLink.style.height = '1px';
