@@ -23,6 +23,7 @@ import MacronutrientCalculatorPage from './pages/MacronutrientCalculatorPage';
 import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage';
 import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
 import CreatineWaterCalculatorPage from './pages/CreatineWaterCalculatorPage';
+import OzempicWeightLossCalculatorPage from './pages/OzempicWeightLossCalculatorPage';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -85,6 +86,7 @@ function App() {
         <Route path="/ideal-body-weight-calculator" element={<IdealBodyWeightCalculatorPage />} />
         <Route path="/vitamin-d-calculator" element={<VitaminDCalculatorPage />} />
         <Route path="/creatine-water-calculator" element={<CreatineWaterCalculatorPage />} />
+        <Route path="/ozempic-weight-loss-calculator" element={<OzempicWeightLossCalculatorPage />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
