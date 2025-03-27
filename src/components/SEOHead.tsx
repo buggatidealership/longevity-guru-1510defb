@@ -28,7 +28,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
   schemas = [],
 }) => {
-  // Simpler sitemap check that just verifies the file is accessible
+  // Ultra-minimal sitemap check for development only
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
       const checkSitemap = async () => {
@@ -36,18 +36,19 @@ const SEOHead: React.FC<SEOHeadProps> = ({
           const response = await fetch('/sitemap.xml');
           
           if (!response.ok) {
-            console.warn(`⚠️ Sitemap fetch failed: ${response.status} ${response.statusText}`);
+            console.warn(`Sitemap fetch failed: ${response.status}`);
             return;
           }
           
           const content = await response.text();
           
-          if (!content.startsWith('<?xml')) {
-            console.warn('⚠️ Sitemap does not start with XML declaration');
-            return;
+          // Absolute simplest check possible
+          if (content && !content.startsWith('<?xml')) {
+            console.error('CRITICAL ERROR: XML declaration is not at start of sitemap');
+            console.error('First few characters:', JSON.stringify(content.substring(0, 20)));
+          } else {
+            console.info('Sitemap XML declaration is correctly positioned');
           }
-          
-          console.info('✅ Sitemap is accessible');
         } catch (error) {
           console.error('Error checking sitemap:', error);
         }
