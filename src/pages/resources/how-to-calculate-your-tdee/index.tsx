@@ -9,7 +9,6 @@ import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
 import CanonicalFixer from '@/components/CanonicalFixer';
-import { AdUnit } from '@/components/AdUnit';
 
 const TDEECalculationGuide = () => {
   // Define page title and description
@@ -82,44 +81,10 @@ const TDEECalculationGuide = () => {
         <ResourcePageHeader />
         
         <main className="max-w-3xl mx-auto px-4 pb-12">
-          <article className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{pageTitle}</h1>
-            <div className="h-1 w-20 bg-primary mb-6"></div>
-            
-            <IntroSection />
-            
-            <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-              <AdUnit 
-                className="w-full"
-                slot="2222222222" 
-                format="rectangle"
-                responsive={true}
-              />
-            </div>
-            
-            <ContentSections />
-            
-            <div className="my-8 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '250px' }}>
-              <AdUnit 
-                className="w-full"
-                slot="3333333333" 
-                format="rectangle"
-                responsive={true}
-              />
-            </div>
-            
-            <FAQSection />
-            <CallToAction />
-          </article>
-          
-          <div className="mt-6 mb-4 bg-gray-50 rounded-lg text-center w-full" style={{ minHeight: '90px' }}>
-            <AdUnit 
-              className="w-full"
-              slot="4444444444" 
-              format="horizontal"
-              responsive={true}
-            />
-          </div>
+          <IntroSection />
+          <ContentSections />
+          <FAQSection />
+          <CallToAction />
           
           {/* Additional JSON-LD FAQ schema for enhanced crawler visibility */}
           <script
