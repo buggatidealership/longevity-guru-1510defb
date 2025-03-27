@@ -8,7 +8,7 @@ import { checkCookiebotInitialization, applyCookiebotStyling } from './utils/coo
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Failed to find the root element");
 
-// Verify sitemap format and ensure it's accessible with required XML declaration at start
+// Simplified sitemap verification
 const verifySitemapFormat = async () => {
   try {
     // Make sure the link element for sitemap is present in the document head
@@ -18,25 +18,45 @@ const verifySitemapFormat = async () => {
       sitemapLink.type = 'application/xml';
       sitemapLink.href = '/sitemap.xml';
       document.head.appendChild(sitemapLink);
+      console.info('✅ Added sitemap link to document head');
     }
     
-    // Load sitemap-utils to check the sitemap format
-    const { debugSitemapStructure, checkSitemapAccessibility } = await import('./utils/sitemap-utils');
+    // Basic fetch to verify the sitemap is accessible
+    const response = await fetch('/sitemap.xml');
     
-    // Debug the sitemap structure first
-    console.log('Verifying sitemap structure...');
-    await debugSitemapStructure('/sitemap.xml');
-    
-    // Check if the sitemap is properly formatted
-    const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
-    
-    if (isAccessible) {
-      console.info('✅ Sitemap is accessible and properly formatted.');
-    } else {
-      console.warn('⚠️ Sitemap might have issues. Please check the console logs for details.');
+    if (!response.ok) {
+      console.warn(`⚠️ Sitemap fetch failed: ${response.status} ${response.statusText}`);
+      return;
     }
+    
+    const content = await response.text();
+    
+    // Simple validation - make sure it's not empty and has basic structure
+    if (!content || content.length < 50) {
+      console.warn('⚠️ Sitemap content is too short or empty');
+      return;
+    }
+    
+    if (!content.startsWith('<?xml')) {
+      console.warn('⚠️ Sitemap does not start with XML declaration');
+      console.log('First 100 characters:', content.substring(0, 100).replace(/\n/g, '\\n'));
+      return;
+    }
+    
+    if (!content.includes('<urlset') || !content.includes('</urlset>')) {
+      console.warn('⚠️ Sitemap is missing urlset tags');
+      return;
+    }
+    
+    const urlCount = (content.match(/<url>/g) || []).length;
+    if (urlCount < 1) {
+      console.warn('⚠️ No URL entries found in sitemap');
+      return;
+    }
+    
+    console.info(`✅ Sitemap verification passed. Found ${urlCount} URLs.`);
   } catch (error) {
-    console.error('Error verifying sitemap format:', error);
+    console.error('Error verifying sitemap:', error);
   }
 };
 
@@ -62,7 +82,7 @@ window.addEventListener('popstate', trackPageView);
 
 // Initialize app and services
 document.addEventListener('DOMContentLoaded', () => {
-  // Verify sitemap format
+  // Verify sitemap format with simple approach
   verifySitemapFormat();
   
   // Wait a moment for Cookiebot to initialize

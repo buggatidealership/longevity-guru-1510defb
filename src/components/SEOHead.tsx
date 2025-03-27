@@ -28,19 +28,26 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   keywords = 'calculators, health tools, financial planning, lifestyle calculators, personal development, decision-making tools, free calculators, online tools',
   schemas = [],
 }) => {
-  // Check sitemap accessibility on component mount (only in development)
+  // Simpler sitemap check that just verifies the file is accessible
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
       const checkSitemap = async () => {
         try {
-          const { checkSitemapAccessibility, debugSitemapStructure } = await import('../utils/sitemap-utils');
-          const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
+          const response = await fetch('/sitemap.xml');
           
-          if (!isAccessible) {
-            console.warn('⚠️ Sitemap is not accessible or has format issues');
-            // Debug the content
-            debugSitemapStructure('/sitemap.xml');
+          if (!response.ok) {
+            console.warn(`⚠️ Sitemap fetch failed: ${response.status} ${response.statusText}`);
+            return;
           }
+          
+          const content = await response.text();
+          
+          if (!content.startsWith('<?xml')) {
+            console.warn('⚠️ Sitemap does not start with XML declaration');
+            return;
+          }
+          
+          console.info('✅ Sitemap is accessible');
         } catch (error) {
           console.error('Error checking sitemap:', error);
         }
