@@ -165,6 +165,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 
   return (
     <Helmet>
+      {/* Explicitly set content type */}
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={correctedCanonicalUrl} />

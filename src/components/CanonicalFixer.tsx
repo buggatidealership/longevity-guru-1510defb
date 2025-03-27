@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
 interface CanonicalFixerProps {
   expectedCanonicalUrl: string;
@@ -9,6 +10,7 @@ interface CanonicalFixerProps {
  * Component that checks and fixes duplicate canonical links
  * It will ensure only the correct canonical URL is present
  * Also fixes external links without proper rel attributes
+ * And ensures proper content-type declaration
  */
 const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl }) => {
   useEffect(() => {
@@ -94,7 +96,12 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
     };
   }, [expectedCanonicalUrl]);
 
-  return null; // This component doesn't render anything
+  // Use Helmet to properly set the content-type meta tag
+  return (
+    <Helmet>
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+    </Helmet>
+  );
 };
 
 export default CanonicalFixer;

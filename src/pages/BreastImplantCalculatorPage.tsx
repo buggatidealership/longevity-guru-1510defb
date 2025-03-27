@@ -39,16 +39,18 @@ const BreastImplantCalculatorPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const canonicalUrl = "https://longevitycalculator.xyz/breastimplant";
+
   return <>
       <SEOHead 
         title="Breast Implant Size Calculator | CC Volume & Cost Tool" 
         description="Find your ideal breast implant size using our free calculator. Enter your measurements to receive precise CC volume suggestions and cost estimates." 
-        canonicalUrl="https://longevitycalculator.xyz/breastimplant" 
+        canonicalUrl={canonicalUrl}
         keywords="breast implant calculator, implant size calculator, breast augmentation calculator, CC volume estimator, breast implant cost, implant dimensions, implant profile selector, cup size calculator" 
         ogType="website" 
         ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png" 
       />
-      <CanonicalFixer expectedCanonicalUrl="https://longevitycalculator.xyz/breastimplant" />
+      <CanonicalFixer expectedCanonicalUrl={canonicalUrl} />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <PageHeader />
         
