@@ -156,7 +156,7 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
 
   // Use Helmet to properly set the content-type meta tag
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       {/* Double-ensure the canonical link is set via Helmet */}
       <link rel="canonical" href={expectedCanonicalUrl} />
