@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 interface CanonicalFixerProps {
   expectedCanonicalUrl: string;
+  pageTitle?: string;  // Add explicit pageTitle prop
 }
 
 /**
@@ -13,7 +14,10 @@ interface CanonicalFixerProps {
  * Also fixes external links without proper rel attributes
  * And ensures proper content-type declaration
  */
-const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl }) => {
+const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ 
+  expectedCanonicalUrl,
+  pageTitle  // Accept the pageTitle prop
+}) => {
   const location = useLocation();
   
   useEffect(() => {
@@ -58,18 +62,22 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
       // Ensure the canonical URL is actually linked to from the page
       ensureCanonicalIsLinked(expectedCanonicalUrl);
       
-      // Force set the page title from <title> tag if it exists
-      const pageTitle = document.querySelector('title')?.textContent;
-      
-      // Get the title from the parent component (not from the document)
-      // This ensures we set the correct title for the page
-      const title = document.title;
-      
-      // Always set document.title to ensure it's correct
-      // This is critical for pages where the title might be overridden
-      if (title && title !== "Longevity Calculators | Health & Financial Planning Tools") {
-        document.title = title;
-        console.log('Enforcing page title:', title);
+      // Force set the title if provided
+      if (pageTitle) {
+        // Directly set the document title to force the correct title
+        document.title = pageTitle;
+        console.log('Enforcing specific page title:', pageTitle);
+        
+        // Also update any title elements in the head
+        const titleElement = document.querySelector('title');
+        if (titleElement) {
+          titleElement.textContent = pageTitle;
+        } else {
+          // If no title element exists, create one
+          const newTitleElement = document.createElement('title');
+          newTitleElement.textContent = pageTitle;
+          document.head.appendChild(newTitleElement);
+        }
       }
     };
     
@@ -159,14 +167,16 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [expectedCanonicalUrl, location.pathname]);
+  }, [expectedCanonicalUrl, pageTitle, location.pathname]);
 
-  // Use Helmet to properly set the content-type meta tag
+  // Use Helmet to properly set the content-type meta tag and title
   return (
     <Helmet>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       {/* Double-ensure the canonical link is set via Helmet */}
       <link rel="canonical" href={expectedCanonicalUrl} />
+      {/* Set the title explicitly if provided */}
+      {pageTitle && <title>{pageTitle}</title>}
     </Helmet>
   );
 };

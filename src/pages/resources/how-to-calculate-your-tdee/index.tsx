@@ -72,7 +72,10 @@ const TDEECalculationGuide = () => {
       />
       
       {/* Add CanonicalFixer to ensure title and canonical URL are set correctly */}
-      <CanonicalFixer expectedCanonicalUrl={canonicalUrl} />
+      <CanonicalFixer 
+        expectedCanonicalUrl={canonicalUrl} 
+        pageTitle={pageTitle} // Pass the pageTitle prop
+      />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <ResourcePageHeader />
