@@ -69,6 +69,9 @@ export const ensureCanonicalUrl = (url: string): string => {
   // If URL already matches exactly our domain without a path, return it
   if (url === baseDomain) return url;
   
+  // Normalize trailing slashes - remove them for consistency
+  if (url === `${baseDomain}/`) return baseDomain;
+  
   // Clean the URL path
   let cleanPath = url;
   
@@ -89,6 +92,62 @@ export const ensureCanonicalUrl = (url: string): string => {
   // If path is empty after cleaning, return just the base domain
   if (!cleanPath) return baseDomain;
   
+  // Remove trailing slash if present
+  cleanPath = cleanPath.endsWith('/') ? cleanPath.slice(0, -1) : cleanPath;
+  
+  // Handle special case redirects to map to canonical paths
+  const redirectMap: Record<string, string> = {
+    'breastimplant': 'breast-implant-calculator',
+    'growth-percentile-calculator': 'growth',
+    'child-growth-percentile-calculator': 'growth',
+    'alcohol-lifespan-calculator': 'alcohol',
+    'alcohol-impact-calculator': 'alcohol',
+    'botox-calculator': 'botox',
+    'botox-dosage-calculator': 'botox',
+    'breast-implant-size-calculator': 'breast-implant-calculator'
+  };
+  
+  // Apply redirects if needed
+  if (redirectMap[cleanPath]) {
+    cleanPath = redirectMap[cleanPath];
+  }
+  
   // Construct proper canonical URL
   return `${baseDomain}/${cleanPath}`;
+};
+
+/**
+ * Gets the canonical path for the current page from window.location
+ * @returns The canonical path
+ */
+export const getCanonicalPath = (): string => {
+  if (typeof window === 'undefined') return '';
+  
+  const pathname = window.location.pathname;
+  const path = pathname === '/' ? '' : pathname;
+  return ensureCanonicalUrl(path);
+};
+
+/**
+ * Verifies that no incorrect canonical URLs are present in the DOM
+ * @returns boolean indicating if all canonical URLs are correct
+ */
+export const verifyCanonicalTags = (): boolean => {
+  if (typeof document === 'undefined') return true;
+  
+  const canonicalLinks = document.querySelectorAll('link[rel="canonical"]');
+  if (canonicalLinks.length === 0) return false;
+  
+  let allCorrect = true;
+  const correctCanonical = getCanonicalPath();
+  
+  canonicalLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href !== correctCanonical) {
+      console.error(`Incorrect canonical link found: ${href}. Should be: ${correctCanonical}`);
+      allCorrect = false;
+    }
+  });
+  
+  return allCorrect;
 };

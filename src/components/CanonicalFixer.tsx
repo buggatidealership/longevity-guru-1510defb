@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
 
 interface CanonicalFixerProps {
   expectedCanonicalUrl: string;
@@ -13,6 +14,8 @@ interface CanonicalFixerProps {
  * And ensures proper content-type declaration
  */
 const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl }) => {
+  const location = useLocation();
+  
   useEffect(() => {
     // Function to fix canonical issues
     const fixCanonicalLinks = () => {
@@ -50,6 +53,43 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
         newLink.rel = 'canonical';
         newLink.href = expectedCanonicalUrl;
         document.head.appendChild(newLink);
+      }
+      
+      // Ensure the canonical URL is actually linked to from the page
+      ensureCanonicalIsLinked(expectedCanonicalUrl);
+    };
+    
+    // Makes sure the canonical URL is actually linked from the page
+    const ensureCanonicalIsLinked = (canonicalUrl: string) => {
+      // Check if there's already a link to the canonical URL
+      const existingLinks = Array.from(document.querySelectorAll('a')).filter(link => {
+        const href = link.getAttribute('href');
+        return href === canonicalUrl || 
+               href === canonicalUrl.replace('https://longevitycalculator.xyz', '') ||
+               href === canonicalUrl + '/';
+      });
+      
+      if (existingLinks.length === 0) {
+        console.log('Adding link to canonical URL in footer');
+        // Add a hidden link to the canonical URL
+        const canonicalLink = document.createElement('a');
+        canonicalLink.href = canonicalUrl;
+        canonicalLink.textContent = 'Canonical Version';
+        canonicalLink.style.position = 'absolute';
+        canonicalLink.style.bottom = '0';
+        canonicalLink.style.opacity = '0.5';
+        canonicalLink.style.fontSize = '10px';
+        canonicalLink.style.color = '#999';
+        canonicalLink.setAttribute('aria-hidden', 'false');
+        canonicalLink.setAttribute('data-canonical-link', 'true');
+        
+        // Add to the footer if possible, otherwise to the body
+        const footer = document.querySelector('footer');
+        if (footer) {
+          footer.appendChild(canonicalLink);
+        } else {
+          document.body.appendChild(canonicalLink);
+        }
       }
     };
 
@@ -94,12 +134,14 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [expectedCanonicalUrl]);
+  }, [expectedCanonicalUrl, location.pathname]);
 
   // Use Helmet to properly set the content-type meta tag
   return (
     <Helmet>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      {/* Double-ensure the canonical link is set via Helmet */}
+      <link rel="canonical" href={expectedCanonicalUrl} />
     </Helmet>
   );
 };

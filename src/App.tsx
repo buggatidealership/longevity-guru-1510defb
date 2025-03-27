@@ -79,10 +79,11 @@ function App() {
         <Route path="/growth-percentile-calculator" element={<Navigate to="/growth" replace />} />
         <Route path="/child-growth-percentile-calculator" element={<Navigate to="/growth" replace />} />
         
-        {/* Breast Implant Calculator Routes */}
-        <Route path="/breastimplant" element={<BreastImplantCalculatorPage />} />
-        <Route path="/breast-implant-calculator" element={<Navigate to="/breastimplant" replace />} />
-        <Route path="/breast-implant-size-calculator" element={<Navigate to="/breastimplant" replace />} />
+        {/* Breast Implant Calculator Routes - Make /breast-implant-calculator the primary route */}
+        <Route path="/breast-implant-calculator" element={<BreastImplantCalculatorPage />} />
+        {/* Redirect alternate breast implant URLs to the canonical path */}
+        <Route path="/breastimplant" element={<Navigate to="/breast-implant-calculator" replace />} />
+        <Route path="/breast-implant-size-calculator" element={<Navigate to="/breast-implant-calculator" replace />} />
         
         {/* Metabolism Calculator */}
         <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />

@@ -11,6 +11,7 @@ Allow: /tdee-calculator
 Allow: /macronutrient-calculator
 Allow: /vitamin-d-calculator
 Allow: /creatine-water-calculator
+Allow: /breast-implant-calculator
 Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
