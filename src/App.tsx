@@ -46,6 +46,7 @@ import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
+import OzempicWeightLossCalculatorGuide from './pages/resources/ozempic-weight-loss-calculator-guide';
 
 function App() {
   useEffect(() => {
@@ -128,6 +129,7 @@ function App() {
         <Route path="/resources/how-to-calculate-your-tdee" element={<HowToCalculateYourTDEE />} />
         <Route path="/resources/macronutrient-calculator-guide" element={<MacronutrientCalculatorGuide />} />
         <Route path="/resources/ideal-body-weight-guide" element={<IdealBodyWeightGuide />} />
+        <Route path="/resources/ozempic-weight-loss-calculator-guide" element={<OzempicWeightLossCalculatorGuide />} />
         
         {/* 404 Page */}
         <Route path="*" element={<NotFound />} />

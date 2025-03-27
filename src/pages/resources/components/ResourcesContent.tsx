@@ -26,6 +26,18 @@ const ResourcesContent = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ResourceCard 
+          title="How to Calculate Your Weight Loss with Ozempic – Complete Guide" 
+          description="Learn how to accurately estimate your potential weight loss results while using Ozempic, with this comprehensive, evidence-based guide."
+          content={[
+            "Discover how the Ozempic weight loss calculator works, what factors affect your results, and how to maximize your weight loss outcomes with this GLP-1 medication.",
+            "This guide provides evidence-based strategies for setting realistic expectations and tracking your progress throughout your Ozempic weight loss journey."
+          ]}
+          link="/resources/ozempic-weight-loss-calculator-guide"
+          imageUrl="https://images.unsplash.com/photo-1595561263683-2e11a3e6981c?auto=format&fit=crop&w=600&q=80"
+          date="March 28, 2025"
+        />
+        
+        <ResourceCard 
           title="The Truth About Ideal Body Weight Formulas & How to Use Them" 
           description="Explore the science behind ideal body weight formulas and how to use our free calculator to find your healthiest weight based on height."
           content={[

@@ -1,4 +1,5 @@
 
+
 User-agent: *
 Allow: /
 
@@ -12,14 +13,18 @@ Allow: /macronutrient-calculator
 Allow: /vitamin-d-calculator
 Allow: /creatine-water-calculator
 Allow: /breast-implant-calculator
+Allow: /ozempic-weight-loss-calculator
 Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
+Allow: /resources/ozempic-weight-loss-calculator-guide
 Allow: /privacy
 Allow: /terms
 
-# Prioritize this page for indexing (hint to Google)
+# Prioritize these pages for indexing (hint to Google)
 Allow: /breast-implant-calculator$
+Allow: /ozempic-weight-loss-calculator$
+Allow: /resources/ozempic-weight-loss-calculator-guide$
 
 # Allow access to logo files
 Allow: /logo.png
@@ -37,3 +42,4 @@ Host: longevitycalculator.xyz
 
 # Explicitly disallow the wrong domain
 Disallow: https://lifespan-calculator.com/
+
