@@ -30,20 +30,27 @@ export const validateSitemapUrl = async (url: string): Promise<boolean> => {
       return false;
     }
     
-    // Normalize the sitemap content before validation
+    // Import the validation functions
+    const { validateSitemap } = await import('./sitemap/sitemap-validation');
     const { normalizeSitemapXml, debugSitemapStructure } = await import('./sitemap/sitemap-format');
     
     // Debug the structure before normalization
     debugSitemapStructure(content);
     
+    // Check specifically for the XML declaration at start issue
+    if (!content.trimStart().startsWith('<?xml')) {
+      console.error('Critical error: XML declaration is not at the start of the document.');
+      return false;
+    }
+    
+    // Normalize the content for validation
     const normalizedContent = normalizeSitemapXml(content);
     
-    // Debug the structure after normalization
+    // Debug after normalization
     console.log('After normalization:');
     debugSitemapStructure(normalizedContent);
     
-    // Import the validation function directly to avoid circular dependencies
-    const { validateSitemap } = await import('./sitemap/sitemap-validation');
+    // Validate the normalized content
     const result = validateSitemap(normalizedContent);
     
     if (!result.isValid) {
@@ -69,7 +76,7 @@ export const checkSitemapAccessibility = async (url: string = '/sitemap.xml'): P
       return false;
     }
     
-    // If we get a response but it might have XML issues, try to normalize and validate it
+    // Get the content and debug it
     const content = await response.text();
     console.log(`Received sitemap content (${content.length} bytes)`);
     
@@ -78,92 +85,43 @@ export const checkSitemapAccessibility = async (url: string = '/sitemap.xml'): P
       return false;
     }
     
-    // Debug the content
-    const { debugSitemapStructure } = await import('./sitemap/sitemap-format');
-    debugSitemapStructure(content);
+    // Log key diagnostics
+    console.log('Raw sitemap content length:', content.length);
+    console.log('First 100 chars:', content.substring(0, 100).replace(/\n/g, '\\n'));
+    console.log('Contains XML declaration:', content.includes('<?xml'));
+    console.log('Starts with XML declaration:', content.trimStart().startsWith('<?xml'));
     
-    // Check specifically for the common XML declaration not at start issue
-    if (content.trim() && !content.trimStart().startsWith('<?xml')) {
-      console.error('XML declaration is not at the start of the document.');
-      console.log('This is the most common sitemap error and needs to be fixed.');
-      return false;
-    }
-    
-    try {
-      // Try parsing as XML to see if it's valid
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(content, "application/xml");
-      const parserError = xmlDoc.querySelector('parsererror');
-      
-      if (parserError) {
-        console.warn('Sitemap XML parsing error detected, attempting to fix...');
-        console.warn('Parser error:', parserError.textContent);
-        return false;
+    // Critical check for XML declaration position
+    if (!content.trimStart().startsWith('<?xml')) {
+      console.error('CRITICAL ERROR: XML declaration is not at the start of the document');
+      if (content.includes('<?xml')) {
+        const xmlPos = content.indexOf('<?xml');
+        console.error('Characters before XML declaration:', content.substring(0, xmlPos));
       }
-      
-      return true;
-    } catch (parseError) {
-      console.error('Error parsing sitemap XML:', parseError);
-      return false;
-    }
-  } catch (error) {
-    console.error('Error checking sitemap accessibility:', error);
-    return false;
-  }
-};
-
-// Fix sitemap.xml file if needed
-export const fixSitemapXml = async (url: string = '/sitemap.xml'): Promise<boolean> => {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      console.error(`Failed to fetch sitemap: ${response.status} ${response.statusText}`);
       return false;
     }
     
-    const content = await response.text();
-    
-    // Check if content is valid
-    if (!content || content.trim().length < 50) {
-      console.error('Sitemap content is too short or empty, cannot fix');
-      return false;
-    }
-    
-    // Check if the XML declaration is at the start
-    const xmlAtStart = content.trimStart().startsWith('<?xml');
-    if (!xmlAtStart) {
-      console.log('XML declaration is not at the start. Attempting to fix this common issue...');
-      
-      // Since we can't directly write to the file in browser context,
-      // we log instructions on how to fix it manually
-      console.log('MANUAL FIX REQUIRED: The sitemap.xml file needs to have the XML declaration at the very start without any whitespace.');
-      console.log('1. Edit public/sitemap.xml');
-      console.log('2. Ensure the file starts exactly with: <?xml version="1.0" encoding="UTF-8"?>');
-      console.log('3. Remove any whitespace or characters before this declaration');
-      
-      console.log('For now, we are using a hardcoded sitemap without the issue.');
-      return false;
-    }
-    
-    // If XML declaration is at the start, try to parse the XML to check for other issues
+    // Try parsing as XML
     try {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(content, "application/xml");
       const parserError = xmlDoc.querySelector('parsererror');
       
       if (parserError) {
-        console.warn('XML has other parsing errors:', parserError.textContent);
+        console.error('XML parse error:', parserError.textContent);
         return false;
       }
       
-      console.log('Sitemap XML appears valid.');
+      console.log('XML parsed successfully');
+      const urls = xmlDoc.querySelectorAll('url');
+      console.log(`Found ${urls.length} URLs in sitemap`);
       return true;
     } catch (parseError) {
       console.error('Error parsing XML:', parseError);
       return false;
     }
   } catch (error) {
-    console.error('Error fixing sitemap XML:', error);
+    console.error('Error checking sitemap accessibility:', error);
     return false;
   }
 };

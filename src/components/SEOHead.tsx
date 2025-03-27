@@ -33,13 +33,13 @@ const SEOHead: React.FC<SEOHeadProps> = ({
     if (process.env.NODE_ENV === 'development') {
       const checkSitemap = async () => {
         try {
-          const { checkSitemapAccessibility, debugSitemapContent } = await import('../utils/sitemap-utils');
+          const { checkSitemapAccessibility, debugSitemapStructure } = await import('../utils/sitemap-utils');
           const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
           
           if (!isAccessible) {
             console.warn('⚠️ Sitemap is not accessible or has format issues');
             // Debug the content
-            debugSitemapContent();
+            debugSitemapStructure('/sitemap.xml');
           }
         } catch (error) {
           console.error('Error checking sitemap:', error);
