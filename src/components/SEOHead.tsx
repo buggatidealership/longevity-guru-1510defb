@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { ensureCanonicalUrl } from '../utils/canonical-utils';
@@ -171,6 +170,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Add Referrer-Policy header */}
       <meta name="referrer" content="strict-origin-when-cross-origin" />
       
+      {/* Set title with higher priority */}
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={correctedCanonicalUrl} />

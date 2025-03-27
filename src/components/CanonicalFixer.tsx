@@ -57,6 +57,13 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
       
       // Ensure the canonical URL is actually linked to from the page
       ensureCanonicalIsLinked(expectedCanonicalUrl);
+      
+      // Force set the page title from <title> tag if it exists
+      const pageTitle = document.querySelector('title')?.textContent;
+      if (pageTitle && document.title !== pageTitle) {
+        document.title = pageTitle;
+        console.log('Title updated to:', pageTitle);
+      }
     };
     
     // Makes sure the canonical URL is actually linked from the page
@@ -149,7 +156,7 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
 
   // Use Helmet to properly set the content-type meta tag
   return (
-    <Helmet>
+    <Helmet prioritizeSeoTags>
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       {/* Double-ensure the canonical link is set via Helmet */}
       <link rel="canonical" href={expectedCanonicalUrl} />

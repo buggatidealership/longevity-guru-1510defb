@@ -8,8 +8,14 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
+import CanonicalFixer from '@/components/CanonicalFixer';
 
 const TDEECalculationGuide = () => {
+  // Define page title and description
+  const pageTitle = "How to Calculate Your TDEE & Adjust It for Your Goals";
+  const pageDescription = "Learn how to accurately calculate your Total Daily Energy Expenditure (TDEE) and customize it for weight loss, muscle gain, or maintenance. Includes examples and science-backed tips.";
+  const canonicalUrl = "https://longevitycalculator.xyz/resources/how-to-calculate-your-tdee";
+  
   // Generate schema for breadcrumbs
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', path: '/' },
@@ -19,8 +25,8 @@ const TDEECalculationGuide = () => {
 
   // Generate article schema
   const articleSchema = generateArticleSchema(
-    'How to Calculate Your TDEE & Adjust It for Your Goals',
-    'Learn how to accurately calculate your Total Daily Energy Expenditure (TDEE) and customize it for weight loss, muscle gain, or maintenance. Includes examples and science-backed tips.',
+    pageTitle,
+    pageDescription,
     '/resources/how-to-calculate-your-tdee',
     '2025-03-25T10:00:00+00:00',
     '2025-03-25T10:00:00+00:00'
@@ -58,12 +64,15 @@ const TDEECalculationGuide = () => {
   return (
     <>
       <SEOHead 
-        title="How to Calculate Your TDEE & Adjust It for Your Goals"
-        description="Learn how to accurately calculate your Total Daily Energy Expenditure (TDEE) and customize it for weight loss, muscle gain, or maintenance. Includes examples and science-backed tips."
-        canonicalUrl="/resources/how-to-calculate-your-tdee"
+        title={pageTitle}
+        description={pageDescription}
+        canonicalUrl={canonicalUrl}
         keywords="TDEE, total daily energy expenditure, calorie calculator, weight loss, muscle gain, BMR, maintenance calories, energy balance"
         schemas={schemas}
       />
+      
+      {/* Add CanonicalFixer to ensure title and canonical URL are set correctly */}
+      <CanonicalFixer expectedCanonicalUrl={canonicalUrl} />
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <ResourcePageHeader />
