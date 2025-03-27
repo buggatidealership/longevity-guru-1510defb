@@ -1,4 +1,5 @@
 
+
 User-agent: *
 Allow: /
 
@@ -41,3 +42,4 @@ Host: longevitycalculator.xyz
 
 # Explicitly disallow the wrong domain
 Disallow: https://lifespan-calculator.com/
+
