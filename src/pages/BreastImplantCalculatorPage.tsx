@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import SEOHead from '@/components/SEOHead';
 import { Link } from 'react-router-dom';
 import BreastImplantCalculator from '@/components/BreastImplantCalculator';
@@ -11,6 +11,8 @@ import DisclaimerAlert from '@/components/DisclaimerAlert';
 import { AdUnit } from '@/components/AdUnit';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 import CanonicalFixer from '@/components/CanonicalFixer';
+import HeadCustomization from '@/components/HeadCustomization';
+import { generateArticleSchema } from '@/utils/seoUtils';
 
 const BreastImplantCalculatorPage = () => {
   // Handler to scroll to top when clicking internal links
@@ -21,8 +23,20 @@ const BreastImplantCalculatorPage = () => {
     });
   };
 
+  // Effect to encourage Google to index this page
+  useEffect(() => {
+    // Update the page title with a timestamp to show freshness
+    document.title = `Breast Implant Size Calculator | CC Volume & Cost Tool (Updated ${new Date().toLocaleDateString()})`;
+    
+    // Check if page has canonical issues
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical || canonical.getAttribute('href') !== 'https://longevitycalculator.xyz/breast-implant-calculator') {
+      console.warn('Canonical link issue detected, fixing with CanonicalFixer component');
+    }
+  }, []);
+
   // Script to ensure all external links have proper rel attributes
-  React.useEffect(() => {
+  useEffect(() => {
     const fixExternalLinks = () => {
       const externalLinks = document.querySelectorAll('a[target="_blank"]');
       externalLinks.forEach(link => {
@@ -39,6 +53,16 @@ const BreastImplantCalculatorPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Generate structured data for this calculator
+  const articleSchema = generateArticleSchema(
+    "Breast Implant Size Calculator: Find Your Ideal Implant Size in CC", 
+    "Our free breast implant calculator helps you find your ideal implant size based on your measurements. Get personalized suggestions for CC volume, cost estimates, and expected results.",
+    "/breast-implant-calculator",
+    "2024-08-24T12:00:00+00:00",
+    new Date().toISOString(),
+    "https://longevitycalculator.xyz/longevity-calculator-og.png"
+  );
+
   // Use the exact URL that matches the page's actual URL
   const canonicalUrl = "https://longevitycalculator.xyz/breast-implant-calculator";
 
@@ -49,7 +73,14 @@ const BreastImplantCalculatorPage = () => {
         canonicalUrl={canonicalUrl}
         keywords="breast implant calculator, implant size calculator, breast augmentation calculator, CC volume estimator, breast implant cost, implant dimensions, implant profile selector, cup size calculator" 
         ogType="website" 
-        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png" 
+        ogImage="https://longevitycalculator.xyz/longevity-calculator-og.png"
+        schemas={[articleSchema]}
+      />
+      <HeadCustomization 
+        preconnectUrls={['https://fonts.googleapis.com', 'https://fonts.gstatic.com']}
+        preloadAssets={[
+          { href: '/longevity-calculator-og.png', as: 'image' }
+        ]} 
       />
       <CanonicalFixer expectedCanonicalUrl={canonicalUrl} />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
