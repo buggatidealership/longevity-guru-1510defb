@@ -78,6 +78,10 @@ export const checkSitemapAccessibility = async (url: string = '/sitemap.xml'): P
       return false;
     }
     
+    // Debug the content
+    const { debugSitemapStructure } = await import('./sitemap/sitemap-format');
+    debugSitemapStructure(content);
+    
     try {
       // Try parsing as XML to see if it's valid
       const parser = new DOMParser();
@@ -86,13 +90,27 @@ export const checkSitemapAccessibility = async (url: string = '/sitemap.xml'): P
       
       if (parserError) {
         console.warn('Sitemap XML parsing error detected, attempting to fix...');
+        console.warn('Parser error:', parserError.textContent);
+        
         // Try to normalize the content
-        const { normalizeSitemapXml } = await import('./sitemap/sitemap-format');
-        const normalizedContent = normalizeSitemapXml(content);
+        const { normalizeSitemapXml, ensureCorrectSitemapStart } = await import('./sitemap/sitemap-format');
+        
+        // First try to ensure the XML declaration is at the start
+        let fixedContent = ensureCorrectSitemapStart(content);
+        
+        // Then do full normalization
+        fixedContent = normalizeSitemapXml(fixedContent);
         
         // Check if normalization fixed the issue
-        const fixedDoc = parser.parseFromString(normalizedContent, "application/xml");
-        return !fixedDoc.querySelector('parsererror');
+        const fixedDoc = parser.parseFromString(fixedContent, "application/xml");
+        const stillHasError = fixedDoc.querySelector('parsererror');
+        
+        if (stillHasError) {
+          console.error('Still has parser error after fix:', stillHasError.textContent);
+          return false;
+        }
+        
+        return true;
       }
       
       return true;
@@ -123,13 +141,18 @@ export const fixSitemapXml = async (url: string = '/sitemap.xml'): Promise<strin
       return null;
     }
     
-    // Normalize the sitemap content
-    const { normalizeSitemapXml } = await import('./sitemap/sitemap-format');
-    const normalized = normalizeSitemapXml(content);
+    // First ensure the XML declaration is at the start with no whitespace
+    const { ensureCorrectSitemapStart, normalizeSitemapXml } = await import('./sitemap/sitemap-format');
+    
+    // First just fix the XML declaration
+    let fixed = ensureCorrectSitemapStart(content);
+    
+    // Then do full normalization
+    fixed = normalizeSitemapXml(fixed);
     
     // Validate the normalized content
     const { validateSitemap } = await import('./sitemap/sitemap-validation');
-    const result = validateSitemap(normalized);
+    const result = validateSitemap(fixed);
     
     if (!result.isValid) {
       console.warn('Sitemap still has issues after normalization:', result.errors);
@@ -137,7 +160,7 @@ export const fixSitemapXml = async (url: string = '/sitemap.xml'): Promise<strin
       console.log('Sitemap has been successfully fixed');
     }
     
-    return normalized;
+    return fixed;
   } catch (error) {
     console.error('Error fixing sitemap XML:', error);
     return null;
@@ -145,8 +168,9 @@ export const fixSitemapXml = async (url: string = '/sitemap.xml'): Promise<strin
 };
 
 // Add explicit method to fetch and display the sitemap content for debugging
-export const debugSitemapContent = async (url: string = '/sitemap.xml'): Promise<void> => {
+export const debugSitemapContent = async (): Promise<void> => {
   try {
+    const url = '/sitemap.xml';
     const response = await fetch(url);
     if (!response.ok) {
       console.error(`Failed to fetch sitemap: ${response.status} ${response.statusText}`);
@@ -154,7 +178,12 @@ export const debugSitemapContent = async (url: string = '/sitemap.xml'): Promise
     }
     
     const content = await response.text();
-    console.log('Raw sitemap content:', content);
+    
+    // Log key diagnostics
+    console.log('Raw sitemap content length:', content.length);
+    console.log('First 100 chars:', content.substring(0, 100).replace(/\n/g, '\\n'));
+    console.log('Contains XML declaration:', content.includes('<?xml'));
+    console.log('Starts with XML declaration:', content.trim().startsWith('<?xml'));
     
     // Attempt to parse as XML
     try {

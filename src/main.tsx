@@ -18,8 +18,14 @@ const setupSitemap = async () => {
     sitemapLink.href = '/sitemap.xml';
     document.head.appendChild(sitemapLink);
     
-    // Check if the sitemap is accessible
-    const { checkSitemapAccessibility, fixSitemapXml } = await import('./utils/sitemap-utils');
+    // Check if the sitemap is accessible and properly formatted
+    const { checkSitemapAccessibility, fixSitemapXml, debugSitemapStructure } = await import('./utils/sitemap-utils');
+    
+    // First try to debug the sitemap content
+    console.log('Debugging sitemap content...');
+    await debugSitemapStructure('/sitemap.xml');
+    
+    // Then check if it's accessible
     const isAccessible = await checkSitemapAccessibility('/sitemap.xml');
     
     if (!isAccessible) {
@@ -27,8 +33,12 @@ const setupSitemap = async () => {
       
       // Try to fix the sitemap
       const fixed = await fixSitemapXml('/sitemap.xml');
+      
       if (fixed) {
         console.info('Sitemap has been fixed and is now properly formatted.');
+        // Verify the fix worked
+        const verifyFix = await checkSitemapAccessibility('/sitemap.xml');
+        console.info('Sitemap accessibility after fix:', verifyFix ? 'OK' : 'Still has issues');
       } else {
         console.error('Unable to fix sitemap. Please check the sitemap.xml file manually.');
       }
