@@ -9,6 +9,7 @@ import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
 import CanonicalFixer from '@/components/CanonicalFixer';
+import { Helmet } from 'react-helmet';
 
 const TDEECalculationGuide = () => {
   // Define page title and description
@@ -71,20 +72,33 @@ const TDEECalculationGuide = () => {
         schemas={schemas}
       />
       
-      {/* Add CanonicalFixer to ensure title and canonical URL are set correctly */}
+      {/* Force canonical URL and title with both methods for redundancy */}
       <CanonicalFixer 
         expectedCanonicalUrl={canonicalUrl} 
-        pageTitle={pageTitle} // Pass the pageTitle prop
+        pageTitle={pageTitle}
       />
+      
+      {/* Additional canonical enforcement directly with Helmet */}
+      <Helmet>
+        <link rel="canonical" href={canonicalUrl} />
+        <title>{pageTitle}</title>
+      </Helmet>
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <ResourcePageHeader />
         
         <main className="max-w-3xl mx-auto px-4 pb-12">
-          <IntroSection />
-          <ContentSections />
-          <FAQSection />
-          <CallToAction />
+          <article itemScope itemType="https://schema.org/Article">
+            <meta itemProp="headline" content={pageTitle} />
+            <meta itemProp="description" content={pageDescription} />
+            <meta itemProp="url" content={canonicalUrl} />
+            <link itemProp="mainEntityOfPage" href={canonicalUrl} />
+            
+            <IntroSection />
+            <ContentSections />
+            <FAQSection />
+            <CallToAction />
+          </article>
           
           {/* Additional JSON-LD FAQ schema for enhanced crawler visibility */}
           <script
