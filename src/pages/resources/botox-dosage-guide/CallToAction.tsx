@@ -10,7 +10,7 @@ const CallToAction: React.FC = () => {
       <h2 className="text-xl font-semibold mb-3">Ready to estimate your Botox needs?</h2>
       <p className="mb-4">Use our Botox Dosage Calculator to get a personalized treatment plan based on your characteristics and goals.</p>
       <Button asChild size="lg" className="font-medium">
-        <Link to="/botox-calculator" className="flex items-center gap-2">
+        <Link to="/botox-dosage-calculator" className="flex items-center gap-2">
           <Calculator className="h-5 w-5" />
           Calculate Your Botox Dosage Now
         </Link>
@@ -20,3 +20,4 @@ const CallToAction: React.FC = () => {
 };
 
 export default CallToAction;
+
