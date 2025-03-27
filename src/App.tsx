@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from './components/ui/sonner';
@@ -42,7 +42,7 @@ import AdultHeightPredictionGuide from './pages/resources/adult-height-predictio
 import BotoxDosageGuide from './pages/resources/botox-dosage-guide';
 import AlcoholAndLongevity from './pages/resources/alcohol-and-longevity';
 import WillIGoBald from './pages/resources/will-i-go-bald';
-import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-adult-height';
+import HowToPredictYourChildsHeight from './pages/resources/how-to-predict-your-childs-height';
 import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee';
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
@@ -74,8 +74,13 @@ function App() {
         <Route path="/adult-height-predictor-calculator" element={<AdultHeightPredictorPage />} />
         <Route path="/growth-percentile-calculator" element={<GrowthPercentilePage />} />
         <Route path="/child-growth-percentile-calculator" element={<GrowthPercentilePage />} />
-        <Route path="/breast-implant-calculator" element={<BreastImplantCalculatorPage />} />
-        <Route path="/breast-implant-size-calculator" element={<BreastImplantCalculatorPage />} />
+        
+        {/* Breast Implant Calculator Routes - Make /breastimplant the primary route */}
+        <Route path="/breastimplant" element={<BreastImplantCalculatorPage />} />
+        {/* Redirect alternate URLs to the canonical /breastimplant path */}
+        <Route path="/breast-implant-calculator" element={<Navigate to="/breastimplant" replace />} />
+        <Route path="/breast-implant-size-calculator" element={<Navigate to="/breastimplant" replace />} />
+        
         <Route path="/metabolism-calculator" element={<MetabolismCalculatorPage />} />
         <Route path="/alcohol-lifespan-calculator" element={<AlcoholCalculatorPage />} />
         <Route path="/alcohol-impact-calculator" element={<AlcoholCalculatorPage />} />

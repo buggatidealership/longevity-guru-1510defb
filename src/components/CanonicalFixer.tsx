@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 
 interface CanonicalFixerProps {
@@ -19,30 +20,33 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
       if (canonicalLinks.length > 1) {
         console.log(`Found ${canonicalLinks.length} canonical links, fixing...`);
         
-        // Keep only the correct canonical link
+        // Remove ALL canonical links first
         canonicalLinks.forEach(link => {
           const href = link.getAttribute('href');
-          if (href && !href.includes(expectedCanonicalUrl)) {
-            console.log(`Removing incorrect canonical link: ${href}`);
-            link.parentNode?.removeChild(link);
-          }
+          console.log(`Removing canonical link: ${href}`);
+          link.parentNode?.removeChild(link);
         });
-      }
-      
-      // Ensure we have the correct canonical link
-      const remainingLinks = document.querySelectorAll('link[rel="canonical"]');
-      if (remainingLinks.length === 0) {
+        
+        // Add the correct one back
+        const newLink = document.createElement('link');
+        newLink.rel = 'canonical';
+        newLink.href = expectedCanonicalUrl;
+        document.head.appendChild(newLink);
+        console.log(`Added correct canonical link: ${expectedCanonicalUrl}`);
+      } else if (canonicalLinks.length === 1) {
+        // If there's only one, make sure it has the right URL
+        const href = canonicalLinks[0].getAttribute('href');
+        if (href !== expectedCanonicalUrl) {
+          console.log(`Updating canonical from ${href} to ${expectedCanonicalUrl}`);
+          canonicalLinks[0].setAttribute('href', expectedCanonicalUrl);
+        }
+      } else {
+        // If there are no canonical links, add the correct one
         console.log('No canonical link found, adding correct one');
         const newLink = document.createElement('link');
         newLink.rel = 'canonical';
         newLink.href = expectedCanonicalUrl;
         document.head.appendChild(newLink);
-      } else if (remainingLinks.length === 1) {
-        const href = remainingLinks[0].getAttribute('href');
-        if (href !== expectedCanonicalUrl) {
-          console.log(`Updating canonical from ${href} to ${expectedCanonicalUrl}`);
-          remainingLinks[0].setAttribute('href', expectedCanonicalUrl);
-        }
       }
     };
 
@@ -52,8 +56,12 @@ const CanonicalFixer: React.FC<CanonicalFixerProps> = ({ expectedCanonicalUrl })
     // Also run after a small delay to catch late additions
     const timeoutId = setTimeout(fixCanonicalLinks, 1000);
     
+    // And run periodically to catch any dynamic changes
+    const intervalId = setInterval(fixCanonicalLinks, 5000);
+    
     return () => {
       clearTimeout(timeoutId);
+      clearInterval(intervalId);
     };
   }, [expectedCanonicalUrl]);
 
