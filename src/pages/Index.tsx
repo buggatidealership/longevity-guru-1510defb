@@ -27,7 +27,7 @@ const Index = () => {
     <>
       <SEOHead 
         title={`${calculatorCount} Free Calculators | Health & Financial Planning Tools`}
-        description="Free online health and financial calculators for lifespan, retirement, fertility, child growth, metabolism and more. Evidence-based tools to plan your future and make better decisions."
+        description="Free, evidence-based calculators and resources for optimizing your health, longevity, financial planning, and overall quality of life."
         canonicalUrl={canonicalUrl}
         keywords="free calculators, health calculators, financial planning tools, life expectancy, retirement calculator, fertility calculator, growth percentile, adult height predictor, metabolism calculator, breast implant calculator, botox calculator, alcohol calculator, baldness calculator, TDEE calculator, macronutrient calculator, ideal body weight calculator, vitamin D calculator, creatine water calculator, ozempic weight loss calculator"
         ogType="website"
