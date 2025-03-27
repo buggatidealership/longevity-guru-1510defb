@@ -42,6 +42,15 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
       document.head.appendChild(canonicalLink);
     }
     
+    // Add Referrer-Policy meta tag
+    if (!document.querySelector('meta[name="referrer"]')) {
+      const referrerPolicy = document.createElement('meta');
+      referrerPolicy.name = 'referrer';
+      referrerPolicy.content = 'strict-origin-when-cross-origin';
+      referrerPolicy.setAttribute('data-dynamic', 'true');
+      document.head.appendChild(referrerPolicy);
+    }
+    
     // Ensure sitemap link exists with correct content type
     const sitemapLink = document.querySelector('link[rel="sitemap"]');
     if (!sitemapLink) {
@@ -102,7 +111,7 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
     // Cleanup
     return () => {
       // Only remove links that we added dynamically
-      const dynamicLinks = document.querySelectorAll('link[data-dynamic="true"]');
+      const dynamicLinks = document.querySelectorAll('link[data-dynamic="true"], meta[data-dynamic="true"]');
       dynamicLinks.forEach(el => {
         if (el.parentNode === document.head) {
           document.head.removeChild(el);
@@ -115,4 +124,3 @@ const HeadCustomization: React.FC<HeadCustomizationProps> = ({
 };
 
 export default HeadCustomization;
-

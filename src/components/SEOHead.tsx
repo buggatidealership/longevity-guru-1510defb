@@ -168,6 +168,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Explicitly set content type */}
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       
+      {/* Add Referrer-Policy header */}
+      <meta name="referrer" content="strict-origin-when-cross-origin" />
+      
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={correctedCanonicalUrl} />
