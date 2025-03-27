@@ -95,11 +95,11 @@ function App() {
         <Route path="/alcohol-lifespan-calculator" element={<Navigate to="/alcohol" replace />} />
         <Route path="/alcohol-impact-calculator" element={<Navigate to="/alcohol" replace />} />
         
-        {/* Botox Calculator Routes - Make /botox-dosage-calculator the primary route */}
-        <Route path="/botox-dosage-calculator" element={<BotoxCalculatorPage />} />
+        {/* Botox Calculator Routes - Make /botox the primary route */}
+        <Route path="/botox" element={<BotoxCalculatorPage />} />
         {/* Redirect alternate botox calculator URLs to canonical path */}
-        <Route path="/botox" element={<Navigate to="/botox-dosage-calculator" replace />} />
-        <Route path="/botox-calculator" element={<Navigate to="/botox-dosage-calculator" replace />} />
+        <Route path="/botox-calculator" element={<Navigate to="/botox" replace />} />
+        <Route path="/botox-dosage-calculator" element={<Navigate to="/botox" replace />} />
         
         <Route path="/tdee-calculator" element={<TDEECalculatorPage />} />
         <Route path="/macronutrient-calculator" element={<MacronutrientCalculatorPage />} />
@@ -140,4 +140,3 @@ function App() {
 }
 
 export default App;
-

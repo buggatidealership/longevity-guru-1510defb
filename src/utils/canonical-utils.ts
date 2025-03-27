@@ -102,8 +102,8 @@ export const ensureCanonicalUrl = (url: string): string => {
     'child-growth-percentile-calculator': 'growth',
     'alcohol-lifespan-calculator': 'alcohol',
     'alcohol-impact-calculator': 'alcohol',
-    'botox': 'botox-dosage-calculator',
-    'botox-calculator': 'botox-dosage-calculator',
+    'botox-calculator': 'botox',
+    'botox-dosage-calculator': 'botox',
     'breast-implant-size-calculator': 'breast-implant-calculator'
   };
   
@@ -151,4 +151,3 @@ export const verifyCanonicalTags = (): boolean => {
   
   return allCorrect;
 };
-
