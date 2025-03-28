@@ -24,6 +24,7 @@ import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage
 import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
 import CreatineWaterCalculatorPage from './pages/CreatineWaterCalculatorPage';
 import OzempicWeightLossCalculatorPage from './pages/OzempicWeightLossCalculatorPage';
+import HomepageTest from './pages/HomepageTest';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -66,6 +67,9 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
+        
+        {/* Test Homepage Route */}
+        <Route path="/homepage-test" element={<HomepageTest />} />
         
         {/* Calculator Pages */}
         <Route path="/life-expectancy-calculator" element={<LongevityCalculatorPage />} />

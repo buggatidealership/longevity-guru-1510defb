@@ -66,6 +66,11 @@ export const ensureCanonicalUrl = (url: string): string => {
   // If URL is empty or undefined, return the base domain
   if (!url) return baseDomain;
   
+  // Handle the test homepage special case
+  if (url === '/homepage-test' || url === 'homepage-test' || url === `${baseDomain}/homepage-test`) {
+    return `${baseDomain}/homepage-test`;
+  }
+  
   // If URL already matches exactly our domain without a path, return it
   if (url === baseDomain) return url;
   

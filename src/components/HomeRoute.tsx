@@ -6,6 +6,11 @@ import HomePage from '@/pages/HomePage';
 const HomeRoute: React.FC = () => {
   const location = useLocation();
   
+  // Special case: Don't redirect the test homepage
+  if (location.pathname === '/homepage-test') {
+    return null; // Let the regular routing handle this
+  }
+  
   // If we're at the root path, render the HomePage
   if (location.pathname === '/') {
     return <HomePage />;
