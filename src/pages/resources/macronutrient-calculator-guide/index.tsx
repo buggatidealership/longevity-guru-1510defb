@@ -9,7 +9,6 @@ import IntroSection from './IntroSection';
 import ContentSections from './ContentSections';
 import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import CanonicalFixer from '@/components/CanonicalFixer';
 import { Helmet } from 'react-helmet';
 import { AdUnit } from '@/components/AdUnit';
@@ -100,29 +99,11 @@ const MacronutrientCalculatorGuide: React.FC = () => {
       </Helmet>
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        {/* ResourcePageHeader already includes breadcrumbs */}
         <ResourcePageHeader />
         
         <main className="max-w-4xl mx-auto px-4 py-8">
-          {/* Breadcrumbs for better navigation and SEO */}
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Home</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/resources">Resources</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Macronutrient Calculator Guide</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          {/* Remove duplicate breadcrumbs that were here */}
           
           <article itemScope itemType="https://schema.org/Article" className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <meta itemProp="headline" content={title} />
@@ -130,6 +111,7 @@ const MacronutrientCalculatorGuide: React.FC = () => {
             <meta itemProp="url" content={canonicalUrl} />
             <link itemProp="mainEntityOfPage" href={canonicalUrl} />
             
+            {/* Only one H1 on the page for SEO */}
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" itemProp="headline">{title}</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             

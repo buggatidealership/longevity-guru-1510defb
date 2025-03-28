@@ -11,7 +11,6 @@ import FAQSection from './FAQSection';
 import CallToAction from './CallToAction';
 import CanonicalFixer from '@/components/CanonicalFixer';
 import { Helmet } from 'react-helmet';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { AdUnit } from '@/components/AdUnit';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 
@@ -98,29 +97,11 @@ const TDEECalculationGuide = () => {
       </Helmet>
       
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        {/* ResourcePageHeader already includes breadcrumbs, do not add duplicate breadcrumbs here */}
         <ResourcePageHeader />
         
         <main className="max-w-4xl mx-auto px-4 pb-12">
-          {/* Breadcrumbs for better navigation and SEO */}
-          <Breadcrumb className="mb-6 pt-4">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Home</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/resources">Resources</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>How to Calculate Your TDEE</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          {/* Remove duplicate breadcrumbs that were here */}
           
           <article itemScope itemType="https://schema.org/Article" className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8">
             <meta itemProp="headline" content={pageTitle} />
@@ -128,6 +109,7 @@ const TDEECalculationGuide = () => {
             <meta itemProp="url" content={canonicalUrl} />
             <link itemProp="mainEntityOfPage" href={canonicalUrl} />
             
+            {/* Only one H1 per page for proper SEO */}
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4" itemProp="headline">{pageTitle}</h1>
             <div className="h-1 w-20 bg-primary mb-6"></div>
             
