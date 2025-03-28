@@ -1,32 +1,26 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const IntroSection = () => {
   return (
-    <section className="mb-8">
-      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Alcohol and Longevity: Understanding the Impact on Your Lifespan</h1>
+    <div className="mb-12">
+      <h1 className="text-3xl font-bold text-gray-900 mb-6 text-center">Alcohol and Longevity: Understanding the Impact on Your Lifespan</h1>
       
-      <div className="prose max-w-none text-gray-700">
-        <p className="text-lg mb-4">
-          The relationship between alcohol consumption and longevity is complex and often misunderstood. 
-          While some studies suggest potential cardiovascular benefits from moderate drinking, 
-          the overall evidence points to a negative correlation between regular alcohol consumption and lifespan.
+      <div className="prose max-w-none">
+        <p className="text-lg text-gray-700 mb-4 text-left">
+          Alcohol consumption is deeply embedded in many cultures worldwide, but its effects on our health and lifespan are complex. From social drinking to heavy consumption, alcohol impacts our bodies in various ways that can either slightly benefit or significantly harm our long-term health.
         </p>
-        
-        <p className="mb-4">
-          In this evidence-based guide, we'll explore how different levels of alcohol consumption affect your 
-          health, longevity, and quality of life. We'll examine the latest research on both the short and 
-          long-term effects of drinking, and provide practical recommendations for those looking to optimize 
-          their health while still enjoying occasional drinks.
-        </p>
-        
-        <p>
-          If you're interested in calculating how your drinking habits specifically impact your health and lifespan, 
-          try our <Link to="/alcohol-impact-calculator" className="text-blue-600 hover:underline">Alcohol Impact Calculator</Link> to get personalized insights.
+        <p className="text-lg text-gray-700 text-left">
+          This guide examines the relationship between alcohol and longevity, backed by scientific research, to help you understand how your drinking habits might be affecting your lifespan and overall health.
         </p>
       </div>
-    </section>
+      
+      <div className="mt-8 p-4 bg-blue-50 rounded-lg text-left">
+        <p className="font-medium text-blue-800">
+          <span className="font-bold">Key takeaway:</span> While moderate alcohol consumption may have some benefits for certain populations, the evidence increasingly suggests that the safest level of alcohol consumption for overall health and longevity is none at all.
+        </p>
+      </div>
+    </div>
   );
 };
 

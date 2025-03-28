@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -30,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://longevitycalculator.xyz/child-growth-percentile-calculator</loc>
+    <loc>https://longevitycalculator.xyz/growth</loc>
     <lastmod>2024-08-24T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -44,14 +43,14 @@
   </url>
   
   <url>
-    <loc>https://longevitycalculator.xyz/alcohol-impact-calculator</loc>
+    <loc>https://longevitycalculator.xyz/alcohol</loc>
     <lastmod>2024-11-10T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://longevitycalculator.xyz/botox-dosage-calculator</loc>
+    <loc>https://longevitycalculator.xyz/botox</loc>
     <lastmod>2024-11-15T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -118,34 +117,6 @@
     <lastmod>2025-03-28T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  
-  <url>
-    <loc>https://longevitycalculator.xyz/resources/alcohol-and-longevity</loc>
-    <lastmod>2024-07-20T14:30:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://longevitycalculator.xyz/resources/how-to-predict-your-childs-adult-height</loc>
-    <lastmod>2024-10-25T10:30:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://longevitycalculator.xyz/resources/how-to-increase-life-expectancy</loc>
-    <lastmod>2023-11-10T10:30:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://longevitycalculator.xyz/resources/macronutrient-calculator-guide</loc>
-    <lastmod>2024-12-15T12:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   
   <url>
