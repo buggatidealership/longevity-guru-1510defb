@@ -24,6 +24,7 @@ import IdealBodyWeightCalculatorPage from './pages/IdealBodyWeightCalculatorPage
 import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
 import CreatineWaterCalculatorPage from './pages/CreatineWaterCalculatorPage';
 import OzempicWeightLossCalculatorPage from './pages/OzempicWeightLossCalculatorPage';
+import IdealProteinIntakeCalculatorPage from './pages/IdealProteinIntakeCalculatorPage';
 import HomepageTest from './pages/HomepageTest';
 import HomepageIntegrateTest from './pages/HomepageIntegrateTest';
 
@@ -79,6 +80,7 @@ function App() {
         <Route path="/female-fertility-calculator" element={<FertilityCalculator />} />
         <Route path="/baldness-risk-calculator" element={<BaldnessRiskCalculatorPage />} />
         <Route path="/adult-height-predictor-calculator" element={<AdultHeightPredictorPage />} />
+        <Route path="/ideal-protein-intake-calculator" element={<IdealProteinIntakeCalculatorPage />} />
         
         {/* Growth Percentile Calculator Routes - Make /growth the primary route */}
         <Route path="/growth" element={<GrowthPercentilePage />} />

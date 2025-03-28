@@ -113,7 +113,10 @@ export const ensureCanonicalUrl = (url: string): string => {
     'alcohol-impact-calculator': 'alcohol',
     'botox': 'botox-dosage-calculator',
     'botox-calculator': 'botox-dosage-calculator',
-    'breast-implant-size-calculator': 'breast-implant-calculator'
+    'breast-implant-size-calculator': 'breast-implant-calculator',
+    'protein-calculator': 'ideal-protein-intake-calculator',
+    'protein-intake-calculator': 'ideal-protein-intake-calculator',
+    'daily-protein-calculator': 'ideal-protein-intake-calculator'
   };
   
   // Apply redirects if needed
