@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { createCalculatorSEOProps } from '@/utils/canonical-utils';
 import SEOHead from '@/components/SEOHead';
@@ -33,16 +32,14 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
   const [result, setResult] = useState<number | null>(null);
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
 
-  // Convert imperial to metric for calculations
   const getMetricWeight = (): number => {
-    return units === 'imperial' ? weight * 0.453592 : weight; // lbs to kg
+    return units === 'imperial' ? weight * 0.453592 : weight;
   };
 
   const getMetricHeight = (): number => {
-    return units === 'imperial' ? height * 2.54 : height; // inches to cm
+    return units === 'imperial' ? height * 2.54 : height;
   };
 
-  // Calculate BMR using Mifflin-St Jeor equation
   const calculateBMR = (): number => {
     const weightKg = getMetricWeight();
     const heightCm = getMetricHeight();
@@ -54,49 +51,43 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
     }
   };
 
-  // Calculate daily protein needs
   const calculateProteinNeeds = (): number => {
     const weightKg = getMetricWeight();
     let proteinMultiplier = 0;
     
-    // Base multiplier by activity level
     switch (activityLevel) {
       case 'sedentary':
-        proteinMultiplier = 0.8; // g/kg for sedentary
+        proteinMultiplier = 0.8;
         break;
       case 'light':
-        proteinMultiplier = 1.0; // g/kg for lightly active
+        proteinMultiplier = 1.0;
         break;
       case 'moderate':
-        proteinMultiplier = 1.2; // g/kg for moderately active
+        proteinMultiplier = 1.2;
         break;
       case 'active':
-        proteinMultiplier = 1.4; // g/kg for active
+        proteinMultiplier = 1.4;
         break;
       case 'very-active':
-        proteinMultiplier = 1.6; // g/kg for very active
+        proteinMultiplier = 1.6;
         break;
     }
     
-    // Adjust multiplier based on goal
     switch (goal) {
       case 'muscle-gain':
-        proteinMultiplier += 0.4; // Additional protein for muscle building
+        proteinMultiplier += 0.4;
         break;
       case 'fat-loss':
-        proteinMultiplier += 0.2; // Slightly more protein for fat loss
+        proteinMultiplier += 0.2;
         break;
       case 'maintenance':
-        // No adjustment needed
         break;
     }
     
-    // Further adjust based on age (older adults need more protein)
     if (age > 65) {
       proteinMultiplier += 0.2;
     }
     
-    // Calculate and round to nearest whole number
     return Math.round(weightKg * proteinMultiplier);
   };
 
@@ -105,7 +96,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
     setResult(proteinNeeds);
     setHasCalculated(true);
     
-    // Log for tracking
     console.log('Calculation performed:', {
       age,
       weight: getMetricWeight(),
@@ -147,7 +137,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
     }
   };
 
-  // Schema markup for the calculator
   const schemas = [
     generateWebPageSchema(
       "Ideal Protein Intake Calculator – Optimize Your Daily Protein Needs",
@@ -196,7 +185,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
     ])
   ];
 
-  // SEO props
   const seoProps = createCalculatorSEOProps(
     "Ideal Protein Intake Calculator",
     "Calculate your optimal daily protein intake based on your age, body metrics, and goals. Ideal for muscle gain, weight loss, or overall health.",
@@ -205,7 +193,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* SEO Head */}
       <SEOHead 
         title={seoProps.title}
         description={seoProps.description}
@@ -216,11 +203,9 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
         schemas={schemas}
       />
 
-      {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 py-8">
-        {/* Top AdSense Placement */}
         <div className="mb-6">
-          <AdUnit adSlot="ideal-protein-calculator-top" />
+          <AdUnit slot="ideal-protein-calculator-top" />
         </div>
 
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
@@ -365,7 +350,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
               </CardContent>
             </Card>
 
-            {/* Results Card */}
             {hasCalculated && result !== null && (
               <Card className="mt-6">
                 <CardHeader>
@@ -399,7 +383,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
             )}
           </div>
 
-          {/* Sidebar */}
           <div>
             <Card>
               <CardHeader>
@@ -460,19 +443,16 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
               </CardContent>
             </Card>
             
-            {/* In-content AdSense Placement */}
             <div className="mt-6">
-              <AdUnit adSlot="ideal-protein-calculator-sidebar" />
+              <AdUnit slot="ideal-protein-calculator-sidebar" />
             </div>
           </div>
         </div>
         
-        {/* Middle AdSense Placement */}
         <div className="my-8">
-          <AdUnit adSlot="ideal-protein-calculator-middle" />
+          <AdUnit slot="ideal-protein-calculator-middle" />
         </div>
         
-        {/* Educational Content */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold mb-4">Understanding Protein Needs</h2>
           
@@ -548,7 +528,6 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
           </div>
         </div>
         
-        {/* FAQ Section */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
           
@@ -623,20 +602,17 @@ const IdealProteinIntakeCalculatorPage: React.FC = () => {
           </div>
         </div>
         
-        {/* Disclaimer */}
         <DisclaimerAlert className="mb-8">
           This calculator provides estimates based on general formulas and should not replace professional 
           medical or nutritional advice. Individual protein needs may vary based on specific health conditions, 
           medications, and other factors not accounted for in this calculator.
         </DisclaimerAlert>
         
-        {/* Bottom AdSense Placement */}
         <div className="mt-10 mb-8">
-          <AdUnit adSlot="ideal-protein-calculator-bottom" />
+          <AdUnit slot="ideal-protein-calculator-bottom" />
         </div>
       </main>
 
-      {/* Footer */}
       <FooterWithCollapsibleLinks />
     </div>
   );
