@@ -32,7 +32,7 @@ const ResourcePageHeader: React.FC = () => {
         />
       </div>
       
-      {/* Single breadcrumb navigation for the entire page */}
+      {/* Breadcrumb navigation */}
       <Breadcrumb className="mb-6">
         <BreadcrumbList>
           <BreadcrumbItem>
