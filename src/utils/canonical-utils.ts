@@ -123,7 +123,8 @@ export const ensureCanonicalUrl = (url: string): string => {
     'bmr-guide': 'basal-metabolic-rate-guide',
     'ozempic-guide': 'resources/ozempic-weight-loss-calculator-guide',
     'ozempic-calculator-guide': 'resources/ozempic-weight-loss-calculator-guide',
-    'basal-metabolic-rate-explained': 'basal-metabolic-rate-guide-2' // Add this mapping
+    'basal-metabolic-rate-explained': 'basal-metabolic-rate-guide-2',
+    'basal-metabolic-rate-explained-guide': 'basal-metabolic-rate-guide-3'  // Add mapping for the new guide
   };
   
   // Apply redirects if needed

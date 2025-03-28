@@ -29,7 +29,8 @@ import IdealProteinIntakeCalculator2Page from './pages/IdealProteinIntakeCalcula
 import HomepageTest from './pages/HomepageTest';
 import HomepageIntegrateTest from './pages/HomepageIntegrateTest';
 import BasalMetabolicRateGuidePage from './pages/BasalMetabolicRateGuidePage';
-import BasalMetabolicRateGuide2Page from './pages/BasalMetabolicRateGuide2Page'; // Add this line
+import BasalMetabolicRateGuide2Page from './pages/BasalMetabolicRateGuide2Page';
+import BasalMetabolicRateGuide3Page from './pages/BasalMetabolicRateGuide3Page'; // Add this import
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -122,7 +123,9 @@ function App() {
         
         {/* Resource Pages */}
         <Route path="/basal-metabolic-rate-guide" element={<BasalMetabolicRateGuidePage />} />
-        <Route path="/basal-metabolic-rate-guide-2" element={<BasalMetabolicRateGuide2Page />} /> {/* Add this route */}
+        <Route path="/basal-metabolic-rate-guide-2" element={<BasalMetabolicRateGuide2Page />} />
+        <Route path="/basal-metabolic-rate-guide-3" element={<BasalMetabolicRateGuide3Page />} /> {/* Add this route */}
+        <Route path="/basal-metabolic-rate-explained" element={<Navigate to="/basal-metabolic-rate-guide-2" replace />} />
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />
