@@ -28,7 +28,8 @@ import IdealProteinIntakeCalculatorPage from './pages/IdealProteinIntakeCalculat
 import IdealProteinIntakeCalculator2Page from './pages/IdealProteinIntakeCalculator2Page';
 import HomepageTest from './pages/HomepageTest';
 import HomepageIntegrateTest from './pages/HomepageIntegrateTest';
-import BasalMetabolicRateGuidePage from './pages/BasalMetabolicRateGuidePage'; // Add this line
+import BasalMetabolicRateGuidePage from './pages/BasalMetabolicRateGuidePage';
+import BasalMetabolicRateGuide2Page from './pages/BasalMetabolicRateGuide2Page'; // Add this line
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -120,7 +121,8 @@ function App() {
         <Route path="/ozempic-weight-loss-calculator" element={<OzempicWeightLossCalculatorPage />} />
         
         {/* Resource Pages */}
-        <Route path="/basal-metabolic-rate-guide" element={<BasalMetabolicRateGuidePage />} /> {/* Add this route */}
+        <Route path="/basal-metabolic-rate-guide" element={<BasalMetabolicRateGuidePage />} />
+        <Route path="/basal-metabolic-rate-guide-2" element={<BasalMetabolicRateGuide2Page />} /> {/* Add this route */}
         
         {/* Static Pages */}
         <Route path="/privacy" element={<Privacy />} />

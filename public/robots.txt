@@ -15,6 +15,8 @@ Allow: /creatine-water-calculator
 Allow: /breast-implant-calculator
 Allow: /botox-dosage-calculator
 Allow: /ozempic-weight-loss-calculator
+Allow: /basal-metabolic-rate-guide
+Allow: /basal-metabolic-rate-guide-2
 Allow: /resources
 Allow: /resources/how-to-calculate-your-tdee
 Allow: /resources/breast-implant-size-guide
@@ -27,6 +29,7 @@ Allow: /breast-implant-calculator$
 Allow: /botox-dosage-calculator$
 Allow: /ozempic-weight-loss-calculator$
 Allow: /resources/ozempic-weight-loss-calculator-guide$
+Allow: /basal-metabolic-rate-guide-2$
 
 # Allow access to logo files
 Allow: /logo.png

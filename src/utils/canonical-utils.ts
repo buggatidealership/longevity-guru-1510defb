@@ -118,11 +118,12 @@ export const ensureCanonicalUrl = (url: string): string => {
     'protein-intake-calculator': 'ideal-protein-intake-calculator',
     'daily-protein-calculator': 'ideal-protein-intake-calculator',
     'ideal-protein-intake-calculator-2': 'ideal-protein-intake-calculator',
-    'bmr-calculator': 'metabolism-calculator',     // Add this mapping
-    'metabolism-calculator-guide': 'basal-metabolic-rate-guide',  // Add this mapping
-    'bmr-guide': 'basal-metabolic-rate-guide',     // Add this mapping
-    'ozempic-guide': 'resources/ozempic-weight-loss-calculator-guide', // Add this mapping
-    'ozempic-calculator-guide': 'resources/ozempic-weight-loss-calculator-guide' // Add this mapping
+    'bmr-calculator': 'metabolism-calculator',
+    'metabolism-calculator-guide': 'basal-metabolic-rate-guide',
+    'bmr-guide': 'basal-metabolic-rate-guide',
+    'ozempic-guide': 'resources/ozempic-weight-loss-calculator-guide',
+    'ozempic-calculator-guide': 'resources/ozempic-weight-loss-calculator-guide',
+    'basal-metabolic-rate-explained': 'basal-metabolic-rate-guide-2' // Add this mapping
   };
   
   // Apply redirects if needed
