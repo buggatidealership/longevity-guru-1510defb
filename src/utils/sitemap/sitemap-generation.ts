@@ -64,13 +64,6 @@ export const getAllCalculatorPaths = (): Array<{path: string, priority: number}>
     { path: '/creatine-water-calculator', priority: 0.9 },
     { path: '/ozempic-weight-loss-calculator', priority: 0.9 },
     { path: '/resources', priority: 0.8 },
-    { path: '/resources/how-to-calculate-your-tdee', priority: 0.8 },
-    { path: '/resources/breast-implant-size-guide', priority: 0.8 },
-    { path: '/resources/ozempic-weight-loss-calculator-guide', priority: 0.8 },
-    { path: '/resources/alcohol-and-longevity', priority: 0.8 },
-    { path: '/resources/how-to-predict-your-childs-adult-height', priority: 0.8 },
-    { path: '/resources/how-to-increase-life-expectancy', priority: 0.8 },
-    { path: '/resources/macronutrient-calculator-guide', priority: 0.8 },
     { path: '/privacy', priority: 0.7 },
     { path: '/terms', priority: 0.7 },
   ];
