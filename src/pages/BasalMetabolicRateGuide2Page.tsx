@@ -174,7 +174,7 @@ const BasalMetabolicRateGuide2Page: React.FC = () => {
           </section>
           
           {/* Ad Unit */}
-          <AdUnit className="my-8" />
+          <AdUnit className="my-8" slot="7259870062" />
           
           {/* BMR Definition Section */}
           <section id="what-is-bmr" className="mb-12 scroll-mt-16">
@@ -288,7 +288,7 @@ const BasalMetabolicRateGuide2Page: React.FC = () => {
           </section>
           
           {/* Ad Unit */}
-          <AdUnit className="my-8" />
+          <AdUnit className="my-8" slot="1736603468" />
           
           {/* Calculation Section */}
           <section id="calculation" className="mb-12 scroll-mt-16">
@@ -486,7 +486,7 @@ const BasalMetabolicRateGuide2Page: React.FC = () => {
           </section>
           
           {/* Ad Unit */}
-          <AdUnit className="my-8" />
+          <AdUnit className="my-8" slot="5213336874" />
           
           {/* Practical Applications Section */}
           <section id="applications" className="mb-12 scroll-mt-16">
@@ -694,7 +694,7 @@ const BasalMetabolicRateGuide2Page: React.FC = () => {
           </section>
           
           {/* Ad Unit */}
-          <AdUnit className="my-8" />
+          <AdUnit className="my-8" slot="3690070281" />
           
           {/* Conclusion Section */}
           <section id="conclusion" className="mb-12 scroll-mt-16">
@@ -844,4 +844,3 @@ const BasalMetabolicRateGuide2Page: React.FC = () => {
 };
 
 export default BasalMetabolicRateGuide2Page;
-
