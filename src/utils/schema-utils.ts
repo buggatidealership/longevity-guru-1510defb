@@ -128,3 +128,22 @@ export const generateWebPageSchema = (
     }
   };
 };
+
+/**
+ * Generate ItemList schema markup for lists of items (calculators, articles, etc.)
+ * @param items Array of item objects with name, description, and url
+ * @returns JSON-LD schema markup for ItemList
+ */
+export const generateItemListSchema = (items: Array<{name: string, description: string, url: string}>) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "description": item.description,
+      "url": item.url
+    }))
+  };
+};
