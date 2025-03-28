@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { generateArticleSchema, generateFAQSchema } from '@/utils/schema-utils';
 import CanonicalFixer from '@/components/CanonicalFixer';
-import { FooterWithCollapsibleLinks } from '@/components/FooterWithCollapsibleLinks';
+import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
 import { AdUnit } from '@/components/AdUnit';
 
 const BasalMetabolicRateGuidePage: React.FC = () => {
