@@ -116,7 +116,8 @@ export const ensureCanonicalUrl = (url: string): string => {
     'breast-implant-size-calculator': 'breast-implant-calculator',
     'protein-calculator': 'ideal-protein-intake-calculator',
     'protein-intake-calculator': 'ideal-protein-intake-calculator',
-    'daily-protein-calculator': 'ideal-protein-intake-calculator'
+    'daily-protein-calculator': 'ideal-protein-intake-calculator',
+    'ideal-protein-intake-calculator-2': 'ideal-protein-intake-calculator'
   };
   
   // Apply redirects if needed
