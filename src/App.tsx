@@ -25,6 +25,7 @@ import VitaminDCalculatorPage from './pages/VitaminDCalculatorPage';
 import CreatineWaterCalculatorPage from './pages/CreatineWaterCalculatorPage';
 import OzempicWeightLossCalculatorPage from './pages/OzempicWeightLossCalculatorPage';
 import HomepageTest from './pages/HomepageTest';
+import HomepageIntegrateTest from './pages/HomepageIntegrateTest';
 
 // Static Pages
 import Privacy from './pages/Privacy';
@@ -68,8 +69,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         
-        {/* Test Homepage Route */}
+        {/* Test Homepage Routes */}
         <Route path="/homepage-test" element={<HomepageTest />} />
+        <Route path="/homepage-integrate-test" element={<HomepageIntegrateTest />} />
         
         {/* Calculator Pages */}
         <Route path="/life-expectancy-calculator" element={<LongevityCalculatorPage />} />
