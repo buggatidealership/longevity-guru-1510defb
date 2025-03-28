@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import FooterWithCollapsibleLinks from '../components/FooterWithCollapsibleLinks';
-import AdUnit from '../components/AdUnit';
+import { AdUnit } from '../components/AdUnit';
 import SEOHead from '../components/SEOHead';
 import CanonicalFixer from '../components/CanonicalFixer';
 import { generateArticleSchema, generateFAQSchema } from '../utils/schema-utils';
