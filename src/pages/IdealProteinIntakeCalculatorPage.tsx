@@ -13,7 +13,7 @@ import { Info } from 'lucide-react';
 import InfoTooltip from '@/components/InfoTooltip';
 import DisclaimerAlert from '@/components/DisclaimerAlert';
 import FooterWithCollapsibleLinks from '@/components/FooterWithCollapsibleLinks';
-import AdUnit from '@/components/AdUnit';
+import { AdUnit } from '@/components/AdUnit';
 import { useNavigate } from 'react-router-dom';
 
 type ActivityLevel = 'sedentary' | 'light' | 'moderate' | 'active' | 'very-active';
